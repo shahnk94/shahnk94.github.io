@@ -861,8 +861,8 @@ function warmGPT(){
   if(gptWarmed||!SHAHGPT_ENDPOINT)return;
   gptWarmed=true;
   fetch(SHAHGPT_ENDPOINT,{method:'GET',mode:'cors'}).catch(()=>{});
-  const qs=$$('.chat-sug button').map(b=>b.dataset.q).filter(Boolean);
-  qs.reduce((chain,q)=>chain.then(()=>gptFetch(q).catch(()=>{})),Promise.resolve());
+  $$('.chat-sug button').map(b=>b.dataset.q).filter(Boolean)
+    .forEach(q=>{gptFetch(q).catch(()=>{});});
 }
 function aiAsk(q){
   q=(q||'').trim();
