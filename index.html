@@ -936,27 +936,28 @@ const WALLS=['aurora_v02.png','dark_forest.png','lake.jpg','minimal_landscape.jp
  'gradient-pb.png','mountains.png','forest.png','minimal_gradient.png','art-lake.png',
  'Doodle_Space_Nord.png','fishing_stars.jpg','forest-bridge.jpg','golden-mountains.png','ink_wave.png'];
 let wallOrder=WALLS.slice().sort(function(){return Math.random()-0.5;}), wallIdx=-1;
-function wallLayer(){
-  let l=document.getElementById('wallPhoto');
-  if(!l){
-    l=document.createElement('div'); l.id='wallPhoto'; l.className='wallphoto';
-    const host=document.getElementById('wallDesk');
-    if(!host)return null;
-    host.parentNode.insertBefore(l,host.nextSibling);
-  }
-  return l;
+let wallA=null,wallB=null,wallOn=null;
+function ensureWallLayers(){
+  if(wallA)return true;
+  const host=document.getElementById('wallDesk');
+  if(!host)return false;
+  wallA=document.createElement('div'); wallA.className='wallphoto';
+  wallB=document.createElement('div'); wallB.className='wallphoto';
+  host.parentNode.insertBefore(wallA,host.nextSibling);
+  host.parentNode.insertBefore(wallB,wallA.nextSibling);
+  wallOn=wallB;
+  return true;
 }
 function showWall(url){
-  const l=wallLayer(); if(!l)return;
+  if(!ensureWallLayers())return;
   const im=new Image();
   im.onload=function(){
-    const back=document.createElement('div');
-    back.className='wallphoto in';
-    back.style.backgroundImage='url("'+url+'")';
-    l.parentNode.insertBefore(back,l.nextSibling);
+    const off=(wallOn===wallA)?wallB:wallA;
+    off.style.backgroundImage='url("'+url+'")';
     requestAnimationFrame(function(){requestAnimationFrame(function(){
-      back.style.opacity='1';
-      setTimeout(function(){ l.style.backgroundImage='url("'+url+'")'; l.style.opacity='1'; back.remove(); },1500);
+      off.style.opacity='1';
+      if(wallOn!==off)wallOn.style.opacity='0';
+      wallOn=off;
     });});
   };
   im.onerror=function(){};
