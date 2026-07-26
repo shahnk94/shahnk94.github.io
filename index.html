@@ -12,18 +12,18 @@
 <link href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
 <style>
 :root{
-  --pop-orange:#FFA100; --pop-orange-hint:#FFB944; --pop-orange-txt:#F7C144;
-  --pop-teal:#48B9C7; --pop-teal-dark:#6FD3DF;
-  --pop-green:#73C48F; --pop-purple:#A08FD8;
-  --signal:#F7C144;
-  --panel-bg:#1B1B1B; --headerbar-bg:#3B3B3B; --headerbar-dim:#2F2F2F;
-  --window-bg:#333333; --base-bg:#2B2B2B; --term-bg:#1E1E1E; --dock-bg:#232323;
-  --ui-900:#2B2B2B; --ui-700:#383838; --ui-500:#454545; --ui-300:#565656;
-  --fg:#F7F7F7; --text:#DCDCDC; --text-dim:#A8A8A8; --panel-fg:#EDEDED;
-  --sel-bg:#48B9C7; --sel-fg:#10262A;
-  --hbar-border:#565656; --line:rgba(255,255,255,.09); --line2:rgba(255,255,255,.16);
+  --pop-orange:#FFAE1A; --pop-orange-hint:#FFC94D; --pop-orange-txt:#FFD24A;
+  --pop-teal:#2ED8E8; --pop-teal-dark:#67E8F5;
+  --pop-green:#5EE08B; --pop-purple:#B78BFF;
+  --signal:#FFD24A;
+  --panel-bg:#15171A; --headerbar-bg:#2E3238; --headerbar-dim:#23262B;
+  --window-bg:#22262B; --base-bg:#1B1E22; --term-bg:#15171A; --dock-bg:#1A1D21;
+  --ui-900:#1B1E22; --ui-700:#282C32; --ui-500:#343941; --ui-300:#454B55;
+  --fg:#FAFBFC; --text:#DEE3E9; --text-dim:#A3ACB8; --panel-fg:#EDF1F5;
+  --sel-bg:#2ED8E8; --sel-fg:#10262A;
+  --hbar-border:#3A4048; --line:rgba(255,255,255,.09); --line2:rgba(255,255,255,.16);
   --hover:rgba(255,255,255,.09); --active:rgba(255,255,255,.18);
-  --danger:#F98080;
+  --danger:#FF7B7B;
   --ui:'Schibsted Grotesk',system-ui,-apple-system,sans-serif;
   --slab:'Schibsted Grotesk',system-ui,sans-serif;
   --mono:'JetBrains Mono',ui-monospace,Menlo,monospace;
@@ -176,28 +176,41 @@ html.paused .amb i,html.paused .wallwrap.fade{animation-play-state:paused}
   background:var(--pop-orange);transition:transform .2s var(--eoq)}
 .dk.open::after{transform:translateX(-50%) scale(1)}
 .win{position:absolute;min-width:300px;width:560px;max-width:calc(100vw - 28px);max-height:calc(100vh - 104px);
-  display:none;flex-direction:column;background:var(--window-bg);border-radius:8px;
-  box-shadow:0 0 0 1px rgba(0,0,0,.55),0 10px 14px rgba(0,0,0,.25),0 40px 70px rgba(0,0,0,.45);
-  z-index:10;overflow:hidden}
-.win.open{display:flex;animation:winIn .25s var(--eoq)}
-@keyframes winIn{from{opacity:0;transform:scale(.95)}to{opacity:1;transform:none}}
+  display:none;flex-direction:column;background:var(--window-bg);border-radius:12px;
+  box-shadow:0 0 0 1px rgba(0,0,0,.6),0 1px 0 rgba(255,255,255,.05) inset,
+             0 2px 6px rgba(0,0,0,.28),0 14px 28px rgba(0,0,0,.34),0 44px 88px rgba(0,0,0,.5);
+  z-index:10;overflow:hidden;transition:box-shadow .22s var(--eoq)}
+.win:not(.focused){box-shadow:0 0 0 1px rgba(0,0,0,.5),0 6px 14px rgba(0,0,0,.28),0 20px 40px rgba(0,0,0,.32)}
+.win:not(.focused) .win-head{background:var(--headerbar-dim)}
+.win:not(.focused) .win-title{color:var(--text-dim)}
+.win:not(.focused) .win-head::after{opacity:0}
+.win.open{display:flex;animation:winIn .26s cubic-bezier(.2,.9,.3,1.25)}
+@keyframes winIn{from{opacity:0;transform:scale(.965) translateY(6px)}to{opacity:1;transform:none}}
 .win.closing{animation:winOut .2s var(--eoq) forwards}
 @keyframes winOut{to{opacity:0;transform:scale(.96)}}
-.win.tiled{transition:left .25s var(--eoq),top .25s var(--eoq),width .25s var(--eoq),height .25s var(--eoq)}
+.win.tiled{transition:none}
 .win.focused.tiled{outline:3px solid var(--pop-orange-hint);outline-offset:0;border-radius:5px}
-.win-head{display:flex;align-items:center;height:40px;padding:0 8px 0 14px;cursor:grab;user-select:none;flex:none;
-  background:var(--headerbar-bg);border-bottom:1px solid var(--hbar-border);transition:background .2s ease}
+.win-head{position:relative;display:flex;align-items:center;height:42px;padding:0 8px 0 14px;cursor:grab;user-select:none;flex:none;
+  background:linear-gradient(180deg,color-mix(in srgb,var(--headerbar-bg) 88%,#fff 12%),var(--headerbar-bg));
+  border-bottom:1px solid rgba(0,0,0,.45);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.07);
+  transition:background .2s ease}
+.win-head::after{content:"";position:absolute;left:0;right:0;bottom:-1px;height:1px;
+  background:linear-gradient(90deg,transparent,var(--pop-orange),transparent);opacity:.5;transition:opacity .22s ease}
 .win:not(.focused) .win-head{background:var(--headerbar-dim)}
-.win:not(.focused) .win-title{opacity:.55}
+.win:not(.focused) .win-title{opacity:1}
 .win-head:active{cursor:grabbing}
-.win-title{flex:1;text-align:center;font-size:13.5px;font-weight:600;color:var(--fg)}
+.win-title{flex:1;text-align:center;font-size:13px;font-weight:600;color:var(--fg);letter-spacing:var(--tr-13);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .win-head .spacer{width:78px}
 .wc{display:flex;gap:6px}
-.wc button{width:24px;height:24px;border-radius:50%;display:grid;place-items:center;background:transparent;transition:background .2s}
+.wc button{width:26px;height:26px;border-radius:50%;display:grid;place-items:center;background:transparent;transition:background .16s ease,color .16s ease;color:var(--text-dim)}
+.wc button:hover{background:rgba(255,255,255,.12);color:var(--fg)}
+.wc button.cl:hover{background:var(--danger);color:#2A0F0F}
+.wc button:active{transform:scale(.92)}
 .wc button:hover{background:var(--hover)}
 .wc .cl:hover{background:var(--danger)}
 .wc svg{width:14px;height:14px;stroke:#d9d9d9}
-.win-body{padding:15px 18px;overflow:auto;font-size:13px;background:var(--window-bg);flex:1}
+.win-body{padding:16px 18px;overflow:auto;font-size:13px;flex:1;background:linear-gradient(180deg,color-mix(in srgb,var(--window-bg) 94%,#000 6%) 0 14px,var(--window-bg) 60px)}
 .win-body h4{font-family:var(--slab);font-size:13px;color:var(--pop-orange);margin:14px 0 7px;font-weight:700}
 .win-body h4:first-child{margin-top:0}
 .win-body h4.t{color:var(--pop-teal-dark)}
@@ -451,17 +464,17 @@ html.paused .amb i,html.paused .wallwrap.fade{animation-play-state:paused}
 <body>
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
   <defs>
-    <linearGradient id="tg-about" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#35D0B6"/><stop offset="1" stop-color="#159683"/></linearGradient>
-    <linearGradient id="tg-exp" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFC145"/><stop offset="1" stop-color="#E09312"/></linearGradient>
-    <linearGradient id="tg-proj" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFA100"/><stop offset="1" stop-color="#D97A00"/></linearGradient>
-    <linearGradient id="tg-res" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#7FA8D4"/><stop offset="1" stop-color="#4C74A4"/></linearGradient>
-    <linearGradient id="tg-gpt" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#B98CE8"/><stop offset="1" stop-color="#8355BC"/></linearGradient>
-    <linearGradient id="tg-col" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FF7A5C"/><stop offset="1" stop-color="#DB4B2E"/></linearGradient>
-    <linearGradient id="tg-term" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#3A3A3A"/><stop offset="1" stop-color="#202020"/></linearGradient>
-    <linearGradient id="tg-game" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#8FD94F"/><stop offset="1" stop-color="#5FA523"/></linearGradient>
-    <linearGradient id="tg-mail" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#48B9C7"/><stop offset="1" stop-color="#1F8898"/></linearGradient>
-    <linearGradient id="tg-mania" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FF5F6D"/><stop offset="1" stop-color="#D22C3E"/></linearGradient>
-    <linearGradient id="tg-find" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#F7C144"/><stop offset="1" stop-color="#C99512"/></linearGradient>
+    <linearGradient id="tg-about" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#2FE0C4"/><stop offset="1" stop-color="#0FA894"/></linearGradient>
+    <linearGradient id="tg-exp" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFC93C"/><stop offset="1" stop-color="#E09A08"/></linearGradient>
+    <linearGradient id="tg-proj" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFAE1A"/><stop offset="1" stop-color="#DE8400"/></linearGradient>
+    <linearGradient id="tg-res" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#7FB6FF"/><stop offset="1" stop-color="#3F7FD6"/></linearGradient>
+    <linearGradient id="tg-gpt" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#C08CFF"/><stop offset="1" stop-color="#8A4FE0"/></linearGradient>
+    <linearGradient id="tg-col" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FF7A55"/><stop offset="1" stop-color="#E24521"/></linearGradient>
+    <linearGradient id="tg-term" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#2E3238"/><stop offset="1" stop-color="#15171A"/></linearGradient>
+    <linearGradient id="tg-game" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#8CEF4A"/><stop offset="1" stop-color="#4FBF16"/></linearGradient>
+    <linearGradient id="tg-mail" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#2ED8E8"/><stop offset="1" stop-color="#0FA0B8"/></linearGradient>
+    <linearGradient id="tg-mania" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FF5566"/><stop offset="1" stop-color="#DC1F38"/></linearGradient>
+    <linearGradient id="tg-find" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFD24A"/><stop offset="1" stop-color="#D9A410"/></linearGradient>
     <symbol id="ic-about" viewBox="0 0 64 64"><rect x="1" y="1" width="62" height="62" rx="14" fill="url(#tg-about)"/><rect x="1.5" y="1.5" width="61" height="61" rx="13.5" fill="none" stroke="rgba(255,255,255,.12)"/><circle cx="32" cy="25" r="9" fill="#F2EFE9" opacity=".92"/><path d="M14 50c2-10 9-15 18-15s16 5 18 15z" fill="#F2EFE9" opacity=".92"/></symbol>
     <symbol id="ic-exp" viewBox="0 0 64 64"><rect x="1" y="1" width="62" height="62" rx="14" fill="url(#tg-exp)"/><rect x="1.5" y="1.5" width="61" height="61" rx="13.5" fill="none" stroke="rgba(255,255,255,.12)"/><rect x="13" y="24" width="38" height="24" rx="4" fill="#F2EFE9" opacity=".92"/><path d="M25 24v-4a3 3 0 0 1 3-3h8a3 3 0 0 1 3 3v4h-4v-3h-6v3z" fill="#F2EFE9" opacity=".92"/><rect x="13" y="33" width="38" height="3" fill="#2B2B2B"/></symbol>
     <symbol id="ic-proj" viewBox="0 0 64 64"><rect x="1" y="1" width="62" height="62" rx="14" fill="url(#tg-proj)"/><rect x="1.5" y="1.5" width="61" height="61" rx="13.5" fill="none" stroke="rgba(255,255,255,.12)"/><path d="M13 21a4 4 0 0 1 4-4h10l4 5h16a4 4 0 0 1 4 4v18a4 4 0 0 1-4 4H17a4 4 0 0 1-4-4z" fill="#F2EFE9" opacity=".92"/><path d="M13 28h38v14a4 4 0 0 1-4 4H17a4 4 0 0 1-4-4z" fill="#383838" opacity=".55"/></symbol>
@@ -479,7 +492,7 @@ html.paused .amb i,html.paused .wallwrap.fade{animation-play-state:paused}
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
   <defs>
     <g id="snlogo">
-      <circle cx="60" cy="60" r="56" fill="#FFA100"/>
+      <circle cx="60" cy="60" r="56" fill="#FFAE1A"/>
       <circle cx="60" cy="60" r="56" fill="none" stroke="rgba(0,0,0,.18)" stroke-width="2"/>
       <text x="54" y="74" text-anchor="middle" font-family="'Schibsted Grotesk',system-ui,sans-serif" font-weight="700" font-size="42" fill="#FFFFFF">sn</text>
       <rect x="86" y="34" width="9" height="30" rx="4" fill="#F7C144"/>
@@ -496,8 +509,8 @@ html.paused .amb i,html.paused .wallwrap.fade{animation-play-state:paused}
       <svg class="lg-badge" viewBox="0 0 120 120" role="img" aria-label="sn! logo"><use href="#snlogo"/></svg>
       <div class="lg-name">Shahriar Nilkar</div>
       <div class="lg-head"><b>Project Driver</b> · <u>Governance Guardian</u> · <i>AI Adopter</i></div>
-      <button class="lg-btn" id="btnSignin">Log in</button>
-      <div class="lg-hint">No password. Just log in.</div>
+      <button class="lg-btn" id="btnSignin">Click to begin</button>
+      <div class="lg-hint">No password. One click opens the desktop.</div>
       <div class="lg-motto">Time is Gold · Tool Up · <span>We Before Me</span></div>
     </div>
   </div>
@@ -980,7 +993,7 @@ $('#btnSignin').addEventListener('click',()=>{
   const d=$('#desktop');d.classList.add('active','reveal');
   requestAnimationFrame(()=>{$('#deskArea').classList.add('icons-in');$('#rail').classList.add('in');});
   if(!deskStarted){deskStarted=true;startClock();queueToasts();startWallRotation();spotStart();
-    makeReorderable($('.icon-col'),false);makeReorderable($('.dock'),true);loadTube();startWallRotation();setTimeout(function(){dispatchEvent(new Event('resize'));},400);
+    makeReorderable($('.icon-col'),false);loadTube();startWallRotation();setTimeout(function(){dispatchEvent(new Event('resize'));},400);
     setTimeout(()=>{try{fetch(SHAHGPT_ENDPOINT,{method:'GET',mode:'cors'}).catch(()=>{});}catch(e){}},400);}
 });
 let zTop=20;const openSet=new Set();let tiling=false;
@@ -1044,12 +1057,18 @@ function makeReorderable(container,horizontal){
     b.draggable=true;
     b.addEventListener('dragstart',()=>{dragEl=b;setTimeout(()=>b.classList.add('dragging'),0);});
     b.addEventListener('dragend',()=>{b.classList.remove('dragging');dragEl=null;});
+    let roq=false;
     b.addEventListener('dragover',e=>{
       e.preventDefault();
-      if(!dragEl||dragEl===b||dragEl.parentNode!==b.parentNode)return;
-      const r=b.getBoundingClientRect();
-      const after=horizontal?(e.clientX-r.left)>r.width/2:(e.clientY-r.top)>r.height/2;
-      b.parentNode.insertBefore(dragEl,after?b.nextSibling:b);
+      if(!dragEl||dragEl===b||dragEl.parentNode!==b.parentNode||roq)return;
+      roq=true;
+      requestAnimationFrame(()=>{
+        roq=false;
+        if(!dragEl||dragEl===b)return;
+        const r=b.getBoundingClientRect();
+        const after=horizontal?(e.clientX-r.left)>r.width/2:(e.clientY-r.top)>r.height/2;
+        b.parentNode.insertBefore(dragEl,after?b.nextSibling:b);
+      });
     });
   });
 }
