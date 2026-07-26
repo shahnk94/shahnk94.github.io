@@ -306,6 +306,12 @@ a{color:var(--pop-teal-dark)}
   display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
 .yt-row .vc{font-size:10px;color:var(--text-dim);margin-top:2px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .yt-row .vc b{color:var(--pop-orange);font-weight:600}
+.mini-mania h3{display:flex;align-items:center}
+.yt-list.mini{max-height:266px;padding:6px}
+.yt-list.mini .yt-row{padding:4px 5px}
+.yt-list.mini .th,.yt-list.mini .ph{width:64px;height:36px;font-size:11px}
+.yt-list.mini .vt{font-size:11px;-webkit-line-clamp:2}
+.yt-list.mini .vc{font-size:9.5px}
 @media (prefers-reduced-motion: reduce){
   *,*::before,*::after{animation-duration:.01ms !important;animation-iteration-count:1 !important;transition-duration:.01ms !important}
   .rail,.dicon{opacity:1 !important;transform:none !important}
@@ -415,6 +421,10 @@ a{color:var(--pop-teal-dark)}
             <div class="spot-item c-t"><div class="spot-num">$100K</div><div class="spot-t">IT spend saved</div><div class="spot-d">100+ app audit at uOttawa · 35% license overlap cut</div></div>
           </div>
           <div class="spot-dots" id="spotDots"><i class="on"></i><i></i><i></i><i></i></div>
+        </div>
+        <div class="card mini-mania" id="railMania">
+          <h3>AI Mania <button id="maniaMax" title="Open the full app" style="margin-left:auto;color:var(--pop-teal-dark);font-size:10px;font-weight:600">⤢ expand</button></h3>
+          <div class="yt-list mini" id="railList"><div style="padding:8px 10px;color:var(--text-dim);font-size:11.5px">Loading…</div></div>
         </div>
       </div>
 
@@ -1016,7 +1026,22 @@ function agoFromISO(iso){
 const TUBE_COLORS=["#53B3A4","#BC7440","#F2AC44","#3E434B","#9F7BC0","#5BA0D0"];
 let tubeItems=null;
 function renderTube(){
-  const l=$('#pulseList');l.innerHTML='';
+  const rl=$('#railList');
+  if(rl){rl.innerHTML='';
+    YT_CHANNELS.slice(0,4).forEach((c,i)=>{
+      const it=tubeItems&&tubeItems[i];
+      const b=document.createElement('button');b.className='yt-row';b.style.width='100%';b.style.textAlign='left';
+      const media=it&&it.vid
+        ?'<img class="th" loading="lazy" src="https://i.ytimg.com/vi/'+it.vid+'/mqdefault.jpg" alt="">'
+        :'<div class="ph" style="background:'+TUBE_COLORS[i]+'">'+c.name.split(' ').map(w=>w[0]).join('').slice(0,3)+'</div>';
+      b.innerHTML=media+'<span class="tx"><span class="vt"></span><span class="vc"><b></b></span></span>';
+      b.querySelector('.vt').textContent=it?it.title:('Newest from '+c.name);
+      b.querySelector('.vc b').textContent=c.name+((it&&it.when)?(' · '+it.when):'');
+      b.addEventListener('click',maniaMaximize);
+      rl.appendChild(b);
+    });
+  }
+  const l=$('#pulseList');if(!l)return;l.innerHTML='';
   YT_CHANNELS.forEach((c,i)=>{
     const it=tubeItems&&tubeItems[i];
     const a=document.createElement('a');a.className='yt-row';a.target='_blank';a.rel='noopener';
@@ -1032,6 +1057,7 @@ function renderTube(){
   });
 }
 async function loadTube(){
+  renderTube(); /* instant placeholders; live data swaps in when the feed answers */
   $('#pulseSrc').textContent='updating…';
   const results=await Promise.allSettled(YT_CHANNELS.map(async c=>{
     const feed='https://www.youtube.com/feeds/videos.xml?channel_id='+c.id;
@@ -1052,6 +1078,15 @@ async function loadTube(){
   $('#pulseSrc').textContent=live?('live · '+live+'/'+YT_CHANNELS.length):'channel links';
   if(!live)setTimeout(loadTube,60000);
 }
+function maniaMaximize(){
+  openWin('w-mania');
+  const w=document.getElementById('w-mania');
+  if(!w.dataset.max)w.querySelector('.wc .mx').click();
+}
+document.addEventListener('click',e=>{
+  if(e.target.id==='pulseRefresh')loadTube();
+  if(e.target.id==='maniaMax')maniaMaximize();
+});
 setInterval(()=>{if($('#desktop').classList.contains('active'))loadTube();},900000);
 
 /* ---------- launcher ---------- */
