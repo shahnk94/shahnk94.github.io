@@ -1249,6 +1249,10 @@ function queueToasts(){
   },25000);
 }
 const kb=[
+ [/\bphone\b|\bnumber\b|\bcall him\b|\bmobile\b|\bwhatsapp\b|\btext him\b/i,"No phone number on this site, by his choice. <b>LinkedIn</b> is the way in: linkedin.com/in/shahriar-nilkar. The Contact app on the desktop opens a note that reaches him directly."],
+ [/\bstud(y|ied|ies)\b|\bschool\b|\balma mater\b|\bdegree\b|\bmaster'?s?\b|\bbachelor\b|\bmsc\b|\bbsc\b|\bgraduat/i,"<b>Master of Digital Transformation and Innovation</b>, University of Ottawa, 2018-2021, concentrating in IT strategy, enterprise architecture and data-driven innovation. His graduate research was End-User Development Tools for Business Users. Before that, <b>BSc IT Engineering, Sharif University of Technology</b>, 2012-2017."],
+ [/\btogaf\b|\bcapability map/i,"<b>TOGAF and capability mapping</b> are how he works, not certificates he collects. The six governance capability categories behind PCL's AI-readiness roadmap are a capability map, and the 22-domain taxonomy sits underneath it. Architecture method applied to information, not slideware."],
+ [/\b(ai|a\.i\.|genai|gen ai|llm|copilot|machine learning)\b/i,"He does the part that has to happen before AI works: getting the content into a state a model can actually retrieve. At PCL that is a <b>22-domain business taxonomy</b>, six governance capability categories and a <b>2025-2027 roadmap</b>. He also proposed and designed the information architecture for the company-wide <b>AI Hub</b> and delivered its launch on schedule. He does not train models."],
  [/\bpmp\b|\bcertified\b|\bcertification\b|\bcredential\b|\bprince2\b|\bitil\b|\baigp\b|\beducation\b|\bdegree\b|\bmaster\b|\bsharif\b|\buniversity\b|\bresearch\b|\btogaf\b/i,"No PMP credential. He holds <b>Project Management Training on a PMP-aligned curriculum</b>, University of Ottawa and PMPiran, 2021-2024. Master of Digital Transformation and Innovation, University of Ottawa, 2018-2021. BSc IT Engineering, Sharif University of Technology, 2012-2017. TOGAF he uses as a method, not a certificate."],
  [/\bfeasibility\b|\bcapex\b|\bopex\b|\binvestment decision\b|\bbusiness case\b|\bmembrane\b|\basia water\b|\b35m\b|\bbandar abbas\b|\bpre\-investment\b|\bcapital\b|\bfront end\b|\bviability\b|\bfinancial model\b/i,"Owner side. For Asia Water Co. he ran the feasibility study and the CAPEX/OPEX model behind a <b>$35M</b> membrane plant investment decision, Bandar Abbas, 2024-2025. Vendor and procurement research, capital and operating cases, one documented basis the owner could commit against."],
  [/\btender\b|\brfp\b|\bprocurement\b|\bbid evaluation\b|\bshortlist\b|\baward\b|\b33m\b|\bbidders\b|\bsourcing\b|\bcontracting\b|\bvendor selection\b|\btwo package\b|\bnegotiation\b|\bbuy side\b/i,"He wrote the RFP rather than answered it. Two packages, technical scored before commercial, <b>11 bidders</b> assessed down to a shortlist of <b>4</b>, then a <b>$33M</b> recommendation to award. At MEWE he ran procurement and tendering across <b>5+ concurrent projects</b>, negotiating cost, schedule and quality."],
@@ -1293,9 +1297,10 @@ async function askGPT(q){
   const j=await r.json();
   return (j.choices&&j.choices[0]&&j.choices[0].message.content)||'';
 }
+function kbHit(q){const h=kb.find(([re])=>re.test(q));return h?h[1]:null;}
 function localAnswer(q){
   const hit=kb.find(([re])=>re.test(q));
-  return hit?hit[1]:"Here's the short version while I look that up: <b>Shahriar Nilkar</b>. project management + analytics, 10+ years. Now at PCL Construction making enterprise content AI-ready; before that he cut change orders 25% at MEWE and rebuilt a firm-wide information architecture (retrieval −50%). Want depth on any of that. projects, skills, education, or hiring? Just ask, or reach him on <a href='https://www.linkedin.com/in/shahriar-nilkar' target='_blank' rel='noopener'>LinkedIn</a>.";
+  return hit?hit[1]:"Not something this record covers. The short version: <b>Shahriar Nilkar</b>, project manager, <b>8+ years</b> across digital infrastructure, engineering and construction, and higher education. Now at PCL Construction making enterprise content AI-ready; before that he cut change orders 25% at MEWE and rebuilt a firm-wide information architecture (retrieval −50%). Want depth on any of that. projects, skills, education, or hiring? Just ask, or reach him on <a href='https://www.linkedin.com/in/shahriar-nilkar' target='_blank' rel='noopener'>LinkedIn</a>.";
 }
 async function askFreeAI(q){
   const r=await fetch('https://text.pollinations.ai/openai',{method:'POST',headers:{'Content-Type':'application/json'},
@@ -1367,6 +1372,8 @@ function aiAsk(q){
     const d=document.createElement('div');d.className='msg ai';d.textContent=gptScrub(hit);
     log.appendChild(d);log.scrollTop=1e6;return;
   }
+  const curated=kbHit(q);
+  if(curated){aiSay(curated);gptCache.set(ckey(q),curated.replace(/<[^>]+>/g,''));return;}
   const ty=document.createElement('div');ty.className='msg ai typing';ty.innerHTML='<i></i><i></i><i></i>';
   log.appendChild(ty);log.scrollTop=1e6;
   let bubble=null;
