@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Shahriar Nilkar — Project Manager, Edmonton</title>
-<meta name="description" content="Shahriar Nilkar — Project Manager in Edmonton. PMO delivery, AI readiness, marketing operations and business development. 8+ years, $1M+ annual spend oversight.">
+<title>Shahriar Nilkar, Project Manager, Edmonton</title>
+<meta name="description" content="Shahriar Nilkar, Project Manager in Edmonton. PMO delivery, AI readiness, marketing operations and business development. 8+ years, $1M+ annual spend oversight.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://shahgpt.shahriar-nilkar2.workers.dev" crossorigin>
 <link rel="dns-prefetch" href="https://shahgpt.shahriar-nilkar2.workers.dev">
@@ -69,7 +69,7 @@ a{color:var(--pop-teal-dark)}
 .panel .tico{width:15px;height:15px}
 .panel .tile-ind{color:var(--pop-orange-hint)}
 .desk-area{position:relative;flex:1;display:flex;padding:16px 18px 0;gap:16px;min-height:0}
-.icon-col{display:grid;grid-template-columns:repeat(2,86px);gap:2px 6px;align-content:start;position:relative;z-index:3}
+.icon-col{display:grid;grid-auto-flow:column;grid-template-rows:repeat(auto-fill,minmax(74px,74px));grid-auto-columns:86px;gap:2px 6px;align-content:start;justify-content:start;position:relative;z-index:3;max-height:calc(100vh - 32px - 92px);overflow:visible}
 .dicon{width:86px;padding:9px 2px;border-radius:8px;border:1px solid transparent;text-align:center;font-size:12px;line-height:1.25;
   display:flex;flex-direction:column;align-items:center;gap:6px;transition:background .25s,border-color .25s;
   opacity:0;transform:translateY(8px)}
@@ -118,7 +118,7 @@ a{color:var(--pop-teal-dark)}
 .news-a:hover{border-color:var(--pop-orange-hint);background:var(--ui-500)}
 .news-a .d{width:6px;height:6px;border-radius:50%;flex:none}
 .dock-wrap{position:relative;z-index:8}
-.dock{display:flex;align-items:center;justify-content:center;gap:4px;padding:5px 8px;background:var(--dock-bg);
+.dock{overflow-x:auto;overflow-y:hidden;scrollbar-width:none;max-width:100vw;display:flex;align-items:center;justify-content:center;gap:4px;padding:5px 8px;background:var(--dock-bg);
   border-top:1px solid rgba(0,0,0,.4)}
 .dk{position:relative;width:52px;height:52px;border-radius:10px;display:grid;place-items:center;transition:background .25s}
 .dk:hover{background:var(--hover)} .dk:active{background:var(--active)}
@@ -225,6 +225,11 @@ a{color:var(--pop-teal-dark)}
 .xp.xpc.open>ul,.xp.xpc.open>.stk{display:block}
 .xp.xpc.open>.stk{display:flex}
 .xp.xpc>.role{cursor:pointer}
+.star{display:flex;gap:9px;margin-bottom:5px}
+.star i{flex:none;width:78px;font-style:normal;font-family:var(--mono);font-size:8.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--text-dim);padding-top:2px}
+.star p{flex:1;font-size:12px;margin:0}
+.star.res i{color:var(--pop-orange)}
+.star.res p{color:var(--fg)}
 .case{border-top:1px solid var(--line);padding-top:11px;margin-top:12px}
 .case:first-of-type{border-top:none;padding-top:0;margin-top:0}
 .case h5{font-family:var(--slab);font-size:13.5px;color:var(--fg);margin:0 0 2px}
@@ -232,6 +237,18 @@ a{color:var(--pop-teal-dark)}
 .case p{font-size:12px;margin:0 0 5px}
 .case p b{color:var(--pop-teal-dark);font-weight:600}
 .case .res{color:var(--pop-orange);font-weight:600}
+.lead{font-size:11.5px;color:var(--text-dim);margin-bottom:9px}
+.tagbar{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:11px}
+.tagbar button{font-size:10.5px;padding:4px 11px;border-radius:999px;border:1px solid var(--line2);background:var(--ui-900);color:var(--text-dim);cursor:pointer}
+.tagbar button:hover{border-color:var(--pop-teal-dark);color:var(--text)}
+.tagbar button.on{background:var(--pop-teal-dark);border-color:transparent;color:#08302E;font-weight:600}
+.lane.hide,.case.hide{display:none}
+.lane .ax{font-size:11px;color:var(--pop-orange-txt);margin:0 0 7px}
+.fits{font-family:var(--mono);font-size:9.5px;color:var(--text-dim);margin-top:7px;padding-top:6px;border-top:1px dashed var(--line)}
+.outside{border-top:1px solid var(--line);padding-top:11px;margin-top:13px}
+.outside h5{font-family:var(--slab);font-size:12.5px;color:var(--text-dim);margin:0 0 4px}
+.outside p{font-size:11.5px;color:var(--text-dim);margin:0 0 7px}
+.play{color:var(--pop-teal-dark);font-style:italic}
 .stats{display:grid;grid-template-columns:repeat(3,1fr);gap:7px;margin-bottom:14px}
 .stat{background:var(--ui-700);border:1px solid var(--line);border-radius:8px;padding:8px 10px}
 .stat b{display:block;font-family:var(--slab);font-size:20px;line-height:1.1;color:var(--pop-orange)}
@@ -360,7 +377,30 @@ a{color:var(--pop-teal-dark)}
   .rail,.dicon{opacity:1 !important;transform:none !important}
 }
 @media (max-width:900px){.rail{display:none}}
-@media (max-width:760px){.icon-col{grid-template-columns:repeat(3,86px)}.win{left:3vw !important;top:38px !important;width:94vw !important}}
+@media (max-width:900px){
+  .rail{display:none}
+  .icon-col{max-height:calc(100vh - 124px);grid-template-rows:repeat(auto-fill,minmax(84px,84px))}
+  .win{left:2% !important;top:8px !important;width:96% !important;max-height:calc(100vh - 128px) !important}
+  .win-body{max-height:calc(100vh - 172px);overflow:auto}
+}
+@media (max-width:620px){
+  .panel .left{display:none}
+  .panel .center{left:12px !important;transform:none !important}
+  .dock{justify-content:flex-start;padding-left:8px;padding-right:8px}
+  .dock .dk{flex:none}
+  .stats{grid-template-columns:repeat(2,1fr)}
+  .star{display:block}
+  .star i{width:auto;display:block;margin-bottom:1px;color:var(--pop-teal-dark)}
+  .icon-col{max-height:calc(100vh - 118px);grid-template-rows:repeat(auto-fill,minmax(88px,88px))}
+  .desk-area{padding:6px 6px 0}
+  .win{left:0 !important;top:2px !important;width:100% !important;border-radius:8px !important;max-height:calc(100vh - 118px) !important}
+  .win-body{max-height:calc(100vh - 166px)}
+  .g-bins{grid-template-columns:repeat(2,1fr)}
+  .g-hud{flex-wrap:wrap}
+  .g-hud .cell{min-width:calc(50% - 4px)}
+  .tagbar button{font-size:10px;padding:3px 9px}
+}
+}
 </style>
 </head>
 <body>
@@ -406,7 +446,7 @@ a{color:var(--pop-teal-dark)}
   <div class="wallwrap" id="wallLogin"></div>
   <div class="lockscrim">
     <div class="lg-clock" id="lgClock">--:--</div>
-    <div class="lg-date" id="lgDate">—</div>
+    <div class="lg-date" id="lgDate">&middot;&middot;&middot;</div>
     <div class="lg-card">
       <svg class="lg-badge" viewBox="0 0 120 120" role="img" aria-label="sn! logo"><use href="#snlogo"/></svg>
       <div class="lg-name">Shahriar Nilkar</div>
@@ -426,7 +466,7 @@ a{color:var(--pop-teal-dark)}
         <button class="pbtn" id="btnOverview" title="Tile all windows">Workspaces</button>
         <button class="pbtn" id="palOpen2">Applications</button>
       </div>
-      <button class="pbtn center" id="clkBtn"><span id="clkDate">—</span>&nbsp;<b id="clkTime" style="font-weight:600">--:--</b></button>
+      <button class="pbtn center" id="clkBtn"><span id="clkDate">&middot;&middot;&middot;</span>&nbsp;<b id="clkTime" style="font-weight:600">--:--</b></button>
       <div class="rightg">
         <button class="pbtn" id="btnTile" title="Toggle auto-tiling (pop-shell)"><svg class="tico" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="1.5" y="1.5" width="5.5" height="13" rx="1"/><rect x="9" y="1.5" width="5.5" height="5.5" rx="1"/><rect x="9" y="9" width="5.5" height="5.5" rx="1"/></svg><span class="tile-ind" id="tileInd" style="display:none">tiling</span></button>
         <button class="pbtn" id="btnLock2" title="Lock the session"><svg class="tico" viewBox="0 0 16 16" fill="currentColor"><rect x="3" y="7" width="10" height="7" rx="1.5"/><path d="M5.5 7V5.5a2.5 2.5 0 0 1 5 0V7" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></button>
@@ -466,65 +506,89 @@ a{color:var(--pop-teal-dark)}
           <div class="yt-list mini" id="railList"><div style="padding:8px 10px;color:var(--text-dim);font-size:11.5px">Loading…</div></div>
         </div>
       </div>
-      
       <div class="win" id="w-about" style="left:190px;top:14px">
-        <div class="win-head"><span class="spacer"></span><span class="win-title">About — shahriar.sys</span>
+        <div class="win-head"><span class="spacer"></span><span class="win-title">About</span>
           <div class="wc"><button class="mn" aria-label="Minimize"><svg viewBox="0 0 14 14" fill="none" stroke-width="1.5"><path d="M3 10h8"/></svg></button><button class="mx" aria-label="Maximize"><svg viewBox="0 0 14 14" fill="none" stroke-width="1.5"><rect x="3.5" y="3.5" width="7" height="7" rx="1"/></svg></button><button class="cl" aria-label="Close"><svg viewBox="0 0 14 14" fill="none" stroke-width="1.5"><path d="M4 4l6 6M10 4l-6 6"/></svg></button></div></div>
         <div class="win-body">
           <h4>Project Manager · Edmonton</h4>
-          <p>Eight years running delivery and governance as one job — PMO controls on one side, information governance on the other. Now at <b style="color:var(--fg)">PCL Construction</b>, building the taxonomy and roadmap that make an enterprise's content usable by AI.</p>
-          <p>I've written the RFP and I've scored the responses. Eleven bidders down to four, then a <b style="color:var(--fg)">$33M award recommendation</b>. On PCL Connects 5.0 I carry <b style="color:var(--fg)">$1M+ of annual spend</b> across 30+ teams and 13,000+ documents.</p>
-          <p class="dim">Source of record first: find who owns each number before anyone builds a report on it. Agree one definition. Then check in month six whether it held.</p>
-          <p class="dim" style="margin-top:10px">Master of Digital Transformation and Innovation, University of Ottawa. BSc IT Engineering, Sharif University of Technology. Project management training, PMP-aligned curriculum, University of Ottawa and PMPiran, 2021–2024.</p>
-          <p class="dim" style="font-size:11px;margin-top:12px;border-top:1px solid var(--line);padding-top:9px">Open <b style="color:var(--pop-teal-dark)">Where I Fit</b> for the four lanes, <b style="color:var(--pop-teal-dark)">Experience</b> for the record, <b style="color:var(--pop-teal-dark)">Case Files</b> for depth.</p>
+          <p>I run delivery and governance as one job. Eight years, across digital infrastructure, engineering and construction, and higher education. PMO controls on one side: charters, risk registers, KPIs, portfolio dashboards. Information governance on the other. Most change orders start as an information problem.</p>
+          <p>I've written the tender and I've scored the bids. Eleven down to four, then a <b style="color:var(--fg)">$33M award recommendation</b>. At PCL I carry <b style="color:var(--fg)">$1M+ annual spend</b> across 30+ teams and 13,000+ documents, and I built the 22-domain taxonomy behind the AI Hub.</p>
+          <p class="dim">Source of record first. Find who owns a number before anyone reports on it, agree one definition, then check in month six whether it held.</p>
+          <p class="dim" style="font-size:11px;margin-top:12px;border-top:1px solid var(--line);padding-top:9px">Open <b style="color:var(--pop-teal-dark)">Where I Fit</b> for the five lanes, <b style="color:var(--pop-teal-dark)">Case Files</b> for the stories, <b style="color:var(--pop-teal-dark)">Experience</b> for the record.</p>
         </div>
       </div>
       <div class="win" id="w-lanes" style="left:205px;top:10px;width:600px">
         <div class="win-head"><span class="spacer"></span><span class="win-title">Where I Fit</span>
           <div class="wc"><button class="mn" aria-label="Minimize"><svg viewBox="0 0 14 14" fill="none" stroke-width="1.5"><path d="M3 10h8"/></svg></button><button class="mx" aria-label="Maximize"><svg viewBox="0 0 14 14" fill="none" stroke-width="1.5"><rect x="3.5" y="3.5" width="7" height="7" rx="1"/></svg></button><button class="cl" aria-label="Close"><svg viewBox="0 0 14 14" fill="none" stroke-width="1.5"><path d="M4 4l6 6M10 4l-6 6"/></svg></button></div></div>
         <div class="win-body">
+          <p class="lead">Five things I get held accountable for. Filter by the job you're hiring for.</p>
+          <div class="tagbar" id="tagbar">
+            <button class="on" data-t="all">All</button><button data-t="pm">PM / PMO</button><button data-t="ai">AI</button><button data-t="mkt">Marketing</button><button data-t="bd">Business Dev</button>
+          </div>
           <div class="stats">
-            <div class="stat"><b>$1M+</b><span>annual spend oversight</span><i>PCL Connects 5.0</i></div>
-            <div class="stat"><b>−25%</b><span>change orders</span><i>project controls, MEWE PMO</i></div>
             <div class="stat"><b>$33M</b><span>award recommendation</span><i>11 bidders scored to 4</i></div>
-            <div class="stat"><b>+40%</b><span>audit readiness</span><i>13,000+ docs, 30+ teams</i></div>
-            <div class="stat"><b>−30%</b><span>review scope</span><i>risk-based analysis, 3,000+ docs</i></div>
-            <div class="stat"><b>−20%</b><span>schedule slippage</span><i>10+ teams, Peyvareh</i></div>
+            <div class="stat"><b>$1M+</b><span>annual spend oversight</span><i>PCL Connects 5.0</i></div>
+            <div class="stat"><b>25%</b><span>fewer change orders</span><i>controls layer, MEWE PMO</i></div>
+            <div class="stat"><b>40%</b><span>audit readiness gain</span><i>13,000+ docs, 30+ teams</i></div>
+            <div class="stat"><b>30%</b><span>less review scope</span><i>risk scoring, 3,000+ docs</i></div>
+            <div class="stat"><b>20%</b><span>less schedule slippage</span><i>10+ teams, Peyvareh</i></div>
           </div>
-          <div class="lane">
-            <h5>Project Management &amp; PMO</h5>
-            <p>Delivery and governance are the same job. Most change orders start as an information problem.</p>
-            <ul><li>Change orders down 25% at the MEWE IPD PMO — charters, RACI, risk registers and dependency tracking, instituted from scratch</li>
-            <li>$1M+ annual spend oversight on PCL Connects 5.0, information architecture standardized across 30+ teams</li>
-            <li>Schedule slippage down 20% across 10+ teams at Peyvareh after rebuilding how scheduling and planning were reported</li></ul>
-            <div class="stk"><span>Charters</span><span>RACI</span><span>Risk registers</span><span>Phase gates</span><span>Portfolio dashboards</span><span>Business cases</span><span>Agile / hybrid</span><span>MS Project</span><span>Jira</span><span>Azure DevOps</span><span>Smartsheet</span></div>
+          <div class="lane" data-t="bd pm">
+            <h5>Business Development &amp; Capital Decisions</h5>
+            <p class="ax">Accountable for the evidence an owner commits money on, and the recommendation at the end of it.</p>
+            <ul><li>$35M CAPEX membrane plant: the feasibility study and CAPEX/OPEX model the owner's investment decision rested on</li>
+            <li>Structured it as a two-package RFP, scored 11 bidders down to 4, delivered a $33M award recommendation</li>
+            <li>Procurement and tendering across 5+ concurrent projects at MEWE. Proposals, tender packages, and cost, schedule and quality negotiated with clients and contractors</li>
+            <li>Wrote the business case for PCL's Content Governance App, now used team-wide</li></ul>
+            <div class="stk"><span>Feasibility studies</span><span>CAPEX / OPEX modelling</span><span>RFP development</span><span>Bid evaluation</span><span>Contract negotiation</span><span>Business cases</span><span>Sponsor alignment</span></div>
+            <div class="fits">Fits: Business Development Manager · Tender Lead · Feasibility &amp; Business Case Lead · Commercial Manager</div>
           </div>
-          <div class="lane">
-            <h5>AI Readiness &amp; Enablement</h5>
-            <p>Most complaints that start "the AI gave a wrong answer" are content complaints. I build the conditions the answer depends on.</p>
-            <ul><li>PCL's company-wide AI Hub — proposed it, designed its information architecture with an external AI consultant, launch delivered on schedule</li>
-            <li>A 22-domain business taxonomy, six governance capability categories and a 2025–2027 roadmap: the structure an assistant retrieves against</li>
-            <li>Review scope cut 30% across 3,000+ documents by scoring risk instead of reading everything, with the escalation framework and leadership dashboards built alongside</li></ul>
-            <div class="stk"><span>Business taxonomy</span><span>Metadata standards</span><span>IA for retrieval</span><span>Permissions &amp; access</span><span>Retention</span><span>Governance roadmapping</span><span>Adoption</span><span>SharePoint / M365</span><span>FAIR data</span></div>
+          <div class="lane" data-t="pm bd">
+            <h5>Digital Transformation &amp; Platform Delivery</h5>
+            <p class="ax">Accountable for an enterprise platform reaching production, and for the adoption that decides whether it was worth building.</p>
+            <ul><li>MEWE: designed the structure, permissions and rules of one access-controlled SharePoint and Dynamics 365 environment covering sponsor, contractors and consultants</li>
+            <li>Peyvareh: rolled out the firm-wide SharePoint hub and trained 40+ engineers and coordinators. Search time down nearly 50%, tickets down 20%</li>
+            <li>University of Ottawa: audited 11 faculties against the Vision 2030 roadmap, built a central application inventory in TopDesk, licence overlap down 35%</li>
+            <li>PCL Connects 5.0: Microsoft 365 modernization across 13,000+ documents, $1M+ annual spend</li></ul>
+            <div class="stk"><span>Microsoft 365</span><span>SharePoint</span><span>Dynamics 365</span><span>Common data environments</span><span>Change management</span><span>Training &amp; adoption</span><span>Requirements</span><span>UAT</span></div>
+            <div class="fits">Fits: Digital Transformation Manager · Program Manager, M365 · Platform Delivery Manager · Change &amp; Adoption Lead</div>
           </div>
-          <div class="lane">
-            <h5>Marketing Operations &amp; Analytics</h5>
-            <p>I haven't run demand gen. I build the measurement layer under it — definitions, ownership, and a dashboard leadership trusts.</p>
-            <ul><li>27-district marketing KPI and pipeline intelligence framework at PCL: strategic-plan and Salesforce reporting unified into one governed source of truth for executive decisions</li>
-            <li>ERP data automated into forecasts and KPI dashboards at Peyvareh, in Power BI and Excel, built for leadership rather than for a demo</li>
-            <li>Everything I know about pursuit pipelines I learned inside a major contractor's district structure. For engineering and professional-services firms that's domain depth, not a career change.</li></ul>
-            <div class="stk"><span>KPI framework design</span><span>Pipeline reporting</span><span>Salesforce reporting</span><span>Power BI</span><span>Tableau</span><span>SQL</span><span>Executive dashboards</span><span>Forecasting</span><span>Single source of truth</span></div>
+          <div class="lane" data-t="ai pm">
+            <h5>Information Governance &amp; AI Readiness</h5>
+            <p class="ax">Accountable for the taxonomy, metadata, permissions and retention that decide whether content can be found and trusted.</p>
+            <ul><li>PCL's enterprise information-governance architecture: a 22-domain business taxonomy, six governance capability categories, a 2025-2027 roadmap</li>
+            <li>Proposed PCL's company-wide AI Hub and designed the information architecture it retrieves against. Launched on schedule with an external AI consultant</li>
+            <li>Review scope cut 30% across 3,000+ documents by scoring risk instead of reading everything, plus the escalation framework and remediation dashboards</li>
+            <li>Peyvareh: content types, managed metadata, permissions and retention built from zero. Nilpay: a searchable archive with naming conventions and audit support</li></ul>
+            <div class="stk"><span>Business taxonomy</span><span>Metadata standards</span><span>Information architecture</span><span>Retention &amp; lifecycle</span><span>Permissions</span><span>FAIR data</span><span>Risk-based analysis</span><span>Microsoft Purview concepts</span></div>
+            <div class="fits">Fits: Information Governance Lead · Enterprise Information Architect · AI Program Manager · Records &amp; Information Manager</div>
           </div>
-          <div class="lane">
-            <h5>Business Development &amp; Digital Transformation</h5>
-            <p>I've written the tender and I've scored the bids. No quota carried — owner-side feasibility, procurement and award recommendations.</p>
-            <ul><li>$35M estimated CAPEX membrane plant: the feasibility study and CAPEX/OPEX model behind the owner's investment decision, a two-package RFP structured, 11 bidders shortlisted to 4, a $33M award recommendation delivered</li>
-            <li>Procurement and tendering across 5+ concurrent projects at MEWE — proposals, RFP packages, and cost, schedule and quality negotiated with clients and contractors</li>
-            <li>Founded Prosharif.com, 2015–2018: product taxonomy and CRM-led follow-up lifted repeat sales 28%</li>
-            <li>Digital transformation is the through-line. The master's is in it, and phase gates, business cases and month-six adoption checks are how it lands.</li></ul>
-            <div class="stk"><span>Feasibility studies</span><span>CAPEX / OPEX modelling</span><span>RFP development</span><span>Bid evaluation</span><span>Contract negotiation</span><span>Procurement strategy</span><span>Business case development</span><span>Sponsor alignment</span></div>
+          <div class="lane" data-t="pm">
+            <h5>Project Controls &amp; PMO</h5>
+            <p class="ax">Accountable for the controls that hold a multi-party program to schedule and scope, and the reporting that shows when they aren't holding.</p>
+            <ul><li>Change orders down 25% at MEWE once the controls layer was in place: charters, communication plans, RACI charts, risk registers, risk matrices, dependency tracking</li>
+            <li>Led feasibility and stakeholder management from a joint integrated project delivery (IPD) PMO on a national water-research data-centre program</li>
+            <li>Peyvareh: schedule slippage down 20% across 10+ teams after refining how scheduling and planning were reported</li>
+            <li>PCL: holds the enterprise SharePoint modernization schedule across 25 business areas, decisions and actions logged with 12+ subject-matter experts and product owners</li></ul>
+            <div class="stk"><span>Charters</span><span>RACI</span><span>Risk registers</span><span>Phase gates</span><span>Dependency tracking</span><span>Portfolio dashboards</span><span>Agile / hybrid</span><span>MS Project</span><span>Jira</span><span>Azure DevOps</span><span>Smartsheet</span></div>
+            <div class="fits">Fits: Project Manager · PMO Lead · Program Manager · Project Controls Lead</div>
           </div>
-          <p class="dim" style="font-size:11px;margin-top:12px;border-top:1px solid var(--line);padding-top:9px">What I don't do: train models or write ML code, carry a sales quota, or run demand-gen campaigns. Saying it now beats saying it in round two.</p>
+          <div class="lane" data-t="mkt bd">
+            <h5>Decision Intelligence &amp; Reporting</h5>
+            <p class="ax">Accountable for defining the measures leadership decides on, and building the layer that produces them.</p>
+            <ul><li>A 27-district marketing KPI and pipeline intelligence framework at PCL, unifying strategic-plan and Salesforce reporting into one governed source of truth</li>
+            <li>Set the KPI definitions and settled who owns each number before anyone built a report on it, then took that through all 27 districts</li>
+            <li>Peyvareh: automated Excel and Power BI over ERP data into forecasts and KPI dashboards for leadership</li>
+            <li>Nilpay: an in-house Microsoft Access inventory system with access tracking and audit support</li></ul>
+            <div class="stk"><span>KPI framework design</span><span>Pipeline reporting</span><span>Salesforce reporting</span><span>Power BI</span><span>Tableau</span><span>SQL</span><span>Python</span><span>Excel / VBA</span><span>Executive dashboards</span><span>Forecasting</span></div>
+            <div class="fits">Fits: Business Intelligence Lead · Reporting &amp; Analytics Manager · Marketing Performance Manager · Revenue Operations</div>
+          </div>
+          <div class="outside">
+            <h5>Outside the five</h5>
+            <p>Credentials and code don't belong in a lane, so they sit here. Master of Digital Transformation and Innovation, University of Ottawa. BSc IT Engineering, Sharif University of Technology. Project management training on a PMP-aligned curriculum, University of Ottawa and PMPiran, 2021-2024.</p>
+            <div class="stk"><span>Python</span><span>SQL</span><span>React</span><span>Node.js</span><span>Java</span><span>C++</span><span>HTML</span><span>CSS</span><span>TOGAF as method</span></div>
+            <p class="play">Haven't trained a model or carried a sales quota yet. Give me the problem and a deadline and I'll come back knowing the tool. That's how the taxonomy, the tender model and this website all started.</p>
+          </div>
         </div>
       </div>
       <div class="win" id="w-exp" style="left:220px;top:8px;width:630px">
@@ -533,7 +597,7 @@ a{color:var(--pop-teal-dark)}
         <div class="win-body">
           <p class="dim" style="margin-bottom:11px">Project manager, 8+ years across digital infrastructure, engineering and construction, and higher education. Click a role to open it.</p>
           <div class="xp cur xpc"><span class="when">Aug 2025 → now</span>
-            <div class="role">Senior Digital Communications Specialist — Information Governance &amp; Project Delivery</div>
+            <div class="role">Senior Digital Communications Specialist, Information Governance &amp; Project Delivery</div>
             <div class="org">PCL Construction · Edmonton, AB</div>
             <div class="hl">22-domain taxonomy and a 2025–2027 governance roadmap · $1M+ annual spend</div>
             <ul><li>Leads the enterprise information-governance architecture preparing PCL's content for AI: a 22-domain business taxonomy, six governance capability categories, a 2025–2027 roadmap</li>
@@ -545,7 +609,7 @@ a{color:var(--pop-teal-dark)}
             <li>Holds the enterprise SharePoint modernization schedule across 25 business areas, with 12+ subject-matter experts, product owners and developers working to logged decisions</li></ul>
             <div class="stk"><span>SharePoint</span><span>Microsoft 365</span><span>Salesforce</span><span>Power BI</span><span>Taxonomy</span><span>AI readiness</span></div></div>
           <div class="xp xpc"><span class="when">Oct 2023 → Feb 2025</span>
-            <div class="role">Senior Project &amp; Business Development Lead, PMO</div>
+            <div class="role">Senior Technology Project &amp; Business Development Lead, PMO</div>
             <div class="org">Middle East Water &amp; Environment (MEWE) · Tehran</div>
             <div class="hl">Change orders down 25% · procurement across 5+ concurrent projects</div>
             <ul><li>Reduced change orders 25% by instituting the program's project controls: charters, communication plans, RACI charts, risk registers, risk matrices, cross-team dependency tracking</li>
@@ -565,7 +629,7 @@ a{color:var(--pop-teal-dark)}
             <li>Automated Excel and Power BI reporting, turning ERP data into forecasts and KPI dashboards for leadership</li></ul>
             <div class="stk"><span>Power BI</span><span>Excel · VBA</span><span>SharePoint</span><span>Managed metadata</span><span>ERP data</span></div></div>
           <div class="xp xpc"><span class="when">May 2019 → Feb 2020</span>
-            <div class="role">IT Business Analyst — Office of the CIO</div>
+            <div class="role">IT Business Analyst, Office of the CIO</div>
             <div class="org">University of Ottawa · Ottawa, ON</div>
             <div class="hl">Licence overlap down 35% across 11 faculties</div>
             <ul><li>Built a central application inventory in TopDesk with the Application Manager that cut licence overlap 35%, handling confidential licensing data under institutional privacy obligations</li>
@@ -573,11 +637,11 @@ a{color:var(--pop-teal-dark)}
             <li>Ran stakeholder interviews and working sessions, translating service pain points into documented functional requirements</li></ul>
             <div class="stk"><span>TopDesk</span><span>Application portfolio</span><span>Requirements</span><span>Excel</span></div></div>
           <div class="xp xpc"><span class="when">Apr 2015 → Sep 2018</span>
-            <div class="role">Business Analyst · and founder, Prosharif.com</div>
+            <div class="role">Business Analyst, and founder of Prosharif.com</div>
             <div class="org">Nilpay Engineering &amp; Construction Co. · Tehran</div>
             <div class="hl">In-house inventory system · repeat sales up 28% on the side</div>
             <ul><li>Developed an in-house Microsoft Access inventory system and a searchable document archive with naming conventions, access tracking and audit support for compliance reviews</li>
-            <li>Founded and ran Prosharif.com over the same years — an online marketplace where the product taxonomy and CRM-led follow-up lifted repeat sales 28%</li></ul>
+            <li>Founded and ran Prosharif.com over the same years. an online marketplace where the product taxonomy and CRM-led follow-up lifted repeat sales 28%</li></ul>
             <div class="stk"><span>Microsoft Access</span><span>Document archive</span><span>CRM</span><span>HTML · CSS</span></div></div>
         </div>
       </div>
@@ -585,48 +649,59 @@ a{color:var(--pop-teal-dark)}
         <div class="win-head"><span class="spacer"></span><span class="win-title">Case Files</span>
           <div class="wc"><button class="mn" aria-label="Minimize"><svg viewBox="0 0 14 14" fill="none" stroke-width="1.5"><path d="M3 10h8"/></svg></button><button class="mx" aria-label="Maximize"><svg viewBox="0 0 14 14" fill="none" stroke-width="1.5"><rect x="3.5" y="3.5" width="7" height="7" rx="1"/></svg></button><button class="cl" aria-label="Close"><svg viewBox="0 0 14 14" fill="none" stroke-width="1.5"><path d="M4 4l6 6M10 4l-6 6"/></svg></button></div></div>
         <div class="win-body">
-          <p class="dim" style="margin-bottom:11px">Five cases. Role, scope, what I ran, what came out.</p>
-          <div class="case">
-            <h5>PCL Connects 5.0 — Information Architecture Governance &amp; AI Readiness</h5>
-            <div class="meta">Senior Digital Communications Specialist (Information Governance &amp; Project Delivery) · PCL Construction, Edmonton · 2025 → now · $1M+ annual spend oversight</div>
-            <p><b>Scope.</b> A Microsoft 365 modernization spanning 13,000+ documents and 3,000+ pages, with 12+ subject-matter experts, product owners across Business Technology and IT, and developers working over 25 business areas.</p>
-            <p><b>Ran.</b> The enterprise information-governance architecture: a 22-domain business taxonomy, six governance capability categories and a 2025–2027 roadmap. Standardized the information architecture across 30+ teams, restructured content and information-management processes against new corporate directives, authored the templated guidelines teams operate from, and ran the stakeholder change management.</p>
-            <p><b>Out.</b> <span class="res">Audit readiness up 40%.</span> Review scope cut 30% across 3,000+ documents through risk-based analysis, with the escalation framework and leadership dashboards built alongside. Wrote the business case for a Content Governance App now used team-wide.</p>
-            <div class="stk"><span>Project management</span><span>AI readiness</span><span>Digital transformation</span></div>
+          <p class="lead">Six cases. Situation, what I owned, what I did, what came out.</p>
+          <div class="tagbar" id="tagbarC">
+            <button class="on" data-t="all">All</button><button data-t="pm">PM / PMO</button><button data-t="ai">AI</button><button data-t="mkt">Marketing</button><button data-t="bd">Business Dev</button>
           </div>
-          <div class="case">
-            <h5>Membrane Manufacturing Plant — Feasibility &amp; Dual-Package Tender</h5>
-            <div class="meta">Feasibility &amp; Tender Lead · MEWE, for owner Asia Water Co. · Bandar Abbas · 2024–2025 · $35M estimated CAPEX</div>
-            <p><b>Scope.</b> An owner deciding whether to build a membrane manufacturing plant, with no feasibility case and no procurement route defined.</p>
-            <p><b>Ran.</b> The feasibility study and the CAPEX/OPEX model the investment decision rested on. Researched vendors and procurement methods, structured the work as a two-package RFP tender, then ran the evaluation.</p>
-            <p><b>Out.</b> Eleven bidders scored down to a shortlist of four, ending in a <span class="res">$33M award recommendation</span> to the owner.</p>
-            <div class="stk"><span>Business development</span><span>Procurement</span><span>Project management</span></div>
+          <div class="case" data-t="bd pm">
+            <h5>Membrane Manufacturing Plant: feasibility to award recommendation</h5>
+            <div class="meta">Feasibility &amp; Tender Lead · MEWE, for owner Asia Water Co. · Bandar Abbas · 2024-2025 · $35M estimated CAPEX</div>
+            <div class="star"><i>Situation</i><p>Asia Water Co. was weighing a membrane manufacturing plant at roughly $35M CAPEX. No feasibility case existed, and no procurement route had been chosen.</p></div>
+            <div class="star"><i>What I owned</i><p>The pre-investment case and the route to market: documented ground for a $35M commitment, ending in one award recommendation.</p></div>
+            <div class="star"><i>What I did</i><p>Ran the feasibility study and built the CAPEX/OPEX model the investment decision rested on. Researched vendors and procurement methods. Structured the work as a two-package RFP tender, wrote the packages, then ran the evaluation that took 11 bidders down to a shortlist of 4.</p></div>
+            <div class="star res"><i>Result</i><p>A $33M award recommendation delivered, and an owner able to sign against a documented CAPEX/OPEX model.</p></div>
           </div>
-          <div class="case">
-            <h5>PCL AI Hub — company-wide</h5>
+          <div class="case" data-t="ai pm">
+            <h5>PCL Connects 5.0: one information architecture across 30+ teams</h5>
+            <div class="meta">Project &amp; Governance Lead · PCL Construction, Edmonton · 2025 to now · $1M+ annual spend · 13,000+ documents</div>
+            <div class="star"><i>Situation</i><p>A Microsoft 365 modernization covering 13,000+ documents and 3,000+ pages across 25 business areas, with each team structuring content its own way.</p></div>
+            <div class="star"><i>What I owned</i><p>One information architecture across 30+ teams, and the governance that makes PCL content usable by AI.</p></div>
+            <div class="star"><i>What I did</i><p>Built a 22-domain business taxonomy, six governance capability categories and a 2025-2027 roadmap. Restructured content and information-management processes against new corporate directives. Scored documents by risk instead of reviewing everything. Authored the templated guidelines teams operate from and ran the change management behind them, working decisions through 12+ subject-matter experts and product owners.</p></div>
+            <div class="star res"><i>Result</i><p>Audit readiness up 40%. Review scope cut 30% across 3,000+ documents, with the escalation framework and dashboards leadership uses. The Content Governance App I made the case for is now used team-wide.</p></div>
+          </div>
+          <div class="case" data-t="pm bd">
+            <h5>National water-research data-centre program: controls and one data environment</h5>
+            <div class="meta">Senior Technology Project &amp; Business Development Lead, PMO · MEWE, Tehran · Oct 2023 to Feb 2025 · joint IPD PMO</div>
+            <div class="star"><i>Situation</i><p>Sponsor, contractors and consultants delivering a national water-research data-centre program from a joint integrated project delivery PMO, each holding their own version of the record.</p></div>
+            <div class="star"><i>What I owned</i><p>The controls layer, and one environment the whole delivery chain could work from.</p></div>
+            <div class="star"><i>What I did</i><p>Wrote the charters, communication plans and RACI charts, stood up risk registers and risk matrices, and tracked dependencies across teams. Designed the structure, permissions and rules of an access-controlled SharePoint and Dynamics 365 common data environment, then turned field and office workflows into system requirements through cross-functional workshops and user acceptance testing.</p></div>
+            <div class="star res"><i>Result</i><p>Change orders down 25% once the controls layer was in place. Sponsor, contractors and consultants working off one access-controlled record, with permissions set by role.</p></div>
+          </div>
+          <div class="case" data-t="mkt bd">
+            <h5>27 districts, one KPI and pipeline framework</h5>
+            <div class="meta">Senior Digital Communications Specialist (Information Governance &amp; Project Delivery) · PCL Construction · 2025 to now</div>
+            <div class="star"><i>Situation</i><p>Strategic-plan reporting and Salesforce pipeline data lived apart. Twenty-seven districts described performance in numbers that didn't compare, and executives decided without a shared figure.</p></div>
+            <div class="star"><i>What I owned</i><p>The measurement layer. One definition per metric, a named owner behind each number, one source executives could decide from.</p></div>
+            <div class="star"><i>What I did</i><p>Unified strategic-plan reporting and Salesforce pipeline data into a single framework, defined the KPI set and the pipeline measures under it, and settled who owns each number before anyone built a report on it. Then took those definitions through all 27 districts.</p></div>
+            <div class="star res"><i>Result</i><p>One governed source of truth across 27 districts, used for executive decisions. Marketing and pursuit performance now reads the same way everywhere, against definitions with names attached.</p></div>
+          </div>
+          <div class="case" data-t="pm ai">
+            <h5>Firm-wide SharePoint hub, governance built from zero</h5>
+            <div class="meta">Business Intelligence Lead · Peyvareh Engineering &amp; Construction, Tehran · Mar 2020 to Oct 2023 · 10+ teams</div>
+            <div class="star"><i>Situation</i><p>Teams on two major projects kept documents wherever they landed. No content types, no managed metadata, no retention, no agreed permissions.</p></div>
+            <div class="star"><i>What I owned</i><p>Making documents findable and keeping them that way, which meant governance first and a platform people would actually use.</p></div>
+            <div class="star"><i>What I did</i><p>Established information governance from the ground up: content types, managed metadata, permissions, retention rules. Rolled out the firm-wide SharePoint hub and trained 40+ engineers and coordinators. Alongside it, refined how scheduling and planning were reported across 10+ teams and automated Excel and Power BI over ERP data into forecasts and KPI dashboards.</p></div>
+            <div class="star res"><i>Result</i><p>Document search time down nearly 50%. Support tickets down 20%. The reporting gaps that surfaced cut schedule slippage 20% on the same two projects.</p></div>
+          </div>
+          <div class="case" data-t="ai">
+            <h5>PCL AI Hub: company-wide launch</h5>
             <div class="meta">Senior Digital Communications Specialist (Information Governance &amp; Project Delivery) · PCL Construction · 2025 · with an external AI consultant</div>
-            <p><b>Scope.</b> PCL wanted a company-wide AI hub, which meant settling how its content would be structured before anything shipped.</p>
-            <p><b>Ran.</b> Proposed the hub, designed its information architecture, and ran delivery alongside the external AI consultant.</p>
-            <p><b>Out.</b> <span class="res">Launched on schedule.</span> It sits alongside the governance architecture he leads at PCL — the 22-domain business taxonomy and six governance capability categories.</p>
-            <div class="stk"><span>AI readiness</span><span>Vendor partnering</span><span>Delivery</span></div>
+            <div class="star"><i>Situation</i><p>PCL wanted a company-wide AI hub. Whatever it retrieved would only be as good as the structure underneath it, and that structure wasn't settled.</p></div>
+            <div class="star"><i>What I owned</i><p>The proposal, the information architecture the hub retrieves against, and the launch date.</p></div>
+            <div class="star"><i>What I did</i><p>Proposed the hub, designed its information architecture, and tied it to the governance already in flight: the 22-domain taxonomy, the six capability categories, the 2025-2027 roadmap. Ran delivery with the external AI consultant against the date.</p></div>
+            <div class="star res"><i>Result</i><p>Launched on schedule, company-wide, retrieving against the same taxonomy PCL's content is being restructured to. No separate rulebook for the AI.</p></div>
           </div>
-          <div class="case">
-            <h5>27-District Marketing KPI &amp; Pipeline Intelligence Framework</h5>
-            <div class="meta">Senior Digital Communications Specialist (Information Governance &amp; Project Delivery) · PCL Construction · 2025 → now</div>
-            <p><b>Scope.</b> Strategic-plan reporting and Salesforce pipeline data lived apart, so districts were describing marketing performance in numbers that didn't compare.</p>
-            <p><b>Ran.</b> Built the KPI and pipeline intelligence framework that unifies both.</p>
-            <p><b>Out.</b> Strategic-plan and Salesforce reporting now resolve to <span class="res">one governed source of truth across 27 districts</span>, used for executive decisions.</p>
-            <div class="stk"><span>Marketing operations</span><span>Analytics</span><span>Data governance</span></div>
-          </div>
-          <div class="case">
-            <h5>Firm-Wide SharePoint Hub — Peyvareh</h5>
-            <div class="meta">Business Intelligence Lead · Peyvareh Engineering &amp; Construction, Tehran · 2020–2023</div>
-            <p><b>Scope.</b> Dispersed teams across two major projects, with no shared source for documents and no governance underneath it.</p>
-            <p><b>Ran.</b> Information governance from the ground up — content types, managed metadata, permissions, retention rules — then the firm-wide hub rollout with training for 40+ engineers and coordinators. Automated Excel and Power BI reporting over ERP data alongside it.</p>
-            <p><b>Out.</b> <span class="res">Search time down nearly 50%, support tickets down 20%.</span> Separately, on the same two projects, rebuilding how scheduling and planning were reported cut schedule slippage 20%.</p>
-            <div class="stk"><span>Information governance</span><span>Analytics</span><span>Adoption</span></div>
-          </div>
-          <p class="dim" style="font-size:11px;margin-top:12px;border-top:1px solid var(--line);padding-top:9px">Also this site: a browser desktop written by hand — window manager, tiling, a classification game and an assistant on a serverless backend. Plain HTML, CSS and vanilla JavaScript, no framework, no build step.</p>
+          <p class="dim" style="font-size:11px;margin-top:12px;border-top:1px solid var(--line);padding-top:9px">This site is the seventh one. Browser desktop, window manager, tiling, a classification game and an assistant on a serverless backend. Plain HTML, CSS and vanilla JavaScript.</p>
         </div>
       </div>
       <div class="win" id="w-resume" style="left:290px;top:48px;width:420px">
@@ -634,7 +709,7 @@ a{color:var(--pop-teal-dark)}
           <div class="wc"><button class="mn" aria-label="Minimize"><svg viewBox="0 0 14 14" fill="none" stroke-width="1.5"><path d="M3 10h8"/></svg></button><button class="mx" aria-label="Maximize"><svg viewBox="0 0 14 14" fill="none" stroke-width="1.5"><rect x="3.5" y="3.5" width="7" height="7" rx="1"/></svg></button><button class="cl" aria-label="Close"><svg viewBox="0 0 14 14" fill="none" stroke-width="1.5"><path d="M4 4l6 6M10 4l-6 6"/></svg></button></div></div>
         <div class="win-body" style="text-align:center">
           <p style="font-family:var(--mono);font-size:11.5px;text-align:left" class="dim">> static_resume.pdf ........ <span style="color:#FF6961">deprecated</span><br>> live_profile.linkedin .... <span style="color:#30D158">active ●</span></p>
-          <p style="margin-top:8px">No PDF here — the LinkedIn profile is the one I actually keep up to date.</p>
+          <p style="margin-top:8px">No PDF here. the LinkedIn profile is the one I actually keep up to date.</p>
           <a class="btn orange" href="https://www.linkedin.com/in/shahriar-nilkar" target="_blank" rel="noopener">
             <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5C4.98 4.88 3.87 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1s2.48 1.12 2.48 2.5zM.22 8.1h4.56V23H.22zM8.34 8.1h4.37v2.03h.06c.61-1.15 2.1-2.36 4.32-2.36 4.62 0 5.47 3.04 5.47 6.99V23h-4.55v-7.2c0-1.72-.03-3.93-2.4-3.93-2.4 0-2.77 1.87-2.77 3.8V23H8.34z"/></svg>
             Open LinkedIn Profile</a>
@@ -642,12 +717,12 @@ a{color:var(--pop-teal-dark)}
         </div>
       </div>
       <div class="win" id="w-ai" style="left:320px;top:12px;width:510px">
-        <div class="win-head"><span class="spacer"></span><span class="win-title">ShahGPT — ask about the record</span>
+        <div class="win-head"><span class="spacer"></span><span class="win-title">ShahGPT &middot; ask about the record</span>
           <div class="wc"><button class="mn" aria-label="Minimize"><svg viewBox="0 0 14 14" fill="none" stroke-width="1.5"><path d="M3 10h8"/></svg></button><button class="mx" aria-label="Maximize"><svg viewBox="0 0 14 14" fill="none" stroke-width="1.5"><rect x="3.5" y="3.5" width="7" height="7" rx="1"/></svg></button><button class="cl" aria-label="Close"><svg viewBox="0 0 14 14" fill="none" stroke-width="1.5"><path d="M4 4l6 6M10 4l-6 6"/></svg></button></div></div>
         <div class="win-body">
           <div class="chat">
             <div class="chat-log" id="chatLog"></div>
-            <div class="chat-sug"><button data-q="How does he run project controls?">Project controls</button><button data-q="What size budget and portfolio has he owned?">Portfolio size</button><button data-q="What has he actually shipped in AI?">AI he shipped</button><button data-q="What does AI readiness look like in his hands?">AI readiness</button><button data-q="Has he done marketing analytics?">Marketing analytics</button><button data-q="Can he build a KPI framework from scratch?">KPI framework</button></div>
+            <div class="chat-sug"><button data-q="How did he run the $35M feasibility and the tender behind it?">Feasibility to award</button><button data-q="What does digital transformation actually mean in his hands?">Digital transformation</button><button data-q="What makes enterprise content AI ready in his work?">AI readiness</button><button data-q="How does he run project controls and what did they change?">PMO controls</button><button data-q="How did he build the 27-district KPI and pipeline framework?">Decision reporting</button><button data-q="What is outside his record?">What he doesn't do</button></div>
             <div class="chat-in">
               <input id="chatInput" type="text" placeholder="Ask about the record…" aria-label="Ask ShahGPT">
               <button id="chatSend">Ask</button>
@@ -668,7 +743,7 @@ a{color:var(--pop-teal-dark)}
         <div class="win-head"><span class="spacer"></span><span class="win-title">Scope Call</span>
           <div class="wc"><button class="mn" aria-label="Minimize"><svg viewBox="0 0 14 14" fill="none" stroke-width="1.5"><path d="M3 10h8"/></svg></button><button class="mx" aria-label="Maximize"><svg viewBox="0 0 14 14" fill="none" stroke-width="1.5"><rect x="3.5" y="3.5" width="7" height="7" rx="1"/></svg></button><button class="cl" aria-label="Close"><svg viewBox="0 0 14 14" fill="none" stroke-width="1.5"><path d="M4 4l6 6M10 4l-6 6"/></svg></button></div></div>
         <div class="win-body">
-          <div class="g-frame" id="gFrame">Four bins · 3,140 items · one scope call. Illustrative deck — no client content.</div>
+          <div class="g-frame" id="gFrame">Four bins · 3,140 items · one scope call. Illustrative deck. no client content.</div>
           <div class="g-hud" id="gHud" style="display:none">
             <div class="cell"><span>CLOCK</span><b id="gClock">40</b></div>
             <div class="cell"><span>QUEUE</span><b id="gQueue">0</b></div>
@@ -686,7 +761,7 @@ a{color:var(--pop-teal-dark)}
         </div>
       </div>
       <div class="win" id="w-collab" style="left:410px;top:26px;width:490px">
-        <div class="win-head"><span class="spacer"></span><span class="win-title">We Before Me — collaboration hub</span>
+        <div class="win-head"><span class="spacer"></span><span class="win-title">We Before Me</span>
           <div class="wc"><button class="mn" aria-label="Minimize"><svg viewBox="0 0 14 14" fill="none" stroke-width="1.5"><path d="M3 10h8"/></svg></button><button class="mx" aria-label="Maximize"><svg viewBox="0 0 14 14" fill="none" stroke-width="1.5"><rect x="3.5" y="3.5" width="7" height="7" rx="1"/></svg></button><button class="cl" aria-label="Close"><svg viewBox="0 0 14 14" fill="none" stroke-width="1.5"><path d="M4 4l6 6M10 4l-6 6"/></svg></button></div></div>
         <div class="win-body">
           <p class="dim">Nothing here shipped solo. The people-side of the work:</p>
@@ -694,18 +769,18 @@ a{color:var(--pop-teal-dark)}
           <div class="collab-note"><b>Sponsor · contractors · consultants</b><span class="wh">MEWE</span><br>Aligned from a joint IPD PMO onto one access-controlled common data environment. Workflows became requirements through workshops and user acceptance testing.</div>
           <div class="collab-note"><b>40+ engineers &amp; coordinators</b><span class="wh">Peyvareh</span><br>Trained through the SharePoint hub rollout. Tickets fell 20% because people, not just systems, were ready.</div>
           <div class="collab-note"><b>11 academic faculties</b><span class="wh">uOttawa</span><br>Consultations and working sessions across campus turned service pain points into documented functional requirements.</div>
-          <h4 class="t" style="margin-top:13px">Leave a note — it emails Shahriar directly</h4>
+          <h4 class="t" style="margin-top:13px">Leave a note. it emails Shahriar directly</h4>
           <div id="gbList"></div>
           <div class="gb-form">
             <input class="n" id="gbName" type="text" maxlength="24" placeholder="Name" aria-label="Your name">
             <input class="m" id="gbMsg" type="text" maxlength="120" placeholder="Say hi, pitch a collab, or share feedback…" aria-label="Your message">
             <button id="gbSend">Send ✉</button>
           </div>
-          <p class="dim" style="font-size:10.5px;margin-top:7px">Opens your email app with the note pre-filled — it lands straight in Shahriar&rsquo;s inbox.</p>
+          <p class="dim" style="font-size:10.5px;margin-top:7px">Opens your email app with the note pre-filled. it lands straight in Shahriar&rsquo;s inbox.</p>
         </div>
       </div>
       <div class="win" id="w-mania" style="left:250px;top:16px;width:540px">
-        <div class="win-head"><span class="spacer"></span><span class="win-title">AI Mania — latest AI videos</span>
+        <div class="win-head"><span class="spacer"></span><span class="win-title">AI Mania</span>
           <div class="wc"><button class="mn" aria-label="Minimize"><svg viewBox="0 0 14 14" fill="none" stroke-width="1.5"><path d="M3 10h8"/></svg></button><button class="mx" aria-label="Maximize"><svg viewBox="0 0 14 14" fill="none" stroke-width="1.5"><rect x="3.5" y="3.5" width="7" height="7" rx="1"/></svg></button><button class="cl" aria-label="Close"><svg viewBox="0 0 14 14" fill="none" stroke-width="1.5"><path d="M4 4l6 6M10 4l-6 6"/></svg></button></div></div>
         <div class="win-body" style="padding:10px 12px 12px">
           <div class="pulse-foot" style="border:none;padding:2px 6px 6px"><span id="pulseSrc">latest uploads</span><button id="pulseRefresh">↻ refresh</button></div>
@@ -723,7 +798,7 @@ a{color:var(--pop-teal-dark)}
         <div class="win-head"><span class="spacer"></span><span class="win-title">Contact</span>
           <div class="wc"><button class="mn" aria-label="Minimize"><svg viewBox="0 0 14 14" fill="none" stroke-width="1.5"><path d="M3 10h8"/></svg></button><button class="mx" aria-label="Maximize"><svg viewBox="0 0 14 14" fill="none" stroke-width="1.5"><rect x="3.5" y="3.5" width="7" height="7" rx="1"/></svg></button><button class="cl" aria-label="Close"><svg viewBox="0 0 14 14" fill="none" stroke-width="1.5"><path d="M4 4l6 6M10 4l-6 6"/></svg></button></div></div>
         <div class="win-body" style="text-align:center">
-          <p>If a project needs numbers, structure, or both — worth a conversation.</p>
+          <p>If a project needs numbers, structure, or both. worth a conversation.</p>
           <p style="display:flex;gap:9px;justify-content:center;flex-wrap:wrap;margin-top:13px">
             <a class="btn orange" href="https://www.linkedin.com/in/shahriar-nilkar" target="_blank" rel="noopener">LinkedIn</a>
             <a class="btn" href="mailto:shahnilkar@gmail.com">Email</a>
@@ -809,10 +884,10 @@ function openWin(id){
   const w=document.getElementById(id);if(!w)return;
   w.classList.remove('closing');w.classList.add('open');focusWin(w);openSet.add(id);syncDock();
   if(id==='w-ai')warmGPT();
-  if(id==='w-ai'&&!w.dataset.greeted){w.dataset.greeted=1;aiSay("Ask about the record. Project controls, portfolio size, what he's shipped in AI, marketing analytics, tenders, credentials. Answers stay short and carry a number where one exists.");}
+  if(id==='w-ai'&&!w.dataset.greeted){w.dataset.greeted=1;aiSay("Ask about the record. Feasibility and tenders, delivery controls, AI readiness, reporting, credentials. Answers stay short and carry a number where one exists.");}
   if(id==='w-game'&&!w.dataset.init){w.dataset.init=1;gReset();}
   if(id==='w-mania')loadTube();
-  if(id==='w-term'&&!w.dataset.init){w.dataset.init=1;termPrint("SN!_OS terminal — type <span class='c'>help</span> for commands.");}
+  if(id==='w-term'&&!w.dataset.init){w.dataset.init=1;termPrint("SN!_OS terminal. type <span class='c'>help</span> for commands.");}
   if(tiling)retile();
 }
 function closeWin(id){
@@ -952,28 +1027,28 @@ function queueToasts(){
   },25000);
 }
 const kb=[
- [/\bpmp\b|\bcertified\b|\bcertification\b|\bcredential\b|\bprince2\b|\bitil\b|\bprosci\b|\baigp\b|\bis he certified\b|\blicense\b|\baccreditation\b|\bdesignation\b/i,"No PMP credential. What he holds is <b>Project Management Training on a PMP-aligned curriculum</b>, University of Ottawa and PMPiran, 2021 to 2024, plus project management coursework inside both degrees. He states it that way himself rather than let anyone assume otherwise."],
- [/\bbiggest deal\b|\bmembrane\b|\b35m\b|\b33m\b|\bcapex\b|\bfeasibility\b|\basia water\b|\bdeal sheet\b|\blargest project\b|\binvestment decision\b|\bopex\b|\bbandar abbas\b/i,"The membrane manufacturing plant. Owner Asia Water Co., estimated CAPEX <b>$35M</b>, Bandar Abbas, 2024 to 2025. He ran the feasibility study and the CAPEX/OPEX model behind the owner's investment decision, structured the tender in two packages, shortlisted 4 of 11 bidders and delivered a <b>$33M award recommendation</b>."],
- [/\bbusiness development\b|\bbd\b|\btender\b|\brfp\b|\bproposal\b|\bprocurement\b|\bbid evaluation\b|\bvendor\b|\bnegotiation\b|\bcapture\b|\bshortlist\b|\bsourcing\b|\bcontracting\b/i,"Owner side. At MEWE he led feasibility and sponsor alignment, wrote proposals and tender packages across <b>5+ concurrent projects</b>, then negotiated cost, schedule and quality with clients and contractors. On the membrane plant he structured a two-package RFP, scored <b>11 bidders down to 4</b>, and recommended the award."],
- [/\bai hub\b|\bwhat has he shipped in ai\b|\bai delivery\b|\bai project\b|\blaunched\b|\bai consultant\b|\bai program\b|\bdid he build ai\b|\bai product\b|\bcopilot rollout\b/i,"He built <b>PCL's company-wide AI Hub</b> with an external AI consultant. He proposed it, designed its information architecture, and the launch landed on schedule. That's the whole loop: the pitch, the architecture decision, vendor coordination, and a date that held. It's in Projects."],
- [/\bai readiness\b|\btaxonomy\b|\bai ready data\b|\bcontent for ai\b|\bretrieval\b|\brag\b|\b22\-domain\b|\bgovernance capability\b|\broadmap\b|\bai strategy\b|\bllm\b|\bgenai\b|\bai governance\b/i,"Concretely, a <b>22-domain business taxonomy</b>, <b>six governance capability categories</b> and a <b>2025-2027 roadmap</b>, all pointed at getting PCL content ready for AI. An assistant only answers as well as the content it retrieves from. Structure, labels and named owners are what make retrieval work, so that's what he builds."],
- [/\badoption\b|\benablement\b|\bchange management\b|\btraining\b|\brollout\b|\bchampions\b|\bstakeholder\b|\bdid people use it\b|\buptake\b|\bguidelines\b|\bworkshops\b|\bsustainment\b/i,"Adoption is the half most programs skip. He writes the templated guidelines teams operate from and runs the stakeholder change management behind them. At Peyvareh he trained <b>40+ engineers and coordinators</b> on a firm-wide SharePoint hub. Search time fell nearly <b>50%</b>, support tickets <b>20%</b>, and those numbers held after launch."],
- [/\bhas he run campaigns\b|\bdemand gen\b|\bga4\b|\bmarketo\b|\bhubspot\b|\bpaid media\b|\butm\b|\battribution\b|\bis he a marketer\b|\bseo\b|\bemail marketing\b|\blead scoring\b/i,"He hasn't run demand gen. No paid media, no GA4, no Marketo or HubSpot. What he builds is the measurement layer underneath: the definitions, the ownership, the dashboard leadership trusts. His marketing record is <b>27 districts</b> of a major contractor's pursuit and strategic-plan reporting, which is where he learned pipelines."],
- [/\bmarketing\b|\bmarketing operations\b|\bmarketing analytics\b|\bkpi framework\b|\bpipeline\b|\bsalesforce\b|\b27 district\b|\bdashboards\b|\breporting\b|\bsource of truth\b|\bmartech\b|\bmarketing data\b/i,"He built a <b>27-district marketing KPI and pipeline intelligence framework</b> at PCL, pulling strategic-plan reporting and Salesforce pipeline data into one governed source executives decide from. He set the KPI definitions, the reporting cadence and the ownership rules that keep numbers comparable district to district."],
- [/\bproject controls\b|\bcharter\b|\braci\b|\brisk register\b|\brisk matrix\b|\bgovernance controls\b|\bphase gate\b|\bhow does he run projects\b|\bpmo\b|\bdependency\b|\blessons learned\b|\bclosure\b|\bchange order\b|\bdelivery\b/i,"Charters, communication plans, RACI, risk registers and matrices, dependency tracking, phase gates, closure reports and lessons learned. He put that spine on a national water-research data-centre program at MEWE and <b>change orders dropped 25%</b>. At Peyvareh, reworking how planning got reported cut <b>schedule slippage 20%</b>."],
- [/\bbudget\b|\bhow big\b|\bportfolio size\b|\bspend\b|\bteam size\b|\bhow many people\b|\bscale\b|\bdecision rights\b|\bseniority\b|\bdoes he manage\b|\bprogram size\b|\bheadcount\b/i,"<b>$1M+ annual spend oversight</b> on PCL Connects 5.0, information architecture standardized across <b>30+ teams</b>, 13,000+ documents and 3,000+ pages. At MEWE he ran procurement across <b>5+ concurrent projects</b> and negotiated cost, schedule and quality with clients and contractors. He allocates and decides. He doesn't just track."],
- [/\bagile\b|\bscrum\b|\bwaterfall\b|\bhybrid\b|\bmethodology\b|\bjira\b|\bazure devops\b|\bsmartsheet\b|\bmicrosoft project\b|\bhow does he deliver\b|\bsprint\b|\bkanban\b|\bpm tools\b/i,"Hybrid, mostly. Phase gates and a governance layer around the outside, Agile inside where the team already works that way. Jira, Azure DevOps, Microsoft Project and Smartsheet for delivery. Power BI and Tableau for the reporting on top. The method follows the work, not the other way round."],
- [/\bdata governance\b|\binformation governance\b|\bmetadata\b|\brecords\b|\bretention\b|\bfair data\b|\bstewardship\b|\binformation architecture\b|\bcontent types\b|\bclassification\b|\baudit readiness\b|\blifecycle\b/i,"Metadata standards, taxonomy, content types, retention rules, stewardship, FAIR data principles. At Peyvareh he established all of it from the ground up. At PCL, risk-based analysis cut <b>review scope 30% across 3,000+ documents</b>, and he built the escalation framework and the dashboards leadership works from."],
- [/\bsharepoint\b|\bmicrosoft 365\b|\bm365\b|\bdynamics 365\b|\bpermissions\b|\bcommon data environment\b|\bcde\b|\bcopilot readiness\b|\boversharing\b|\bsite governance\b|\baccess control\b|\bintranet\b/i,"Deep. He leads enterprise SharePoint modernization at PCL across 25 business areas. At MEWE he designed the structure, permissions and rules of an access-controlled SharePoint and Dynamics 365 common data environment covering the sponsor, contractors and consultants. At Peyvareh he rolled out the firm-wide hub. Permissions and classification are his home ground."],
- [/\bdigital transformation\b|\btransformation\b|\boperating model\b|\bmodernization\b|\bprocess redesign\b|\bbusiness case\b|\bbenefits\b|\bwhat does transformation mean\b|\bstrategy\b|\benterprise architecture\b|\btogaf\b/i,"His master's is in it and eight years of work sit under it. What he means by the term is unglamorous. Agree one definition per figure before anyone builds a report on it, name who owns each source of record, write the guidelines teams operate from, then check in month six whether anyone still uses it."],
- [/\beducation\b|\bdegree\b|\bmaster\b|\bmasters\b|\buniversity\b|\bschool\b|\bsharif\b|\buottawa\b|\bstudy\b|\bresearch\b|\bacademic\b|\bgraduate\b/i,"<b>Master of Digital Transformation and Innovation</b>, University of Ottawa, 2018 to 2021, concentrated in IT strategy, enterprise architecture and data-driven innovation. His graduate research was on end-user development tools for business users. Before that, a <b>BSc in IT Engineering from Sharif University of Technology</b>."],
- [/\bpower bi\b|\btableau\b|\bsql\b|\bpython\b|\btools\b|\bstack\b|\bsoftware\b|\bexcel\b|\breact\b|\bnode\b|\bcoding\b|\bdoes he know\b|\btechnical skills\b|\bvba\b/i,"Power BI, Tableau, SQL and Python for analytics. Jira, Azure DevOps, Microsoft Project and Smartsheet for delivery. SharePoint, Microsoft 365, Dynamics 365 and Salesforce reporting on the platform side. He also codes, in React, Node.js, Java, C++ and Excel/VBA. TOGAF he uses as a working method, not a certificate."],
- [/\bexperience\b|\bwork history\b|\bprevious\b|\bcareer\b|\bpast roles\b|\bmewe\b|\bpeyvareh\b|\bnilpay\b|\bprosharif\b|\bfounder\b|\bbefore pcl\b|\byears of experience\b|\btimeline\b|\bottawa cio\b/i,"PCL Construction since 2025. Before that, MEWE 2023 to 2025 as Senior Project and Business Development Lead in the PMO, Peyvareh 2020 to 2023 as Business Intelligence Lead, then the University of Ottawa CIO's office in 2019-20. He started at Nilpay in 2015 and founded ProSharif.com the same years, where product taxonomy and CRM follow-up lifted repeat sales <b>28%</b>."],
- [/\bwhere\b|\blocated\b|\bedmonton\b|\balberta\b|\bcanada\b|\brelocate\b|\bremote\b|\bonsite\b|\bhybrid work\b|\bcity\b|\blanguages\b|\bfrench\b/i,"<b>Edmonton, Alberta</b>, working at PCL there now. Before Canada, Tehran, across engineering, construction and water infrastructure. In between, Ottawa, for the master's and a year in the university CIO's office. English fluent, French at A1."],
- [/\bweakness\b|\bwhat can't he do\b|\bgaps\b|\bmachine learning\b|\bbuild models\b|\bfine\-tune\b|\bquota\b|\bsales target\b|\blimitations\b|\bnot done\b|\bhonest\b|\bdownside\b/i,"He doesn't train models or write ML code. He's never carried a sales quota. He hasn't run demand-gen campaigns. What he does is the layer all three depend on: the delivery controls, the governance, the definitions, and the adoption work that makes any of it stick. He'd rather say that now than in round two."],
- [/\bsalary\b|\bcompensation\b|\brate\b|\breferences\b|\bnotice period\b|\bstart date\b|\bavailability\b|\bsponsorship\b|\bvisa\b|\bcontact\b|\bemail\b|\breach him\b|\blinkedin\b|\bresume\b/i,"Salary, references, notice period and work arrangements are a conversation with him, not something a chat window should answer. <b>LinkedIn</b> is the fastest route, at linkedin.com/in/shahriar-nilkar, and the Contact app on the desktop carries his email. No phone number on this site, deliberately."],
- [/\bcurrent role\b|\bwhat does he do at pcl\b|\bpcl\b|\bnow\b|\btoday\b|\bcurrent job\b|\bpresent role\b|\btitle\b|\bconnects 5\.0\b|\bemployer\b|\bwhere does he work\b/i,"At PCL since <b>August 2025</b>, titled Senior Digital Communications Specialist for information governance and project delivery. The work is enterprise SharePoint modernization across <b>25 business areas</b>, the governance architecture underneath it, and <b>$1M+ annual spend oversight</b> on PCL Connects 5.0. Experience has the full picture."],
- [/^\s*(hi|hello|hey|yo|salam)\b|\bwho is he\b|\bwho is shahriar\b|\babout him\b|\btell me about\b|\bsummary\b|\bbackground\b|\bintroduce\b|\bwhat does he do\b|\boverview\b/i,"Shahriar Nilkar, a project manager in <b>Edmonton</b>. Eight-plus years. He's at <b>PCL Construction</b> now, running PMO delivery and the information governance that gets enterprise content ready for AI. Before Canada he led a PMO and business development at MEWE. Master of Digital Transformation and Innovation, University of Ottawa."]
+ [/\bpmp\b|\bcertified\b|\bcertification\b|\bcredential\b|\bprince2\b|\bitil\b|\baigp\b|\beducation\b|\bdegree\b|\bmaster\b|\bsharif\b|\buniversity\b|\bresearch\b|\btogaf\b/i,"No PMP credential. He holds <b>Project Management Training on a PMP-aligned curriculum</b>, University of Ottawa and PMPiran, 2021-2024. Master of Digital Transformation and Innovation, University of Ottawa, 2018-2021. BSc IT Engineering, Sharif University of Technology, 2012-2017. TOGAF he uses as a method, not a certificate."],
+ [/\bfeasibility\b|\bcapex\b|\bopex\b|\binvestment decision\b|\bbusiness case\b|\bmembrane\b|\basia water\b|\b35m\b|\bbandar abbas\b|\bpre\-investment\b|\bcapital\b|\bfront end\b|\bviability\b|\bfinancial model\b/i,"Owner side. For Asia Water Co. he ran the feasibility study and the CAPEX/OPEX model behind a <b>$35M</b> membrane plant investment decision, Bandar Abbas, 2024-2025. Vendor and procurement research, capital and operating cases, one documented basis the owner could commit against."],
+ [/\btender\b|\brfp\b|\bprocurement\b|\bbid evaluation\b|\bshortlist\b|\baward\b|\b33m\b|\bbidders\b|\bsourcing\b|\bcontracting\b|\bvendor selection\b|\btwo package\b|\bnegotiation\b|\bbuy side\b/i,"He wrote the RFP rather than answered it. Two packages, technical scored before commercial, <b>11 bidders</b> assessed down to a shortlist of <b>4</b>, then a <b>$33M</b> recommendation to award. At MEWE he ran procurement and tendering across <b>5+ concurrent projects</b>, negotiating cost, schedule and quality."],
+ [/\bbusiness development\b|\bbd\b|\bproposals\b|\bclient development\b|\bsales\b|\bdeal\b|\bpipeline development\b|\brelationship\b|\bfounder\b|\bprosharif\b|\bquota\b|\brevenue\b|\bpursuit\b|\bcommercial\b/i,"At MEWE he wrote proposals and tender packages, aligned sponsor and contractors inside a joint IPD PMO, and negotiated with clients across <b>5+ concurrent projects</b>. He founded ProSharif.com too, where product taxonomy and CRM-led follow-up lifted repeat sales <b>28%</b>. No quota, no demand gen."],
+ [/\bai readiness\b|\bcontent for ai\b|\bretrieval\b|\brag\b|\bllm\b|\bgenai\b|\bai strategy\b|\bgovernance capability\b|\b2025\-2027\b|\bmachine usable\b|\bai governance\b|\bsemantic\b|\bcopilot\b|\bsearch quality\b/i,"Content has to be describable before a model retrieves it well. He builds that layer: a <b>22-domain</b> taxonomy, <b>six</b> governance capability categories, a <b>2025-2027</b> roadmap, metadata, retention and access rules. Data governance sits inside AI governance, not before it."],
+ [/\bai hub\b|\bshipped in ai\b|\bai project\b|\bai program\b|\blaunched\b|\bai consultant\b|\bdid he build ai\b|\bai delivery\b|\bai product\b|\bhub launch\b|\bexternal consultant\b|\bai work\b/i,"He developed PCL's company-wide <b>AI Hub</b> with an external AI consultant. He proposed it, designed the information architecture, and the launch landed on schedule. The consultant carried the model side. His half: architecture, vendor coordination, a date that held, and the <b>22-domain</b> taxonomy underneath."],
+ [/\btaxonomy\b|\binformation architecture\b|\bcontent types\b|\bmanaged metadata\b|\bvocabulary\b|\bfindability\b|\bnavigation\b|\b22\-domain\b|\bontology\b|\blabels\b|\bstructure\b|\bclassification scheme\b|\bia\b/i,"A <b>22-domain</b> business taxonomy at PCL, plus content types, managed metadata and structure built for retrieval. Taxonomy is the controlled vocabulary. Information architecture is the structure around it. He established both from zero at Peyvareh, then standardized architecture across <b>30+ teams</b> at PCL."],
+ [/\binformation governance\b|\brecords management\b|\bretention\b|\bdisposition\b|\bpermissions\b|\baudit readiness\b|\brisk\-based review\b|\bcompliance\b|\bfair data\b|\bstewardship\b|\blifecycle\b|\bescalation\b|\bdata governance\b|\bprivacy\b/i,"Information governance is the program. Records management is the retention and disposition layer under it. He runs both: permissions, retention rules, classification, risk-based review that cut scope <b>30% across 3,000+ documents</b>, plus the escalation framework and dashboards leadership works from. Audit readiness up <b>40%</b>."],
+ [/\bmarketing\b|\bmarketing operations\b|\bmarketing analytics\b|\bdemand gen\b|\bcampaigns\b|\bmartech\b|\bhubspot\b|\bmarketo\b|\bga4\b|\battribution\b|\bpaid media\b|\bseo\b|\blead scoring\b|\bis he a marketer\b/i,"He owns the measurement layer: KPI definitions, named owners, one governed source across <b>27 districts</b>, dashboards leadership acts on. In construction that is marketing and business development KPI work. He has not run demand gen, paid media, GA4, Marketo or HubSpot, and claims no martech administration."],
+ [/\bkpi framework\b|\b27 district\b|\bpipeline intelligence\b|\bsalesforce\b|\bsource of truth\b|\bmetric definitions\b|\bexecutive reporting\b|\bdashboards\b|\bstrategic plan\b|\bgoverned metrics\b|\bscorecard\b|\breporting cadence\b/i,"He built a <b>27-district</b> marketing KPI and pipeline intelligence framework at PCL, unifying strategic-plan and Salesforce reporting into one governed source executives decide from. He set the definitions, the cadence and the ownership rules that keep numbers comparable district to district. Metrics governance, not campaign reporting."],
+ [/\bpower bi\b|\btableau\b|\bsql\b|\bpython\b|\bbusiness intelligence\b|\berp\b|\bforecasting\b|\banalytics\b|\bexcel\b|\bvba\b|\bdata analyst\b|\breporting automation\b|\bbi lead\b|\bvisualisation\b/i,"At Peyvareh he automated Excel and Power BI reporting over ERP data, turning it into forecasts and KPI dashboards, and coordinated <b>10+ teams</b> across two major projects. Power BI, Tableau, SQL and Python. He builds the reporting and the definitions under it, not pipelines or semantic models."],
+ [/\bproject controls\b|\bcharter\b|\braci\b|\brisk register\b|\brisk matrix\b|\bphase gate\b|\bpmo\b|\bdependency\b|\bchange order\b|\blessons learned\b|\bclosure\b|\bgovernance controls\b|\bipd\b|\bdelivery\b/i,"Charters, communication plans, RACI, risk registers and matrices, dependency tracking, phase gates, closure reports. He put that spine on a national water-research data-centre program at MEWE and <b>change orders fell 25%</b>. At Peyvareh, refining how planning got reported cut <b>schedule slippage 20%</b> across 10+ teams."],
+ [/\bbudget\b|\bspend\b|\bportfolio size\b|\bhow big\b|\bteam size\b|\bhow many people\b|\bscale\b|\bseniority\b|\bdecision rights\b|\bheadcount\b|\bprogram size\b|\bdoes he manage\b|\bscope\b|\bauthority\b/i,"<b>$1M+</b> annual spend oversight on PCL Connects 5.0. <b>13,000+</b> documents, 3,000+ pages, information architecture standardized across <b>30+ teams</b>, <b>12+</b> subject-matter experts and product owners coordinated over 25 business areas. Professional lead track: influence across those teams without a reporting line."],
+ [/\bagile\b|\bscrum\b|\bwaterfall\b|\bhybrid\b|\bmethodology\b|\bjira\b|\bazure devops\b|\bsmartsheet\b|\bmicrosoft project\b|\bsprint\b|\bkanban\b|\bpm tools\b|\bhow does he deliver\b|\bstage gate\b/i,"Hybrid. Phase gates and a governance layer outside, Agile inside where teams already work that way. Jira, Azure DevOps, Microsoft Project and Smartsheet for delivery, Power BI and Tableau above them. <b>PMP-aligned training</b>, University of Ottawa and PMPiran, 2021-2024. The method follows the work."],
+ [/\bdigital transformation\b|\btransformation\b|\bmodernization\b|\boperating model\b|\bchange program\b|\bstrategy\b|\benterprise architecture\b|\btogaf\b|\binnovation\b|\bdigitization\b|\broadmap\b|\bmaster's\b|\bdx\b/i,"His master's is in it, Digital Transformation and Innovation at the University of Ottawa. In practice: one agreed definition per figure, a named owner for every source of record, guidelines teams operate from, then a check in month six. At PCL that covers <b>13,000+ documents</b> and <b>30+ teams</b>."],
+ [/\bsharepoint\b|\bmicrosoft 365\b|\bm365\b|\bdynamics 365\b|\bcommon data environment\b|\bcde\b|\bintranet\b|\bplatform\b|\bpermissions\b|\bsite governance\b|\bmigration\b|\bcopilot readiness\b|\bhub\b|\baccess control\b/i,"Enterprise SharePoint modernization across <b>25 business areas</b> at PCL. At MEWE he designed the structure, permissions and rules of an access-controlled SharePoint and Dynamics 365 common data environment covering sponsor, contractors and consultants. At Peyvareh a firm-wide hub cut search time nearly <b>50%</b>. TOGAF as a working method."],
+ [/\bexperience\b|\bwork history\b|\bcareer\b|\bpast roles\b|\btimeline\b|\bcurrent role\b|\bcurrent job\b|\bpresent role\b|\bpcl\b|\bmewe\b|\bpeyvareh\b|\bnilpay\b|\bprosharif\b|\bemployer\b/i,"PCL Construction since <b>Aug 2025</b>. MEWE 2023 to 2025, Senior Project and Business Development Lead inside a joint IPD PMO. Peyvareh 2020 to 2023, Business Intelligence Lead. University of Ottawa CIO office 2019-2020. Nilpay from 2015, plus ProSharif.com, where product taxonomy and CRM follow-up lifted repeat sales <b>28%</b>."],
+ [/\bwhere\b|\blocated\b|\bedmonton\b|\balberta\b|\bcanada\b|\brelocate\b|\bremote\b|\blanguages\b|\bfrench\b|\bsalary\b|\breferences\b|\bnotice period\b|\bcontact\b|\blinkedin\b/i,"<b>Edmonton, Alberta</b>, at PCL Construction since August <b>2025</b>. English fluent, French A1. Salary, references, notice period and work arrangements are a conversation with him. LinkedIn is the fastest route, linkedin.com/in/shahriar-nilkar, and the Contact app carries his email. No phone number on this site, deliberately."],
+ [/\bweakness\b|\bgaps\b|\blimitations\b|\bwhat can't he do\b|\bmachine learning\b|\bmlops\b|\btrain models\b|\bfine\-tune\b|\bcloud pipelines\b|\bquota\b|\bnot done\b|\bhonest\b|\bdownside\b|\brisks\b/i,"He doesn't train models, run MLOps or architect cloud pipelines. No sales quota, no demand gen, no martech stack. He builds the taxonomy, metadata, permissions and controls those depend on, then the adoption work that makes them hold. Named limits keep the <b>$33M</b> and <b>30%</b> numbers checkable."],
+ [/^\s*(hi|hello|hey|yo|salam)\b|\bwho is he\b|\bwho is shahriar\b|\babout him\b|\btell me about\b|\bsummary\b|\bbackground\b|\bintroduce\b|\boverview\b|\bwhat does he do\b|\bprofile\b|\bpositioning\b/i,"Shahriar Nilkar, project manager in <b>Edmonton</b>, 8+ years. His primary file is information and data governance architecture, delivered through PMO control. At PCL Construction that runs a <b>22-domain</b> taxonomy and <b>$1M+</b> annual spend oversight on PCL Connects 5.0. Business development and digital transformation are what he leads with."],
+ [/\badoption\b|\benablement\b|\bchange management\b|\btraining\b|\brollout\b|\bguidelines\b|\bstakeholder\b|\buptake\b|\bworkshops\b|\bsustainment\b|\bdid people use it\b|\bchampions\b|\bcommunication\b|\bbehaviour\b/i,"He writes the templated guidelines teams operate from and runs the stakeholder change management behind them. At Peyvareh he trained <b>40+ engineers</b> and coordinators on a firm-wide SharePoint hub. Search time fell nearly <b>50%</b>, support tickets <b>20%</b>. Two proofs per program: delivery and adoption."],
+ [/\brequirements\b|\bbusiness analysis\b|\buat\b|\buser acceptance testing\b|\bapplication portfolio\b|\brationalization\b|\btopdesk\b|\buottawa\b|\bfaculties\b|\bvision 2030\b|\blicence overlap\b|\bworkshops\b|\binventory\b|\bconsolidation\b/i,"At the University of Ottawa CIO office he consulted <b>11 academic faculties</b>, auditing application portfolios against the Vision 2030 consolidation roadmap and flagging duplication and renewal risk. A central inventory in TopDesk cut licence overlap <b>35%</b>. At MEWE, workshops and user acceptance testing turned field workflows into requirements."]
 ];
 function gptScrub(t){
   return (t||'')
@@ -984,7 +1059,7 @@ function gptScrub(t){
 function aiSay(html){const d=document.createElement('div');d.className='msg ai';d.innerHTML=html;$('#chatLog').appendChild(d);$('#chatLog').scrollTop=1e6;}
 const SHAHGPT_ENDPOINT="https://shahgpt.shahriar-nilkar2.workers.dev/";
 let gptKey=null;
-const GPT_SYS="Answer recruiter questions about Shahriar Nilkar. The subject is always Shahriar Nilkar \u2014 call him \"Shahriar\" or \"he\". You are an unnamed assistant; never use your own name as the subject of a sentence. Third person, 2-4 sentences, under 60 words. No bullets, no greeting, no filler, no closing summary. Fact first, number in it, stop.\n\nProject Manager, Edmonton AB, 8+ years. Four equal lanes: PMO delivery, AI program and enablement, marketing operations and analytics, business development and digital transformation.\n\nPCL CONSTRUCTION, Edmonton, Aug 2025-now, Senior Digital Communications Specialist (Information Governance & Project Delivery). AI-readiness governance architecture: 22-domain taxonomy, six governance capability categories, 2025-2027 roadmap. SharePoint modernization: 25 business areas, 12+ SMEs. Company-wide AI Hub with an external AI consultant: proposed it, designed its IA, launched on schedule. 27-district marketing KPI and pipeline framework: strategic-plan and Salesforce reporting, one governed source. Risk-based analysis cut review scope 30% across 3,000+ docs, plus escalation framework and dashboards. PCL Connects 5.0: $1M+ annual spend, 13,000+ documents, IA across 30+ teams, audit readiness up 40%.\n\nMEWE Tehran 2023-25, Senior Project & Business Development Lead, PMO: feasibility and sponsor alignment, national water-research data-centre program, joint IPD PMO; change orders down 25% via charters, RACI, risk registers, dependency tracking; tendering across 5+ concurrent projects; designed an access-controlled SharePoint/Dynamics 365 CDE. Membrane plant, owner Asia Water Co., CAPEX $35M: feasibility, CAPEX/OPEX model, two-package RFP, 4 of 11 bidders shortlisted, $33M award recommendation. PEYVAREH 2020-23, BI Lead: 10+ teams, slippage down 20%, SharePoint hub cut search ~50% and tickets 20%, trained 40+ engineers. UOTTAWA CIO 2019-20: 11 faculties, licence overlap down 35%. NILPAY 2015-18; founded ProSharif.com, repeat sales up 28%.\n\nMaster of Digital Transformation and Innovation, uOttawa. BSc IT Engineering, Sharif. Project Management Training, PMP-aligned curriculum, uOttawa and PMPiran. Power BI, Tableau, SQL, Python, Jira, Azure DevOps, MS Project, Smartsheet, M365, Salesforce. TOGAF as a method.\n\nNEVER claim the PMP or any certification. Say sponsor, owner or client, never a public body. Never say he fixed a mess; he builds and enables. No phone number. No model building, GA4, Marketo, HubSpot, attribution modelling, quota or win rate. Anything else isn't in his record: point to linkedin.com/in/shahriar-nilkar. Salary, references, notice: a conversation with him.  Never use the word government. Never claim the PMP credential. Never state a phone number. Start answers with \"Shahriar\", \"He\", or a fact. Never start an answer with the assistant's name.";
+const GPT_SYS="Shahriar Nilkar's portfolio assistant. Third person, \"Shahriar\" or \"he\". 2-4 sentences, under 55 words, one number each. No bullets, no greeting, no closing summary, no em dashes.\nPOSITIONING. Project manager, Edmonton AB, 8+ years in construction, engineering, higher education. Primary file: information and data governance architecture delivered through PMO control. Lead with business development and digital transformation. PCL now, MEWE 2023-2025, Peyvareh 2020-2023, uOttawa CIO 2019-2020, Nilpay 2015-2018.\nFEASIBILITY. Membrane plant, owner Asia Water Co., Bandar Abbas 2024-2025, CAPEX $35M, feasibility study and CAPEX/OPEX model behind the owner's decision.\nOWNER-SIDE PROCUREMENT & TENDER. He wrote RFPs, he did not answer them. Two-package tender, 11 bidders to 4, $33M award recommendation, procurement across 5+ concurrent MEWE projects. Also proposals and sponsor alignment in a joint IPD PMO, ProSharif repeat sales up 28%.\nDIGITAL TRANSFORMATION & PLATFORMS. SharePoint modernization across 25 business areas, 13,000+ documents, architecture standardized across 30+ teams. Access-controlled SharePoint / Dynamics 365 common data environment at MEWE. TOGAF as method.\nIA, GOVERNANCE & RECORDS. 22-domain taxonomy, content types, managed metadata, permissions, retention. Risk-based review cut scope 30% across 3,000+ documents, audit readiness up 40%, FAIR-aligned practice.\nAI READINESS. Six governance capability categories, 2025-2027 roadmap, company-wide AI Hub with an external AI consultant: he proposed it, designed its IA, launched on schedule.\nPMO CONTROLS. Charters, RACI, risk registers, dependency tracking, phase gates. Change orders down 25%, slippage down 20%, $1M+ annual spend, 12+ SMEs.\nDECISION INTELLIGENCE. 27-district marketing KPI and pipeline framework unifying strategic-plan and Salesforce reporting, Power BI over ERP data. Tableau, SQL, Python, Jira, Azure DevOps.\nADOPTION & REQUIREMENTS. Templated guidelines, change management, 40+ engineers trained, search down nearly 50%, tickets down 20%. 11 faculties audited, TopDesk inventory, licence overlap down 35%, workshops and UAT.\nCREDENTIALS. PMP-aligned Project Management Training, uOttawa and PMPiran 2021-2024, never the PMP credential. Master of Digital Transformation and Innovation, uOttawa. BSc IT Engineering, Sharif.\nLIMITS & RULES. No model training, MLOps, quota, demand gen, GA4, Marketo, HubSpot; state ownership first, limit after. Never the word government; say sponsor, owner or client. He builds and enables. No phone number. Outside this record: linkedin.com/in/shahriar-nilkar. The subject is Shahriar Nilkar. Call him Shahriar or he. You are an unnamed assistant, never the subject. Start every answer with \"Shahriar\", \"He\", or a fact. Never use a long dash. Never claim the PMP credential. Never state a phone number.";
 async function askGPT(q){
   const r=await fetch('https://api.openai.com/v1/chat/completions',{
     method:'POST',
@@ -998,7 +1073,7 @@ async function askGPT(q){
 }
 function localAnswer(q){
   const hit=kb.find(([re])=>re.test(q));
-  return hit?hit[1]:"Here's the short version while I look that up: <b>Shahriar Nilkar</b> — project management + analytics, 10+ years. Now at PCL Construction making enterprise content AI-ready; before that he cut change orders 25% at MEWE and rebuilt a firm-wide information architecture (retrieval −50%). Want depth on any of that — projects, skills, education, or hiring? Just ask, or reach him on <a href='https://www.linkedin.com/in/shahriar-nilkar' target='_blank' rel='noopener'>LinkedIn</a>.";
+  return hit?hit[1]:"Here's the short version while I look that up: <b>Shahriar Nilkar</b>. project management + analytics, 10+ years. Now at PCL Construction making enterprise content AI-ready; before that he cut change orders 25% at MEWE and rebuilt a firm-wide information architecture (retrieval −50%). Want depth on any of that. projects, skills, education, or hiring? Just ask, or reach him on <a href='https://www.linkedin.com/in/shahriar-nilkar' target='_blank' rel='noopener'>LinkedIn</a>.";
 }
 async function askFreeAI(q){
   const r=await fetch('https://text.pollinations.ai/openai',{method:'POST',headers:{'Content-Type':'application/json'},
@@ -1089,13 +1164,13 @@ $('#chatInput').addEventListener('keydown',e=>{if(e.key==='Enter'){aiAsk(e.targe
 $$('.chat-sug button').forEach(b=>b.addEventListener('click',()=>aiAsk(b.dataset.q)));
 const cmds={
  help:"commands: <span class='c'>whoami</span> <span class='c'>pillars</span> <span class='c'>principles</span> <span class='c'>skills</span> <span class='c'>stack</span> <span class='c'>projects</span> <span class='c'>experience</span> <span class='c'>education</span> <span class='c'>hire-me</span> <span class='c'>clear</span>",
- whoami:"shahriar.nilkar — Project Manager · AI Solutions · Data & Analytics\nSenior Digital Communications Specialist (Information Governance & Project Delivery) @ PCL Construction, Edmonton.\n8+ years across digital infrastructure, engineering & construction, and higher education.",
- pillars:"[1] PROJECT MANAGER  — PMO controls · phase gates · procurement · feasibility\n[2] AI SOLUTIONS     — AI readiness architecture · AI Hub · governed retrieval\n[3] DATA & ANALYTICS — KPI frameworks · Power BI · portfolio dashboards",
- principles:"TIME IS GOLD  — decide what doesn't get done, protect the date that's left\nTOOL UP       — learn the tool the problem needs, even if that means writing it\nWE BEFORE ME  — governance holds where someone has to use it on a Tuesday",
+ whoami:"shahriar.nilkar. Project Manager · AI Solutions · Data & Analytics\nSenior Digital Communications Specialist (Information Governance & Project Delivery) @ PCL Construction, Edmonton.\n8+ years across digital infrastructure, engineering & construction, and higher education.",
+ pillars:"[1] PROJECT MANAGER . PMO controls · phase gates · procurement · feasibility\n[2] AI SOLUTIONS    . AI readiness architecture · AI Hub · governed retrieval\n[3] DATA & ANALYTICS. KPI frameworks · Power BI · portfolio dashboards",
+ principles:"TIME IS GOLD . decide what doesn't get done, protect the date that's left\nTOOL UP      . learn the tool the problem needs, even if that means writing it\nWE BEFORE ME . governance holds where someone has to use it on a Tuesday",
  skills:"DELIVERY   charters · comms plans · RACI · risk registers · phase gates · dependency tracking · closure & lessons learned\nAI         AI readiness architecture · 22-domain taxonomy · AI Hub · metadata for retrieval · adoption\nDATA       Power BI ██████████  Tableau ███████░░░  SQL ████████░░  Python ████████░░  KPI & pipeline frameworks\nGOVERN     metadata standards · taxonomy · data lifecycle · stewardship · FAIR · CDE · M365 governance\nCOMMERCIAL RFP development · bid evaluation · contract negotiation · CAPEX/OPEX modelling · budget forecasting\nCODE       Python · SQL · React · Node.js · Java · C++ · HTML · CSS · TOGAF",
- experience:"2025\u2192now  PCL Construction ........ Sr. Digital Comms Specialist (Info Gov & Delivery)\n2023\u21922025 MEWE .................... Sr. Project & BD Lead, PMO\n2020\u21922023 Peyvareh ................ Business Intelligence Lead\n2019\u21922020 uOttawa (CIO) ........... IT Business Analyst\n2015\u21922018 Nilpay .................. Business Analyst\n2015\u21922018 Prosharif.com ........... Founder",
+ experience:"2025\u2192now  PCL Construction ........ Sr. Digital Comms Specialist (Info Gov & Delivery)\n2023\u21922025 MEWE .................... Sr. Tech Project & BD Lead, PMO\n2020\u21922023 Peyvareh ................ Business Intelligence Lead\n2019\u21922020 uOttawa (CIO) ........... IT Business Analyst\n2015\u21922018 Nilpay .................. Business Analyst\n2015\u21922018 Prosharif.com ........... Founder",
  projects:"PCL Connects 5.0 ......... IA governance & AI readiness · 13,000+ docs · audit readiness +40%\nPCL AI Hub ............... company-wide · IA designed · launched on schedule\nMembrane Plant ........... $35M feasibility & dual-package tender · $33M award recommendation\nWater-Research Data Ctr .. IPD PMO · project controls · change orders \u221225%\nMarketing Intelligence ... 27 districts · strategic plan + Salesforce, one source of truth",
- education:"Master of Digital Transformation and Innovation — University of Ottawa (2018\u20132021)\n  concentration: IT strategy · enterprise architecture · data-driven innovation\n  research: End-User Development Tools for Business Users\nBSc IT Engineering — Sharif University of Technology (2012\u20132017)\nProject Management Training, PMP-aligned curriculum — uOttawa & PMPiran (2021\u20132024)",
+ education:"Master of Digital Transformation and Innovation. University of Ottawa (2018\u20132021)\n  concentration: IT strategy · enterprise architecture · data-driven innovation\n  research: End-User Development Tools for Business Users\nBSc IT Engineering. Sharif University of Technology (2012\u20132017)\nProject Management Training, PMP-aligned curriculum. uOttawa & PMPiran (2021\u20132024)",
  stack:"SharePoint · Microsoft 365 · Dynamics 365 · Salesforce · TopDesk · Microsoft Access\nPower BI · Tableau · SQL · Python · Excel/VBA\nJira · Azure DevOps · Microsoft Project · Smartsheet · Agile/Scrum · hybrid delivery",
  "hire-me":"initiating handshake… → https://www.linkedin.com/in/shahriar-nilkar"
 };
@@ -1112,7 +1187,7 @@ $('#termInput').addEventListener('keydown',e=>{
   const c=raw.toLowerCase();
   if(c==='clear'){$('#termLog').innerHTML='';return;}
   if(c.startsWith('connect-gpt ')){gptKey=raw.slice(12).trim();termPrint("ShahGPT rerouted through ChatGPT for this tab.","connect-gpt ••••");return;}
-  termPrint(cmds[c]?cmds[c].replace(/\n/g,'<br>'):`command not found: ${raw} — try <span class='c'>help</span>`,raw);
+  termPrint(cmds[c]?cmds[c].replace(/\n/g,'<br>'):`command not found: ${raw}. try <span class='c'>help</span>`,raw);
   if(c==='hire-me')setTimeout(()=>open('https://www.linkedin.com/in/shahriar-nilkar','_blank'),700);
 });
 const DECK=[
@@ -1167,7 +1242,7 @@ function gReset(){
   g={phase:"scope",ci:0,ruled:[],queue:[],cur:null,clock:40,audit:60,done:0,left:0,timer:null,lock:false,rec:[],directive:false,handled:0};
   gEl('gHud').style.display='none';
   gEl('gBins').style.display='none';
-  gEl('gFrame').textContent='Four bins \u00b7 3,140 items \u00b7 one scope call. Illustrative deck \u2014 no client content.';
+  gEl('gFrame').textContent='Four bins \u00b7 3,140 items \u00b7 one scope call. Illustrative deck ,  no client content.';
   gScope();
 }
 function gScope(){
@@ -1180,7 +1255,7 @@ function gScope(){
    '<button data-a="rule">RULE IT OUT</button></div></div>';
   gEl('gStage').querySelector('.cn').textContent=c.n+' \u00b7 '+c.count.toLocaleString()+' items';
   gEl('gStage').querySelector('.cd').textContent=c.d;
-  gMsg('Scope first. What you rule out, you never open \u2014 and never see again.');
+  gMsg('Scope first. What you rule out, you never open ,  and never see again.');
   gEl('gStage').querySelectorAll('.cb button').forEach(b=>b.addEventListener('click',()=>gPick(b.dataset.a)));
 }
 function gPick(a){
@@ -1214,7 +1289,7 @@ function gNext(first){
    '<div class="g-card"><div class="fn"></div><div class="chips"><i>'+owner+'</i><i>'+mod+'</i>'+flag+'</div></div>';
   gEl('gStage').querySelector('.fn').textContent=d.n;
   gHud();
-  if(first)gMsg('Pick a bin. The clock starts on your first call \u2014 keys <b>1\u20134</b> or click.');
+  if(first)gMsg('Pick a bin. The clock starts on your first call ,  keys <b>1\u20134</b> or click.');
 }
 function gTick(){
   g.clock--;
@@ -1236,11 +1311,11 @@ function gCall(bin){
   if(ok){
     g.audit=Math.min(100,g.audit+2);
     g.rec.push({n:d.n,b:bin,ok:true,w:d.w});
-    gMsg('<span class="good">\u2714 '+GLABEL[bin]+'</span> \u2014 <span class="why">'+d.w+'</span>');
+    gMsg('<span class="good">\u2714 '+GLABEL[bin]+'</span> ,  <span class="why">'+d.w+'</span>');
   }else{
     g.audit=Math.max(0,g.audit-6);g.clock=Math.max(0,g.clock-3);
     g.rec.push({n:d.n,b:bin,ok:false,w:d.w,should:d.b});
-    gMsg('<span class="bad">\u2718 that was '+GLABEL[d.b]+'</span> \u2014 <span class="why">'+d.w+'</span> <span style="color:#FF6961">\u22123s</span>');
+    gMsg('<span class="bad">\u2718 that was '+GLABEL[d.b]+'</span> ,  <span class="why">'+d.w+'</span> <span style="color:#FF6961">\u22123s</span>');
   }
   g.cur=null;gHud();
   setTimeout(function(){g.lock=false;if(g.audit<=0||g.clock<=0)return gEnd();gNext(false);},1200);
@@ -1253,10 +1328,10 @@ function gEnd(){
   const pct=Math.round(g.handled/3140*100);
   const risky=g.ruled.filter(function(c){return c.risky;});
   let head='<div class="g-rec"><b>REVIEW RECORD</b><br>'+
-   'Handled by rule \u2014 <b>'+g.handled.toLocaleString()+'</b> of 3,140 items, '+pct+'%<br>'+
-   'Reviewed by hand \u2014 <b>'+g.done+'</b><br>'+
-   'Left in the queue \u2014 <b>'+g.left+'</b><br>'+
-   'Audit readiness \u2014 60 to <b>'+g.audit+'</b>';
+   'Handled by rule ,  <b>'+g.handled.toLocaleString()+'</b> of 3,140 items, '+pct+'%<br>'+
+   'Reviewed by hand ,  <b>'+g.done+'</b><br>'+
+   'Left in the queue ,  <b>'+g.left+'</b><br>'+
+   'Audit readiness ,  60 to <b>'+g.audit+'</b>';
   if(risky.length)head+='<br><span class="bad">unredacted_ID_scans.pdf went through unopened. That is the call this whole thing is about.</span>';
   head+='</div>';
   const body='<p style="font-size:11.5px;color:var(--text-dim);margin-top:9px">Shahriar cut review scope <b style="color:var(--fg)">30% across 3,000+ documents</b> at PCL through risk-based information analysis, then built the escalation framework and the dashboards leadership works from. On PCL Connects 5.0 he raised audit readiness <b style="color:var(--fg)">40%</b> across 13,000+ documents and 30+ teams. The four bins here are a small version of the 22-domain taxonomy he wrote to get PCL content ready for AI.</p>'+
@@ -1283,6 +1358,22 @@ $$('.xp.xpc').forEach(function(x,i){
   if(r)r.addEventListener('click',t);
   if(i===0)x.classList.add('open');
 });
+function wireTags(barId){
+  const bar=document.getElementById(barId);
+  if(!bar)return;
+  const scope=bar.closest('.win-body');
+  bar.querySelectorAll('button').forEach(function(b){
+    b.addEventListener('click',function(){
+      bar.querySelectorAll('button').forEach(function(x){x.classList.remove('on');});
+      b.classList.add('on');
+      const t=b.dataset.t;
+      scope.querySelectorAll('.lane,.case').forEach(function(el){
+        el.classList.toggle('hide', t!=='all' && (el.dataset.t||'').split(' ').indexOf(t)<0);
+      });
+    });
+  });
+}
+wireTags('tagbar');wireTags('tagbarC');
 function gbRender(n,m,w){
   const d=document.createElement('div');d.className='collab-note';
   d.innerHTML=`<b></b><span class="wh">${w}</span><br><span class="gbm"></span>`;
@@ -1337,7 +1428,7 @@ function renderTube(){
       ?'<img class="th" loading="lazy" src="https://i.ytimg.com/vi/'+it.vid+'/mqdefault.jpg" alt="">'
       :'<div class="ph" style="background:'+TUBE_COLORS[i]+'">'+c.name.split(' ').map(w=>w[0]).join('').slice(0,3)+'</div>';
     a.innerHTML=media+'<span class="tx"><span class="vt"></span><span class="vc"><b></b><span></span></span></span>';
-    a.querySelector('.vt').textContent=it?it.title:('Newest upload — open channel');
+    a.querySelector('.vt').textContent=it?it.title:('Newest upload. open channel');
     a.querySelector('.vc b').textContent=c.name;
     a.querySelector('.vc span').textContent=(it&&it.when)?(' · '+it.when):'';
     l.appendChild(a);
@@ -1380,10 +1471,10 @@ const palData=[
  {t:"Open: Experience",act:()=>openWin('w-exp'),k:"app"},
  {t:"Open: Projects",act:()=>openWin('w-proj'),k:"app"},
  {t:"Open: ShahGPT copilot",act:()=>openWin('w-ai'),k:"app"},
- {t:"Open: We Before Me — collaboration hub",act:()=>openWin('w-collab'),k:"app"},
+ {t:"Open: We Before Me. collaboration hub",act:()=>openWin('w-collab'),k:"app"},
  {t:"Open: Terminal",act:()=>openWin('w-term'),k:"app"},
  {t:"Play: Scope Call",act:()=>openWin('w-game'),k:"game"},
- {t:"Open: AI Mania — latest AI videos",act:()=>openWin('w-mania'),k:"app"},
+ {t:"Open: AI Mania. latest AI videos",act:()=>openWin('w-mania'),k:"app"},
  {t:"Open: Contact",act:()=>openWin('w-contact'),k:"app"},
  {t:"Toggle auto-tiling",act:()=>$('#btnTile').click(),k:"shell"},
  {t:"Resume → LinkedIn profile",act:()=>open('https://www.linkedin.com/in/shahriar-nilkar','_blank'),k:"link"},
