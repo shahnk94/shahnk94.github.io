@@ -954,11 +954,10 @@ function showWall(url){
   im.onload=function(){
     const off=(wallOn===wallA)?wallB:wallA;
     off.style.backgroundImage='url("'+url+'")';
-    requestAnimationFrame(function(){requestAnimationFrame(function(){
-      off.style.opacity='1';
-      if(wallOn!==off)wallOn.style.opacity='0';
-      wallOn=off;
-    });});
+    void off.offsetWidth;
+    off.style.opacity='1';
+    if(wallOn!==off)wallOn.style.opacity='0';
+    wallOn=off;
   };
   im.onerror=function(){};
   im.src=url;
@@ -970,8 +969,7 @@ function nextWall(){
 function startWallRotation(){
   if(!document.getElementById('wallDesk'))return;
   const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
-  const kick=function(){ nextWall(); };
-  if('requestIdleCallback' in window){requestIdleCallback(kick,{timeout:2500});}else{setTimeout(kick,1200);}
+  setTimeout(function(){ nextWall(); },600);
   if(reduce)return;
   if(wallTimer)clearInterval(wallTimer);
   wallTimer=setInterval(function(){ if(!document.hidden)nextWall(); },90000);
@@ -988,7 +986,7 @@ $('#btnSignin').addEventListener('click',()=>{
   $('#login').classList.remove('active');
   const d=$('#desktop');d.classList.add('active','reveal');
   requestAnimationFrame(()=>{$('#deskArea').classList.add('icons-in');$('#rail').classList.add('in');});
-  if(!deskStarted){deskStarted=true;startClock();queueToasts();spotStart();
+  if(!deskStarted){deskStarted=true;startClock();queueToasts();startWallRotation();spotStart();
     makeReorderable($('.icon-col'),false);makeReorderable($('.dock'),true);loadTube();startWallRotation();setTimeout(function(){dispatchEvent(new Event('resize'));},400);
     setTimeout(()=>{try{fetch(SHAHGPT_ENDPOINT,{method:'GET',mode:'cors'}).catch(()=>{});}catch(e){}},400);}
 });
