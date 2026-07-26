@@ -3,14 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>SN!_OS — Shahriar Nilkar | Project Driver. Governance Guardian. AI Adopter.</title>
+<title>Shahriar Desktop</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:wght@400;500;600;700&family=Fira+Mono&family=Roboto+Slab:wght@400;700&display=swap" rel="stylesheet">
 <style>
-/* ==========================================================================
-   SN!_OS v5 — Pop!_OS theme. Every hex below comes from the 50-agent sweep
-   of pop-os/gtk-theme, pop-shell, cosmic-dock & the System76 brand manual.
-   ========================================================================== */
 :root{
   --pop-orange:#FF9F0A; --pop-orange-hint:#FFB340; --pop-orange-txt:#FFD60A;
   --pop-teal:#40C4B5; --pop-teal-dark:#66D4CF;
@@ -23,8 +19,8 @@
   --hover:rgba(255,255,255,.10); --active:rgba(255,255,255,.20);
   --danger:#FF453A;
   --ui:'Fira Sans',system-ui,sans-serif; --slab:'Roboto Slab',serif; --mono:'Fira Mono',monospace;
-  --eoq:cubic-bezier(.25,.46,.45,.94); /* GNOME ease-out-quad */
-  --eoc:cubic-bezier(.33,1,.68,1);     /* ease-out-cubic — scene dolly */
+  --eoq:cubic-bezier(.25,.46,.45,.94); 
+  --eoc:cubic-bezier(.33,1,.68,1);     
 }
 *{margin:0;padding:0;box-sizing:border-box}
 html,body{height:100%;overflow:hidden}
@@ -35,12 +31,8 @@ a{color:var(--pop-teal-dark)}
 ::-webkit-scrollbar{width:8px}::-webkit-scrollbar-thumb{background:#5c5c5c;border-radius:4px}
 .scene{position:fixed;inset:0;display:none}
 .scene.active{display:block}
-
-/* ================= WALLPAPER (geometric Pop-style, pure SVG below) ================= */
 .wallwrap{position:absolute;inset:0;overflow:hidden;background:#122A47}
 .wallwrap svg{position:absolute;inset:0;width:100%;height:100%}
-
-/* ================= OS SHELL ================= */
 #login .lockscrim{position:absolute;inset:0;backdrop-filter:blur(22px);background:rgba(16,20,28,.45);
   display:flex;flex-direction:column;align-items:center;justify-content:center}
 .lg-clock{font-weight:300;font-size:64px;color:#fff;letter-spacing:-.01em}
@@ -51,21 +43,17 @@ a{color:var(--pop-teal-dark)}
 @keyframes cardIn{to{opacity:1;transform:none}}
 .lg-badge{width:76px;height:76px;margin:0 auto 12px}
 .lg-name{font-size:17px;font-weight:600;color:var(--fg)}
-.lg-head{font-size:11px;color:var(--text-dim);margin:6px 0 2px}
+.lg-head{font-size:11px;color:var(--text-dim);margin:6px 0 18px}
 .lg-head b{color:var(--pop-orange);font-weight:600}.lg-head u{text-decoration:none;color:var(--pop-teal-dark);font-weight:600}.lg-head i{font-style:normal;color:var(--pop-orange-txt);font-weight:600}
-.lg-loc{font-size:11.5px;color:var(--text-dim);margin-bottom:18px}
 .lg-btn{width:100%;padding:11px;border-radius:8px;background:var(--pop-orange);color:#3A2500;font-weight:600;font-size:13.5px;
   transition:filter .2s,transform .18s var(--eoq)}
 .lg-btn:hover{filter:brightness(1.08)}.lg-btn:active{transform:scale(.985)}
 .lg-hint{margin-top:12px;font-size:11px;color:var(--text-dim)}
 .lg-motto{margin-top:14px;font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:#8f8f8f}
 .lg-motto span{color:var(--pop-teal)}
-
 #desktop .deskclip{position:absolute;inset:0;display:flex;flex-direction:column}
 #desktop.reveal .deskclip{animation:deskIn .45s var(--eoq)}
 @keyframes deskIn{from{opacity:0;transform:scale(1.02)}to{opacity:1;transform:none}}
-
-/* top bar — 32px, #211F1F */
 .panel{position:relative;z-index:8;height:32px;background:var(--panel-bg);color:var(--panel-fg);
   display:flex;align-items:center;font-size:13px;font-weight:500}
 .panel .pbtn{height:100%;padding:0 12px;display:flex;align-items:center;gap:7px;transition:background .25s}
@@ -76,8 +64,6 @@ a{color:var(--pop-teal-dark)}
 .panel .rightg{margin-left:auto}
 .panel .tico{width:15px;height:15px}
 .panel .tile-ind{color:var(--pop-orange-hint)}
-
-/* desk area + icons */
 .desk-area{position:relative;flex:1;display:flex;padding:16px 18px 0;gap:16px;min-height:0}
 .icon-col{display:grid;grid-template-columns:repeat(2,86px);gap:2px 6px;align-content:start;position:relative;z-index:3}
 .dicon{width:86px;padding:9px 2px;border-radius:8px;border:1px solid transparent;text-align:center;font-size:12px;line-height:1.25;
@@ -90,8 +76,6 @@ a{color:var(--pop-teal-dark)}
 .dicon .ic{width:48px;height:48px;filter:drop-shadow(0 2px 3px rgba(0,0,0,.35))}
 .dicon svg{width:48px;height:48px;display:block}
 .dicon .lbl{color:#fff;text-shadow:0 1px 3px rgba(0,0,0,.95)}
-
-/* right rail — Pop cards */
 .rail{margin-left:auto;width:min(350px,32vw);display:flex;flex-direction:column;gap:10px;min-height:0;position:relative;z-index:3;
   opacity:0;transform:translateX(12px)}
 .rail.in{animation:railIn .5s var(--eoq) .2s forwards}
@@ -129,8 +113,6 @@ a{color:var(--pop-teal-dark)}
   transition:border-color .2s,background .2s}
 .news-a:hover{border-color:var(--pop-orange-hint);background:var(--ui-500)}
 .news-a .d{width:6px;height:6px;border-radius:50%;flex:none}
-
-/* dock — full-width flat bar */
 .dock-wrap{position:relative;z-index:8}
 .dock{display:flex;align-items:center;justify-content:center;gap:4px;padding:5px 8px;background:var(--dock-bg);
   border-top:1px solid rgba(0,0,0,.4)}
@@ -144,8 +126,6 @@ a{color:var(--pop-teal-dark)}
 .dk::after{content:"";position:absolute;bottom:2px;left:50%;transform:translateX(-50%) scale(0);width:5px;height:5px;border-radius:50%;
   background:var(--pop-orange);transition:transform .2s var(--eoq)}
 .dk.open::after{transform:translateX(-50%) scale(1)}
-
-/* ================= WINDOWS — Adwaita/Pop headerbar ================= */
 .win{position:absolute;min-width:300px;width:560px;max-width:calc(100vw - 28px);max-height:calc(100vh - 104px);
   display:none;flex-direction:column;background:var(--window-bg);border-radius:8px;
   box-shadow:0 0 0 1px rgba(0,0,0,.55),0 10px 14px rgba(0,0,0,.25),0 40px 70px rgba(0,0,0,.45);
@@ -207,7 +187,6 @@ a{color:var(--pop-teal-dark)}
 .btn.orange:hover{filter:brightness(1.08);background:var(--pop-orange)}
 .btn.teal{background:var(--pop-teal);border-color:transparent;color:#04282d}
 .btn.teal:hover{filter:brightness(1.08);background:var(--pop-teal)}
-/* terminal — Pop default */
 .term{font-family:var(--mono);font-size:12.5px;background:var(--term-bg);color:#fff;border-radius:6px;border:1px solid rgba(0,0,0,.5);
   padding:12px;height:270px;overflow:auto}
 .term .ln{white-space:pre-wrap;word-break:break-word;margin-bottom:2px}
@@ -216,7 +195,6 @@ a{color:var(--pop-teal-dark)}
 .term-in input{flex:1;background:var(--term-bg);border:1px solid var(--line2);border-radius:6px;color:#fff;
   font-family:var(--mono);font-size:12.5px;padding:10px 12px}
 .term-in input:focus{outline:2px solid var(--pop-orange);outline-offset:-1px}
-/* chat */
 .chat{display:flex;flex-direction:column;height:310px;border:1px solid var(--line);border-radius:8px;background:var(--base-bg);overflow:hidden}
 .chat-log{flex:1;overflow:auto;padding:12px;display:flex;flex-direction:column;gap:9px}
 .msg{max-width:86%;padding:9px 12px;border-radius:10px;font-size:12.5px;line-height:1.5;animation:msgIn .25s var(--eoq)}
@@ -236,7 +214,6 @@ a{color:var(--pop-teal-dark)}
   font-size:12.5px;padding:10px 12px;font-family:var(--ui)}
 .chat-in input:focus{outline:2px solid var(--pop-orange);outline-offset:-1px}
 .chat-in button{padding:0 16px;border-radius:7px;background:var(--pop-orange);color:#3A2500;font-weight:600;font-size:12.5px}
-/* game */
 .game-stage{position:relative;height:260px;border:1px solid var(--line);border-radius:8px;background:#232120;overflow:hidden}
 .game-hud{display:flex;justify-content:space-between;font-family:var(--mono);font-size:11px;color:var(--text-dim);margin-bottom:8px}
 .game-hud b{color:var(--pop-orange)}
@@ -252,7 +229,6 @@ a{color:var(--pop-teal-dark)}
 .bins .b1 b{color:var(--pop-teal-dark)} .bins .b2 b{color:var(--pop-orange)} .bins .b3 b{color:#CFC7BD}
 .game-msg{text-align:center;padding:8px 4px 2px;font-size:12px;color:var(--text-dim)}
 .game-msg .good{color:#30D158} .game-msg .bad{color:#FF6961}
-/* collab */
 .collab-note{border:1px solid var(--line);border-left:3px solid var(--pop-teal);border-radius:8px;
   padding:9px 12px;margin-bottom:7px;background:var(--base-bg);font-size:12px;animation:msgIn .3s var(--eoq)}
 .collab-note b{color:var(--pop-teal-dark);font-size:11.5px}
@@ -263,7 +239,6 @@ a{color:var(--pop-teal-dark)}
 .gb-form input:focus{outline:2px solid var(--pop-teal);outline-offset:-1px}
 .gb-form .n{width:100px} .gb-form .m{flex:1}
 .gb-form button{padding:0 15px;border-radius:7px;background:var(--pop-teal);color:#04282d;font-weight:600;font-size:12px}
-/* toasts */
 .toasts{position:fixed;right:14px;top:42px;display:flex;flex-direction:column;gap:8px;z-index:200;pointer-events:none}
 .toast{width:300px;padding:11px 14px 13px;border-radius:10px;border:1px solid var(--line2);
   background:rgba(33,31,31,.97);box-shadow:0 12px 34px rgba(0,0,0,.5);font-size:11.5px;position:relative;overflow:hidden;
@@ -273,7 +248,6 @@ a{color:var(--pop-teal-dark)}
 .toast .tbar{position:absolute;bottom:0;left:0;height:2px;width:100%;background:linear-gradient(90deg,var(--pop-orange),var(--pop-teal));animation:tshrink 6s linear forwards}
 @keyframes toastIn{from{transform:translateY(-14px);opacity:0}to{transform:none;opacity:1}}
 @keyframes tshrink{to{width:0}}
-/* launcher (pop-shell style) */
 .palette{position:fixed;inset:0;z-index:400;display:none;align-items:flex-start;justify-content:center;background:rgba(0,0,0,.35)}
 .palette.open{display:flex}
 .pal-box{margin-top:12vh;width:min(540px,92vw);border-radius:10px;border:1px solid var(--hbar-border);
@@ -321,8 +295,6 @@ a{color:var(--pop-teal-dark)}
 </style>
 </head>
 <body>
-
-<!-- ===== logo: Pop-style flat roundel "sn!" ===== -->
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
   <defs>
     <linearGradient id="tg-about" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#53B3A4"/><stop offset="1" stop-color="#358B7D"/></linearGradient>
@@ -336,7 +308,6 @@ a{color:var(--pop-teal-dark)}
     <linearGradient id="tg-mail" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#5BA0D0"/><stop offset="1" stop-color="#3D7FAC"/></linearGradient>
     <linearGradient id="tg-mania" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#E0645A"/><stop offset="1" stop-color="#BC4038"/></linearGradient>
     <linearGradient id="tg-find" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#989082"/><stop offset="1" stop-color="#7A7264"/></linearGradient>
-
     <symbol id="ic-about" viewBox="0 0 64 64"><rect x="1" y="1" width="62" height="62" rx="14" fill="url(#tg-about)"/><rect x="1.5" y="1.5" width="61" height="61" rx="13.5" fill="none" stroke="rgba(255,255,255,.12)"/><circle cx="32" cy="25" r="9" fill="#F2EFE9" opacity=".92"/><path d="M14 50c2-10 9-15 18-15s16 5 18 15z" fill="#F2EFE9" opacity=".92"/></symbol>
     <symbol id="ic-exp" viewBox="0 0 64 64"><rect x="1" y="1" width="62" height="62" rx="14" fill="url(#tg-exp)"/><rect x="1.5" y="1.5" width="61" height="61" rx="13.5" fill="none" stroke="rgba(255,255,255,.12)"/><rect x="13" y="24" width="38" height="24" rx="4" fill="#F2EFE9" opacity=".92"/><path d="M25 24v-4a3 3 0 0 1 3-3h8a3 3 0 0 1 3 3v4h-4v-3h-6v3z" fill="#F2EFE9" opacity=".92"/><rect x="13" y="33" width="38" height="3" fill="#7A4E30"/></symbol>
     <symbol id="ic-proj" viewBox="0 0 64 64"><rect x="1" y="1" width="62" height="62" rx="14" fill="url(#tg-proj)"/><rect x="1.5" y="1.5" width="61" height="61" rx="13.5" fill="none" stroke="rgba(255,255,255,.12)"/><path d="M13 21a4 4 0 0 1 4-4h10l4 5h16a4 4 0 0 1 4 4v18a4 4 0 0 1-4 4H17a4 4 0 0 1-4-4z" fill="#F2EFE9" opacity=".92"/><path d="M13 28h38v14a4 4 0 0 1-4 4H17a4 4 0 0 1-4-4z" fill="#A97934" opacity=".55"/></symbol>
@@ -350,7 +321,6 @@ a{color:var(--pop-teal-dark)}
     <symbol id="ic-find" viewBox="0 0 64 64"><rect x="1" y="1" width="62" height="62" rx="14" fill="url(#tg-find)"/><rect x="1.5" y="1.5" width="61" height="61" rx="13.5" fill="none" stroke="rgba(255,255,255,.12)"/><circle cx="29" cy="29" r="11" fill="none" stroke="#F2EFE9" stroke-width="4.5" opacity=".92"/><rect x="37.5" y="35.5" width="14" height="5" rx="2.5" transform="rotate(45 37.5 35.5)" fill="#F2EFE9" opacity=".92"/></symbol>
   </defs>
 </svg>
-
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
   <defs>
     <g id="snlogo">
@@ -362,8 +332,6 @@ a{color:var(--pop-teal-dark)}
     </g>
   </defs>
 </svg>
-
-<!-- ================= LOGIN ================= -->
 <section id="login" class="scene active" aria-label="Lock screen">
   <div class="wallwrap" id="wallLogin"></div>
   <div class="lockscrim">
@@ -373,15 +341,12 @@ a{color:var(--pop-teal-dark)}
       <svg class="lg-badge" viewBox="0 0 120 120" role="img" aria-label="sn! logo"><use href="#snlogo"/></svg>
       <div class="lg-name">Shahriar Nilkar</div>
       <div class="lg-head"><b>Project Driver</b> · <u>Governance Guardian</u> · <i>AI Adopter</i></div>
-      <div class="lg-loc">Senior Digital Communications Specialist @ PCL Construction · Edmonton</div>
-      <button class="lg-btn" id="btnSignin">Unlock</button>
-      <div class="lg-hint">Hint: the password is just click Unlock</div>
+      <button class="lg-btn" id="btnSignin">Log in</button>
+      <div class="lg-hint">No password. Just log in.</div>
       <div class="lg-motto">Time is Gold · Tool Up · <span>We Before Me</span></div>
     </div>
   </div>
 </section>
-
-<!-- ================= DESKTOP ================= -->
 <section id="desktop" class="scene" aria-label="Desktop">
   <div class="wallwrap" id="wallDesk"></div>
   <div class="deskclip">
@@ -396,7 +361,6 @@ a{color:var(--pop-teal-dark)}
         <button class="pbtn" id="btnLock2" title="Lock the session"><svg class="tico" viewBox="0 0 16 16" fill="currentColor"><rect x="3" y="7" width="10" height="7" rx="1.5"/><path d="M5.5 7V5.5a2.5 2.5 0 0 1 5 0V7" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></button>
       </div>
     </div>
-
     <div class="desk-area" id="deskArea">
       <div class="icon-col" role="menu" aria-label="Desktop icons">
         <button class="dicon" style="--i:0" data-win="w-about"><span class="ic"><svg viewBox="0 0 64 64"><use href="#ic-about"/></svg></span><span class="lbl">About Me</span></button>
@@ -410,7 +374,6 @@ a{color:var(--pop-teal-dark)}
         <button class="dicon" style="--i:8" data-win="w-mania"><span class="ic"><svg viewBox="0 0 64 64"><use href="#ic-mania"/></svg></span><span class="lbl">AI Mania</span></button>
         <button class="dicon" style="--i:9" data-win="w-contact"><span class="ic"><svg viewBox="0 0 64 64"><use href="#ic-mail"/></svg></span><span class="lbl">Contact</span></button>
       </div>
-
       <div class="rail" id="rail">
         <div class="card">
           <h3>Highlights</h3>
@@ -427,8 +390,7 @@ a{color:var(--pop-teal-dark)}
           <div class="yt-list mini" id="railList"><div style="padding:8px 10px;color:var(--text-dim);font-size:11.5px">Loading…</div></div>
         </div>
       </div>
-
-      <!-- ===== windows ===== -->
+      
       <div class="win" id="w-about" style="left:190px;top:14px">
         <div class="win-head"><span class="spacer"></span><span class="win-title">About — shahriar.sys</span>
           <div class="wc"><button class="mn" aria-label="Minimize"><svg viewBox="0 0 14 14" fill="none" stroke-width="1.5"><path d="M3 10h8"/></svg></button><button class="mx" aria-label="Maximize"><svg viewBox="0 0 14 14" fill="none" stroke-width="1.5"><rect x="3.5" y="3.5" width="7" height="7" rx="1"/></svg></button><button class="cl" aria-label="Close"><svg viewBox="0 0 14 14" fill="none" stroke-width="1.5"><path d="M4 4l6 6M10 4l-6 6"/></svg></button></div></div>
@@ -452,7 +414,6 @@ a{color:var(--pop-teal-dark)}
           <span class="chip">Project Planning</span><span class="chip">Risk Management</span><span class="chip">Stakeholder Engagement</span><span class="chip">Schedule Management</span><span class="chip">Budget & Cost Control</span><span class="chip">Scope Management</span><span class="chip">Quality Management</span><span class="chip">Change Management</span><span class="chip">Agile · Scrum (ESMC)</span>
         </div>
       </div>
-
       <div class="win" id="w-exp" style="left:220px;top:8px;width:630px">
         <div class="win-head"><span class="spacer"></span><span class="win-title">Experience</span>
           <div class="wc"><button class="mn" aria-label="Minimize"><svg viewBox="0 0 14 14" fill="none" stroke-width="1.5"><path d="M3 10h8"/></svg></button><button class="mx" aria-label="Maximize"><svg viewBox="0 0 14 14" fill="none" stroke-width="1.5"><rect x="3.5" y="3.5" width="7" height="7" rx="1"/></svg></button><button class="cl" aria-label="Close"><svg viewBox="0 0 14 14" fill="none" stroke-width="1.5"><path d="M4 4l6 6M10 4l-6 6"/></svg></button></div></div>
@@ -471,7 +432,6 @@ a{color:var(--pop-teal-dark)}
             <ul><li>Foundation years: digital workplace, knowledge management, IT support</li></ul></div>
         </div>
       </div>
-
       <div class="win" id="w-proj" style="left:250px;top:20px;width:590px">
         <div class="win-head"><span class="spacer"></span><span class="win-title">Projects — case files</span>
           <div class="wc"><button class="mn" aria-label="Minimize"><svg viewBox="0 0 14 14" fill="none" stroke-width="1.5"><path d="M3 10h8"/></svg></button><button class="mx" aria-label="Maximize"><svg viewBox="0 0 14 14" fill="none" stroke-width="1.5"><rect x="3.5" y="3.5" width="7" height="7" rx="1"/></svg></button><button class="cl" aria-label="Close"><svg viewBox="0 0 14 14" fill="none" stroke-width="1.5"><path d="M4 4l6 6M10 4l-6 6"/></svg></button></div></div>
@@ -489,7 +449,6 @@ a{color:var(--pop-teal-dark)}
           <div class="proj"><b>Prosharif.com — Founder</b><span>E-commerce marketplace for authentic Iranian goods; CRM-driven ops · </span><span class="res">+28% repeat sales</span></div>
         </div>
       </div>
-
       <div class="win" id="w-resume" style="left:290px;top:48px;width:420px">
         <div class="win-head"><span class="spacer"></span><span class="win-title">Resume</span>
           <div class="wc"><button class="mn" aria-label="Minimize"><svg viewBox="0 0 14 14" fill="none" stroke-width="1.5"><path d="M3 10h8"/></svg></button><button class="mx" aria-label="Maximize"><svg viewBox="0 0 14 14" fill="none" stroke-width="1.5"><rect x="3.5" y="3.5" width="7" height="7" rx="1"/></svg></button><button class="cl" aria-label="Close"><svg viewBox="0 0 14 14" fill="none" stroke-width="1.5"><path d="M4 4l6 6M10 4l-6 6"/></svg></button></div></div>
@@ -502,7 +461,6 @@ a{color:var(--pop-teal-dark)}
           <p class="dim" style="margin-top:12px;font-size:11px">linkedin.com/in/shahriar-nilkar</p>
         </div>
       </div>
-
       <div class="win" id="w-ai" style="left:320px;top:12px;width:510px">
         <div class="win-head"><span class="spacer"></span><span class="win-title">ShahGPT — career copilot</span>
           <div class="wc"><button class="mn" aria-label="Minimize"><svg viewBox="0 0 14 14" fill="none" stroke-width="1.5"><path d="M3 10h8"/></svg></button><button class="mx" aria-label="Maximize"><svg viewBox="0 0 14 14" fill="none" stroke-width="1.5"><rect x="3.5" y="3.5" width="7" height="7" rx="1"/></svg></button><button class="cl" aria-label="Close"><svg viewBox="0 0 14 14" fill="none" stroke-width="1.5"><path d="M4 4l6 6M10 4l-6 6"/></svg></button></div></div>
@@ -523,7 +481,6 @@ a{color:var(--pop-teal-dark)}
           <p class="dim" style="margin-top:8px;font-size:10.5px;display:flex;justify-content:space-between"><span>Generated from Shahriar&rsquo;s live profile.</span><span id="gptStatus">instant answers · private by design</span></p>
         </div>
       </div>
-
       <div class="win" id="w-term" style="left:350px;top:34px;width:550px">
         <div class="win-head"><span class="spacer"></span><span class="win-title">nilkar@pop-os: ~</span>
           <div class="wc"><button class="mn" aria-label="Minimize"><svg viewBox="0 0 14 14" fill="none" stroke-width="1.5"><path d="M3 10h8"/></svg></button><button class="mx" aria-label="Maximize"><svg viewBox="0 0 14 14" fill="none" stroke-width="1.5"><rect x="3.5" y="3.5" width="7" height="7" rx="1"/></svg></button><button class="cl" aria-label="Close"><svg viewBox="0 0 14 14" fill="none" stroke-width="1.5"><path d="M4 4l6 6M10 4l-6 6"/></svg></button></div></div>
@@ -532,7 +489,6 @@ a{color:var(--pop-teal-dark)}
           <div class="term-in"><input id="termInput" type="text" placeholder="type 'help' and press Enter" aria-label="Terminal input" autocomplete="off"></div>
         </div>
       </div>
-
       <div class="win" id="w-game" style="left:380px;top:6px;width:470px">
         <div class="win-head"><span class="spacer"></span><span class="win-title">Governance Guardian</span>
           <div class="wc"><button class="mn" aria-label="Minimize"><svg viewBox="0 0 14 14" fill="none" stroke-width="1.5"><path d="M3 10h8"/></svg></button><button class="mx" aria-label="Maximize"><svg viewBox="0 0 14 14" fill="none" stroke-width="1.5"><rect x="3.5" y="3.5" width="7" height="7" rx="1"/></svg></button><button class="cl" aria-label="Close"><svg viewBox="0 0 14 14" fill="none" stroke-width="1.5"><path d="M4 4l6 6M10 4l-6 6"/></svg></button></div></div>
@@ -547,7 +503,6 @@ a{color:var(--pop-teal-dark)}
           <div class="game-msg" id="gMsg">Files are falling into chaos. Route each to the right folder before the ROT pile wins. <button class="btn orange" id="gStart" style="padding:7px 14px;margin-left:6px">▶ Start</button></div>
         </div>
       </div>
-
       <div class="win" id="w-collab" style="left:410px;top:26px;width:490px">
         <div class="win-head"><span class="spacer"></span><span class="win-title">We Before Me — collaboration hub</span>
           <div class="wc"><button class="mn" aria-label="Minimize"><svg viewBox="0 0 14 14" fill="none" stroke-width="1.5"><path d="M3 10h8"/></svg></button><button class="mx" aria-label="Maximize"><svg viewBox="0 0 14 14" fill="none" stroke-width="1.5"><rect x="3.5" y="3.5" width="7" height="7" rx="1"/></svg></button><button class="cl" aria-label="Close"><svg viewBox="0 0 14 14" fill="none" stroke-width="1.5"><path d="M4 4l6 6M10 4l-6 6"/></svg></button></div></div>
@@ -566,7 +521,6 @@ a{color:var(--pop-teal-dark)}
           <p class="dim" style="font-size:10.5px;margin-top:7px">Opens your email app with the note pre-filled — it lands straight in Shahriar&rsquo;s inbox.</p>
         </div>
       </div>
-
       <div class="win" id="w-mania" style="left:250px;top:16px;width:540px">
         <div class="win-head"><span class="spacer"></span><span class="win-title">AI Mania — latest AI videos</span>
           <div class="wc"><button class="mn" aria-label="Minimize"><svg viewBox="0 0 14 14" fill="none" stroke-width="1.5"><path d="M3 10h8"/></svg></button><button class="mx" aria-label="Maximize"><svg viewBox="0 0 14 14" fill="none" stroke-width="1.5"><rect x="3.5" y="3.5" width="7" height="7" rx="1"/></svg></button><button class="cl" aria-label="Close"><svg viewBox="0 0 14 14" fill="none" stroke-width="1.5"><path d="M4 4l6 6M10 4l-6 6"/></svg></button></div></div>
@@ -582,7 +536,6 @@ a{color:var(--pop-teal-dark)}
           </div>
         </div>
       </div>
-
       <div class="win" id="w-contact" style="left:450px;top:58px;width:420px">
         <div class="win-head"><span class="spacer"></span><span class="win-title">Contact</span>
           <div class="wc"><button class="mn" aria-label="Minimize"><svg viewBox="0 0 14 14" fill="none" stroke-width="1.5"><path d="M3 10h8"/></svg></button><button class="mx" aria-label="Maximize"><svg viewBox="0 0 14 14" fill="none" stroke-width="1.5"><rect x="3.5" y="3.5" width="7" height="7" rx="1"/></svg></button><button class="cl" aria-label="Close"><svg viewBox="0 0 14 14" fill="none" stroke-width="1.5"><path d="M4 4l6 6M10 4l-6 6"/></svg></button></div></div>
@@ -597,7 +550,6 @@ a{color:var(--pop-teal-dark)}
         </div>
       </div>
     </div>
-
     <div class="dock-wrap">
       <div class="dock" role="toolbar" aria-label="Dock">
         <button class="dk" data-win="w-about"><svg viewBox="0 0 64 64"><use href="#ic-about"/></svg><span class="tip">About Me</span></button>
@@ -615,7 +567,6 @@ a{color:var(--pop-teal-dark)}
     </div>
   </div>
 </section>
-
 <div class="palette" id="palette" role="dialog" aria-label="Launcher">
   <div class="pal-box">
     <input id="palInput" type="text" placeholder="Type to search apps and actions…" aria-label="Launcher search">
@@ -623,15 +574,10 @@ a{color:var(--pop-teal-dark)}
     <div class="pal-hint"><span>↑↓ navigate</span><span>↵ open</span><span>esc close</span></div>
   </div>
 </div>
-
 <div class="toasts" id="toasts" aria-live="polite"></div>
-
 <script>
-/* ============================ SN!_OS v5 (Pop!_OS shell) ============================ */
 const $=s=>document.querySelector(s), $$=s=>[...document.querySelectorAll(s)];
 const reduced=matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-/* ---------- geometric Pop-style wallpaper (generated SVG) ---------- */
 let wallN=0;
 function makeWall(el){
   const uid='sky'+(++wallN);
@@ -658,8 +604,6 @@ function makeWall(el){
   </svg>`;
 }
 makeWall($('#wallLogin'));makeWall($('#wallDesk'));
-
-/* ---------- login ---------- */
 function lgClock(){
   const n=new Date();
   $('#lgClock').textContent=n.toLocaleTimeString([],{hour:'2-digit',minute:'2-digit'});
@@ -674,8 +618,6 @@ $('#btnSignin').addEventListener('click',()=>{
   if(!deskStarted){deskStarted=true;startClock();queueToasts();spotStart();
     makeReorderable($('.icon-col'),false);makeReorderable($('.dock'),true);loadTube();}
 });
-
-/* ---------- windows ---------- */
 let zTop=20;const openSet=new Set();let tiling=false;
 function focusWin(w){w.style.zIndex=++zTop;$$('.win').forEach(x=>x.classList.toggle('focused',x===w));}
 function openWin(id){
@@ -688,12 +630,11 @@ function openWin(id){
 }
 function closeWin(id){
   const w=document.getElementById(id);
-  if(id==='w-game'&&g.on){g.on=false;clearInterval(g.timer);} /* QA: stop game loop on close */
+  if(id==='w-game'&&g.on){g.on=false;clearInterval(g.timer);}
   const done=()=>{w.classList.remove('open','closing');openSet.delete(id);syncDock();if(tiling)retile();};
   if(reduced){done();return;}
   w.classList.add('closing');setTimeout(done,190);
 }
-/* dock behaves like a real OS: click toggles minimize/restore/focus */
 function dockAction(id){
   const w=document.getElementById(id);
   if(!openSet.has(id)){openWin(id);return;}
@@ -708,7 +649,7 @@ $$('[data-win]').forEach(b=>b.addEventListener('click',()=>{
 $$('.win').forEach(w=>{
   w.addEventListener('mousedown',()=>focusWin(w));
   w.querySelector('.wc .cl').addEventListener('click',()=>closeWin(w.id));
-  w.querySelector('.wc .mn').addEventListener('click',()=>{w.classList.remove('open');syncDock();if(tiling)retile();}); /* minimize keeps app running (dock dot stays) */
+  w.querySelector('.wc .mn').addEventListener('click',()=>{w.classList.remove('open');syncDock();if(tiling)retile();});
   w.querySelector('.wc .mx').addEventListener('click',()=>{
     if(tiling)return;
     if(w.dataset.max){w.style.left=w.dataset.ox;w.style.top=w.dataset.oy;w.style.width=w.dataset.ow;w.style.height='';delete w.dataset.max;}
@@ -729,7 +670,6 @@ $$('.win').forEach(w=>{
 function syncDock(){
   $$('.dk[data-win]').forEach(k=>k.classList.toggle('open',openSet.has(k.dataset.win)));
 }
-/* ---------- user-reorderable apps (desktop grid + dock) ---------- */
 let dragEl=null;
 function makeReorderable(container,horizontal){
   [...container.children].forEach(b=>{
@@ -746,8 +686,6 @@ function makeReorderable(container,horizontal){
     });
   });
 }
-
-/* ---------- pop-shell auto-tiling (FLIP, 8px gaps, orange active hint) ---------- */
 function tileRects(n,area){
   const g=8,r=[];
   const W=area.width,H=area.height,X=area.left,Y=area.top;
@@ -784,8 +722,6 @@ $('#btnTile').addEventListener('click',()=>{
 });
 $('#btnOverview').addEventListener('click',()=>{if(!tiling)$('#btnTile').click();else retile();});
 addEventListener('resize',()=>{if(tiling)retile();});
-
-/* ---------- panel clock ---------- */
 function startClock(){
   const f=()=>{const n=new Date();
     $('#clkTime').textContent=n.toLocaleTimeString([],{hour:'2-digit',minute:'2-digit'});
@@ -798,8 +734,6 @@ $('#btnLock2').addEventListener('click',()=>{
   $('#deskArea').classList.remove('icons-in');
   $('#login').classList.add('active');lgClock();
 });
-
-/* ---------- spotlight ---------- */
 let spotIdx=0,spotTimer=null;
 function spotShow(i){
   $$('.spot-item').forEach((el,ix)=>el.classList.toggle('on',ix===i));
@@ -812,8 +746,6 @@ function spotStart(){
   $$('#spotDots i').forEach((d,ix)=>d.addEventListener('click',()=>{clearInterval(spotTimer);spotShow(ix);
     spotTimer=setInterval(()=>spotShow((spotIdx+1)%4),5000);}));
 }
-
-/* ---------- toasts ---------- */
 const toastData=[
  ["INSIGHT","Change orders cut 25% at MEWE via project-controls backbone.",""],
  ["SHIPPED","Content retrieval down ~50% after SharePoint hub rollout.","t"],
@@ -823,7 +755,6 @@ const toastData=[
 let toastIdx=0,toastsShown=0;
 function queueToasts(){
   setInterval(()=>{
-    /* QA: never notify over an open app, off-desktop, or more than 3x per visit */
     if(!$('#desktop').classList.contains('active'))return;
     if(openSet.size>0||toastsShown>=3)return;
     toastsShown++;
@@ -833,8 +764,6 @@ function queueToasts(){
     $('#toasts').appendChild(d);setTimeout(()=>d.remove(),6100);
   },25000);
 }
-
-/* ---------- Shah.AI ---------- */
 const kb=[
  [/^(hi|hello|hey|salam|yo|good (morning|afternoon|evening))\b/i,"Hi! I'm ShahGPT. Quick orientation: Shahriar runs projects and the analytics around them — currently making PCL Construction's enterprise content AI-ready. Ask me about his PM record, dashboards, information architecture, education, or the startup he founded."],
  [/where|located|edmonton|canada|relocat/i,"He's in <b>Edmonton, Alberta</b>, at PCL Construction's headquarters. Before Canada: Tehran (engineering firms) and Ottawa (uOttawa, where he did his master's at Telfer)."],
@@ -853,18 +782,6 @@ const kb=[
  [/\bai\b|artificial|genai|copilot|llm/i,"He's an <b>AI Adopter</b> by headline and by practice: preparing PCL's organizational content for AI-enabled search and generative AI, and partnering across teams on AI adoption programs. Master's research: end-user development tools for business users."]
 ];
 function aiSay(html){const d=document.createElement('div');d.className='msg ai';d.innerHTML=html;$('#chatLog').appendChild(d);$('#chatLog').scrollTop=1e6;}
-/* ---------- ShahGPT ----------
-   Seamless for visitors. Priority:
-   1) SHAHGPT_ENDPOINT — set this to your own tiny proxy (Vercel/Cloudflare) that holds the
-      OpenAI key server-side and forwards {q}. That is the only safe + ToS-compliant way to
-      ship a key: never place an OpenAI secret key in client code.
-      Example Vercel api/shahgpt.js:
-        export default async (req,res)=>{ const r=await fetch('https://api.openai.com/v1/chat/completions',
-          {method:'POST',headers:{'Content-Type':'application/json','Authorization':'Bearer '+process.env.OPENAI_KEY},
-           body:JSON.stringify({model:'gpt-4o-mini',max_tokens:200,messages:[{role:'system',content:process.env.SYS},{role:'user',content:req.body.q}]})});
-          const j=await r.json(); res.json({text:j.choices?.[0]?.message?.content||''}); }
-   2) hidden owner hookup: type  connect-gpt <key>  in the Terminal app (this tab only).
-   3) built-in knowledge base — always on, so the copilot never feels dead. */
 const SHAHGPT_ENDPOINT="https://shahgpt.shahriar-nilkar2.workers.dev/";
 let gptKey=null;
 const GPT_SYS="You are ShahGPT, the portfolio copilot of Shahriar Nilkar. Answer briefly (max 90 words), factually, in third person, only from this profile: Senior Digital Communications Specialist at PCL Construction, Edmonton (2025-now): content governance & information architecture for AI-enabled search and generative AI, BI reporting, change management. Before: Senior Technology Project & BD Lead, Middle East Water & Environment (2023-25, cut change orders 25%, SharePoint+Dynamics 365 common data environment); Senior IT & BI Lead, Payvareh (2020-23, SharePoint hub cut retrieval ~50%, trained 40+ engineers, Power BI/Excel automation); IT Business Analyst, uOttawa CIO office (2019-20, cut license overlap 35% across 100+ apps); Founder of Prosharif.com e-commerce startup (2015-18). Education: MSc Digital Transformation & Innovation (Telfer, uOttawa); B.Eng IT (Sharif University). Programming: Python, SQL, React, Node.js, Java, C++, data analytics. PMP-aligned PM skills: planning, risk, stakeholder engagement, scheduling, cost control, scope, quality. Principles: Time is Gold, Tool Up, We Before Me. Contact: linkedin.com/in/shahriar-nilkar. If asked something outside this profile, say so and point to LinkedIn.";
@@ -884,7 +801,6 @@ function localAnswer(q){
   return hit?hit[1]:"Here's the short version while I look that up: <b>Shahriar Nilkar</b> — project management + analytics, 10+ years. Now at PCL Construction making enterprise content AI-ready; before that he cut change orders 25% at MEWE and rebuilt a firm-wide information architecture (retrieval −50%). Want depth on any of that — projects, skills, education, or hiring? Just ask, or reach him on <a href='https://www.linkedin.com/in/shahriar-nilkar' target='_blank' rel='noopener'>LinkedIn</a>.";
 }
 async function askFreeAI(q){
-  /* Pollinations.ai — free, keyless, CORS-open, OpenAI-compatible. Nothing secret in this file. */
   const r=await fetch('https://text.pollinations.ai/openai',{method:'POST',headers:{'Content-Type':'application/json'},
     body:JSON.stringify({model:'openai',max_tokens:200,messages:[{role:'system',content:GPT_SYS},{role:'user',content:q}]})});
   if(!r.ok)throw 0;
@@ -912,8 +828,6 @@ function aiAsk(q){
 $('#chatSend').addEventListener('click',()=>{aiAsk($('#chatInput').value);$('#chatInput').value='';});
 $('#chatInput').addEventListener('keydown',e=>{if(e.key==='Enter'){aiAsk(e.target.value);e.target.value='';}});
 $$('.chat-sug button').forEach(b=>b.addEventListener('click',()=>aiAsk(b.dataset.q)));
-
-/* ---------- terminal ---------- */
 const cmds={
  help:"commands: <span class='c'>whoami</span> <span class='c'>pillars</span> <span class='c'>principles</span> <span class='c'>skills</span> <span class='c'>experience</span> <span class='c'>education</span> <span class='c'>hire-me</span> <span class='c'>clear</span>",
  whoami:"shahriar.nilkar — Senior Digital Communications Specialist @ PCL Construction, Edmonton.\nProject Driver. Governance Guardian. AI Adopter.",
@@ -940,8 +854,6 @@ $('#termInput').addEventListener('keydown',e=>{
   termPrint(cmds[c]?cmds[c].replace(/\n/g,'<br>'):`command not found: ${raw} — try <span class='c'>help</span>`,raw);
   if(c==='hire-me')setTimeout(()=>open('https://www.linkedin.com/in/shahriar-nilkar','_blank'),700);
 });
-
-/* ---------- game ---------- */
 const docTypes=[
  {t:"risk_register.xlsx",b:"project"},{t:"tender_package.zip",b:"project"},{t:"project_charter.docx",b:"project"},{t:"RACI_matrix.xlsx",b:"project"},
  {t:"metadata_schema.json",b:"governance"},{t:"permission_model.cfg",b:"governance"},{t:"retention_policy.pdf",b:"governance"},{t:"content_types.xml",b:"governance"},
@@ -994,8 +906,6 @@ $$('.bins button').forEach(b=>b.addEventListener('click',()=>{
   }
   gSpawn();
 }));
-
-/* ---------- guestbook ---------- */
 function gbRender(n,m,w){
   const d=document.createElement('div');d.className='collab-note';
   d.innerHTML=`<b></b><span class="wh">${w}</span><br><span class="gbm"></span>`;
@@ -1008,9 +918,6 @@ $('#gbSend').addEventListener('click',()=>{
   location.href='mailto:shahnilkar@gmail.com?subject='+encodeURIComponent('Note from '+n+' via sn!_os')+'&body='+encodeURIComponent(m);
 });
 $('#gbMsg').addEventListener('keydown',e=>{if(e.key==='Enter')$('#gbSend').click();});
-
-
-/* ---------- AI on YouTube: newest upload per channel (RSS via CORS mirror; channel pages as fallback) ---------- */
 const YT_CHANNELS=[
  {name:"Two Minute Papers",id:"UCbfYPyITQ-7l4upoX8nvctg"},
  {name:"Matt Wolfe",id:"UChpleBmo18P08aKCIgti38g"},
@@ -1060,7 +967,7 @@ function renderTube(){
   });
 }
 async function loadTube(){
-  renderTube(); /* instant placeholders; live data swaps in when the feed answers */
+  renderTube();
   $('#pulseSrc').textContent='updating…';
   const results=await Promise.allSettled(YT_CHANNELS.map(async c=>{
     const feed='https://www.youtube.com/feeds/videos.xml?channel_id='+c.id;
@@ -1091,8 +998,6 @@ document.addEventListener('click',e=>{
   if(e.target.id==='maniaMax')maniaMaximize();
 });
 setInterval(()=>{if($('#desktop').classList.contains('active'))loadTube();},900000);
-
-/* ---------- launcher ---------- */
 const palData=[
  {t:"Open: About Me",act:()=>openWin('w-about'),k:"app"},
  {t:"Open: Experience",act:()=>openWin('w-exp'),k:"app"},
