@@ -1106,7 +1106,7 @@ function openWin(id){
 }
 function closeWin(id){
   const w=document.getElementById(id);
-  if(id==='w-game'&&sc&&!sc.over){sc.over=true;cancelAnimationFrame(scRaf);}
+  if(id==='w-game'&&sc&&!sc.over){sc.over=true;clearInterval(scRaf);}
   if(id==='w-proj')tx3Stop();
   const done=()=>{w.classList.remove('open','closing');openSet.delete(id);syncDock();if(tiling)retile();};
   if(reduced){done();return;}
@@ -1535,14 +1535,14 @@ function scStart(){
   sc.inbox.push(scMake());
   scRender();scHint("Slot 1 selected. Approve, defer or reject it.");
   sc.last=performance.now();
-  cancelAnimationFrame(scRaf);scRaf=requestAnimationFrame(scLoop);
+  clearInterval(scRaf);scRaf=setInterval(scFrame,100);
 }
-function scLoop(now){
+function scFrame(){
   if(!sc||sc.over)return;
+  const now=performance.now();
   let dt=Math.min(250,now-sc.last);sc.last=now;sc.acc+=dt;
   while(sc.acc>=100){sc.acc-=100;scStep();if(sc.over)break;}
   scRender();
-  if(!sc.over)scRaf=requestAnimationFrame(scLoop);
 }
 function scStep(){
   const prevDay=sc.day;
@@ -1660,7 +1660,7 @@ function scRender(){
 }
 function scOver(won,how){
   if(sc.over)return;
-  sc.over=true;cancelAnimationFrame(scRaf);
+  sc.over=true;clearInterval(scRaf);
   const fl=Math.max(0,120-sc.due);
   const raw=5*Math.max(0,sc.budget)+8*Math.max(0,sc.gw)+20*fl;
   const score=won?Math.round(raw*(1+sc.approved/40)):0;
@@ -1695,7 +1695,7 @@ function scOver(won,how){
   scEl('scAsk').addEventListener('click',function(){openWin('w-ai');setTimeout(function(){aiAsk('How does Shahriar control change on a program?');},260);});
 }
 function gReset(){
-  if(sc){sc.over=true;cancelAnimationFrame(scRaf);}
+  if(sc){sc.over=true;clearInterval(scRaf);}
   sc=null;
   scEl('scPlay').hidden=true;scEl('scOver').hidden=true;scEl('scIntro').hidden=false;
   let best=0;try{best=+(localStorage.getItem('sc-best')||0);}catch(e){}
