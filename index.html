@@ -5,6 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Shahriar Desktop</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://shahgpt.shahriar-nilkar2.workers.dev" crossorigin>
+<link rel="dns-prefetch" href="https://shahgpt.shahriar-nilkar2.workers.dev">
 <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:wght@400;500;600;700&family=Fira+Mono&family=Roboto+Slab:wght@400;700&display=swap" rel="stylesheet">
 <style>
 :root{
@@ -616,13 +618,15 @@ $('#btnSignin').addEventListener('click',()=>{
   const d=$('#desktop');d.classList.add('active','reveal');
   requestAnimationFrame(()=>{$('#deskArea').classList.add('icons-in');$('#rail').classList.add('in');});
   if(!deskStarted){deskStarted=true;startClock();queueToasts();spotStart();
-    makeReorderable($('.icon-col'),false);makeReorderable($('.dock'),true);loadTube();}
+    makeReorderable($('.icon-col'),false);makeReorderable($('.dock'),true);loadTube();
+    setTimeout(()=>{try{fetch(SHAHGPT_ENDPOINT,{method:'GET',mode:'cors'}).catch(()=>{});}catch(e){}},400);}
 });
 let zTop=20;const openSet=new Set();let tiling=false;
 function focusWin(w){w.style.zIndex=++zTop;$$('.win').forEach(x=>x.classList.toggle('focused',x===w));}
 function openWin(id){
   const w=document.getElementById(id);if(!w)return;
   w.classList.remove('closing');w.classList.add('open');focusWin(w);openSet.add(id);syncDock();
+  if(id==='w-ai')warmGPT();
   if(id==='w-ai'&&!w.dataset.greeted){w.dataset.greeted=1;aiSay("Hi — I'm <b>ShahGPT</b>, trained on Shahriar's resume, LinkedIn and personal site. Ask about his project management record, information architecture work, analytics, or why you should hire him.");}
   if(id==='w-mania')loadTube();
   if(id==='w-term'&&!w.dataset.init){w.dataset.init=1;termPrint("SN!_OS terminal — type <span class='c'>help</span> for commands.");}
@@ -809,21 +813,80 @@ async function askFreeAI(q){
   if(!t)throw 0;
   return t;
 }
-async function askEndpoint(q){
-  const r=await fetch(SHAHGPT_ENDPOINT,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({q})});
+const gptCache=new Map();
+const gptInFlight=new Map();
+const ckey=q=>q.trim().toLowerCase().replace(/\s+/g,' ');
+async function askEndpoint(q,onChunk){
+  const r=await fetch(SHAHGPT_ENDPOINT,{method:'POST',headers:{'Content-Type':'application/json'},
+    body:JSON.stringify({q,stream:true})});
   if(!r.ok)throw 0;
-  return (await r.json()).text||'';
+  const ct=r.headers.get('content-type')||'';
+  if(r.body&&ct.indexOf('event-stream')>-1){
+    const rd=r.body.getReader(),dec=new TextDecoder();
+    let buf='',out='';
+    for(;;){
+      const {value,done}=await rd.read();
+      if(done)break;
+      buf+=dec.decode(value,{stream:true});
+      const lines=buf.split('\n');buf=lines.pop();
+      for(const ln of lines){
+        if(ln.slice(0,5)!=='data:')continue;
+        const d=ln.slice(5).trim();
+        if(!d||d==='[DONE]')continue;
+        try{
+          const j=JSON.parse(d),t=j.response||j.text||'';
+          if(t){out+=t;if(onChunk)onChunk(out);}
+        }catch(e){}
+      }
+    }
+    if(!out)throw 0;
+    return out;
+  }
+  const t=(await r.json()).text||'';
+  if(!t)throw 0;
+  if(onChunk)onChunk(t);
+  return t;
+}
+function gptFetch(q,onChunk){
+  const k=ckey(q);
+  if(gptCache.has(k))return Promise.resolve(gptCache.get(k));
+  if(gptInFlight.has(k))return gptInFlight.get(k);
+  const p=askEndpoint(q,onChunk).then(t=>{gptCache.set(k,t);gptInFlight.delete(k);return t;})
+    .catch(e=>{gptInFlight.delete(k);throw e;});
+  gptInFlight.set(k,p);
+  return p;
+}
+let gptWarmed=false;
+function warmGPT(){
+  if(gptWarmed||!SHAHGPT_ENDPOINT)return;
+  gptWarmed=true;
+  fetch(SHAHGPT_ENDPOINT,{method:'GET',mode:'cors'}).catch(()=>{});
+  const qs=$$('.chat-sug button').map(b=>b.dataset.q).filter(Boolean);
+  qs.reduce((chain,q)=>chain.then(()=>gptFetch(q).catch(()=>{})),Promise.resolve());
 }
 function aiAsk(q){
-  if(!q.trim())return;
-  const m=document.createElement('div');m.className='msg me';m.textContent=q;$('#chatLog').appendChild(m);
+  q=(q||'').trim();
+  if(!q)return;
+  const log=$('#chatLog');
+  const m=document.createElement('div');m.className='msg me';m.textContent=q;log.appendChild(m);
+  const hit=gptCache.get(ckey(q));
+  if(hit){
+    const d=document.createElement('div');d.className='msg ai';d.textContent=hit;
+    log.appendChild(d);log.scrollTop=1e6;return;
+  }
   const ty=document.createElement('div');ty.className='msg ai typing';ty.innerHTML='<i></i><i></i><i></i>';
-  $('#chatLog').appendChild(ty);$('#chatLog').scrollTop=1e6;
-  const say=t=>{ty.remove();const d=document.createElement('div');d.className='msg ai';d.textContent=t;$('#chatLog').appendChild(d);$('#chatLog').scrollTop=1e6;};
-  const fallback=()=>{ty.remove();aiSay(localAnswer(q));};
-  if(SHAHGPT_ENDPOINT)askEndpoint(q).then(say).catch(()=>askFreeAI(q).then(say).catch(fallback));
-  else if(gptKey)askGPT(q).then(say).catch(()=>askFreeAI(q).then(say).catch(fallback));
-  else askFreeAI(q).then(say).catch(fallback);
+  log.appendChild(ty);log.scrollTop=1e6;
+  let bubble=null;
+  const paint=t=>{
+    if(!t)return;
+    if(!bubble){ty.remove();bubble=document.createElement('div');bubble.className='msg ai';log.appendChild(bubble);}
+    bubble.textContent=t;log.scrollTop=1e6;
+  };
+  const done=t=>{paint(t);if(!bubble)fallback();};
+  const fallback=()=>{if(bubble)return;ty.remove();aiSay(localAnswer(q));};
+  if(SHAHGPT_ENDPOINT)gptFetch(q,paint).then(done).catch(()=>askFreeAI(q).then(done).catch(fallback));
+  else if(gptKey)askGPT(q).then(done).catch(()=>askFreeAI(q).then(done).catch(fallback));
+  else askFreeAI(q).then(done).catch(fallback);
 }
 $('#chatSend').addEventListener('click',()=>{aiAsk($('#chatInput').value);$('#chatInput').value='';});
 $('#chatInput').addEventListener('keydown',e=>{if(e.key==='Enter'){aiAsk(e.target.value);e.target.value='';}});
