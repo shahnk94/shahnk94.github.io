@@ -12,6 +12,10 @@
 <link href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
 <style>
 :root{
+  /* Pop!_OS / System76 brand values on true-neutral greys.
+     The neutral grey ladder is what keeps this away from the warm cream-and-clay
+     look that reads as machine-made. Measured on window #333333: orange 6.23:1,
+     cyan 5.44:1, yellow 7.62:1, body text 9.21:1. */
   --pop-orange:#FFAE1A; --pop-orange-hint:#FFC94D; --pop-orange-txt:#FFD24A;
   --pop-teal:#2ED8E8; --pop-teal-dark:#67E8F5;
   --pop-green:#5EE08B; --pop-purple:#B78BFF;
@@ -66,23 +70,24 @@ html.paused .amb i,html.paused .wallwrap.fade{animation-play-state:paused}
 .wallwrap svg{position:absolute;inset:0;width:100%;height:100%}
 #login .lockscrim{position:absolute;inset:0;backdrop-filter:blur(22px);background:rgba(16,20,28,.45);
   display:flex;flex-direction:column;align-items:center;justify-content:center}
+
 .lg-clock{letter-spacing:var(--tr-34);font-weight:600;font-weight:300;font-size:64px;color:#fff;letter-spacing:-.01em}
 .lg-date{font-size:15px;color:#d8d8d8;margin:2px 0 34px}
-.lg-card{width:min(340px,90vw);text-align:center;background:rgba(33,31,31,.85);border:1px solid var(--line2);
-  border-radius:14px;padding:28px 30px 24px;backdrop-filter:blur(8px);
+.lg-card{width:min(372px,91vw);text-align:center;background:rgba(24,26,29,.86);
+  border:1px solid rgba(255,255,255,.06);border-top-color:rgba(255,255,255,.15);
+  border-radius:14px;padding:30px 32px 22px;backdrop-filter:blur(10px);
   opacity:0;transform:translateY(12px);animation:cardIn .55s var(--eoq) .1s forwards}
 @keyframes cardIn{to{opacity:1;transform:none}}
-.lg-badge{width:76px;height:76px;margin:0 auto 12px}
-.lg-name{font-size:17px;font-weight:600;color:var(--fg)}
-.lg-role{font-size:12.5px;font-weight:600;color:var(--pop-orange);margin-top:5px;letter-spacing:.01em}
-.lg-head{font-size:10.5px;color:var(--text-dim);margin:4px 0 18px}
-.lg-head b{color:var(--pop-orange);font-weight:600}.lg-head u{text-decoration:none;color:var(--pop-teal-dark);font-weight:600}.lg-head i{font-style:normal;color:var(--pop-orange-txt);font-weight:600}
-.lg-btn{width:100%;padding:11px;border-radius:8px;background:var(--pop-orange);color:#3A2500;font-weight:600;font-size:13.5px;
-  transition:filter .2s,transform .18s var(--eoq)}
-.lg-btn:hover{filter:brightness(1.08)}.lg-btn:active{transform:scale(.985)}
-.lg-hint{margin-top:12px;font-size:11px;color:var(--text-dim)}
-.lg-motto{margin-top:14px;font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:#8f8f8f;white-space:nowrap}
-.lg-motto span{color:var(--pop-teal)}
+.lg-badge{width:64px;height:64px;margin:0 auto 15px}
+.lg-name{font-size:25px;font-weight:600;color:var(--fg);letter-spacing:-.021em;line-height:1.1}
+.lg-role{font-size:12px;font-weight:400;color:var(--text-dim);margin-top:7px;letter-spacing:.005em}
+.lg-hook{font-size:13px;line-height:1.5;color:var(--text);margin:19px 2px 22px;text-wrap:balance}
+.lg-btn{width:100%;padding:12px;border-radius:8px;background:var(--pop-orange);color:#3A2500;font-weight:600;font-size:13.5px;
+  letter-spacing:-.005em;transition:filter .16s linear,transform .16s var(--eoq)}
+.lg-btn:hover{filter:brightness(1.07)}.lg-btn:active{transform:scale(.985)}
+.lg-hint{margin-top:11px;font-size:11.5px;color:var(--text-dim)}
+.lg-motto{margin-top:26px;padding-top:15px;border-top:1px solid rgba(255,255,255,.07);
+  font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:#8d949e;white-space:nowrap}
 #desktop .deskclip{position:absolute;inset:0;display:flex;flex-direction:column}
 #desktop.reveal .deskclip{animation:deskIn .45s var(--eoq)}
 @keyframes deskIn{from{opacity:0;transform:scale(1.02)}to{opacity:1;transform:none}}
@@ -210,10 +215,10 @@ html.paused .amb i,html.paused .wallwrap.fade{animation-play-state:paused}
 .wc button:hover{background:var(--hover)}
 .wc .cl:hover{background:var(--danger)}
 .wc svg{width:14px;height:14px;stroke:#d9d9d9}
-.win-body{padding:16px 18px;overflow:auto;font-size:13px;flex:1;background:linear-gradient(180deg,color-mix(in srgb,var(--window-bg) 94%,#000 6%) 0 14px,var(--window-bg) 60px)}
-.win-body h4{font-family:var(--slab);font-size:13px;color:var(--pop-orange);margin:14px 0 7px;font-weight:700}
+.win-body{padding:20px 22px 26px;overflow:auto;font-size:13px;line-height:1.55;flex:1;background:linear-gradient(180deg,color-mix(in srgb,var(--window-bg) 94%,#000 6%) 0 14px,var(--window-bg) 60px)}
+.win-body h4{font-family:var(--slab);font-size:15px;color:var(--fg);margin:34px 0 8px;font-weight:700;letter-spacing:-.015em}
 .win-body h4:first-child{margin-top:0}
-.win-body h4.t{color:var(--pop-teal-dark)}
+.win-body h4.t{color:var(--fg)}
 .win-body p{margin-bottom:9px}
 .win-body .dim{color:var(--text-dim);font-size:12.5px}
 .chip{display:inline-block;padding:3px 10px;border:1px solid var(--line2);border-radius:999px;font-size:11px;
@@ -224,14 +229,16 @@ html.paused .amb i,html.paused .wallwrap.fade{animation-play-state:paused}
 .val b{display:block;font-family:var(--slab);font-size:10.5px;margin-bottom:3px;font-weight:700}
 .val:nth-child(1) b{color:var(--pop-orange)} .val:nth-child(2) b{color:var(--pop-teal-dark)} .val:nth-child(3) b{color:#CFC7BD}
 .val span{font-size:11px;color:var(--text-dim);line-height:1.35;display:block}
-.xp{border:1px solid var(--line);border-left:3px solid var(--pop-teal);border-radius:8px;padding:11px 13px;margin-bottom:9px;background:var(--base-bg)}
-.xp.cur{border-left-color:var(--pop-orange)}
-.xp .role{font-weight:600;font-size:13.5px;color:var(--fg)}
-.xp .org{color:var(--pop-teal-dark);font-size:12px}
-.xp .when{float:right;font-family:var(--mono);font-size:10px;color:var(--text-dim);background:var(--ui-500);padding:2px 7px;border-radius:5px}
-.xp ul{margin:7px 0 0 15px;font-size:12px;color:var(--text-dim)}
+.xp{position:relative;padding:17px 0 19px;margin:0;border-top:1px solid rgba(255,255,255,.055)}
+.xp:first-of-type{border-top:0;padding-top:4px}
+.xp.cur::before{content:"";position:absolute;left:-14px;top:9px;width:3px;height:15px;border-radius:2px;background:var(--pop-orange)}
+.xp .role{font-weight:600;font-size:15px;color:var(--fg);letter-spacing:-.014em;line-height:1.3}
+.xp .org{color:var(--text-dim);font-size:12.5px;margin-top:1px}
+.xp .when{float:right;font-family:var(--mono);font-size:11px;color:#7f8792;letter-spacing:.01em;padding-top:3px}
+.xp .solo{font-size:13px;line-height:1.55;color:var(--text-dim);margin:9px 0 0;max-width:62ch}
+.xp ul{margin:9px 0 0 15px;font-size:12.5px;line-height:1.5;color:var(--text-dim)}
 .xp ul li{margin-bottom:3px}
-.xp ul li::marker{color:var(--pop-orange)}
+.xp ul li::marker{color:#5b626c}
 .pill-h{display:flex;align-items:center;gap:8px;font-family:var(--slab);font-size:12px;font-weight:700;margin:14px 0 7px}
 .pill-h:first-child{margin-top:0}
 .pill-h.p1{color:var(--pop-orange)} .pill-h.p2{color:var(--pop-teal-dark)} .pill-h.p3{color:#CFC7BD}
@@ -276,8 +283,9 @@ html.paused .amb i,html.paused .wallwrap.fade{animation-play-state:paused}
   font-size:12.5px;padding:10px 12px;font-family:var(--ui)}
 .chat-in input:focus{outline:2px solid var(--pop-orange);outline-offset:-1px}
 .chat-in button{padding:0 16px;border-radius:7px;background:var(--pop-orange);color:#3A2500;font-weight:600;font-size:12.5px}
-.xp.xpc>.hl{font-size:11.5px;color:var(--pop-orange);margin-top:3px;cursor:pointer;user-select:none}
-.xp.xpc>.hl::after{content:" ▸";opacity:.7}
+.xp.xpc>.hl{font-size:12.5px;color:var(--text);margin-top:7px;cursor:pointer;user-select:none}
+.xp.xpc>.hl:hover{color:var(--fg)}
+.xp.xpc>.hl::after{content:" ▸";color:var(--pop-orange)}
 .xp.xpc.open>.hl::after{content:" ▾"}
 .xp.xpc>ul,.xp.xpc>.stk{display:none}
 .xp.xpc.open>ul,.xp.xpc.open>.stk{display:block}
@@ -301,8 +309,8 @@ html.paused .amb i,html.paused .wallwrap.fade{animation-play-state:paused}
 .tagbar button:hover{border-color:var(--pop-teal-dark);color:var(--text)}
 .tagbar button.on{background:var(--pop-teal-dark);border-color:transparent;color:#08302E;font-weight:600}
 .lane.hide,.case.hide{display:none}
-.lane .ax{font-size:11px;color:var(--pop-orange-txt);margin:0 0 7px}
-.fits{font-family:var(--mono);font-size:9.5px;color:var(--text-dim);margin-top:7px;padding-top:6px;border-top:1px dashed var(--line)}
+.lane .ax{font-size:12.5px;line-height:1.5;color:var(--text);margin:0 0 9px;max-width:64ch}
+.fits{font-family:var(--mono);font-size:11px;color:#7f8792;margin-top:11px}
 .outside{border-top:1px solid var(--line);padding-top:11px;margin-top:13px}
 .outside h5{font-family:var(--slab);font-size:12.5px;color:var(--text-dim);margin:0 0 4px}
 .outside p{font-size:11.5px;color:var(--text-dim);margin:0 0 7px}
@@ -312,67 +320,105 @@ html.paused .amb i,html.paused .wallwrap.fade{animation-play-state:paused}
 .stat b{display:block;font-family:var(--slab);font-size:20px;line-height:1.1;color:var(--pop-orange)}
 .stat span{display:block;font-size:11px;color:var(--fg);margin-top:2px}
 .stat i{display:block;font-style:normal;font-size:9.5px;color:var(--text-dim);margin-top:2px}
-.lane{border-top:1px solid var(--line);padding-top:11px;margin-top:12px}
-.lane h5{font-family:var(--slab);font-size:13.5px;color:var(--pop-teal-dark);margin:0 0 3px}
-.lane>p{font-size:11.5px;color:var(--text-dim);margin:0 0 7px}
-.lane ul{margin:0 0 8px;padding-left:16px}
-.lane li{font-size:12px;margin-bottom:4px}
+.lane{border-top:1px solid rgba(255,255,255,.055);padding-top:20px;margin-top:34px}
+.lane h5{font-family:var(--slab);font-size:15px;color:var(--fg);margin:0 0 4px;letter-spacing:-.015em}
+.lane>p{font-size:12.5px;color:var(--text-dim);margin:0 0 9px}
+.lane ul{margin:0 0 4px;padding-left:16px}
+.lane li{font-size:12.5px;line-height:1.5;margin-bottom:6px;max-width:66ch}
 .sk{font-size:11.5px;color:var(--text-dim);margin:-2px 0 7px;line-height:1.45}
-.stk{display:flex;flex-wrap:wrap;gap:4px;margin-top:7px}
-.stk span{font-family:var(--mono);font-size:9.5px;color:var(--text-dim);background:var(--ui-700);
-  border:1px solid var(--line);border-radius:4px;padding:2px 6px}
-.g-frame{font-family:var(--mono);font-size:9.5px;color:var(--text-dim);margin-bottom:7px;letter-spacing:.02em}
-.g-stage{min-height:214px;height:auto;display:flex;flex-direction:column;justify-content:center;padding:12px;gap:9px}
-.g-class{background:var(--ui-700);border:1px solid var(--line2);border-radius:9px;padding:11px 12px}
-.g-class .cn{font-family:var(--mono);font-size:12px;color:var(--fg)}
-.g-class .cd{font-size:11px;color:var(--text-dim);margin-top:2px}
-.g-class .cb{display:flex;gap:7px;margin-top:9px}
-.g-class .cb button{flex:1;padding:9px 6px;border-radius:7px;border:1px solid var(--line2);background:var(--ui-500);color:var(--fg);font-size:11px;font-weight:600}
-.g-class .cb button:hover{background:var(--pop-teal-dark);color:#08302E;border-color:transparent}
-.g-card{background:var(--ui-700);border:1px solid var(--line2);border-left:3px solid var(--pop-teal);border-radius:8px;padding:11px 12px;animation:cardin .18s ease-out}
-@keyframes cardin{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
-.g-card .fn{font-family:var(--mono);font-size:12.5px;color:var(--fg);word-break:break-all}
-.g-card .chips{display:flex;flex-wrap:wrap;gap:5px;margin-top:7px}
-.g-card .chips i{font-style:normal;font-family:var(--mono);font-size:9px;color:var(--text-dim);background:var(--ui-900);border:1px solid var(--line);border-radius:4px;padding:2px 6px}
-.g-card .chips i.flag{color:#FF6961;border-color:rgba(255,105,97,.45)}
-.g-directive{background:rgba(255,159,10,.12);border:1px solid rgba(255,159,10,.4);border-radius:7px;padding:7px 10px;font-size:11px;color:var(--pop-orange-txt)}
-.g-rec{font-family:var(--mono);font-size:10.5px;line-height:1.75;color:var(--text-dim);max-height:150px;overflow:auto}
-.g-rec b{color:var(--fg)}
-.g-rec .bad{color:#FF6961}
-.g-acts{display:flex;gap:6px;margin-top:9px;flex-wrap:wrap}
-.g-acts button{flex:1;min-width:120px;padding:8px;border-radius:7px;border:1px solid var(--line2);background:var(--ui-700);color:var(--fg);font-size:11px;font-weight:600}
-.g-acts button:hover{background:var(--ui-500)}
-.g-hud{display:flex;gap:6px;align-items:stretch;font-family:var(--mono);font-size:10.5px;color:var(--text-dim);margin-bottom:8px}
-.g-hud .cell{flex:1;background:var(--ui-700);border:1px solid var(--line);border-radius:7px;padding:5px 8px}
-.g-hud .cell span{display:block;font-size:8.5px;letter-spacing:.1em;opacity:.7}
-.g-hud .cell b{font-size:15px;color:var(--fg);font-family:var(--slab)}
-.g-hud .cell.combo b{color:var(--pop-orange)}
-.g-int{height:4px;border-radius:3px;background:var(--ui-500);margin-top:5px;overflow:hidden}
-.g-int i{display:block;height:100%;width:100%;background:#30D158;transition:width .25s ease,background .25s ease}
-.g-stage{position:relative;height:214px;border:1px solid var(--line);border-radius:8px;background:linear-gradient(180deg,#232323,#1a1a1a);overflow:hidden}
-.g-stage.shake{animation:shk .28s}
-@keyframes shk{0%,100%{transform:translateX(0)}25%{transform:translateX(-4px)}75%{transform:translateX(4px)}}
-.g-floor{position:absolute;left:0;right:0;bottom:0;height:32px;background:rgba(255,69,58,.07);border-top:1px solid rgba(255,69,58,.32);font-family:var(--mono);font-size:9px;color:#FF6961;display:flex;align-items:center;justify-content:center;letter-spacing:.14em}
-.rec{position:absolute;width:152px;padding:6px 8px;border-radius:6px;background:var(--ui-700);border:1px solid var(--line2);border-left:3px solid var(--pop-teal);will-change:transform}
-.rec .n{display:block;font-family:var(--mono);font-size:10.5px;color:var(--fg);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.rec .m{display:block;font-size:9px;color:var(--text-dim);margin-top:1px}
-.rec.hot{border-left-color:var(--pop-orange);animation:gpulse .7s infinite}
-@keyframes gpulse{0%,100%{box-shadow:0 0 0 0 rgba(255,159,10,0)}50%{box-shadow:0 0 0 3px rgba(255,159,10,.18)}}
-.rec.gone{animation:gpop .22s forwards}
-@keyframes gpop{to{transform:scale(.7);opacity:0}}
-.g-bins{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;margin-top:9px}
-.g-bins button{padding:8px 4px;border-radius:8px;border:1px solid var(--line2);background:var(--ui-700);color:var(--text);font-size:9.5px;line-height:1.25;transition:transform .14s,background .14s}
-.g-bins button:hover{transform:translateY(-2px);background:var(--ui-500)}
-.g-bins button b{display:block;font-family:var(--slab);font-size:10px;margin-bottom:1px}
-.g-bins button kbd{display:block;font-family:var(--mono);font-size:8px;opacity:.55;margin-top:3px}
-.g-bins .k0 b{color:var(--pop-teal-dark)}.g-bins .k0{border-bottom:3px solid var(--pop-teal-dark)}
-.g-bins .k1 b{color:var(--pop-orange)}.g-bins .k1{border-bottom:3px solid var(--pop-orange)}
-.g-bins .k2 b{color:#C9C2BA}.g-bins .k2{border-bottom:3px solid #C9C2BA}
-.g-bins .k3 b{color:#FF6961}.g-bins .k3{border-bottom:3px solid #FF6961}
-.g-msg{min-height:32px;text-align:center;padding:8px 4px 0;font-size:11.5px;color:var(--text-dim)}
-.g-msg .good{color:#30D158} .g-msg .bad{color:#FF6961} .g-msg .why{color:var(--text);opacity:.85}
-.g-float{position:absolute;font-family:var(--slab);font-size:14px;font-weight:700;pointer-events:none;animation:gfl .8s forwards}
-@keyframes gfl{to{transform:translateY(-26px);opacity:0}}
+.stk{display:flex;flex-wrap:wrap;gap:3px 0;margin-top:11px;align-items:baseline}
+.stk span:not(:last-child)::after{content:"·";color:#5a616b;padding:0 7px}
+.stk span{font-family:var(--mono);font-size:11px;color:#828a95;background:transparent;
+  border:0;border-radius:0;padding:0}
+.tx3{position:relative;height:210px;margin:2px 0 24px;border-radius:9px;overflow:hidden;
+  background:radial-gradient(120% 90% at 50% 0%,#20252c,#14171b);cursor:grab}
+.tx3:active{cursor:grabbing}
+.tx3 canvas{display:block;width:100%;height:100%}
+.tx3-cap{position:absolute;left:13px;bottom:11px;font-size:11.5px;color:#8b929c;line-height:1.5;pointer-events:none}
+.tx3-cap b{display:block;color:var(--fg);font-size:12.5px;font-weight:600;letter-spacing:-.01em}
+.tx3-fb{position:absolute;inset:0;display:none;align-items:center;justify-content:center;
+  font-family:var(--mono);font-size:11.5px;color:#8b929c;text-align:center;padding:0 20px}
+.tx3.flat canvas{display:none}.tx3.flat .tx3-fb{display:flex}.tx3.flat .tx3-cap{display:none}
+@media (max-width:620px){.tx3{height:168px}}
+.sc{--ok:#5EE08B;--warn:#FFAE1A;--bad:#FF7B7B;font-size:12.5px}
+.sc-lede{font-size:13px;line-height:1.55;color:var(--text);max-width:58ch;margin-bottom:16px}
+.sc-lede b{color:var(--fg);font-weight:600}
+.sc-rules{font-family:var(--mono);font-size:11.5px;line-height:1.9;color:#8b929c;margin-bottom:20px}
+.sc-rules em{font-style:normal;color:var(--fg)}
+.sc-go{padding:11px 22px;border-radius:8px;background:var(--pop-orange);color:#3A2500;font-weight:600;font-size:13px;
+  transition:filter .16s linear,transform .14s var(--eoq)}
+.sc-go:hover{filter:brightness(1.07)}.sc-go:active{transform:scale(.985)}
+.sc-best{font-family:var(--mono);font-size:11px;color:#7f8792;margin-top:13px}
+
+.sc-bar{position:relative;height:34px;margin-bottom:4px}
+.sc-track{position:absolute;left:0;right:0;top:15px;height:4px;border-radius:2px;background:var(--ui-500)}
+.sc-fill{position:absolute;left:0;top:15px;height:4px;border-radius:2px;background:rgba(94,224,139,.55)}
+.sc-tick{position:absolute;top:11px;width:2px;height:12px;border-radius:1px;background:var(--pop-orange);opacity:.6}
+.sc-dead{position:absolute;top:8px;width:2px;height:18px;background:var(--bad)}
+.sc-now{position:absolute;top:7px;width:2px;height:20px;background:#fff;box-shadow:0 0 6px rgba(255,255,255,.6)}
+.sc-due{position:absolute;top:4px;margin-left:-5px;width:10px;height:10px;border-radius:2px;background:var(--warn);
+  transform:rotate(45deg);transition:left .22s var(--eoq)}
+.sc-phase{position:absolute;left:0;top:22px;font-family:var(--mono);font-size:10px;color:#7f8792;letter-spacing:.06em}
+.sc-daycount{position:absolute;right:0;top:22px;font-family:var(--mono);font-size:10px;color:#7f8792}
+
+.sc-meters{display:flex;gap:16px;margin:10px 0 14px}
+.sc-m{flex:1}
+.sc-m .k{font-family:var(--mono);font-size:9.5px;letter-spacing:.11em;color:#79808b}
+.sc-m .v{font-family:var(--slab);font-size:19px;font-weight:700;color:var(--fg);line-height:1.15;letter-spacing:-.02em}
+.sc-m .t{height:3px;border-radius:2px;background:var(--ui-500);margin-top:5px;overflow:hidden}
+.sc-m .t i{display:block;height:100%;background:var(--ok);transition:width .3s var(--eoq),background .3s}
+.sc-m.low .v{color:var(--bad)} .sc-m.low .t i{background:var(--bad)}
+.sc-m.mid .t i{background:var(--warn)}
+
+.sc-inbox{display:flex;flex-direction:column;gap:6px;min-height:222px}
+.sc-slot{border:1px solid rgba(255,255,255,.055);border-radius:8px;padding:9px 11px;background:rgba(255,255,255,.018);
+  cursor:pointer;transition:border-color .12s linear,background .12s linear}
+.sc-slot.sel{border-color:var(--pop-orange);background:rgba(255,174,26,.06)}
+.sc-slot.empty{border-style:dashed;opacity:.32;cursor:default;min-height:66px}
+.sc-slot .nm{font-size:12.5px;font-weight:600;color:var(--fg);line-height:1.3}
+.sc-slot .sub{font-family:var(--mono);font-size:10.5px;color:#828a95;margin-top:4px}
+.sc-slot .sub s{text-decoration:none;color:var(--bad)}
+.sc-slot .sub u{text-decoration:none;color:var(--warn)}
+.sc-slot .rp{color:var(--bad);font-weight:600}
+.sc-slot.in{animation:scIn .2s var(--eoq)}
+@keyframes scIn{from{opacity:0;transform:translateX(16px)}to{opacity:1;transform:none}}
+.sc-slot.out{animation:scOut .16s ease-in forwards}
+@keyframes scOut{to{opacity:0;transform:scale(.96)}}
+
+.sc-tray{display:flex;gap:6px;align-items:center;min-height:26px;margin-top:8px;
+  font-family:var(--mono);font-size:10.5px;color:#828a95}
+.sc-tray .lbl{letter-spacing:.1em;font-size:9.5px;color:#6c737d}
+.sc-chip{border:1px solid rgba(255,255,255,.09);border-radius:20px;padding:2px 9px;color:#a9b0ba}
+.sc-chip b{color:var(--warn);font-weight:600}
+.sc-ccb{margin-left:auto;padding:3px 11px;border-radius:20px;background:var(--pop-teal);color:#062E33;
+  font-family:var(--ui);font-size:11px;font-weight:600}
+
+.sc-acts{display:flex;gap:7px;margin-top:12px}
+.sc-acts button{flex:1;min-height:42px;padding:8px 4px;border-radius:8px;border:1px solid rgba(255,255,255,.08);
+  background:rgba(255,255,255,.03);color:var(--text);font-size:12px;font-weight:600;
+  transition:background .1s linear,border-color .1s linear}
+.sc-acts button:hover{background:rgba(255,255,255,.07)}
+.sc-acts button:active{transform:scale(.97)}
+.sc-acts button i{display:block;font-style:normal;font-family:var(--mono);font-size:9px;color:#79808b;margin-top:2px}
+.sc-acts .ap:hover{border-color:var(--ok)} .sc-acts .rj:hover{border-color:var(--bad)}
+.sc-acts .df:hover{border-color:var(--warn)}
+.sc-hint{min-height:17px;margin-top:9px;font-size:11.5px;color:#828a95}
+
+.sc-over h5{font-family:var(--slab);font-size:26px;font-weight:700;color:var(--fg);letter-spacing:-.025em;margin-bottom:3px}
+.sc-over h5.won{color:var(--ok)}.sc-over h5.lost{color:var(--bad)}
+.sc-over .verdict{font-size:13px;color:var(--text);margin-bottom:17px}
+.sc-tally{font-family:var(--mono);font-size:11.5px;line-height:2;color:#8b929c;margin-bottom:6px}
+.sc-tally b{color:var(--fg)}
+.sc-tally .sc-row{display:flex;justify-content:space-between;max-width:330px}
+.sc-score{font-family:var(--slab);font-size:34px;font-weight:700;color:var(--fg);letter-spacing:-.03em;margin:14px 0 2px}
+.sc-lesson{font-size:12.5px;color:var(--warn);margin:10px 0 18px;max-width:56ch}
+.sc-again{display:flex;gap:8px;flex-wrap:wrap}
+.sc-again button{padding:9px 16px;border-radius:8px;border:1px solid rgba(255,255,255,.09);
+  background:rgba(255,255,255,.03);color:var(--text);font-size:12px;font-weight:600}
+.sc-again button.pri{background:var(--pop-orange);color:#3A2500;border-color:transparent}
+.sc-again button:hover{filter:brightness(1.1)}
+@media (max-width:620px){.sc-acts button{min-height:48px}.sc-inbox{min-height:0}}
+@media (prefers-reduced-motion:reduce){.sc-slot.in,.sc-slot.out{animation:none}.sc-due{transition:none}}
 .collab-note{border:1px solid var(--line);border-left:3px solid var(--pop-teal);border-radius:8px;
   padding:9px 12px;margin-bottom:7px;background:var(--base-bg);font-size:12px;animation:msgIn .3s var(--eoq)}
 .collab-note b{color:var(--pop-teal-dark);font-size:11.5px}
@@ -509,10 +555,11 @@ html.paused .amb i,html.paused .wallwrap.fade{animation-play-state:paused}
     <div class="lg-card">
       <svg class="lg-badge" viewBox="0 0 120 120" role="img" aria-label="sn! logo"><use href="#snlogo"/></svg>
       <div class="lg-name">Shahriar Nilkar</div>
-      <div class="lg-head"><b>Project Driver</b> · <u>Governance Guardian</u> · <i>AI Adopter</i></div>
+      <div class="lg-role">Project Manager &middot; PMO &amp; Digital Infrastructure Delivery</div>
+      <p class="lg-hook">Eight years holding multi-party programs to the date they were promised, and making the information behind them findable once they land.</p>
       <button class="lg-btn" id="btnSignin">Click to begin</button>
-      <div class="lg-hint">No password. One click opens the desktop.</div>
-      <div class="lg-motto">Time is Gold · Tool Up · <span>We Before Me</span></div>
+      <div class="lg-hint">No password. It opens into a desktop, so have a look around.</div>
+      <div class="lg-motto">Project Driver &middot; Governance Guardian &middot; AI Adopter</div>
     </div>
   </div>
 </section>
@@ -567,6 +614,7 @@ html.paused .amb i,html.paused .wallwrap.fade{animation-play-state:paused}
           <div class="yt-list mini" id="railList"><div style="padding:8px 10px;color:var(--text-dim);font-size:11.5px">Loading…</div></div>
         </div>
       </div>
+      
       <div class="win" id="w-about" style="left:190px;top:14px">
         <div class="win-head"><span class="spacer"></span><span class="win-title">About</span>
           <div class="wc"><button class="mn" aria-label="Minimize"><svg viewBox="0 0 14 14" fill="none" stroke-width="1.5"><path d="M3 10h8"/></svg></button><button class="mx" aria-label="Maximize"><svg viewBox="0 0 14 14" fill="none" stroke-width="1.5"><rect x="3.5" y="3.5" width="7" height="7" rx="1"/></svg></button><button class="cl" aria-label="Close"><svg viewBox="0 0 14 14" fill="none" stroke-width="1.5"><path d="M4 4l6 6M10 4l-6 6"/></svg></button></div></div>
@@ -578,6 +626,7 @@ html.paused .amb i,html.paused .wallwrap.fade{animation-play-state:paused}
           <p class="dim" style="font-size:11px;margin-top:12px;border-top:1px solid var(--line);padding-top:9px">Open <b style="color:var(--pop-teal-dark)">Where I Fit</b> for the five lanes, <b style="color:var(--pop-teal-dark)">Case Files</b> for the stories, <b style="color:var(--pop-teal-dark)">Experience</b> for the record.</p>
         </div>
       </div>
+
       <div class="win" id="w-lanes" style="left:205px;top:10px;width:600px">
         <div class="win-head"><span class="spacer"></span><span class="win-title">Where I Fit</span>
           <div class="wc"><button class="mn" aria-label="Minimize"><svg viewBox="0 0 14 14" fill="none" stroke-width="1.5"><path d="M3 10h8"/></svg></button><button class="mx" aria-label="Maximize"><svg viewBox="0 0 14 14" fill="none" stroke-width="1.5"><rect x="3.5" y="3.5" width="7" height="7" rx="1"/></svg></button><button class="cl" aria-label="Close"><svg viewBox="0 0 14 14" fill="none" stroke-width="1.5"><path d="M4 4l6 6M10 4l-6 6"/></svg></button></div></div>
@@ -586,6 +635,7 @@ html.paused .amb i,html.paused .wallwrap.fade{animation-play-state:paused}
           <div class="tagbar" id="tagbar">
             <button class="on" data-t="all">All</button><button data-t="pm">PM / PMO</button><button data-t="ai">AI</button><button data-t="mkt">Marketing</button><button data-t="bd">Business Dev</button>
           </div>
+
           <div class="stats">
             <div class="stat"><b>$33M</b><span>award recommendation</span><i>11 bidders scored to 4</i></div>
             <div class="stat"><b>$1M+</b><span>annual spend oversight</span><i>PCL Connects 5.0</i></div>
@@ -594,6 +644,7 @@ html.paused .amb i,html.paused .wallwrap.fade{animation-play-state:paused}
             <div class="stat"><b>30%</b><span>less review scope</span><i>risk scoring, 3,000+ docs</i></div>
             <div class="stat"><b>20%</b><span>less schedule slippage</span><i>10+ teams, Peyvareh</i></div>
           </div>
+
           <div class="lane" data-t="bd pm">
             <h5>Business Development &amp; Capital Decisions</h5>
             <p class="ax">Accountable for the evidence an owner commits money on, and the recommendation at the end of it.</p>
@@ -604,6 +655,7 @@ html.paused .amb i,html.paused .wallwrap.fade{animation-play-state:paused}
             <div class="stk"><span>Feasibility studies</span><span>CAPEX / OPEX modelling</span><span>RFP development</span><span>Bid evaluation</span><span>Contract negotiation</span><span>Business cases</span><span>Sponsor alignment</span></div>
             <div class="fits">Fits: Business Development Manager · Tender Lead · Feasibility &amp; Business Case Lead · Commercial Manager</div>
           </div>
+
           <div class="lane" data-t="pm bd">
             <h5>Digital Transformation &amp; Platform Delivery</h5>
             <p class="ax">Accountable for an enterprise platform reaching production, and for the adoption that decides whether it was worth building.</p>
@@ -614,6 +666,7 @@ html.paused .amb i,html.paused .wallwrap.fade{animation-play-state:paused}
             <div class="stk"><span>Microsoft 365</span><span>SharePoint</span><span>Dynamics 365</span><span>Common data environments</span><span>Change management</span><span>Training &amp; adoption</span><span>Requirements</span><span>UAT</span></div>
             <div class="fits">Fits: Digital Transformation Manager · Program Manager, M365 · Platform Delivery Manager · Change &amp; Adoption Lead</div>
           </div>
+
           <div class="lane" data-t="ai pm">
             <h5>Information Governance &amp; AI Readiness</h5>
             <p class="ax">Accountable for the taxonomy, metadata, permissions and retention that decide whether content can be found and trusted.</p>
@@ -624,6 +677,7 @@ html.paused .amb i,html.paused .wallwrap.fade{animation-play-state:paused}
             <div class="stk"><span>Business taxonomy</span><span>Metadata standards</span><span>Information architecture</span><span>Retention &amp; lifecycle</span><span>Permissions</span><span>FAIR data</span><span>Risk-based analysis</span><span>Microsoft Purview concepts</span></div>
             <div class="fits">Fits: Information Governance Lead · Enterprise Information Architect · AI Program Manager · Records &amp; Information Manager</div>
           </div>
+
           <div class="lane" data-t="pm">
             <h5>Project Controls &amp; PMO</h5>
             <p class="ax">Accountable for the controls that hold a multi-party program to schedule and scope, and the reporting that shows when they aren't holding.</p>
@@ -634,6 +688,7 @@ html.paused .amb i,html.paused .wallwrap.fade{animation-play-state:paused}
             <div class="stk"><span>Charters</span><span>RACI</span><span>Risk registers</span><span>Phase gates</span><span>Dependency tracking</span><span>Portfolio dashboards</span><span>Agile / hybrid</span><span>MS Project</span><span>Jira</span><span>Azure DevOps</span><span>Smartsheet</span></div>
             <div class="fits">Fits: Project Manager · PMO Lead · Program Manager · Project Controls Lead</div>
           </div>
+
           <div class="lane" data-t="mkt bd">
             <h5>Decision Intelligence &amp; Reporting</h5>
             <p class="ax">Accountable for defining the measures leadership decides on, and building the layer that produces them.</p>
@@ -644,14 +699,15 @@ html.paused .amb i,html.paused .wallwrap.fade{animation-play-state:paused}
             <div class="stk"><span>KPI framework design</span><span>Pipeline reporting</span><span>Salesforce reporting</span><span>Power BI</span><span>Tableau</span><span>SQL</span><span>Python</span><span>Excel / VBA</span><span>Executive dashboards</span><span>Forecasting</span></div>
             <div class="fits">Fits: Business Intelligence Lead · Reporting &amp; Analytics Manager · Marketing Performance Manager · Revenue Operations</div>
           </div>
+
           <div class="outside">
             <h5>Outside the five</h5>
-            <p>Credentials and code don't belong in a lane, so they sit here. Master of Digital Transformation and Innovation, University of Ottawa. BSc IT Engineering, Sharif University of Technology. Project management training on a PMP-aligned curriculum, University of Ottawa and PMPiran, 2021-2024.</p>
-            <div class="stk"><span>Python</span><span>SQL</span><span>React</span><span>Node.js</span><span>Java</span><span>C++</span><span>HTML</span><span>CSS</span><span>TOGAF as method</span></div>
-            <p class="play">Haven't trained a model or carried a sales quota yet. Give me the problem and a deadline and I'll come back knowing the tool. That's how the taxonomy, the tender model and this website all started.</p>
+            <p>Credentials don't belong in a lane, so they sit here. Master of Digital Transformation and Innovation, University of Ottawa, concentrating in IT strategy, enterprise architecture and data-driven innovation. BSc IT Engineering, Sharif University of Technology. Project management training on a PMP-aligned curriculum, University of Ottawa and PMPiran, 2021-2024. English fluent, French at A1 and moving.</p>
+            <p class="play">Technical enough to build the thing rather than brief someone else to. SQL and Python for the data work, TOGAF and capability mapping for the architecture, and this website is hand-written HTML, CSS and JavaScript with no framework, which you are welcome to read.</p>
           </div>
         </div>
       </div>
+
       <div class="win" id="w-exp" style="left:220px;top:8px;width:630px">
         <div class="win-head"><span class="spacer"></span><span class="win-title">Experience</span>
           <div class="wc"><button class="mn" aria-label="Minimize"><svg viewBox="0 0 14 14" fill="none" stroke-width="1.5"><path d="M3 10h8"/></svg></button><button class="mx" aria-label="Maximize"><svg viewBox="0 0 14 14" fill="none" stroke-width="1.5"><rect x="3.5" y="3.5" width="7" height="7" rx="1"/></svg></button><button class="cl" aria-label="Close"><svg viewBox="0 0 14 14" fill="none" stroke-width="1.5"><path d="M4 4l6 6M10 4l-6 6"/></svg></button></div></div>
@@ -698,12 +754,9 @@ html.paused .amb i,html.paused .wallwrap.fade{animation-play-state:paused}
             <li>Ran stakeholder interviews and working sessions, translating service pain points into documented functional requirements</li></ul>
             <div class="stk"><span>TopDesk</span><span>Application portfolio</span><span>Requirements</span><span>Excel</span></div></div>
           <div class="xp xpc"><span class="when">Apr 2015 → Sep 2018</span>
-            <div class="role">Business Analyst, and founder of Prosharif.com</div>
+            <div class="role">Business Analyst</div>
             <div class="org">Nilpay Engineering &amp; Construction Co. · Tehran</div>
-            <div class="hl">In-house inventory system · repeat sales up 28% on the side</div>
-            <ul><li>Developed an in-house Microsoft Access inventory system and a searchable document archive with naming conventions, access tracking and audit support for compliance reviews</li>
-            <li>Founded and ran Prosharif.com over the same years. an online marketplace where the product taxonomy and CRM-led follow-up lifted repeat sales 28%</li></ul>
-            <div class="stk"><span>Microsoft Access</span><span>Document archive</span><span>CRM</span><span>HTML · CSS</span></div></div>
+            <p class="solo">Where the habit started. He built an in-house Microsoft Access inventory system and a searchable document archive, with naming conventions, access tracking and audit support for compliance reviews. Ten years later he is doing the same thing for thirteen thousand documents, which tells you something about what he finds interesting.</p></div>
         </div>
       </div>
       <div class="win" id="w-proj" style="left:250px;top:20px;width:590px">
@@ -711,9 +764,15 @@ html.paused .amb i,html.paused .wallwrap.fade{animation-play-state:paused}
           <div class="wc"><button class="mn" aria-label="Minimize"><svg viewBox="0 0 14 14" fill="none" stroke-width="1.5"><path d="M3 10h8"/></svg></button><button class="mx" aria-label="Maximize"><svg viewBox="0 0 14 14" fill="none" stroke-width="1.5"><rect x="3.5" y="3.5" width="7" height="7" rx="1"/></svg></button><button class="cl" aria-label="Close"><svg viewBox="0 0 14 14" fill="none" stroke-width="1.5"><path d="M4 4l6 6M10 4l-6 6"/></svg></button></div></div>
         <div class="win-body">
           <p class="lead">Six cases. Situation, what I owned, what I did, what came out.</p>
+          <div class="tx3" id="tx3" role="img" aria-label="The 22-domain business taxonomy, drawn as a rotating three-dimensional map. Twenty-two domains grouped under six governance capability categories.">
+            <canvas id="tx3c"></canvas>
+            <div class="tx3-cap"><b>The 22-domain taxonomy</b>six governance capability categories, one map. Drag to turn it.</div>
+            <div class="tx3-fb" id="tx3fb">22 domains &middot; 6 capability categories &middot; 2025&ndash;2027 roadmap</div>
+          </div>
           <div class="tagbar" id="tagbarC">
             <button class="on" data-t="all">All</button><button data-t="pm">PM / PMO</button><button data-t="ai">AI</button><button data-t="mkt">Marketing</button><button data-t="bd">Business Dev</button>
           </div>
+
           <div class="case" data-t="bd pm">
             <h5>Membrane Manufacturing Plant: feasibility to award recommendation</h5>
             <div class="meta">Feasibility &amp; Tender Lead · MEWE, for owner Asia Water Co. · Bandar Abbas · 2024-2025 · $35M estimated CAPEX</div>
@@ -722,6 +781,7 @@ html.paused .amb i,html.paused .wallwrap.fade{animation-play-state:paused}
             <div class="star"><i>What I did</i><p>Ran the feasibility study and built the CAPEX/OPEX model the investment decision rested on. Researched vendors and procurement methods. Structured the work as a two-package RFP tender, wrote the packages, then ran the evaluation that took 11 bidders down to a shortlist of 4.</p></div>
             <div class="star res"><i>Result</i><p>A $33M award recommendation delivered, and an owner able to sign against a documented CAPEX/OPEX model.</p></div>
           </div>
+
           <div class="case" data-t="ai pm">
             <h5>PCL Connects 5.0: one information architecture across 30+ teams</h5>
             <div class="meta">Project &amp; Governance Lead · PCL Construction, Edmonton · 2025 to now · $1M+ annual spend · 13,000+ documents</div>
@@ -730,6 +790,7 @@ html.paused .amb i,html.paused .wallwrap.fade{animation-play-state:paused}
             <div class="star"><i>What I did</i><p>Built a 22-domain business taxonomy, six governance capability categories and a 2025-2027 roadmap. Restructured content and information-management processes against new corporate directives. Scored documents by risk instead of reviewing everything. Authored the templated guidelines teams operate from and ran the change management behind them, working decisions through 12+ subject-matter experts and product owners.</p></div>
             <div class="star res"><i>Result</i><p>Audit readiness up 40%. Review scope cut 30% across 3,000+ documents, with the escalation framework and dashboards leadership uses. The Content Governance App I made the case for is now used team-wide.</p></div>
           </div>
+
           <div class="case" data-t="pm bd">
             <h5>National water-research data-centre program: controls and one data environment</h5>
             <div class="meta">Senior Technology Project &amp; Business Development Lead, PMO · MEWE, Tehran · Oct 2023 to Feb 2025 · joint IPD PMO</div>
@@ -738,6 +799,7 @@ html.paused .amb i,html.paused .wallwrap.fade{animation-play-state:paused}
             <div class="star"><i>What I did</i><p>Wrote the charters, communication plans and RACI charts, stood up risk registers and risk matrices, and tracked dependencies across teams. Designed the structure, permissions and rules of an access-controlled SharePoint and Dynamics 365 common data environment, then turned field and office workflows into system requirements through cross-functional workshops and user acceptance testing.</p></div>
             <div class="star res"><i>Result</i><p>Change orders down 25% once the controls layer was in place. Sponsor, contractors and consultants working off one access-controlled record, with permissions set by role.</p></div>
           </div>
+
           <div class="case" data-t="mkt bd">
             <h5>27 districts, one KPI and pipeline framework</h5>
             <div class="meta">Senior Digital Communications Specialist (Information Governance &amp; Project Delivery) · PCL Construction · 2025 to now</div>
@@ -746,6 +808,7 @@ html.paused .amb i,html.paused .wallwrap.fade{animation-play-state:paused}
             <div class="star"><i>What I did</i><p>Unified strategic-plan reporting and Salesforce pipeline data into a single framework, defined the KPI set and the pipeline measures under it, and settled who owns each number before anyone built a report on it. Then took those definitions through all 27 districts.</p></div>
             <div class="star res"><i>Result</i><p>One governed source of truth across 27 districts, used for executive decisions. Marketing and pursuit performance now reads the same way everywhere, against definitions with names attached.</p></div>
           </div>
+
           <div class="case" data-t="pm ai">
             <h5>Firm-wide SharePoint hub, governance built from zero</h5>
             <div class="meta">Business Intelligence Lead · Peyvareh Engineering &amp; Construction, Tehran · Mar 2020 to Oct 2023 · 10+ teams</div>
@@ -754,6 +817,7 @@ html.paused .amb i,html.paused .wallwrap.fade{animation-play-state:paused}
             <div class="star"><i>What I did</i><p>Established information governance from the ground up: content types, managed metadata, permissions, retention rules. Rolled out the firm-wide SharePoint hub and trained 40+ engineers and coordinators. Alongside it, refined how scheduling and planning were reported across 10+ teams and automated Excel and Power BI over ERP data into forecasts and KPI dashboards.</p></div>
             <div class="star res"><i>Result</i><p>Document search time down nearly 50%. Support tickets down 20%. The reporting gaps that surfaced cut schedule slippage 20% on the same two projects.</p></div>
           </div>
+
           <div class="case" data-t="ai">
             <h5>PCL AI Hub: company-wide launch</h5>
             <div class="meta">Senior Digital Communications Specialist (Information Governance &amp; Project Delivery) · PCL Construction · 2025 · with an external AI consultant</div>
@@ -762,9 +826,11 @@ html.paused .amb i,html.paused .wallwrap.fade{animation-play-state:paused}
             <div class="star"><i>What I did</i><p>Proposed the hub, designed its information architecture, and tied it to the governance already in flight: the 22-domain taxonomy, the six capability categories, the 2025-2027 roadmap. Ran delivery with the external AI consultant against the date.</p></div>
             <div class="star res"><i>Result</i><p>Launched on schedule, company-wide, retrieving against the same taxonomy PCL's content is being restructured to. No separate rulebook for the AI.</p></div>
           </div>
+
           <p class="dim" style="font-size:11px;margin-top:12px;border-top:1px solid var(--line);padding-top:9px">This site is the seventh one. Browser desktop, window manager, tiling, a classification game and an assistant on a serverless backend. Plain HTML, CSS and vanilla JavaScript.</p>
         </div>
       </div>
+
       <div class="win" id="w-resume" style="left:290px;top:48px;width:420px">
         <div class="win-head"><span class="spacer"></span><span class="win-title">Resume</span>
           <div class="wc"><button class="mn" aria-label="Minimize"><svg viewBox="0 0 14 14" fill="none" stroke-width="1.5"><path d="M3 10h8"/></svg></button><button class="mx" aria-label="Maximize"><svg viewBox="0 0 14 14" fill="none" stroke-width="1.5"><rect x="3.5" y="3.5" width="7" height="7" rx="1"/></svg></button><button class="cl" aria-label="Close"><svg viewBox="0 0 14 14" fill="none" stroke-width="1.5"><path d="M4 4l6 6M10 4l-6 6"/></svg></button></div></div>
@@ -804,21 +870,42 @@ html.paused .amb i,html.paused .wallwrap.fade{animation-play-state:paused}
         <div class="win-head"><span class="spacer"></span><span class="win-title">Scope Call</span>
           <div class="wc"><button class="mn" aria-label="Minimize"><svg viewBox="0 0 14 14" fill="none" stroke-width="1.5"><path d="M3 10h8"/></svg></button><button class="mx" aria-label="Maximize"><svg viewBox="0 0 14 14" fill="none" stroke-width="1.5"><rect x="3.5" y="3.5" width="7" height="7" rx="1"/></svg></button><button class="cl" aria-label="Close"><svg viewBox="0 0 14 14" fill="none" stroke-width="1.5"><path d="M4 4l6 6M10 4l-6 6"/></svg></button></div></div>
         <div class="win-body">
-          <div class="g-frame" id="gFrame">Four bins · 3,140 items · one scope call. Illustrative deck. no client content.</div>
-          <div class="g-hud" id="gHud" style="display:none">
-            <div class="cell"><span>CLOCK</span><b id="gClock">40</b></div>
-            <div class="cell"><span>QUEUE</span><b id="gQueue">0</b></div>
-            <div class="cell"><span>REVIEWED</span><b id="gDone">0</b></div>
-            <div class="cell" style="flex:1.3"><span>AUDIT READINESS</span><b id="gInt">60</b><div class="g-int"><i id="gIntBar"></i></div></div>
+          <div class="sc">
+          <div id="scIntro">
+            <p class="sc-lede">You have a <b>96-day project</b>, a <b>hard deadline on day 120</b>, and a stream of change requests that bleed the delivery date for as long as you leave them unread. Clear each one three ways.</p>
+            <div class="sc-rules"><em>APPROVE</em> spends budget and it goes away clean<br>
+            <em>REJECT</em> spends stakeholder goodwill and it goes away clean<br>
+            <em>DEFER</em> is free now, bleeds at half rate, and returns bigger<br><br>
+            Goodwill is not a health bar. It sets the size of all three contingency releases, so saying no is cheap today and expensive by day 78.</div>
+            <button class="sc-go" id="scGo">Take the call</button>
+            <div class="sc-best" id="scBest"></div>
           </div>
-          <div class="g-stage" id="gStage"></div>
-          <div class="g-bins" id="gBins" style="display:none">
-            <button class="k0" data-bin="retain"><b>RETAIN</b>live, still in play<kbd>1</kbd></button>
-            <button class="k1" data-bin="archive"><b>ARCHIVE</b>keep it, keep it cold<kbd>2</kbd></button>
-            <button class="k2" data-bin="dispose"><b>DISPOSE</b>no value, no obligation<kbd>3</kbd></button>
-            <button class="k3" data-bin="escalate"><b>ESCALATE</b>sensitive or on hold<kbd>4</kbd></button>
+          <div id="scPlay" hidden>
+            <div class="sc-bar">
+              <div class="sc-track"></div><div class="sc-fill" id="scFill"></div>
+              <div class="sc-tick" style="left:21.7%"></div><div class="sc-tick" style="left:45%"></div><div class="sc-tick" style="left:65%"></div>
+              <div class="sc-dead" style="left:100%"></div>
+              <div class="sc-now" id="scNow" style="left:0"></div>
+              <div class="sc-due" id="scDue" style="left:80%"></div>
+              <div class="sc-phase" id="scPhase">DISCOVERY</div>
+              <div class="sc-daycount" id="scDay">day 0 / due 96</div>
+            </div>
+            <div class="sc-meters">
+              <div class="sc-m" id="scMb"><div class="k">BUDGET</div><div class="v" id="scBudget">95k</div><div class="t"><i id="scBudgetBar"></i></div></div>
+              <div class="sc-m" id="scMg"><div class="k">GOODWILL</div><div class="v" id="scGw">100</div><div class="t"><i id="scGwBar"></i></div></div>
+              <div class="sc-m" id="scMf"><div class="k">FLOAT</div><div class="v" id="scFloat">24.0d</div><div class="t"><i id="scFloatBar"></i></div></div>
+            </div>
+            <div class="sc-inbox" id="scInbox"></div>
+            <div class="sc-tray" id="scTray"></div>
+            <div class="sc-acts">
+              <button class="ap" id="scAp">Approve<i>A</i></button>
+              <button class="df" id="scDf">Defer<i>D</i></button>
+              <button class="rj" id="scRj">Reject<i>R</i></button>
+            </div>
+            <div class="sc-hint" id="scHint" aria-live="polite"></div>
           </div>
-          <div class="g-msg" id="gMsg"></div>
+          <div class="sc-over" id="scOver" hidden></div>
+          </div>
         </div>
       </div>
       <div class="win" id="w-collab" style="left:410px;top:26px;width:490px">
@@ -907,6 +994,7 @@ const SCENES=[
  {n:'Slate Night',sky:['#0A1114','#141F24','#0C1211'],band:['#9ccfd8','#F7C144'], glow:'#9ccfd8', ridge:['#1A272C','#121C20','#0C1417'], sun:null}
 ];
 let wallN=0, sceneI=Math.floor(Math.random()*SCENES.length), wallTimer=null;
+
 function sceneSVG(sc,seed){
   const uid='s'+(++wallN);
   let stars='';
@@ -938,11 +1026,16 @@ function sceneSVG(sc,seed){
 }
 function paintScene(el,idx,seed){ el.innerHTML=sceneSVG(SCENES[idx],seed); }
 function makeWall(el){ paintScene(el,sceneI,Math.floor(Math.random()*1000)+1); }
+
+/* Wallpapers: D3Ext/aesthetic-wallpapers, served over the jsDelivr CDN straight from GitHub.
+   No API key, no rate limit, CORS clean. The procedural scene paints first and stays as the
+   fallback, so a blocked CDN or a dead network never leaves an empty desktop. */
 const WALL_BASE='https://cdn.jsdelivr.net/gh/D3Ext/aesthetic-wallpapers@main/images/';
 const WALLS=['aurora_v02.png','dark_forest.png','lake.jpg','minimal_landscape.jpg','abstract.jpg',
  'gradient-pb.png','mountains.png','forest.png','minimal_gradient.png','art-lake.png',
  'Doodle_Space_Nord.png','fishing_stars.jpg','forest-bridge.jpg','golden-mountains.png','ink_wave.png'];
 let wallOrder=WALLS.slice().sort(function(){return Math.random()-0.5;}), wallIdx=-1;
+
 let wallA=null,wallB=null,wallOn=null;
 function ensureWallLayers(){
   if(wallA)return true;
@@ -981,6 +1074,7 @@ function startWallRotation(){
   if(wallTimer)clearInterval(wallTimer);
   wallTimer=setInterval(function(){ if(!document.hidden)nextWall(); },90000);
 }
+
 makeWall($('#wallLogin'));makeWall($('#wallDesk'));
 function lgClock(){
   const n=new Date();
@@ -1005,13 +1099,15 @@ function openWin(id){
   if(id==='w-ai')warmGPT();
   if(id==='w-ai'&&!w.dataset.greeted){w.dataset.greeted=1;aiSay("Ask about the record. Feasibility and tenders, delivery controls, AI readiness, reporting, credentials. Answers stay short and carry a number where one exists.");}
   if(id==='w-game'&&!w.dataset.init){w.dataset.init=1;gReset();}
+  if(id==='w-proj')tx3Init();
   if(id==='w-mania')loadTube();
   if(id==='w-term'&&!w.dataset.init){w.dataset.init=1;termPrint("SN!_OS terminal. type <span class='c'>help</span> for commands.");}
   if(tiling)retile();
 }
 function closeWin(id){
   const w=document.getElementById(id);
-  if(id==='w-game'&&g.timer){clearInterval(g.timer);g.timer=null;}
+  if(id==='w-game'&&sc&&!sc.over){sc.over=true;cancelAnimationFrame(scRaf);}
+  if(id==='w-proj')tx3Stop();
   const done=()=>{w.classList.remove('open','closing');openSet.delete(id);syncDock();if(tiling)retile();};
   if(reduced){done();return;}
   w.classList.add('closing');setTimeout(done,190);
@@ -1155,7 +1251,7 @@ const kb=[
  [/\bpmp\b|\bcertified\b|\bcertification\b|\bcredential\b|\bprince2\b|\bitil\b|\baigp\b|\beducation\b|\bdegree\b|\bmaster\b|\bsharif\b|\buniversity\b|\bresearch\b|\btogaf\b/i,"No PMP credential. He holds <b>Project Management Training on a PMP-aligned curriculum</b>, University of Ottawa and PMPiran, 2021-2024. Master of Digital Transformation and Innovation, University of Ottawa, 2018-2021. BSc IT Engineering, Sharif University of Technology, 2012-2017. TOGAF he uses as a method, not a certificate."],
  [/\bfeasibility\b|\bcapex\b|\bopex\b|\binvestment decision\b|\bbusiness case\b|\bmembrane\b|\basia water\b|\b35m\b|\bbandar abbas\b|\bpre\-investment\b|\bcapital\b|\bfront end\b|\bviability\b|\bfinancial model\b/i,"Owner side. For Asia Water Co. he ran the feasibility study and the CAPEX/OPEX model behind a <b>$35M</b> membrane plant investment decision, Bandar Abbas, 2024-2025. Vendor and procurement research, capital and operating cases, one documented basis the owner could commit against."],
  [/\btender\b|\brfp\b|\bprocurement\b|\bbid evaluation\b|\bshortlist\b|\baward\b|\b33m\b|\bbidders\b|\bsourcing\b|\bcontracting\b|\bvendor selection\b|\btwo package\b|\bnegotiation\b|\bbuy side\b/i,"He wrote the RFP rather than answered it. Two packages, technical scored before commercial, <b>11 bidders</b> assessed down to a shortlist of <b>4</b>, then a <b>$33M</b> recommendation to award. At MEWE he ran procurement and tendering across <b>5+ concurrent projects</b>, negotiating cost, schedule and quality."],
- [/\bbusiness development\b|\bbd\b|\bproposals\b|\bclient development\b|\bsales\b|\bdeal\b|\bpipeline development\b|\brelationship\b|\bfounder\b|\bprosharif\b|\bquota\b|\brevenue\b|\bpursuit\b|\bcommercial\b/i,"At MEWE he wrote proposals and tender packages, aligned sponsor and contractors inside a joint IPD PMO, and negotiated with clients across <b>5+ concurrent projects</b>. He founded ProSharif.com too, where product taxonomy and CRM-led follow-up lifted repeat sales <b>28%</b>. No quota, no demand gen."],
+ [/\bbusiness development\b|\bbd\b|\bproposals\b|\bclient development\b|\bsales\b|\bdeal\b|\bpipeline development\b|\brelationship\b|\bfounder\b|\bprosharif\b|\bquota\b|\brevenue\b|\bpursuit\b|\bcommercial\b/i,"At MEWE he wrote the proposals and tender packages, aligned sponsor and contractors inside a joint IPD PMO, and negotiated cost, schedule and quality across <b>5+ concurrent projects</b>. The clearest example is the membrane plant: he built the CAPEX/OPEX model, structured a two-package RFP, and took <b>11 bidders down to 4</b> and a <b>$33M</b> award recommendation. Owner side, not vendor side. No quota, no demand gen."],
  [/\bai readiness\b|\bcontent for ai\b|\bretrieval\b|\brag\b|\bllm\b|\bgenai\b|\bai strategy\b|\bgovernance capability\b|\b2025\-2027\b|\bmachine usable\b|\bai governance\b|\bsemantic\b|\bcopilot\b|\bsearch quality\b/i,"Content has to be describable before a model retrieves it well. He builds that layer: a <b>22-domain</b> taxonomy, <b>six</b> governance capability categories, a <b>2025-2027</b> roadmap, metadata, retention and access rules. Data governance sits inside AI governance, not before it."],
  [/\bai hub\b|\bshipped in ai\b|\bai project\b|\bai program\b|\blaunched\b|\bai consultant\b|\bdid he build ai\b|\bai delivery\b|\bai product\b|\bhub launch\b|\bexternal consultant\b|\bai work\b/i,"He developed PCL's company-wide <b>AI Hub</b> with an external AI consultant. He proposed it, designed the information architecture, and the launch landed on schedule. The consultant carried the model side. His half: architecture, vendor coordination, a date that held, and the <b>22-domain</b> taxonomy underneath."],
  [/\btaxonomy\b|\binformation architecture\b|\bcontent types\b|\bmanaged metadata\b|\bvocabulary\b|\bfindability\b|\bnavigation\b|\b22\-domain\b|\bontology\b|\blabels\b|\bstructure\b|\bclassification scheme\b|\bia\b/i,"A <b>22-domain</b> business taxonomy at PCL, plus content types, managed metadata and structure built for retrieval. Taxonomy is the controlled vocabulary. Information architecture is the structure around it. He established both from zero at Peyvareh, then standardized architecture across <b>30+ teams</b> at PCL."],
@@ -1168,7 +1264,7 @@ const kb=[
  [/\bagile\b|\bscrum\b|\bwaterfall\b|\bhybrid\b|\bmethodology\b|\bjira\b|\bazure devops\b|\bsmartsheet\b|\bmicrosoft project\b|\bsprint\b|\bkanban\b|\bpm tools\b|\bhow does he deliver\b|\bstage gate\b/i,"Hybrid. Phase gates and a governance layer outside, Agile inside where teams already work that way. Jira, Azure DevOps, Microsoft Project and Smartsheet for delivery, Power BI and Tableau above them. <b>PMP-aligned training</b>, University of Ottawa and PMPiran, 2021-2024. The method follows the work."],
  [/\bdigital transformation\b|\btransformation\b|\bmodernization\b|\boperating model\b|\bchange program\b|\bstrategy\b|\benterprise architecture\b|\btogaf\b|\binnovation\b|\bdigitization\b|\broadmap\b|\bmaster's\b|\bdx\b/i,"His master's is in it, Digital Transformation and Innovation at the University of Ottawa. In practice: one agreed definition per figure, a named owner for every source of record, guidelines teams operate from, then a check in month six. At PCL that covers <b>13,000+ documents</b> and <b>30+ teams</b>."],
  [/\bsharepoint\b|\bmicrosoft 365\b|\bm365\b|\bdynamics 365\b|\bcommon data environment\b|\bcde\b|\bintranet\b|\bplatform\b|\bpermissions\b|\bsite governance\b|\bmigration\b|\bcopilot readiness\b|\bhub\b|\baccess control\b/i,"Enterprise SharePoint modernization across <b>25 business areas</b> at PCL. At MEWE he designed the structure, permissions and rules of an access-controlled SharePoint and Dynamics 365 common data environment covering sponsor, contractors and consultants. At Peyvareh a firm-wide hub cut search time nearly <b>50%</b>. TOGAF as a working method."],
- [/\bexperience\b|\bwork history\b|\bcareer\b|\bpast roles\b|\btimeline\b|\bcurrent role\b|\bcurrent job\b|\bpresent role\b|\bpcl\b|\bmewe\b|\bpeyvareh\b|\bnilpay\b|\bprosharif\b|\bemployer\b/i,"PCL Construction since <b>Aug 2025</b>. MEWE 2023 to 2025, Senior Project and Business Development Lead inside a joint IPD PMO. Peyvareh 2020 to 2023, Business Intelligence Lead. University of Ottawa CIO office 2019-2020. Nilpay from 2015, plus ProSharif.com, where product taxonomy and CRM follow-up lifted repeat sales <b>28%</b>."],
+ [/\bexperience\b|\bwork history\b|\bcareer\b|\bpast roles\b|\btimeline\b|\bcurrent role\b|\bcurrent job\b|\bpresent role\b|\bpcl\b|\bmewe\b|\bpeyvareh\b|\bnilpay\b|\bprosharif\b|\bemployer\b/i,"PCL Construction since <b>Aug 2025</b>. MEWE 2023 to 2025, Senior Project and Business Development Lead inside a joint IPD PMO. Peyvareh 2020 to 2023, Business Intelligence Lead. University of Ottawa CIO office 2019-2020, IT Business Analyst. Nilpay 2015-2018, Business Analyst. Roughly the same job getting bigger each time: make a large organization agree on where its information lives."],
  [/\bwhere\b|\blocated\b|\bedmonton\b|\balberta\b|\bcanada\b|\brelocate\b|\bremote\b|\blanguages\b|\bfrench\b|\bsalary\b|\breferences\b|\bnotice period\b|\bcontact\b|\blinkedin\b/i,"<b>Edmonton, Alberta</b>, at PCL Construction since August <b>2025</b>. English fluent, French A1. Salary, references, notice period and work arrangements are a conversation with him. LinkedIn is the fastest route, linkedin.com/in/shahriar-nilkar, and the Contact app carries his email. No phone number on this site, deliberately."],
  [/\bweakness\b|\bgaps\b|\blimitations\b|\bwhat can't he do\b|\bmachine learning\b|\bmlops\b|\btrain models\b|\bfine\-tune\b|\bcloud pipelines\b|\bquota\b|\bnot done\b|\bhonest\b|\bdownside\b|\brisks\b/i,"He doesn't train models, run MLOps or architect cloud pipelines. No sales quota, no demand gen, no martech stack. He builds the taxonomy, metadata, permissions and controls those depend on, then the adoption work that makes them hold. Named limits keep the <b>$33M</b> and <b>30%</b> numbers checkable."],
  [/^\s*(hi|hello|hey|yo|salam)\b|\bwho is he\b|\bwho is shahriar\b|\babout him\b|\btell me about\b|\bsummary\b|\bbackground\b|\bintroduce\b|\boverview\b|\bwhat does he do\b|\bprofile\b|\bpositioning\b/i,"Shahriar Nilkar, project manager in <b>Edmonton</b>, 8+ years. His primary file is information and data governance architecture, delivered through PMO control. At PCL Construction that runs a <b>22-domain</b> taxonomy and <b>$1M+</b> annual spend oversight on PCL Connects 5.0. Business development and digital transformation are what he leads with."],
@@ -1184,7 +1280,7 @@ function gptScrub(t){
 function aiSay(html){const d=document.createElement('div');d.className='msg ai';d.innerHTML=html;$('#chatLog').appendChild(d);$('#chatLog').scrollTop=1e6;}
 const SHAHGPT_ENDPOINT="https://shahgpt.shahriar-nilkar2.workers.dev/";
 let gptKey=null;
-const GPT_SYS="Shahriar Nilkar's portfolio assistant. Third person, \"Shahriar\" or \"he\". 2-4 sentences, under 55 words, one number each. No bullets, no greeting, no closing summary, no em dashes.\nPOSITIONING. Project manager, Edmonton AB, 8+ years in construction, engineering, higher education. Primary file: information and data governance architecture delivered through PMO control. Lead with business development and digital transformation. PCL now, MEWE 2023-2025, Peyvareh 2020-2023, uOttawa CIO 2019-2020, Nilpay 2015-2018.\nFEASIBILITY. Membrane plant, owner Asia Water Co., Bandar Abbas 2024-2025, CAPEX $35M, feasibility study and CAPEX/OPEX model behind the owner's decision.\nOWNER-SIDE PROCUREMENT & TENDER. He wrote RFPs, he did not answer them. Two-package tender, 11 bidders to 4, $33M award recommendation, procurement across 5+ concurrent MEWE projects. Also proposals and sponsor alignment in a joint IPD PMO, ProSharif repeat sales up 28%.\nDIGITAL TRANSFORMATION & PLATFORMS. SharePoint modernization across 25 business areas, 13,000+ documents, architecture standardized across 30+ teams. Access-controlled SharePoint / Dynamics 365 common data environment at MEWE. TOGAF as method.\nIA, GOVERNANCE & RECORDS. 22-domain taxonomy, content types, managed metadata, permissions, retention. Risk-based review cut scope 30% across 3,000+ documents, audit readiness up 40%, FAIR-aligned practice.\nAI READINESS. Six governance capability categories, 2025-2027 roadmap, company-wide AI Hub with an external AI consultant: he proposed it, designed its IA, launched on schedule.\nPMO CONTROLS. Charters, RACI, risk registers, dependency tracking, phase gates. Change orders down 25%, slippage down 20%, $1M+ annual spend, 12+ SMEs.\nDECISION INTELLIGENCE. 27-district marketing KPI and pipeline framework unifying strategic-plan and Salesforce reporting, Power BI over ERP data. Tableau, SQL, Python, Jira, Azure DevOps.\nADOPTION & REQUIREMENTS. Templated guidelines, change management, 40+ engineers trained, search down nearly 50%, tickets down 20%. 11 faculties audited, TopDesk inventory, licence overlap down 35%, workshops and UAT.\nCREDENTIALS. PMP-aligned Project Management Training, uOttawa and PMPiran 2021-2024, never the PMP credential. Master of Digital Transformation and Innovation, uOttawa. BSc IT Engineering, Sharif.\nLIMITS & RULES. No model training, MLOps, quota, demand gen, GA4, Marketo, HubSpot; state ownership first, limit after. Never the word government; say sponsor, owner or client. He builds and enables. No phone number. Outside this record: linkedin.com/in/shahriar-nilkar. The subject is Shahriar Nilkar. Call him Shahriar or he. You are an unnamed assistant, never the subject. Start every answer with \"Shahriar\", \"He\", or a fact. Never use a long dash. Never claim the PMP credential. Never state a phone number.";
+const GPT_SYS="You answer questions about Shahriar Nilkar for visitors to his portfolio. Third person, \"Shahriar\" or \"he\". Two to four sentences, under 55 words. Carry one concrete number where the record has one. No bullets, no greeting, no closing summary, no long dashes.\nWHO. Project manager in Edmonton, Alberta. 8+ years across digital infrastructure, engineering and construction, and higher education. He runs delivery and governance as one job: PMO controls on one side, FAIR-aligned data governance on the other. Master of Digital Transformation and Innovation.\nNOW. PCL Construction since Aug 2025, Senior Digital Communications Specialist, Information Governance and Project Delivery. Coordinates 12+ subject-matter experts, product owners across Business Technology and IT, and developers over 25 business areas, keeping the enterprise SharePoint modernization on schedule. Leads the information-governance architecture preparing PCL content for AI: a 22-domain business taxonomy, six governance capability categories, a 2025-2027 roadmap. Restructured content and information-management processes to new corporate directives, authoring the templated guidelines teams work from. Built a 27-district marketing KPI and pipeline intelligence framework unifying strategic-plan and Salesforce reporting. Cut review scope 30% across 3,000+ documents through risk-based analysis, with the escalation framework and dashboards leadership uses. Developed PCL company-wide AI Hub with an external AI consultant: proposed and designed its information architecture, delivered the launch on schedule.\nFLAGSHIP. PCL Connects 5.0, project and governance lead, $1M+ annual spend oversight, 2025 to now. M365 modernization across 13,000+ documents and 3,000+ pages, information architecture standardized across 30+ teams, audit readiness raised 40%, and the business case for a Content Governance App now used team-wide.\nMEWE. Oct 2023 to Feb 2025, Senior Project and Business Development Lead, PMO, Tehran. Led feasibility and stakeholder management from a joint integrated project delivery PMO on a national water-research data-centre program, aligning sponsor and contractors. Reduced change orders 25% by instituting project controls: charters, communication plans, RACI charts, risk registers, risk matrices, cross-team dependency tracking. Managed procurement and tendering across 5+ concurrent projects, preparing proposals and RFP packages and negotiating cost, schedule and quality. Unified sponsor, contractors and consultants on one access-controlled SharePoint and Dynamics 365 common data environment, designing its structure, permissions and rules. Translated field and office workflows into system requirements through workshops and user acceptance testing.\nTENDER. Membrane Manufacturing Plant, feasibility and tender lead, owner Asia Water Co., estimated CAPEX $35M, Bandar Abbas, 2024-2025. He built the CAPEX/OPEX model behind the owner investment decision, researched vendors and procurement methods, structured a two-package RFP, shortlisted 4 of 11 bidders, and delivered a $33M award recommendation. Owner side. He wrote RFPs, he did not answer them.\nPEYVAREH. Mar 2020 to Oct 2023, Business Intelligence Lead, Tehran. Coordinated 10+ teams across two major projects, refining the reporting structure for scheduling and planning and cutting schedule slippage 20%. Established information governance from the ground up: content types, managed metadata, permissions, retention. A firm-wide SharePoint hub cut document search time nearly 50% and support tickets 20%, training 40+ engineers and coordinators. Automated Excel and Power BI over ERP data into forecasts and KPI dashboards.\nUOTTAWA. May 2019 to Feb 2020, IT Business Analyst, Office of the CIO. Consultations with 11 academic faculties auditing application portfolios against the Vision 2030 consolidation roadmap. A central application inventory in TopDesk cut licence overlap 35%, handling confidential licensing data under institutional privacy obligations.\nNILPAY. Apr 2015 to Sep 2018, Business Analyst, Tehran. An in-house Microsoft Access inventory system and searchable document archive with naming conventions, access tracking and audit support.\nEDUCATION. Master of Digital Transformation and Innovation, University of Ottawa, Sep 2018 to Dec 2021, concentration IT strategy, enterprise architecture, data-driven innovation. Graduate research project: End-User Development Tools for Business Users. BSc IT Engineering, Sharif University of Technology, 2012-2017.\nTRAINING. Project Management Training on a PMP-aligned curriculum, University of Ottawa and PMPiran, 2021-2024. This is training, not the PMP credential, and you must never say he is PMP certified. Project management coursework inside both degrees. English fluent, French A1 and actively developing.\nCOMPETENCIES. Project lifecycle and governance: charters, communication plans, stakeholder engagement plans, RACI, risk registers, change management plans, phase-gated delivery, closure reports, lessons learned, post-implementation reviews. Portfolio and PMO reporting: KPIs, status reporting, forecasting, resource allocation, portfolio dashboards, executive summaries, business case development. Procurement and contracting: RFP development, bid evaluation, vendor coordination, contract negotiation, budget forecasting. Data governance: metadata standards, taxonomy, data lifecycle and preservation, interoperability, stewardship, FAIR data principles. Digital infrastructure: data-centre programs, digital research infrastructure, national data integration, technical service delivery, SharePoint and Microsoft 365 governance, common data environments, information architecture. Method: TOGAF and capability mapping.\nTOOLS. Agile and Scrum, hybrid delivery, Jira, Azure DevOps, Microsoft Project, Smartsheet, Power BI, Tableau, SQL, Python. Also Salesforce, Dynamics 365, TopDesk, Microsoft Access, Excel and VBA in the roles above.\nPRINCIPLES. Time is Gold: decide what does not get done and protect the date that is left. Tool Up: learn the tool the problem needs, even if that means writing it. We Before Me: governance holds where someone has to use it on a Tuesday.\nRULES. Never claim a credential he does not hold, above all never the PMP. Never use the word government; say sponsor, owner or client. Never say he fixed a mess; he builds and enables. Never state a phone number. Do not invent numbers, employers, titles or dates: everything above is the complete record and anything outside it does not exist. If asked something this record does not cover, say plainly that it is not something you can speak to and point to linkedin.com/in/shahriar-nilkar. The subject is Shahriar Nilkar; you are an unnamed assistant and never the subject, so never say your own name and never describe yourself as having done any of this. Start every answer with \"Shahriar\", \"He\", or a fact.";
 async function askGPT(q){
   const r=await fetch('https://api.openai.com/v1/chat/completions',{
     method:'POST',
@@ -1292,8 +1388,8 @@ const cmds={
  whoami:"shahriar.nilkar. Project Manager · AI Solutions · Data & Analytics\nSenior Digital Communications Specialist (Information Governance & Project Delivery) @ PCL Construction, Edmonton.\n8+ years across digital infrastructure, engineering & construction, and higher education.",
  pillars:"[1] PROJECT MANAGER . PMO controls · phase gates · procurement · feasibility\n[2] AI SOLUTIONS    . AI readiness architecture · AI Hub · governed retrieval\n[3] DATA & ANALYTICS. KPI frameworks · Power BI · portfolio dashboards",
  principles:"TIME IS GOLD . decide what doesn't get done, protect the date that's left\nTOOL UP      . learn the tool the problem needs, even if that means writing it\nWE BEFORE ME . governance holds where someone has to use it on a Tuesday",
- skills:"DELIVERY   charters · comms plans · RACI · risk registers · phase gates · dependency tracking · closure & lessons learned\nAI         AI readiness architecture · 22-domain taxonomy · AI Hub · metadata for retrieval · adoption\nDATA       Power BI ██████████  Tableau ███████░░░  SQL ████████░░  Python ████████░░  KPI & pipeline frameworks\nGOVERN     metadata standards · taxonomy · data lifecycle · stewardship · FAIR · CDE · M365 governance\nCOMMERCIAL RFP development · bid evaluation · contract negotiation · CAPEX/OPEX modelling · budget forecasting\nCODE       Python · SQL · React · Node.js · Java · C++ · HTML · CSS · TOGAF",
- experience:"2025\u2192now  PCL Construction ........ Sr. Digital Comms Specialist (Info Gov & Delivery)\n2023\u21922025 MEWE .................... Sr. Tech Project & BD Lead, PMO\n2020\u21922023 Peyvareh ................ Business Intelligence Lead\n2019\u21922020 uOttawa (CIO) ........... IT Business Analyst\n2015\u21922018 Nilpay .................. Business Analyst\n2015\u21922018 Prosharif.com ........... Founder",
+ skills:"DELIVERY   charters · comms plans · RACI · risk registers · phase gates · dependency tracking · closure & lessons learned\nAI         AI readiness architecture · 22-domain taxonomy · AI Hub · metadata for retrieval · adoption\nDATA       Power BI ██████████  Tableau ███████░░░  SQL ████████░░  Python ████████░░  KPI & pipeline frameworks\nGOVERN     metadata standards · taxonomy · data lifecycle · stewardship · FAIR · CDE · M365 governance\nCOMMERCIAL RFP development · bid evaluation · contract negotiation · CAPEX/OPEX modelling · budget forecasting\nMETHOD     TOGAF · capability mapping · enterprise architecture · IT strategy\nBUILDS     SQL · Python · Power BI · Excel/VBA · this site, hand-written, no framework",
+ experience:"2025\u2192now  PCL Construction ........ Sr. Digital Comms Specialist (Info Gov & Delivery)\n2023\u21922025 MEWE .................... Sr. Tech Project & BD Lead, PMO\n2020\u21922023 Peyvareh ................ Business Intelligence Lead\n2019\u21922020 uOttawa (CIO) ........... IT Business Analyst\n2015\u21922018 Nilpay .................. Business Analyst",
  projects:"PCL Connects 5.0 ......... IA governance & AI readiness · 13,000+ docs · audit readiness +40%\nPCL AI Hub ............... company-wide · IA designed · launched on schedule\nMembrane Plant ........... $35M feasibility & dual-package tender · $33M award recommendation\nWater-Research Data Ctr .. IPD PMO · project controls · change orders \u221225%\nMarketing Intelligence ... 27 districts · strategic plan + Salesforce, one source of truth",
  education:"Master of Digital Transformation and Innovation. University of Ottawa (2018\u20132021)\n  concentration: IT strategy · enterprise architecture · data-driven innovation\n  research: End-User Development Tools for Business Users\nBSc IT Engineering. Sharif University of Technology (2012\u20132017)\nProject Management Training, PMP-aligned curriculum. uOttawa & PMPiran (2021\u20132024)",
  stack:"SharePoint · Microsoft 365 · Dynamics 365 · Salesforce · TopDesk · Microsoft Access\nPower BI · Tableau · SQL · Python · Excel/VBA\nJira · Azure DevOps · Microsoft Project · Smartsheet · Agile/Scrum · hybrid delivery",
@@ -1315,166 +1411,313 @@ $('#termInput').addEventListener('keydown',e=>{
   termPrint(cmds[c]?cmds[c].replace(/\n/g,'<br>'):`command not found: ${raw}. try <span class='c'>help</span>`,raw);
   if(c==='hire-me')setTimeout(()=>open('https://www.linkedin.com/in/shahriar-nilkar','_blank'),700);
 });
-const DECK=[
- {n:"risk_register_Q3.xlsx",b:"retain",w:"Active risk register. It's a working document, not history."},
- {n:"RACI_matrix_v3.xlsx",b:"retain",w:"Decides who decides, on the phase running right now."},
- {n:"change_order_014.pdf",b:"retain",w:"Open commercial record on a running job. Keep it reachable."},
- {n:"tender_addendum_2.docx",b:"retain",w:"Addenda bind the contract. They live with the live tender."},
- {n:"interface_register.xlsx",b:"retain",w:"Multi-party handoffs change weekly. Stays within reach."},
- {n:"weekly_status_wk12.pdf",b:"retain",w:"Current reporting cycle. Leadership still opens it."},
- {n:"asbuilt_drawings_2018.dwg",b:"archive",w:"As-builts outlive the project. Archive them, never delete."},
- {n:"commissioning_report.pdf",b:"archive",w:"Handover evidence. Rarely read, still worth keeping."},
- {n:"lessons_learned_2016.docx",b:"archive",w:"Closure record. Somebody wants this in five years."},
- {n:"vendor_NDA_signed.pdf",b:"archive",w:"Executed agreement. Hold it for the term plus obligations."},
- {n:"permit_approval_2014.pdf",b:"archive",w:"Regulatory evidence with a statutory retention period."},
- {n:"site_diary_2011.pdf",b:"archive",w:"Closed job, still inside retention. Cold storage."},
- {n:"supplier_agreement_2019.pdf",b:"archive",w:"Directive changed mid-run: signed agreements are held, not disposed."},
- {n:"draft7_final_FINAL.docx",b:"dispose",w:"Superseded draft with no approval trail. That's noise."},
- {n:"copy_of_copy_backup.zip",b:"dispose",w:"Duplicates make search worse and assistants dumber."},
- {n:"untitled_export(3).csv",b:"dispose",w:"No owner, no content type, no way to find it."},
- {n:"lunch_menu_2019.xlsx",b:"dispose",w:"No business value and no retention obligation."},
- {n:"old_intranet_export.html",b:"dispose",w:"Migrated twice. Retire the stale copy."},
- {n:"test_delete_me.docx",b:"dispose",w:"Named by someone who meant it."},
- {n:"payroll_export.csv",b:"escalate",w:"Personal data. Access review before this moves anywhere."},
- {n:"legal_hold_notice.msg",b:"escalate",w:"A hold overrides every retention rule. Escalate it."},
- {n:"unredacted_ID_scans.pdf",b:"escalate",w:"Identity documents in open storage. That's an oversharing incident."},
- {n:"salary_bands_draft.xlsx",b:"escalate",w:"Restricted HR content sitting in a team site."},
- {n:"site_indexed_everyone.cfg",b:"escalate",w:"Indexed for everyone. An assistant can quote it to anyone."},
- {n:"incident_report_open.docx",b:"escalate",w:"Open incident. It needs an owner, not a folder."}
+const TX3_CAPS=[
+ {n:"Standards",c:0xFFAE1A},{n:"Lifecycle",c:0x2ED8E8},{n:"Access",c:0x5EE08B},
+ {n:"Quality",c:0xB78BFF},{n:"Stewardship",c:0xFFD24A},{n:"Retrieval",c:0x67E8F5}
 ];
-const CLASSES=[
- {id:"active",n:"Active project records",d:"Live jobs. Registers, change orders, status packs.",count:1240,risky:false},
- {id:"legacy",n:"Legacy closed projects",d:"Handover packs, as-builts, permits, site diaries.",count:1180,risky:false},
- {id:"shared",n:"Shared drive spillover",d:"Unowned exports, duplicates, drafts. And whatever else landed there.",count:720,risky:true}
-];
-const GBINS=["retain","archive","dispose","escalate"];
-const GLABEL={retain:"RETAIN",archive:"ARCHIVE",dispose:"DISPOSE",escalate:"ESCALATE"};
-const DIRECTIVE_AT=20;
-let g={phase:"scope",ci:0,ruled:[],queue:[],cur:null,clock:40,audit:60,done:0,left:0,timer:null,lock:false,rec:[],directive:false,handled:0};
-function gEl(id){return document.getElementById(id);}
-function gHud(){
-  gEl('gClock').textContent=g.clock;
-  gEl('gQueue').textContent=g.queue.length+(g.cur?1:0);
-  gEl('gDone').textContent=g.done;
-  gEl('gInt').textContent=g.audit;
-  const b=gEl('gIntBar');
-  b.style.width=Math.max(0,Math.min(100,g.audit))+'%';
-  b.style.background=g.audit>=70?'#30D158':g.audit>=45?'var(--pop-orange)':'#FF453A';
+const TX3_DOMAINS=["Projects","Estimating","Contracts","Safety","Quality","Procurement","Finance","People",
+ "Equipment","Subcontracts","Design","Scheduling","Claims","Commissioning","Warranty","Marketing",
+ "Districts","Clients","Legal","Records","Reporting","Training"];
+let tx3={on:false,r:null,sc:null,cam:null,raf:0,rot:0,drag:false,px:0,vel:.0022,dispose:null};
+function tx3Init(){
+  if(tx3.on)return;
+  const host=document.getElementById('tx3');if(!host)return;
+  const cv=document.getElementById('tx3c');
+  let gl=null;try{gl=cv.getContext('webgl2')||cv.getContext('webgl');}catch(e){}
+  if(!gl||reduced||window.innerWidth<560){host.classList.add('flat');return;}
+  tx3.on=true;
+  const S=document.createElement('script');
+  S.src='https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.min.js';
+  S.onerror=function(){host.classList.add('flat');tx3.on=false;};
+  S.onload=function(){try{tx3Build(host,cv);}catch(e){host.classList.add('flat');tx3.on=false;}};
+  document.head.appendChild(S);
 }
-function gMsg(h){gEl('gMsg').innerHTML=h;}
+function tx3Build(host,cv){
+  const T=window.THREE;if(!T){host.classList.add('flat');return;}
+  const w=host.clientWidth||520,h=host.clientHeight||210;
+  const r=new T.WebGLRenderer({canvas:cv,antialias:true,alpha:true});
+  r.setPixelRatio(Math.min(devicePixelRatio,2));r.setSize(w,h,false);
+  const sc=new T.Scene();
+  const cam=new T.PerspectiveCamera(42,w/h,0.1,100);cam.position.set(0,1.1,8.4);cam.lookAt(0,0,0);
+  const grp=new T.Group();sc.add(grp);
+  const geo=new T.SphereGeometry(1,14,12);
+  const capMats=TX3_CAPS.map(function(c){return new T.MeshBasicMaterial({color:c.c});});
+  const pts=[];
+  for(let i=0;i<TX3_DOMAINS.length;i++){
+    const cap=i%6, phi=Math.acos(1-2*(i+.5)/TX3_DOMAINS.length), th=Math.PI*(1+Math.sqrt(5))*i;
+    const rad=2.5;
+    const p=new T.Vector3(rad*Math.cos(th)*Math.sin(phi),rad*Math.cos(phi)*.72,rad*Math.sin(th)*Math.sin(phi));
+    const m=new T.Mesh(geo,capMats[cap]);
+    m.position.copy(p);m.scale.setScalar(.093);
+    grp.add(m);pts.push({p:p,cap:cap});
+  }
+  const hubs=TX3_CAPS.map(function(c,i){
+    const a=i/6*Math.PI*2;
+    const p=new T.Vector3(Math.cos(a)*.95,Math.sin(a*2)*.30,Math.sin(a)*.95);
+    const m=new T.Mesh(geo,capMats[i]);m.position.copy(p);m.scale.setScalar(.15);grp.add(m);
+    return p;
+  });
+  const lv=[];
+  for(const pt of pts){lv.push(pt.p.x,pt.p.y,pt.p.z,hubs[pt.cap].x,hubs[pt.cap].y,hubs[pt.cap].z);}
+  for(let i=0;i<6;i++){const a=hubs[i],b=hubs[(i+1)%6];lv.push(a.x,a.y,a.z,b.x,b.y,b.z);}
+  const lg=new T.BufferGeometry();
+  lg.setAttribute('position',new T.Float32BufferAttribute(lv,3));
+  const lm=new T.LineBasicMaterial({color:0x8b949f,transparent:true,opacity:.26});
+  grp.add(new T.LineSegments(lg,lm));
+  const halo=new T.Mesh(new T.SphereGeometry(2.62,26,18),
+    new T.MeshBasicMaterial({color:0x2ED8E8,transparent:true,opacity:.045,side:T.BackSide}));
+  grp.add(halo);
+  tx3.r=r;tx3.sc=sc;tx3.cam=cam;
+  const onDown=function(e){tx3.drag=true;tx3.px=(e.touches?e.touches[0]:e).clientX;};
+  const onMove=function(e){
+    if(!tx3.drag)return;
+    const x=(e.touches?e.touches[0]:e).clientX;
+    tx3.vel=(x-tx3.px)*.00042;tx3.rot+=(x-tx3.px)*.006;tx3.px=x;
+  };
+  const onUp=function(){tx3.drag=false;};
+  host.addEventListener('mousedown',onDown);host.addEventListener('touchstart',onDown,{passive:true});
+  addEventListener('mousemove',onMove);host.addEventListener('touchmove',onMove,{passive:true});
+  addEventListener('mouseup',onUp);host.addEventListener('touchend',onUp);
+  const ro=new ResizeObserver(function(){
+    const ww=host.clientWidth,hh=host.clientHeight;
+    if(ww&&hh){r.setSize(ww,hh,false);cam.aspect=ww/hh;cam.updateProjectionMatrix();}
+  });
+  ro.observe(host);
+  const tick=function(){
+    if(!tx3.on)return;
+    if(!tx3.drag){tx3.vel+=(0.0022-tx3.vel)*.03;tx3.rot+=tx3.vel;}
+    grp.rotation.y=tx3.rot;grp.rotation.x=Math.sin(tx3.rot*.35)*.11;
+    r.render(sc,cam);
+    tx3.raf=requestAnimationFrame(tick);
+  };
+  tx3.raf=requestAnimationFrame(tick);
+  tx3.dispose=function(){
+    cancelAnimationFrame(tx3.raf);ro.disconnect();
+    removeEventListener('mousemove',onMove);removeEventListener('mouseup',onUp);
+    geo.dispose();lg.dispose();lm.dispose();halo.geometry.dispose();halo.material.dispose();
+    capMats.forEach(function(m){m.dispose();});
+    r.dispose();tx3.on=false;tx3.dispose=null;
+  };
+}
+function tx3Stop(){if(tx3.dispose)tx3.dispose();}
+const SC_CRS=[
+ {id:1,n:"Stakeholder adds a reporting requirement",cost:10,bleed:.12,gw:6,w:20},
+ {id:2,n:"Vendor slips two weeks",cost:26,bleed:.45,gw:10,w:14},
+ {id:3,n:"Regulator mandates an accessibility audit",cost:22,bleed:.20,gw:30,w:8},
+ {id:4,n:"Exec wants a board demo Thursday",cost:8,bleed:.30,gw:22,w:14},
+ {id:5,n:"Lead engineer resigns",cost:30,bleed:.35,gw:8,w:8,park:1},
+ {id:6,n:"Client: tiny tweak, shouldn't take long",cost:6,bleed:.10,gw:5,w:18,chain:1},
+ {id:7,n:"Integration partner changes their API",cost:18,bleed:.25,gw:12,w:12,ret:2.2},
+ {id:8,n:"Sponsor asks for a re-baseline",cost:6,bleed:.08,gw:18,w:6,float:3,pay:12}
+];
+const SC_PHASES=[[24,6.0,"DISCOVERY"],[48,4.8,"DESIGN"],[72,4.0,"BUILD I"],[96,3.4,"BUILD II"],[999,2.9,"HARDENING"]];
+const SC_REL=[26,54,78];
+let sc=null,scRaf=0;
+function scEl(i){return document.getElementById(i);}
+function scWeighted(){
+  let t=0;for(const c of SC_CRS)t+=c.w;
+  let r=Math.random()*t;
+  for(const c of SC_CRS){r-=c.w;if(r<=0)return c;}
+  return SC_CRS[0];
+}
+function scRamp(){return sc.day<48?1:Math.min(1.45,1+.006*(sc.day-48));}
+function scPhase(){for(const p of SC_PHASES)if(sc.day<p[0])return p;return SC_PHASES[4];}
+function scMake(){
+  const t=scWeighted(),k=scRamp();
+  return {t,uid:++sc.uid,cost:Math.round(t.cost*k),bleed:t.bleed*k,gw:Math.round(t.gw*k),mult:1};
+}
+function scHint(h){const e=scEl('scHint');if(e)e.innerHTML=h;}
+function scStart(){
+  sc={day:0,due:96,budget:95,gw:100,uid:0,inbox:[],tray:[],sel:0,spawn:2.2,
+      approved:0,rejected:0,deferred:0,escal:0,relIdx:0,ccb:0,over:false,last:0,acc:0,
+      pending:[],regRej:0,chainSpawn:[]};
+  scEl('scIntro').hidden=true;scEl('scOver').hidden=true;scEl('scPlay').hidden=false;
+  sc.inbox.push(scMake());
+  scRender();scHint("Slot 1 selected. Approve, defer or reject it.");
+  sc.last=performance.now();
+  cancelAnimationFrame(scRaf);scRaf=requestAnimationFrame(scLoop);
+}
+function scLoop(now){
+  if(!sc||sc.over)return;
+  let dt=Math.min(250,now-sc.last);sc.last=now;sc.acc+=dt;
+  while(sc.acc>=100){sc.acc-=100;scStep();if(sc.over)break;}
+  scRender();
+  if(!sc.over)scRaf=requestAnimationFrame(scLoop);
+}
+function scStep(){
+  const prevDay=sc.day;
+  sc.day+=.08;
+  for(const c of sc.inbox)sc.due+=c.bleed*.1;
+  for(const c of sc.tray){sc.due+=c.bleed*(c.t.park?1:.5)*.1;c.hold-=.1;}
+  for(const p of SC_REL)if(prevDay<p&&sc.day>=p){
+    const pay=Math.round(16+.42*sc.gw);
+    sc.budget+=pay;sc.relIdx++;
+    scHint('Steering committee releases <b style="color:var(--pop-teal-dark)">'+pay+'k</b>.'+
+      (sc.tray.length>=2?' Convene the CCB to clear the tray at 70%.':''));
+    if(sc.tray.length>=2)sc.ccb=6;
+  }
+  if(sc.ccb>0){sc.ccb-=.1;if(sc.ccb<0)sc.ccb=0;}
+  for(let i=sc.tray.length-1;i>=0;i--){
+    if(sc.tray[i].hold<=0){
+      const c=sc.tray.splice(i,1)[0],m=c.t.ret||1.6;
+      c.cost=Math.round(c.cost*m);c.bleed*=m;c.gw=Math.round(c.gw*m);c.mult=+(c.mult*m).toFixed(1);
+      scPush(c);
+    }
+  }
+  for(let i=sc.chainSpawn.length-1;i>=0;i--){
+    sc.chainSpawn[i].at-=.1;
+    if(sc.chainSpawn[i].at<=0){const c=sc.chainSpawn.splice(i,1)[0].card;scPush(c);}
+  }
+  sc.spawn-=.1;
+  if(sc.spawn<=0){
+    const ph=scPhase();
+    sc.spawn=ph[1]*(.75+.005*sc.gw)*(.85+Math.random()*.3);
+    scPush(scMake());
+  }
+  if(sc.due>120){scOver(false,'slip');return;}
+  if(sc.gw<=0){sc.gw=0;scOver(false,'goodwill');return;}
+  if(sc.day>=sc.due){scOver(true);return;}
+}
+function scPush(c){
+  if(sc.inbox.length>=3){
+    const old=sc.inbox.shift();
+    sc.due+=old.bleed*8;sc.gw-=4;sc.escal++;
+    scHint('<span style="color:var(--bad)">Escalated unattended: '+old.t.n+'</span>');
+  }
+  sc.inbox.push(c);
+  if(sc.sel>=sc.inbox.length)sc.sel=sc.inbox.length-1;
+}
+function scAct(kind){
+  if(!sc||sc.over||!sc.inbox.length)return;
+  const i=Math.min(sc.sel,sc.inbox.length-1),c=sc.inbox[i];
+  if(kind==='a'){
+    if(sc.budget<c.cost){scHint('<span style="color:var(--bad)">Not enough budget. '+c.cost+'k needed, '+Math.round(sc.budget)+'k left.</span>');return;}
+    sc.budget-=c.cost;sc.approved++;
+    if(c.t.float)sc.due-=c.t.float;
+    if(c.t.pay)sc.gw=Math.min(100,sc.gw+c.t.pay);
+    if(c.t.chain){
+      const f=scMake();f.t=SC_CRS[5];
+      f.cost=Math.round(c.cost*1.5);f.bleed=c.bleed*1.5;f.gw=Math.round(c.gw*1.5);f.mult=+(c.mult*1.5).toFixed(1);
+      sc.chainSpawn.push({at:12,card:f});
+      scHint('Approved. Watch for the follow-on.');
+    } else scHint('Approved. <b>'+c.cost+'k</b> spent.');
+  } else if(kind==='r'){
+    sc.gw-=c.gw;sc.rejected++;
+    if(c.t.id===3)sc.regRej++;
+    scHint('Rejected. Goodwill <span style="color:var(--bad)">-'+c.gw+'</span>.');
+  } else {
+    if(sc.tray.length>=3){scHint('Defer tray is full. Three is the limit.');return;}
+    c.hold=15;sc.tray.push(c);sc.deferred++;
+    scHint('Parked for 15 days. It comes back at x'+(c.t.ret||1.6)+'.');
+  }
+  sc.inbox.splice(i,1);
+  if(sc.sel>=sc.inbox.length)sc.sel=Math.max(0,sc.inbox.length-1);
+  scRender();
+}
+function scCCB(){
+  if(!sc||sc.ccb<=0||!sc.tray.length)return;
+  let base=0;for(const c of sc.tray)base+=c.cost;
+  const price=Math.round(base*.7);
+  if(sc.budget<price){scHint('<span style="color:var(--bad)">CCB needs '+price+'k. You have '+Math.round(sc.budget)+'k.</span>');return;}
+  sc.budget-=price;sc.approved+=sc.tray.length;sc.tray=[];sc.ccb=0;
+  scHint('Change Control Board cleared the tray for <b>'+price+'k</b>. That is the play.');
+  scRender();
+}
+function scRender(){
+  if(!sc)return;
+  const pct=function(d){return Math.max(0,Math.min(100,d/120*100));};
+  scEl('scNow').style.left=pct(sc.day)+'%';
+  scEl('scDue').style.left=pct(sc.due)+'%';
+  scEl('scFill').style.width=pct(sc.day)+'%';
+  scEl('scPhase').textContent=scPhase()[2];
+  scEl('scDay').textContent='day '+Math.floor(sc.day)+' / due '+Math.floor(sc.due);
+  const bp=Math.max(0,Math.min(100,sc.budget/160*100)),gp=Math.max(0,sc.gw);
+  const fl=Math.max(0,120-sc.due),fp=Math.max(0,Math.min(100,fl/24*100));
+  scEl('scBudget').textContent=Math.round(sc.budget)+'k';
+  scEl('scBudgetBar').style.width=bp+'%';
+  scEl('scGw').textContent=Math.round(sc.gw);
+  scEl('scGwBar').style.width=gp+'%';
+  scEl('scFloat').textContent=fl.toFixed(1)+'d';
+  scEl('scFloatBar').style.width=fp+'%';
+  scEl('scMb').className='sc-m'+(sc.budget<25?' low':sc.budget<55?' mid':'');
+  scEl('scMg').className='sc-m'+(sc.gw<25?' low':sc.gw<50?' mid':'');
+  scEl('scMf').className='sc-m'+(fl<4?' low':fl<9?' mid':'');
+  let h='';
+  for(let i=0;i<3;i++){
+    const c=sc.inbox[i];
+    if(!c){h+='<div class="sc-slot empty"></div>';continue;}
+    h+='<div class="sc-slot'+(i===sc.sel?' sel':'')+'" data-i="'+i+'">'+
+      '<div class="nm">'+c.t.n+(c.mult>1?' <span class="rp">x'+c.mult+'</span>':'')+'</div>'+
+      '<div class="sub">'+c.cost+'k to approve &nbsp;·&nbsp; <s>-'+c.gw+' goodwill</s> to reject &nbsp;·&nbsp; <u>'+
+      c.bleed.toFixed(2)+'d/s</u> while it sits'+(c.t.float?' &nbsp;·&nbsp; +3d float':'')+(c.t.pay?', +12 goodwill':'')+'</div></div>';
+  }
+  scEl('scInbox').innerHTML=h;
+  let t='<span class="lbl">DEFERRED</span>';
+  if(!sc.tray.length)t+='<span style="opacity:.45">nothing parked</span>';
+  for(const c of sc.tray)t+='<span class="sc-chip">'+c.t.n.split(' ').slice(0,2).join(' ')+' <b>'+Math.ceil(c.hold)+'d</b></span>';
+  if(sc.ccb>0&&sc.tray.length)t+='<button class="sc-ccb" id="scCcbBtn">Convene CCB &middot; '+Math.ceil(sc.ccb)+'s</button>';
+  scEl('scTray').innerHTML=t;
+}
+function scOver(won,how){
+  if(sc.over)return;
+  sc.over=true;cancelAnimationFrame(scRaf);
+  const fl=Math.max(0,120-sc.due);
+  const raw=5*Math.max(0,sc.budget)+8*Math.max(0,sc.gw)+20*fl;
+  const score=won?Math.round(raw*(1+sc.approved/40)):0;
+  const band=score<700?'Delivered. The retro will be painful.':score<1200?'On time, mostly on budget.':
+    score<1700?'Textbook delivery.':score<2200?'Your sponsor is asking for you by name.':'Portfolio-manager material.';
+  let best=0;try{best=+(localStorage.getItem('sc-best')||0);}catch(e){}
+  if(score>best){try{localStorage.setItem('sc-best',score);}catch(e){}best=score;}
+  let lesson='';
+  if(!won&&how==='slip')lesson='The date went first. Every card sitting unread was bleeding the delivery date, and reading is not free.';
+  else if(!won)lesson='Goodwill went to zero. Rejecting is the cheap move today and the expensive one across the run, because goodwill sets the size of every contingency release.';
+  else if(sc.regRej)lesson='You rejected '+sc.regRej+' regulatory request'+(sc.regRej>1?'s':'')+'. That is the most expensive no on the board.';
+  else if(sc.escal)lesson='You let '+sc.escal+' card'+(sc.escal>1?'s':'')+' escalate. Deciding late costs more than deciding wrong.';
+  else lesson='Clean run. The Change Control Board is where the remaining points live: bank two cards just before a release day.';
+  scEl('scPlay').hidden=true;
+  const o=scEl('scOver');o.hidden=false;
+  o.innerHTML='<h5 class="'+(won?'won':'lost')+'">'+(won?'Shipped':how==='slip'?'Date missed':'Sponsor walked')+'</h5>'+
+   '<div class="verdict">'+(won?'Delivered on day '+Math.floor(sc.day)+' against a day 120 deadline.':
+     how==='slip'?'The delivery date crossed day 120 on day '+Math.floor(sc.day)+'.':'Stakeholder goodwill hit zero on day '+Math.floor(sc.day)+'.')+'</div>'+
+   '<div class="sc-tally">'+
+   '<div class="sc-row"><span>Budget left</span><b>'+Math.max(0,Math.round(sc.budget))+'k</b></div>'+
+   '<div class="sc-row"><span>Goodwill</span><b>'+Math.max(0,Math.round(sc.gw))+'</b></div>'+
+   '<div class="sc-row"><span>Float remaining</span><b>'+fl.toFixed(1)+'d</b></div>'+
+   '<div class="sc-row"><span>Approved / deferred / rejected</span><b>'+sc.approved+' / '+sc.deferred+' / '+sc.rejected+'</b></div></div>'+
+   '<div class="sc-score">'+score+'</div><div style="font-size:12.5px;color:var(--text-dim)">'+band+
+   '&nbsp; <span style="font-family:var(--mono);font-size:11px;color:#7f8792">best '+best+'</span></div>'+
+   '<p class="sc-lesson">'+lesson+'</p>'+
+   '<div class="sc-again"><button class="pri" id="scAgain">Run it again</button>'+
+   '<button id="scCase">How he does this for real</button>'+
+   '<button id="scAsk">Ask ShahGPT about change control</button></div>';
+  scEl('scAgain').addEventListener('click',scStart);
+  scEl('scCase').addEventListener('click',function(){openWin('w-proj');});
+  scEl('scAsk').addEventListener('click',function(){openWin('w-ai');setTimeout(function(){aiAsk('How does Shahriar control change on a program?');},260);});
+}
 function gReset(){
-  if(g.timer)clearInterval(g.timer);
-  g={phase:"scope",ci:0,ruled:[],queue:[],cur:null,clock:40,audit:60,done:0,left:0,timer:null,lock:false,rec:[],directive:false,handled:0};
-  gEl('gHud').style.display='none';
-  gEl('gBins').style.display='none';
-  gEl('gFrame').textContent='Four bins \u00b7 3,140 items \u00b7 one scope call. Illustrative deck ,  no client content.';
-  gScope();
+  if(sc){sc.over=true;cancelAnimationFrame(scRaf);}
+  sc=null;
+  scEl('scPlay').hidden=true;scEl('scOver').hidden=true;scEl('scIntro').hidden=false;
+  let best=0;try{best=+(localStorage.getItem('sc-best')||0);}catch(e){}
+  scEl('scBest').textContent=best?'Best score so far: '+best:'';
 }
-function gScope(){
-  const c=CLASSES[g.ci];
-  if(!c)return gStartReview();
-  gEl('gStage').innerHTML=
-   '<div class="g-class"><div class="cn"></div>'+
-   '<div class="cd"></div>'+
-   '<div class="cb"><button data-a="review">REVIEW ALL '+c.count.toLocaleString()+'</button>'+
-   '<button data-a="rule">RULE IT OUT</button></div></div>';
-  gEl('gStage').querySelector('.cn').textContent=c.n+' \u00b7 '+c.count.toLocaleString()+' items';
-  gEl('gStage').querySelector('.cd').textContent=c.d;
-  gMsg('Scope first. What you rule out, you never open ,  and never see again.');
-  gEl('gStage').querySelectorAll('.cb button').forEach(b=>b.addEventListener('click',()=>gPick(b.dataset.a)));
-}
-function gPick(a){
-  const c=CLASSES[g.ci];
-  if(a==='rule'){g.ruled.push(c);g.handled+=c.count;}
-  else{
-    const pool=DECK.slice().sort(()=>Math.random()-0.5);
-    g.queue=g.queue.concat(pool.slice(0,c.id==='shared'?8:5));
-  }
-  g.ci++;
-  gScope();
-}
-function gStartReview(){
-  g.phase='review';
-  g.queue=g.queue.sort(()=>Math.random()-0.5).slice(0,13);
-  gEl('gHud').style.display='flex';
-  gEl('gBins').style.display='grid';
-  gEl('gFrame').textContent='Reviewing '+(3140-g.handled).toLocaleString()+' of 3,140. '+g.handled.toLocaleString()+' handled by rule.';
-  gHud();
-  gNext(true);
-}
-function gNext(first){
-  if(!g.queue.length)return gEnd();
-  g.cur=g.queue.shift();
-  const d=g.cur;
-  const flag=(d.b==='escalate')?'<i class="flag">SENSITIVE</i>':'';
-  const owner=d.b==='dispose'?'no owner':'owner set';
-  const mod=d.b==='archive'?'last modified 6+ yrs':d.b==='retain'?'modified this month':'unknown';
-  gEl('gStage').innerHTML=
-   (g.directive?'<div class="g-directive">DIRECTIVE: signed agreements are held, not disposed.</div>':'')+
-   '<div class="g-card"><div class="fn"></div><div class="chips"><i>'+owner+'</i><i>'+mod+'</i>'+flag+'</div></div>';
-  gEl('gStage').querySelector('.fn').textContent=d.n;
-  gHud();
-  if(first)gMsg('Pick a bin. The clock starts on your first call ,  keys <b>1\u20134</b> or click.');
-}
-function gTick(){
-  g.clock--;
-  if(g.clock===DIRECTIVE_AT&&!g.directive){
-    g.directive=true;
-    const dd=DECK.filter(x=>x.n.indexOf('supplier_agreement')===0)[0];
-    if(dd&&g.queue.indexOf(dd)<0)g.queue.splice(Math.min(2,g.queue.length),0,dd);
-    const cur=g.cur;
-    if(cur){g.queue.unshift(cur);g.cur=null;gNext(false);}
-  }
-  if(g.clock<=0){g.clock=0;gHud();return gEnd();}
-  gHud();
-}
-function gCall(bin){
-  if(g.phase!=='review'||!g.cur||g.lock)return;
-  if(!g.timer)g.timer=setInterval(gTick,1000);
-  const d=g.cur,ok=d.b===bin;
-  g.done++;g.lock=true;
-  if(ok){
-    g.audit=Math.min(100,g.audit+2);
-    g.rec.push({n:d.n,b:bin,ok:true,w:d.w});
-    gMsg('<span class="good">\u2714 '+GLABEL[bin]+'</span> ,  <span class="why">'+d.w+'</span>');
-  }else{
-    g.audit=Math.max(0,g.audit-6);g.clock=Math.max(0,g.clock-3);
-    g.rec.push({n:d.n,b:bin,ok:false,w:d.w,should:d.b});
-    gMsg('<span class="bad">\u2718 that was '+GLABEL[d.b]+'</span> ,  <span class="why">'+d.w+'</span> <span style="color:#FF6961">\u22123s</span>');
-  }
-  g.cur=null;gHud();
-  setTimeout(function(){g.lock=false;if(g.audit<=0||g.clock<=0)return gEnd();gNext(false);},1200);
-}
-function gEnd(){
-  if(g.phase==='over')return;
-  g.phase='over';
-  if(g.timer){clearInterval(g.timer);g.timer=null;}
-  g.left=g.queue.length+(g.cur?1:0);
-  const pct=Math.round(g.handled/3140*100);
-  const risky=g.ruled.filter(function(c){return c.risky;});
-  let head='<div class="g-rec"><b>REVIEW RECORD</b><br>'+
-   'Handled by rule ,  <b>'+g.handled.toLocaleString()+'</b> of 3,140 items, '+pct+'%<br>'+
-   'Reviewed by hand ,  <b>'+g.done+'</b><br>'+
-   'Left in the queue ,  <b>'+g.left+'</b><br>'+
-   'Audit readiness ,  60 to <b>'+g.audit+'</b>';
-  if(risky.length)head+='<br><span class="bad">unredacted_ID_scans.pdf went through unopened. That is the call this whole thing is about.</span>';
-  head+='</div>';
-  const body='<p style="font-size:11.5px;color:var(--text-dim);margin-top:9px">Shahriar cut review scope <b style="color:var(--fg)">30% across 3,000+ documents</b> at PCL through risk-based information analysis, then built the escalation framework and the dashboards leadership works from. On PCL Connects 5.0 he raised audit readiness <b style="color:var(--fg)">40%</b> across 13,000+ documents and 30+ teams. The four bins here are a small version of the 22-domain taxonomy he wrote to get PCL content ready for AI.</p>'+
-   '<div class="g-acts"><button id="gOpenCase">Open the case file</button><button id="gAskGpt">Ask ShahGPT how he decided</button><button id="gAgain">Run it again</button></div>';
-  gEl('gStage').innerHTML=head+body;
-  gEl('gHud').style.display='flex';
-  gEl('gBins').style.display='none';
-  gMsg('');
-  gHud();
-  gEl('gOpenCase').addEventListener('click',function(){openWin('w-proj');});
-  gEl('gAskGpt').addEventListener('click',function(){openWin('w-ai');setTimeout(function(){aiAsk('What does AI readiness look like in his hands?');},300);});
-  gEl('gAgain').addEventListener('click',gReset);
-}
-$$('#gBins button').forEach(function(b){b.addEventListener('click',function(){gCall(b.dataset.bin);});});
+document.addEventListener('click',function(e){
+  const s=e.target.closest('#scInbox .sc-slot[data-i]');
+  if(s&&sc&&!sc.over){sc.sel=+s.dataset.i;scRender();return;}
+  if(e.target.id==='scCcbBtn'){scCCB();return;}
+  const b=e.target.closest('#scGo,#scAp,#scDf,#scRj');
+  if(!b)return;
+  if(b.id==='scGo'){scStart();return;}
+  scAct(b.id==='scAp'?'a':b.id==='scDf'?'d':'r');
+});
 addEventListener('keydown',function(e){
-  if(!openSet.has('w-game'))return;
-  const i='1234'.indexOf(e.key);
-  if(i>-1&&g.phase==='review'){e.preventDefault();gCall(GBINS[i]);}
+  if(!openSet.has('w-game')||!sc||sc.over)return;
+  const k=e.key.toLowerCase();
+  if('123'.indexOf(k)>-1){e.preventDefault();sc.sel=+k-1;scRender();return;}
+  if(k==='a'){e.preventDefault();scAct('a');}
+  else if(k==='d'){e.preventDefault();scAct('d');}
+  else if(k==='r'){e.preventDefault();scAct('r');}
+  else if(k==='c'){e.preventDefault();scCCB();}
 });
 $$('.xp.xpc').forEach(function(x,i){
   const t=function(){x.classList.toggle('open');};
@@ -1499,9 +1742,14 @@ function wireTags(barId){
   });
 }
 wireTags('tagbar');wireTags('tagbarC');
+
 document.addEventListener('visibilitychange',function(){
   document.documentElement.classList.toggle('paused',document.hidden);
 });
+
+
+
+
 function gbRender(n,m,w){
   const d=document.createElement('div');d.className='collab-note';
   d.innerHTML=`<b></b><span class="wh">${w}</span><br><span class="gbm"></span>`;
