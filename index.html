@@ -7,20 +7,24 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:wght@400;500;600;700&family=Fira+Mono&family=Roboto+Slab:wght@400;700&display=swap" rel="stylesheet">
 <style>
+/* ==========================================================================
+   SN!_OS v5 — Pop!_OS theme. Every hex below comes from the 50-agent sweep
+   of pop-os/gtk-theme, pop-shell, cosmic-dock & the System76 brand manual.
+   ========================================================================== */
 :root{
---pop-orange:#FF9F0A; --pop-orange-hint:#FFB340; --pop-orange-txt:#FFD60A;
---pop-teal:#40C4B5; --pop-teal-dark:#66D4CF;
---panel-bg:#161617; --headerbar-bg:#323234; --headerbar-dim:#28282A;
---window-bg:#2C2C2E; --base-bg:#232325; --term-bg:#1C1C1E; --dock-bg:#222224;
---ui-900:#252527; --ui-700:#2E2E30; --ui-500:#38383A; --ui-300:#434345;
---fg:#F5F5F7; --text:#D6D6DB; --text-dim:#98989D; --panel-fg:#DEDEE3;
---sel-bg:#0A84FF; --sel-fg:#fff;
---hbar-border:#4A4A4A; --line:rgba(255,255,255,.08); --line2:rgba(255,255,255,.14);
---hover:rgba(255,255,255,.10); --active:rgba(255,255,255,.20);
---danger:#FF453A;
---ui:'Fira Sans',system-ui,sans-serif; --slab:'Roboto Slab',serif; --mono:'Fira Mono',monospace;
---eoq:cubic-bezier(.25,.46,.45,.94);
---eoc:cubic-bezier(.33,1,.68,1);
+  --pop-orange:#FF9F0A; --pop-orange-hint:#FFB340; --pop-orange-txt:#FFD60A;
+  --pop-teal:#40C4B5; --pop-teal-dark:#66D4CF;
+  --panel-bg:#161617; --headerbar-bg:#323234; --headerbar-dim:#28282A;
+  --window-bg:#2C2C2E; --base-bg:#232325; --term-bg:#1C1C1E; --dock-bg:#222224;
+  --ui-900:#252527; --ui-700:#2E2E30; --ui-500:#38383A; --ui-300:#434345;
+  --fg:#F5F5F7; --text:#D6D6DB; --text-dim:#98989D; --panel-fg:#DEDEE3;
+  --sel-bg:#0A84FF; --sel-fg:#fff;
+  --hbar-border:#4A4A4A; --line:rgba(255,255,255,.08); --line2:rgba(255,255,255,.14);
+  --hover:rgba(255,255,255,.10); --active:rgba(255,255,255,.20);
+  --danger:#FF453A;
+  --ui:'Fira Sans',system-ui,sans-serif; --slab:'Roboto Slab',serif; --mono:'Fira Mono',monospace;
+  --eoq:cubic-bezier(.25,.46,.45,.94); /* GNOME ease-out-quad */
+  --eoc:cubic-bezier(.33,1,.68,1);     /* ease-out-cubic — scene dolly */
 }
 *{margin:0;padding:0;box-sizing:border-box}
 html,body{height:100%;overflow:hidden}
@@ -31,15 +35,19 @@ a{color:var(--pop-teal-dark)}
 ::-webkit-scrollbar{width:8px}::-webkit-scrollbar-thumb{background:#5c5c5c;border-radius:4px}
 .scene{position:fixed;inset:0;display:none}
 .scene.active{display:block}
+
+/* ================= WALLPAPER (geometric Pop-style, pure SVG below) ================= */
 .wallwrap{position:absolute;inset:0;overflow:hidden;background:#122A47}
 .wallwrap svg{position:absolute;inset:0;width:100%;height:100%}
+
+/* ================= OS SHELL ================= */
 #login .lockscrim{position:absolute;inset:0;backdrop-filter:blur(22px);background:rgba(16,20,28,.45);
-display:flex;flex-direction:column;align-items:center;justify-content:center}
+  display:flex;flex-direction:column;align-items:center;justify-content:center}
 .lg-clock{font-weight:300;font-size:64px;color:#fff;letter-spacing:-.01em}
 .lg-date{font-size:15px;color:#d8d8d8;margin:2px 0 34px}
 .lg-card{width:min(340px,90vw);text-align:center;background:rgba(33,31,31,.85);border:1px solid var(--line2);
-border-radius:14px;padding:28px 30px 24px;backdrop-filter:blur(8px);
-opacity:0;transform:translateY(12px);animation:cardIn .55s var(--eoq) .1s forwards}
+  border-radius:14px;padding:28px 30px 24px;backdrop-filter:blur(8px);
+  opacity:0;transform:translateY(12px);animation:cardIn .55s var(--eoq) .1s forwards}
 @keyframes cardIn{to{opacity:1;transform:none}}
 .lg-badge{width:76px;height:76px;margin:0 auto 12px}
 .lg-name{font-size:17px;font-weight:600;color:var(--fg)}
@@ -47,16 +55,19 @@ opacity:0;transform:translateY(12px);animation:cardIn .55s var(--eoq) .1s forwar
 .lg-head b{color:var(--pop-orange);font-weight:600}.lg-head u{text-decoration:none;color:var(--pop-teal-dark);font-weight:600}.lg-head i{font-style:normal;color:var(--pop-orange-txt);font-weight:600}
 .lg-loc{font-size:11.5px;color:var(--text-dim);margin-bottom:18px}
 .lg-btn{width:100%;padding:11px;border-radius:8px;background:var(--pop-orange);color:#3A2500;font-weight:600;font-size:13.5px;
-transition:filter .2s,transform .18s var(--eoq)}
+  transition:filter .2s,transform .18s var(--eoq)}
 .lg-btn:hover{filter:brightness(1.08)}.lg-btn:active{transform:scale(.985)}
 .lg-hint{margin-top:12px;font-size:11px;color:var(--text-dim)}
 .lg-motto{margin-top:14px;font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:#8f8f8f}
 .lg-motto span{color:var(--pop-teal)}
+
 #desktop .deskclip{position:absolute;inset:0;display:flex;flex-direction:column}
 #desktop.reveal .deskclip{animation:deskIn .45s var(--eoq)}
 @keyframes deskIn{from{opacity:0;transform:scale(1.02)}to{opacity:1;transform:none}}
+
+/* top bar — 32px, #211F1F */
 .panel{position:relative;z-index:8;height:32px;background:var(--panel-bg);color:var(--panel-fg);
-display:flex;align-items:center;font-size:13px;font-weight:500}
+  display:flex;align-items:center;font-size:13px;font-weight:500}
 .panel .pbtn{height:100%;padding:0 12px;display:flex;align-items:center;gap:7px;transition:background .25s}
 .panel .pbtn:hover{background:var(--hover)}
 .panel .pbtn:active,.panel .pbtn.on{background:var(--active)}
@@ -65,11 +76,13 @@ display:flex;align-items:center;font-size:13px;font-weight:500}
 .panel .rightg{margin-left:auto}
 .panel .tico{width:15px;height:15px}
 .panel .tile-ind{color:var(--pop-orange-hint)}
+
+/* desk area + icons */
 .desk-area{position:relative;flex:1;display:flex;padding:16px 18px 0;gap:16px;min-height:0}
 .icon-col{display:grid;grid-template-columns:repeat(2,86px);gap:2px 6px;align-content:start;position:relative;z-index:3}
 .dicon{width:86px;padding:9px 2px;border-radius:8px;border:1px solid transparent;text-align:center;font-size:12px;line-height:1.25;
-display:flex;flex-direction:column;align-items:center;gap:6px;transition:background .25s,border-color .25s;
-opacity:0;transform:translateY(8px)}
+  display:flex;flex-direction:column;align-items:center;gap:6px;transition:background .25s,border-color .25s;
+  opacity:0;transform:translateY(8px)}
 .icons-in .dicon{animation:riseIn .4s var(--eoq) forwards;animation-delay:calc(var(--i)*45ms)}
 @keyframes riseIn{to{opacity:1;transform:none}}
 .dicon:hover{background:rgba(255,255,255,.10)}
@@ -77,18 +90,20 @@ opacity:0;transform:translateY(8px)}
 .dicon .ic{width:48px;height:48px;filter:drop-shadow(0 2px 3px rgba(0,0,0,.35))}
 .dicon svg{width:48px;height:48px;display:block}
 .dicon .lbl{color:#fff;text-shadow:0 1px 3px rgba(0,0,0,.95)}
+
+/* right rail — Pop cards */
 .rail{margin-left:auto;width:min(350px,32vw);display:flex;flex-direction:column;gap:10px;min-height:0;position:relative;z-index:3;
-opacity:0;transform:translateX(12px)}
+  opacity:0;transform:translateX(12px)}
 .rail.in{animation:railIn .5s var(--eoq) .2s forwards}
 @keyframes railIn{to{opacity:1;transform:none}}
 .card{background:rgba(43,41,40,.92);border:1px solid var(--line);border-radius:10px;overflow:hidden}
 .card h3{font-size:12px;letter-spacing:0;text-transform:none;color:var(--text-dim);font-weight:600;
-padding:10px 13px 0;display:flex;align-items:center;gap:7px}
+  padding:10px 13px 0;display:flex;align-items:center;gap:7px}
 .card h3 .sq{display:none}
 .card h3 .sq.t{display:none}
 .spot{position:relative;height:138px}
 .spot-item{position:absolute;inset:0;padding:12px 15px 10px;display:flex;flex-direction:column;justify-content:flex-end;
-opacity:0;transform:translateX(10px);transition:opacity .4s var(--eoq),transform .4s var(--eoq);pointer-events:none}
+  opacity:0;transform:translateX(10px);transition:opacity .4s var(--eoq),transform .4s var(--eoq);pointer-events:none}
 .spot-item.on{opacity:1;transform:none;pointer-events:auto}
 .spot-num{font-family:var(--slab);font-size:32px;font-weight:700;line-height:1;color:#fff}
 .spot-item.c-o .spot-num{color:var(--pop-orange)} .spot-item.c-t .spot-num{color:var(--pop-teal-dark)}
@@ -102,35 +117,39 @@ opacity:0;transform:translateX(10px);transition:opacity .4s var(--eoq),transform
 .pulse-it{display:block;padding:7px 9px;border-radius:7px;text-decoration:none;transition:background .2s;color:var(--text)}
 .pulse-it:hover{background:var(--hover)}
 .pulse-it .t{font-size:12.5px;font-weight:500;color:var(--fg);line-height:1.35;
-display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+  display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
 .pulse-it .m{font-size:10.5px;color:var(--text-dim);margin-top:1px}
 .pulse-it .m b{color:var(--pop-orange);font-weight:600}
 .pulse-foot{padding:6px 13px 9px;font-size:10.5px;color:var(--text-dim);border-top:1px solid var(--line);
-display:flex;justify-content:space-between;align-items:center}
+  display:flex;justify-content:space-between;align-items:center}
 .pulse-foot button{color:var(--pop-teal-dark);font-weight:600;font-size:10.5px}
 .news-row{display:grid;grid-template-columns:1fr 1fr;gap:6px;padding:9px 12px 12px}
 .news-a{display:flex;align-items:center;gap:7px;padding:7px 9px;border-radius:7px;border:1px solid var(--line);
-background:var(--ui-900);font-size:11px;font-weight:500;text-decoration:none;color:var(--text);
-transition:border-color .2s,background .2s}
+  background:var(--ui-900);font-size:11px;font-weight:500;text-decoration:none;color:var(--text);
+  transition:border-color .2s,background .2s}
 .news-a:hover{border-color:var(--pop-orange-hint);background:var(--ui-500)}
 .news-a .d{width:6px;height:6px;border-radius:50%;flex:none}
+
+/* dock — full-width flat bar */
 .dock-wrap{position:relative;z-index:8}
 .dock{display:flex;align-items:center;justify-content:center;gap:4px;padding:5px 8px;background:var(--dock-bg);
-border-top:1px solid rgba(0,0,0,.4)}
+  border-top:1px solid rgba(0,0,0,.4)}
 .dk{position:relative;width:52px;height:52px;border-radius:10px;display:grid;place-items:center;transition:background .25s}
 .dk:hover{background:var(--hover)} .dk:active{background:var(--active)}
 .dk svg{width:36px;height:36px;filter:drop-shadow(0 1px 2px rgba(0,0,0,.3))}
 .dk .tip{position:absolute;bottom:58px;left:50%;transform:translateX(-50%) translateY(3px);white-space:nowrap;
-font-size:11.5px;padding:4px 10px;border-radius:7px;background:var(--panel-bg);border:1px solid var(--hbar-border);
-opacity:0;pointer-events:none;transition:opacity .2s,transform .2s;color:var(--panel-fg)}
+  font-size:11.5px;padding:4px 10px;border-radius:7px;background:var(--panel-bg);border:1px solid var(--hbar-border);
+  opacity:0;pointer-events:none;transition:opacity .2s,transform .2s;color:var(--panel-fg)}
 .dk:hover .tip{opacity:1;transform:translateX(-50%)}
 .dk::after{content:"";position:absolute;bottom:2px;left:50%;transform:translateX(-50%) scale(0);width:5px;height:5px;border-radius:50%;
-background:var(--pop-orange);transition:transform .2s var(--eoq)}
+  background:var(--pop-orange);transition:transform .2s var(--eoq)}
 .dk.open::after{transform:translateX(-50%) scale(1)}
+
+/* ================= WINDOWS — Adwaita/Pop headerbar ================= */
 .win{position:absolute;min-width:300px;width:560px;max-width:calc(100vw - 28px);max-height:calc(100vh - 104px);
-display:none;flex-direction:column;background:var(--window-bg);border-radius:8px;
-box-shadow:0 0 0 1px rgba(0,0,0,.55),0 10px 14px rgba(0,0,0,.25),0 40px 70px rgba(0,0,0,.45);
-z-index:10;overflow:hidden}
+  display:none;flex-direction:column;background:var(--window-bg);border-radius:8px;
+  box-shadow:0 0 0 1px rgba(0,0,0,.55),0 10px 14px rgba(0,0,0,.25),0 40px 70px rgba(0,0,0,.45);
+  z-index:10;overflow:hidden}
 .win.open{display:flex;animation:winIn .25s var(--eoq)}
 @keyframes winIn{from{opacity:0;transform:scale(.95)}to{opacity:1;transform:none}}
 .win.closing{animation:winOut .2s var(--eoq) forwards}
@@ -138,7 +157,7 @@ z-index:10;overflow:hidden}
 .win.tiled{transition:left .25s var(--eoq),top .25s var(--eoq),width .25s var(--eoq),height .25s var(--eoq)}
 .win.focused.tiled{outline:3px solid var(--pop-orange-hint);outline-offset:0;border-radius:5px}
 .win-head{display:flex;align-items:center;height:40px;padding:0 8px 0 14px;cursor:grab;user-select:none;flex:none;
-background:var(--headerbar-bg);border-bottom:1px solid var(--hbar-border);transition:background .2s ease}
+  background:var(--headerbar-bg);border-bottom:1px solid var(--hbar-border);transition:background .2s ease}
 .win:not(.focused) .win-head{background:var(--headerbar-dim)}
 .win:not(.focused) .win-title{opacity:.55}
 .win-head:active{cursor:grabbing}
@@ -156,7 +175,7 @@ background:var(--headerbar-bg);border-bottom:1px solid var(--hbar-border);transi
 .win-body p{margin-bottom:9px}
 .win-body .dim{color:var(--text-dim);font-size:12.5px}
 .chip{display:inline-block;padding:3px 10px;border:1px solid var(--line2);border-radius:999px;font-size:11px;
-color:var(--text);margin:2px 3px 2px 0;background:var(--base-bg)}
+  color:var(--text);margin:2px 3px 2px 0;background:var(--base-bg)}
 .chip:hover{border-color:var(--pop-teal)}
 .vals{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:5px 0 3px}
 .val{border:1px solid var(--line);border-radius:8px;padding:10px 11px;background:var(--base-bg);text-align:center}
@@ -181,21 +200,23 @@ color:var(--text);margin:2px 3px 2px 0;background:var(--base-bg)}
 .proj span{color:var(--text-dim)}
 .proj .res{color:var(--pop-teal-dark);font-family:var(--mono);font-size:10.5px}
 .btn{display:inline-flex;align-items:center;gap:8px;padding:10px 18px;border-radius:8px;background:var(--ui-300);
-border:1px solid var(--line2);color:var(--fg);font-size:12.5px;font-weight:600;text-decoration:none;
-transition:background .2s,transform .18s var(--eoq)}
+  border:1px solid var(--line2);color:var(--fg);font-size:12.5px;font-weight:600;text-decoration:none;
+  transition:background .2s,transform .18s var(--eoq)}
 .btn:hover{background:var(--ui-100)} .btn:active{transform:scale(.98)}
 .btn.orange{background:var(--pop-orange);border-color:transparent;color:#3A2500}
 .btn.orange:hover{filter:brightness(1.08);background:var(--pop-orange)}
 .btn.teal{background:var(--pop-teal);border-color:transparent;color:#04282d}
 .btn.teal:hover{filter:brightness(1.08);background:var(--pop-teal)}
+/* terminal — Pop default */
 .term{font-family:var(--mono);font-size:12.5px;background:var(--term-bg);color:#fff;border-radius:6px;border:1px solid rgba(0,0,0,.5);
-padding:12px;height:270px;overflow:auto}
+  padding:12px;height:270px;overflow:auto}
 .term .ln{white-space:pre-wrap;word-break:break-word;margin-bottom:2px}
 .term .p{color:#30D158} .term .c{color:#FFCE51}
 .term-in{display:flex;gap:8px;margin-top:9px}
 .term-in input{flex:1;background:var(--term-bg);border:1px solid var(--line2);border-radius:6px;color:#fff;
-font-family:var(--mono);font-size:12.5px;padding:10px 12px}
+  font-family:var(--mono);font-size:12.5px;padding:10px 12px}
 .term-in input:focus{outline:2px solid var(--pop-orange);outline-offset:-1px}
+/* chat */
 .chat{display:flex;flex-direction:column;height:310px;border:1px solid var(--line);border-radius:8px;background:var(--base-bg);overflow:hidden}
 .chat-log{flex:1;overflow:auto;padding:12px;display:flex;flex-direction:column;gap:9px}
 .msg{max-width:86%;padding:9px 12px;border-radius:10px;font-size:12.5px;line-height:1.5;animation:msgIn .25s var(--eoq)}
@@ -212,49 +233,53 @@ font-family:var(--mono);font-size:12.5px;padding:10px 12px}
 .chat-sug button:hover{border-color:var(--pop-teal)}
 .chat-in{display:flex;gap:7px;padding:9px;border-top:1px solid var(--line)}
 .chat-in input{flex:1;background:var(--ui-900);border:1px solid var(--line2);border-radius:7px;color:var(--fg);
-font-size:12.5px;padding:10px 12px;font-family:var(--ui)}
+  font-size:12.5px;padding:10px 12px;font-family:var(--ui)}
 .chat-in input:focus{outline:2px solid var(--pop-orange);outline-offset:-1px}
 .chat-in button{padding:0 16px;border-radius:7px;background:var(--pop-orange);color:#3A2500;font-weight:600;font-size:12.5px}
+/* game */
 .game-stage{position:relative;height:260px;border:1px solid var(--line);border-radius:8px;background:#232120;overflow:hidden}
 .game-hud{display:flex;justify-content:space-between;font-family:var(--mono);font-size:11px;color:var(--text-dim);margin-bottom:8px}
 .game-hud b{color:var(--pop-orange)}
 .doc{position:absolute;top:-56px;width:122px;padding:7px 9px;border-radius:8px;font-size:10.5px;line-height:1.3;
-border:1px solid var(--line2);background:var(--ui-500);text-align:center;box-shadow:0 6px 14px rgba(0,0,0,.4);color:var(--text)}
+  border:1px solid var(--line2);background:var(--ui-500);text-align:center;box-shadow:0 6px 14px rgba(0,0,0,.4);color:var(--text)}
 .doc .t{font-family:var(--mono);font-size:9.5px;color:var(--pop-teal-dark);display:block}
 .bins{display:flex;gap:7px;margin-top:9px}
 .bins button{flex:1;padding:10px 6px;border-radius:8px;border:1px solid var(--line2);color:var(--fg);
-font-size:11px;font-weight:600;background:var(--base-bg);transition:transform .18s var(--eoq),background .2s}
+  font-size:11px;font-weight:600;background:var(--base-bg);transition:transform .18s var(--eoq),background .2s}
 .bins button:hover{transform:translateY(-2px);background:var(--ui-500)}
 .bins .b1{border-bottom:3px solid var(--pop-teal)} .bins .b2{border-bottom:3px solid var(--pop-orange)} .bins .b3{border-bottom:3px solid #CFC7BD}
 .bins button b{display:block;font-family:var(--slab);font-size:10px}
 .bins .b1 b{color:var(--pop-teal-dark)} .bins .b2 b{color:var(--pop-orange)} .bins .b3 b{color:#CFC7BD}
 .game-msg{text-align:center;padding:8px 4px 2px;font-size:12px;color:var(--text-dim)}
 .game-msg .good{color:#30D158} .game-msg .bad{color:#FF6961}
+/* collab */
 .collab-note{border:1px solid var(--line);border-left:3px solid var(--pop-teal);border-radius:8px;
-padding:9px 12px;margin-bottom:7px;background:var(--base-bg);font-size:12px;animation:msgIn .3s var(--eoq)}
+  padding:9px 12px;margin-bottom:7px;background:var(--base-bg);font-size:12px;animation:msgIn .3s var(--eoq)}
 .collab-note b{color:var(--pop-teal-dark);font-size:11.5px}
 .collab-note .wh{float:right;font-family:var(--mono);font-size:9.5px;color:var(--text-dim)}
 .gb-form{display:flex;gap:7px;margin-top:11px}
 .gb-form input{background:var(--ui-900);border:1px solid var(--line2);border-radius:7px;color:var(--fg);
-font-size:12px;padding:9px 11px;font-family:var(--ui)}
+  font-size:12px;padding:9px 11px;font-family:var(--ui)}
 .gb-form input:focus{outline:2px solid var(--pop-teal);outline-offset:-1px}
 .gb-form .n{width:100px} .gb-form .m{flex:1}
 .gb-form button{padding:0 15px;border-radius:7px;background:var(--pop-teal);color:#04282d;font-weight:600;font-size:12px}
+/* toasts */
 .toasts{position:fixed;right:14px;top:42px;display:flex;flex-direction:column;gap:8px;z-index:200;pointer-events:none}
 .toast{width:300px;padding:11px 14px 13px;border-radius:10px;border:1px solid var(--line2);
-background:rgba(33,31,31,.97);box-shadow:0 12px 34px rgba(0,0,0,.5);font-size:11.5px;position:relative;overflow:hidden;
-animation:toastIn .3s var(--eoq);color:var(--text)}
+  background:rgba(33,31,31,.97);box-shadow:0 12px 34px rgba(0,0,0,.5);font-size:11.5px;position:relative;overflow:hidden;
+  animation:toastIn .3s var(--eoq);color:var(--text)}
 .toast b{color:var(--pop-orange);font-size:10px;letter-spacing:.12em;text-transform:uppercase;display:block;margin-bottom:2px;font-weight:700}
 .toast.t b{color:var(--pop-teal-dark)}
 .toast .tbar{position:absolute;bottom:0;left:0;height:2px;width:100%;background:linear-gradient(90deg,var(--pop-orange),var(--pop-teal));animation:tshrink 6s linear forwards}
 @keyframes toastIn{from{transform:translateY(-14px);opacity:0}to{transform:none;opacity:1}}
 @keyframes tshrink{to{width:0}}
+/* launcher (pop-shell style) */
 .palette{position:fixed;inset:0;z-index:400;display:none;align-items:flex-start;justify-content:center;background:rgba(0,0,0,.35)}
 .palette.open{display:flex}
 .pal-box{margin-top:12vh;width:min(540px,92vw);border-radius:10px;border:1px solid var(--hbar-border);
-background:var(--panel-bg);box-shadow:0 30px 80px rgba(0,0,0,.6);overflow:hidden;animation:winIn .2s var(--eoq)}
+  background:var(--panel-bg);box-shadow:0 30px 80px rgba(0,0,0,.6);overflow:hidden;animation:winIn .2s var(--eoq)}
 .pal-box input{width:100%;padding:15px 17px;background:transparent;border:none;color:var(--fg);font-size:15px;font-family:var(--ui);
-border-bottom:1px solid var(--hbar-border)}
+  border-bottom:1px solid var(--hbar-border)}
 .pal-box input:focus{outline:none}
 .pal-list{max-height:290px;overflow:auto;padding:6px}
 .pal-item{display:flex;align-items:center;gap:11px;width:100%;padding:10px 12px;border-radius:7px;font-size:13.5px;text-align:left;color:var(--text)}
@@ -265,20 +290,20 @@ border-bottom:1px solid var(--hbar-border)}
 .dicon[draggable=true],.dk[draggable=true]{cursor:grab}
 .gpt-row{display:flex;gap:7px;margin-top:9px;align-items:center}
 .gpt-row input{flex:1;background:var(--ui-900);border:1px solid var(--line2);border-radius:7px;color:var(--fg);
-font-size:11.5px;padding:8px 10px;font-family:var(--mono)}
+  font-size:11.5px;padding:8px 10px;font-family:var(--mono)}
 .gpt-row input:focus{outline:2px solid var(--pop-teal);outline-offset:-1px}
 .gpt-row button{padding:8px 14px;border-radius:7px;background:var(--pop-teal);color:#04282d;font-weight:600;font-size:11.5px}
 .gpt-row span{font-size:10.5px;color:var(--text-dim);font-family:var(--mono);white-space:nowrap}
 .yt-list{flex:1;min-height:0;overflow-y:auto;padding:8px 8px 4px;display:flex;flex-direction:column;gap:6px}
 .yt-row{display:flex;gap:9px;align-items:center;padding:5px 6px;border-radius:9px;text-decoration:none;color:var(--text);
-border:1px solid transparent;transition:background .2s,border-color .2s}
+  border:1px solid transparent;transition:background .2s,border-color .2s}
 .yt-row:hover{background:var(--hover);border-color:var(--line)}
 .yt-row .th{width:86px;height:48px;flex:none;border-radius:6px;object-fit:cover;display:block;background:#1c1c1e}
 .yt-row .ph{width:86px;height:48px;flex:none;border-radius:6px;display:grid;place-items:center;
-font-family:var(--slab);font-weight:700;font-size:13px;color:#F2EFE9}
+  font-family:var(--slab);font-weight:700;font-size:13px;color:#F2EFE9}
 .yt-row .tx{min-width:0}
 .yt-row .vt{font-size:12px;font-weight:500;color:var(--fg);line-height:1.3;
-display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+  display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
 .yt-row .vc{font-size:10px;color:var(--text-dim);margin-top:2px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .yt-row .vc b{color:var(--pop-orange);font-weight:600}
 .mini-mania h3{display:flex;align-items:center}
@@ -288,759 +313,828 @@ display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hi
 .yt-list.mini .vt{font-size:11px;-webkit-line-clamp:2}
 .yt-list.mini .vc{font-size:9.5px}
 @media (prefers-reduced-motion: reduce){
-*,*::before,*::after{animation-duration:.01ms !important;animation-iteration-count:1 !important;transition-duration:.01ms !important}
-.rail,.dicon{opacity:1 !important;transform:none !important}
+  *,*::before,*::after{animation-duration:.01ms !important;animation-iteration-count:1 !important;transition-duration:.01ms !important}
+  .rail,.dicon{opacity:1 !important;transform:none !important}
 }
 @media (max-width:900px){.rail{display:none}}
 @media (max-width:760px){.icon-col{grid-template-columns:repeat(3,86px)}.win{left:3vw !important;top:38px !important;width:94vw !important}}
 </style>
 </head>
 <body>
+
+<!-- ===== logo: Pop-style flat roundel "sn!" ===== -->
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
-<defs>
-<linearGradient id="tg-about" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#53B3A4"/><stop offset="1" stop-color="#358B7D"/></linearGradient>
-<linearGradient id="tg-exp" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#BC7440"/><stop offset="1" stop-color="#95552B"/></linearGradient>
-<linearGradient id="tg-proj" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#F2AC44"/><stop offset="1" stop-color="#D08A28"/></linearGradient>
-<linearGradient id="tg-res" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#8496AC"/><stop offset="1" stop-color="#63758B"/></linearGradient>
-<linearGradient id="tg-gpt" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#9F7BC0"/><stop offset="1" stop-color="#7D5B9C"/></linearGradient>
-<linearGradient id="tg-col" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#E0805A"/><stop offset="1" stop-color="#B95E3B"/></linearGradient>
-<linearGradient id="tg-term" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#3E434B"/><stop offset="1" stop-color="#26292E"/></linearGradient>
-<linearGradient id="tg-game" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#9BB553"/><stop offset="1" stop-color="#788F39"/></linearGradient>
-<linearGradient id="tg-mail" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#5BA0D0"/><stop offset="1" stop-color="#3D7FAC"/></linearGradient>
-<linearGradient id="tg-mania" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#E0645A"/><stop offset="1" stop-color="#BC4038"/></linearGradient>
-<linearGradient id="tg-find" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#989082"/><stop offset="1" stop-color="#7A7264"/></linearGradient>
-<symbol id="ic-about" viewBox="0 0 64 64"><rect x="1" y="1" width="62" height="62" rx="14" fill="url(#tg-about)"/><rect x="1.5" y="1.5" width="61" height="61" rx="13.5" fill="none" stroke="rgba(255,255,255,.12)"/><circle cx="32" cy="25" r="9" fill="#F2EFE9" opacity=".92"/><path d="M14 50c2-10 9-15 18-15s16 5 18 15z" fill="#F2EFE9" opacity=".92"/></symbol>
-<symbol id="ic-exp" viewBox="0 0 64 64"><rect x="1" y="1" width="62" height="62" rx="14" fill="url(#tg-exp)"/><rect x="1.5" y="1.5" width="61" height="61" rx="13.5" fill="none" stroke="rgba(255,255,255,.12)"/><rect x="13" y="24" width="38" height="24" rx="4" fill="#F2EFE9" opacity=".92"/><path d="M25 24v-4a3 3 0 0 1 3-3h8a3 3 0 0 1 3 3v4h-4v-3h-6v3z" fill="#F2EFE9" opacity=".92"/><rect x="13" y="33" width="38" height="3" fill="#7A4E30"/></symbol>
-<symbol id="ic-proj" viewBox="0 0 64 64"><rect x="1" y="1" width="62" height="62" rx="14" fill="url(#tg-proj)"/><rect x="1.5" y="1.5" width="61" height="61" rx="13.5" fill="none" stroke="rgba(255,255,255,.12)"/><path d="M13 21a4 4 0 0 1 4-4h10l4 5h16a4 4 0 0 1 4 4v18a4 4 0 0 1-4 4H17a4 4 0 0 1-4-4z" fill="#F2EFE9" opacity=".92"/><path d="M13 28h38v14a4 4 0 0 1-4 4H17a4 4 0 0 1-4-4z" fill="#A97934" opacity=".55"/></symbol>
-<symbol id="ic-res" viewBox="0 0 64 64"><rect x="1" y="1" width="62" height="62" rx="14" fill="url(#tg-res)"/><rect x="1.5" y="1.5" width="61" height="61" rx="13.5" fill="none" stroke="rgba(255,255,255,.12)"/><path d="M19 13h18l8 8v30H19z" fill="#F2EFE9" opacity=".92"/><path d="M37 13l8 8h-8z" fill="#5F6B77"/><rect x="24" y="30" width="16" height="2.5" fill="#5F6B77"/><rect x="24" y="36" width="16" height="2.5" fill="#5F6B77"/><rect x="24" y="42" width="10" height="2.5" fill="#5F6B77"/></symbol>
-<symbol id="ic-gpt" viewBox="0 0 64 64"><rect x="1" y="1" width="62" height="62" rx="14" fill="url(#tg-gpt)"/><rect x="1.5" y="1.5" width="61" height="61" rx="13.5" fill="none" stroke="rgba(255,255,255,.12)"/><rect x="15" y="23" width="34" height="26" rx="8" fill="#F2EFE9" opacity=".92"/><circle cx="25" cy="35" r="3.5" fill="#6E5C7D"/><circle cx="39" cy="35" r="3.5" fill="#6E5C7D"/><rect x="24" y="42" width="16" height="2.5" rx="1.25" fill="#6E5C7D"/><rect x="30.5" y="14" width="3" height="7" rx="1.5" fill="#F2EFE9" opacity=".92"/><circle cx="32" cy="13" r="3" fill="#F2EFE9" opacity=".92"/></symbol>
-<symbol id="ic-col" viewBox="0 0 64 64"><rect x="1" y="1" width="62" height="62" rx="14" fill="url(#tg-col)"/><rect x="1.5" y="1.5" width="61" height="61" rx="13.5" fill="none" stroke="rgba(255,255,255,.12)"/><circle cx="25" cy="25" r="7.5" fill="#F2EFE9" opacity=".92"/><circle cx="42" cy="28" r="6" fill="#F2EFE9" opacity=".72"/><path d="M11 49c1.5-8.5 7-13 14-13s12.5 4.5 14 13z" fill="#F2EFE9" opacity=".92"/><path d="M40 49c.6-5.5 3.6-10 7.5-11 3 1.5 5 5.5 5.5 11z" fill="#F2EFE9" opacity=".72"/></symbol>
-<symbol id="ic-term" viewBox="0 0 64 64"><rect x="1" y="1" width="62" height="62" rx="14" fill="url(#tg-term)"/><rect x="1.5" y="1.5" width="61" height="61" rx="13.5" fill="none" stroke="rgba(255,255,255,.14)"/><path d="M18 22l10 10-10 10" fill="none" stroke="#5AD9A0" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/><rect x="32" y="40" width="14" height="4" rx="2" fill="#5AD9A0"/></symbol>
-<symbol id="ic-game" viewBox="0 0 64 64"><rect x="1" y="1" width="62" height="62" rx="14" fill="url(#tg-game)"/><rect x="1.5" y="1.5" width="61" height="61" rx="13.5" fill="none" stroke="rgba(255,255,255,.12)"/><path d="M20 22h24a10 10 0 0 1 10 10l-1.5 8a6 6 0 0 1-10.5 3l-3-3h-14l-3 3a6 6 0 0 1-10.5-3L10 32a10 10 0 0 1 10-10z" fill="#F2EFE9" opacity=".92"/><rect x="20" y="29" width="10" height="3" rx="1.5" fill="#6C7645"/><rect x="23.5" y="25.5" width="3" height="10" rx="1.5" fill="#6C7645"/><circle cx="42" cy="29" r="2.5" fill="#6C7645"/><circle cx="47" cy="33" r="2.5" fill="#6C7645"/></symbol>
-<symbol id="ic-mail" viewBox="0 0 64 64"><rect x="1" y="1" width="62" height="62" rx="14" fill="url(#tg-mail)"/><rect x="1.5" y="1.5" width="61" height="61" rx="13.5" fill="none" stroke="rgba(255,255,255,.12)"/><rect x="13" y="20" width="38" height="26" rx="4" fill="#F2EFE9" opacity=".92"/><path d="M15 23l17 13 17-13" fill="none" stroke="#4E6E84" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></symbol>
-<symbol id="ic-mania" viewBox="0 0 64 64"><rect x="1" y="1" width="62" height="62" rx="14" fill="url(#tg-mania)"/><rect x="1.5" y="1.5" width="61" height="61" rx="13.5" fill="none" stroke="rgba(255,255,255,.12)"/><rect x="13" y="19" width="38" height="26" rx="8" fill="#F2EFE9" opacity=".92"/><path d="M28 25l11 7-11 7z" fill="#BC4038"/><rect x="20" y="49" width="24" height="3" rx="1.5" fill="#F2EFE9" opacity=".6"/></symbol>
-<symbol id="ic-find" viewBox="0 0 64 64"><rect x="1" y="1" width="62" height="62" rx="14" fill="url(#tg-find)"/><rect x="1.5" y="1.5" width="61" height="61" rx="13.5" fill="none" stroke="rgba(255,255,255,.12)"/><circle cx="29" cy="29" r="11" fill="none" stroke="#F2EFE9" stroke-width="4.5" opacity=".92"/><rect x="37.5" y="35.5" width="14" height="5" rx="2.5" transform="rotate(45 37.5 35.5)" fill="#F2EFE9" opacity=".92"/></symbol>
-</defs>
+  <defs>
+    <linearGradient id="tg-about" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#53B3A4"/><stop offset="1" stop-color="#358B7D"/></linearGradient>
+    <linearGradient id="tg-exp" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#BC7440"/><stop offset="1" stop-color="#95552B"/></linearGradient>
+    <linearGradient id="tg-proj" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#F2AC44"/><stop offset="1" stop-color="#D08A28"/></linearGradient>
+    <linearGradient id="tg-res" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#8496AC"/><stop offset="1" stop-color="#63758B"/></linearGradient>
+    <linearGradient id="tg-gpt" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#9F7BC0"/><stop offset="1" stop-color="#7D5B9C"/></linearGradient>
+    <linearGradient id="tg-col" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#E0805A"/><stop offset="1" stop-color="#B95E3B"/></linearGradient>
+    <linearGradient id="tg-term" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#3E434B"/><stop offset="1" stop-color="#26292E"/></linearGradient>
+    <linearGradient id="tg-game" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#9BB553"/><stop offset="1" stop-color="#788F39"/></linearGradient>
+    <linearGradient id="tg-mail" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#5BA0D0"/><stop offset="1" stop-color="#3D7FAC"/></linearGradient>
+    <linearGradient id="tg-mania" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#E0645A"/><stop offset="1" stop-color="#BC4038"/></linearGradient>
+    <linearGradient id="tg-find" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#989082"/><stop offset="1" stop-color="#7A7264"/></linearGradient>
+
+    <symbol id="ic-about" viewBox="0 0 64 64"><rect x="1" y="1" width="62" height="62" rx="14" fill="url(#tg-about)"/><rect x="1.5" y="1.5" width="61" height="61" rx="13.5" fill="none" stroke="rgba(255,255,255,.12)"/><circle cx="32" cy="25" r="9" fill="#F2EFE9" opacity=".92"/><path d="M14 50c2-10 9-15 18-15s16 5 18 15z" fill="#F2EFE9" opacity=".92"/></symbol>
+    <symbol id="ic-exp" viewBox="0 0 64 64"><rect x="1" y="1" width="62" height="62" rx="14" fill="url(#tg-exp)"/><rect x="1.5" y="1.5" width="61" height="61" rx="13.5" fill="none" stroke="rgba(255,255,255,.12)"/><rect x="13" y="24" width="38" height="24" rx="4" fill="#F2EFE9" opacity=".92"/><path d="M25 24v-4a3 3 0 0 1 3-3h8a3 3 0 0 1 3 3v4h-4v-3h-6v3z" fill="#F2EFE9" opacity=".92"/><rect x="13" y="33" width="38" height="3" fill="#7A4E30"/></symbol>
+    <symbol id="ic-proj" viewBox="0 0 64 64"><rect x="1" y="1" width="62" height="62" rx="14" fill="url(#tg-proj)"/><rect x="1.5" y="1.5" width="61" height="61" rx="13.5" fill="none" stroke="rgba(255,255,255,.12)"/><path d="M13 21a4 4 0 0 1 4-4h10l4 5h16a4 4 0 0 1 4 4v18a4 4 0 0 1-4 4H17a4 4 0 0 1-4-4z" fill="#F2EFE9" opacity=".92"/><path d="M13 28h38v14a4 4 0 0 1-4 4H17a4 4 0 0 1-4-4z" fill="#A97934" opacity=".55"/></symbol>
+    <symbol id="ic-res" viewBox="0 0 64 64"><rect x="1" y="1" width="62" height="62" rx="14" fill="url(#tg-res)"/><rect x="1.5" y="1.5" width="61" height="61" rx="13.5" fill="none" stroke="rgba(255,255,255,.12)"/><path d="M19 13h18l8 8v30H19z" fill="#F2EFE9" opacity=".92"/><path d="M37 13l8 8h-8z" fill="#5F6B77"/><rect x="24" y="30" width="16" height="2.5" fill="#5F6B77"/><rect x="24" y="36" width="16" height="2.5" fill="#5F6B77"/><rect x="24" y="42" width="10" height="2.5" fill="#5F6B77"/></symbol>
+    <symbol id="ic-gpt" viewBox="0 0 64 64"><rect x="1" y="1" width="62" height="62" rx="14" fill="url(#tg-gpt)"/><rect x="1.5" y="1.5" width="61" height="61" rx="13.5" fill="none" stroke="rgba(255,255,255,.12)"/><rect x="15" y="23" width="34" height="26" rx="8" fill="#F2EFE9" opacity=".92"/><circle cx="25" cy="35" r="3.5" fill="#6E5C7D"/><circle cx="39" cy="35" r="3.5" fill="#6E5C7D"/><rect x="24" y="42" width="16" height="2.5" rx="1.25" fill="#6E5C7D"/><rect x="30.5" y="14" width="3" height="7" rx="1.5" fill="#F2EFE9" opacity=".92"/><circle cx="32" cy="13" r="3" fill="#F2EFE9" opacity=".92"/></symbol>
+    <symbol id="ic-col" viewBox="0 0 64 64"><rect x="1" y="1" width="62" height="62" rx="14" fill="url(#tg-col)"/><rect x="1.5" y="1.5" width="61" height="61" rx="13.5" fill="none" stroke="rgba(255,255,255,.12)"/><circle cx="25" cy="25" r="7.5" fill="#F2EFE9" opacity=".92"/><circle cx="42" cy="28" r="6" fill="#F2EFE9" opacity=".72"/><path d="M11 49c1.5-8.5 7-13 14-13s12.5 4.5 14 13z" fill="#F2EFE9" opacity=".92"/><path d="M40 49c.6-5.5 3.6-10 7.5-11 3 1.5 5 5.5 5.5 11z" fill="#F2EFE9" opacity=".72"/></symbol>
+    <symbol id="ic-term" viewBox="0 0 64 64"><rect x="1" y="1" width="62" height="62" rx="14" fill="url(#tg-term)"/><rect x="1.5" y="1.5" width="61" height="61" rx="13.5" fill="none" stroke="rgba(255,255,255,.14)"/><path d="M18 22l10 10-10 10" fill="none" stroke="#5AD9A0" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/><rect x="32" y="40" width="14" height="4" rx="2" fill="#5AD9A0"/></symbol>
+    <symbol id="ic-game" viewBox="0 0 64 64"><rect x="1" y="1" width="62" height="62" rx="14" fill="url(#tg-game)"/><rect x="1.5" y="1.5" width="61" height="61" rx="13.5" fill="none" stroke="rgba(255,255,255,.12)"/><path d="M20 22h24a10 10 0 0 1 10 10l-1.5 8a6 6 0 0 1-10.5 3l-3-3h-14l-3 3a6 6 0 0 1-10.5-3L10 32a10 10 0 0 1 10-10z" fill="#F2EFE9" opacity=".92"/><rect x="20" y="29" width="10" height="3" rx="1.5" fill="#6C7645"/><rect x="23.5" y="25.5" width="3" height="10" rx="1.5" fill="#6C7645"/><circle cx="42" cy="29" r="2.5" fill="#6C7645"/><circle cx="47" cy="33" r="2.5" fill="#6C7645"/></symbol>
+    <symbol id="ic-mail" viewBox="0 0 64 64"><rect x="1" y="1" width="62" height="62" rx="14" fill="url(#tg-mail)"/><rect x="1.5" y="1.5" width="61" height="61" rx="13.5" fill="none" stroke="rgba(255,255,255,.12)"/><rect x="13" y="20" width="38" height="26" rx="4" fill="#F2EFE9" opacity=".92"/><path d="M15 23l17 13 17-13" fill="none" stroke="#4E6E84" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="ic-mania" viewBox="0 0 64 64"><rect x="1" y="1" width="62" height="62" rx="14" fill="url(#tg-mania)"/><rect x="1.5" y="1.5" width="61" height="61" rx="13.5" fill="none" stroke="rgba(255,255,255,.12)"/><rect x="13" y="19" width="38" height="26" rx="8" fill="#F2EFE9" opacity=".92"/><path d="M28 25l11 7-11 7z" fill="#BC4038"/><rect x="20" y="49" width="24" height="3" rx="1.5" fill="#F2EFE9" opacity=".6"/></symbol>
+    <symbol id="ic-find" viewBox="0 0 64 64"><rect x="1" y="1" width="62" height="62" rx="14" fill="url(#tg-find)"/><rect x="1.5" y="1.5" width="61" height="61" rx="13.5" fill="none" stroke="rgba(255,255,255,.12)"/><circle cx="29" cy="29" r="11" fill="none" stroke="#F2EFE9" stroke-width="4.5" opacity=".92"/><rect x="37.5" y="35.5" width="14" height="5" rx="2.5" transform="rotate(45 37.5 35.5)" fill="#F2EFE9" opacity=".92"/></symbol>
+  </defs>
 </svg>
+
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
-<defs>
-<g id="snlogo">
-<circle cx="60" cy="60" r="56" fill="#2E9483"/>
-<circle cx="60" cy="60" r="56" fill="none" stroke="rgba(0,0,0,.18)" stroke-width="2"/>
-<text x="54" y="74" text-anchor="middle" font-family="'Roboto Slab',serif" font-weight="700" font-size="42" fill="#FFFFFF">sn</text>
-<rect x="86" y="34" width="9" height="30" rx="4" fill="#FF9F0A"/>
-<circle cx="90.5" cy="76" r="5.5" fill="#FF9F0A"/>
-</g>
-</defs>
+  <defs>
+    <g id="snlogo">
+      <circle cx="60" cy="60" r="56" fill="#2E9483"/>
+      <circle cx="60" cy="60" r="56" fill="none" stroke="rgba(0,0,0,.18)" stroke-width="2"/>
+      <text x="54" y="74" text-anchor="middle" font-family="'Roboto Slab',serif" font-weight="700" font-size="42" fill="#FFFFFF">sn</text>
+      <rect x="86" y="34" width="9" height="30" rx="4" fill="#FF9F0A"/>
+      <circle cx="90.5" cy="76" r="5.5" fill="#FF9F0A"/>
+    </g>
+  </defs>
 </svg>
+
+<!-- ================= LOGIN ================= -->
 <section id="login" class="scene active" aria-label="Lock screen">
-<div class="wallwrap" id="wallLogin"></div>
-<div class="lockscrim">
-<div class="lg-clock" id="lgClock">--:--</div>
-<div class="lg-date" id="lgDate">—</div>
-<div class="lg-card">
-<svg class="lg-badge" viewBox="0 0 120 120" role="img" aria-label="sn! logo"><use href="#snlogo"/></svg>
-<div class="lg-name">Shahriar Nilkar</div>
-<div class="lg-head"><b>Project Driver</b> · <u>Governance Guardian</u> · <i>AI Adopter</i></div>
-<div class="lg-loc">Senior Digital Communications Specialist @ PCL Construction · Edmonton</div>
-<button class="lg-btn" id="btnSignin">Unlock</button>
-<div class="lg-hint">Hint: the password is just click Unlock</div>
-<div class="lg-motto">Time is Gold · Tool Up · <span>We Before Me</span></div>
-</div>
-</div>
+  <div class="wallwrap" id="wallLogin"></div>
+  <div class="lockscrim">
+    <div class="lg-clock" id="lgClock">--:--</div>
+    <div class="lg-date" id="lgDate">—</div>
+    <div class="lg-card">
+      <svg class="lg-badge" viewBox="0 0 120 120" role="img" aria-label="sn! logo"><use href="#snlogo"/></svg>
+      <div class="lg-name">Shahriar Nilkar</div>
+      <div class="lg-head"><b>Project Driver</b> · <u>Governance Guardian</u> · <i>AI Adopter</i></div>
+      <div class="lg-loc">Senior Digital Communications Specialist @ PCL Construction · Edmonton</div>
+      <button class="lg-btn" id="btnSignin">Unlock</button>
+      <div class="lg-hint">Hint: the password is just click Unlock</div>
+      <div class="lg-motto">Time is Gold · Tool Up · <span>We Before Me</span></div>
+    </div>
+  </div>
 </section>
+
+<!-- ================= DESKTOP ================= -->
 <section id="desktop" class="scene" aria-label="Desktop">
-<div class="wallwrap" id="wallDesk"></div>
-<div class="deskclip">
-<div class="panel">
-<div class="left">
-<button class="pbtn" id="btnOverview" title="Tile all windows">Workspaces</button>
-<button class="pbtn" id="palOpen2">Applications</button>
-</div>
-<button class="pbtn center" id="clkBtn"><span id="clkDate">—</span>&nbsp;<b id="clkTime" style="font-weight:600">--:--</b></button>
-<div class="rightg">
-<button class="pbtn" id="btnTile" title="Toggle auto-tiling (pop-shell)"><svg class="tico" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="1.5" y="1.5" width="5.5" height="13" rx="1"/><rect x="9" y="1.5" width="5.5" height="5.5" rx="1"/><rect x="9" y="9" width="5.5" height="5.5" rx="1"/></svg><span class="tile-ind" id="tileInd" style="display:none">tiling</span></button>
-<button class="pbtn" id="btnLock2" title="Lock the session"><svg class="tico" viewBox="0 0 16 16" fill="currentColor"><rect x="3" y="7" width="10" height="7" rx="1.5"/><path d="M5.5 7V5.5a2.5 2.5 0 0 1 5 0V7" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></button>
-</div>
-</div>
-<div class="desk-area" id="deskArea">
-<div class="icon-col" role="menu" aria-label="Desktop icons">
-<button class="dicon" style="--i:0" data-win="w-about"><span class="ic"><svg viewBox="0 0 64 64"><use href="#ic-about"/></svg></span><span class="lbl">About Me</span></button>
-<button class="dicon" style="--i:1" data-win="w-exp"><span class="ic"><svg viewBox="0 0 64 64"><use href="#ic-exp"/></svg></span><span class="lbl">Experience</span></button>
-<button class="dicon" style="--i:2" data-win="w-proj"><span class="ic"><svg viewBox="0 0 64 64"><use href="#ic-proj"/></svg></span><span class="lbl">Projects</span></button>
-<button class="dicon" style="--i:3" data-win="w-resume"><span class="ic"><svg viewBox="0 0 64 64"><use href="#ic-res"/></svg></span><span class="lbl">Resume</span></button>
-<button class="dicon" style="--i:4" data-win="w-ai"><span class="ic"><svg viewBox="0 0 64 64"><use href="#ic-gpt"/></svg></span><span class="lbl">ShahGPT</span></button>
-<button class="dicon" style="--i:5" data-win="w-collab"><span class="ic"><svg viewBox="0 0 64 64"><use href="#ic-col"/></svg></span><span class="lbl">We Before Me</span></button>
-<button class="dicon" style="--i:6" data-win="w-term"><span class="ic"><svg viewBox="0 0 64 64"><use href="#ic-term"/></svg></span><span class="lbl">Terminal</span></button>
-<button class="dicon" style="--i:7" data-win="w-game"><span class="ic"><svg viewBox="0 0 64 64"><use href="#ic-game"/></svg></span><span class="lbl">Guardian</span></button>
-<button class="dicon" style="--i:8" data-win="w-mania"><span class="ic"><svg viewBox="0 0 64 64"><use href="#ic-mania"/></svg></span><span class="lbl">AI Mania</span></button>
-<button class="dicon" style="--i:9" data-win="w-contact"><span class="ic"><svg viewBox="0 0 64 64"><use href="#ic-mail"/></svg></span><span class="lbl">Contact</span></button>
-</div>
-<div class="rail" id="rail">
-<div class="card">
-<h3>Highlights</h3>
-<div class="spot" id="spot">
-<div class="spot-item c-o on"><div class="spot-num">−25%</div><div class="spot-t">Change orders</div><div class="spot-d">Project controls: charters, risk registers, RACI across 5+ programs</div></div>
-<div class="spot-item c-t"><div class="spot-num">−50%</div><div class="spot-t">Content retrieval time</div><div class="spot-d">Information architecture rebuilt · 40+ engineers onboarded</div></div>
-<div class="spot-item c-o"><div class="spot-num">AI-ready</div><div class="spot-t">Enterprise content @ PCL</div><div class="spot-d">IA restructured for AI search & generative AI — in production</div></div>
-<div class="spot-item c-t"><div class="spot-num">$100K</div><div class="spot-t">IT spend saved</div><div class="spot-d">100+ app audit at uOttawa · 35% license overlap cut</div></div>
-</div>
-<div class="spot-dots" id="spotDots"><i class="on"></i><i></i><i></i><i></i></div>
-</div>
-<div class="card mini-mania" id="railMania">
-<h3>AI Mania <button id="maniaMax" title="Open the full app" style="margin-left:auto;color:var(--pop-teal-dark);font-size:10px;font-weight:600">⤢ expand</button></h3>
-<div class="yt-list mini" id="railList"><div style="padding:8px 10px;color:var(--text-dim);font-size:11.5px">Loading…</div></div>
-</div>
-</div>
-<div class="win" id="w-about" style="left:190px;top:14px">
-<div class="win-head"><span class="spacer"></span><span class="win-title">About — shahriar.sys</span>
-<div class="wc"><button class="mn" aria-label="Minimize"><svg viewBox="0 0 14 14" fill="none" stroke-width="1.5"><path d="M3 10h8"/></svg></button><button class="mx" aria-label="Maximize"><svg viewBox="0 0 14 14" fill="none" stroke-width="1.5"><rect x="3.5" y="3.5" width="7" height="7" rx="1"/></svg></button><button class="cl" aria-label="Close"><svg viewBox="0 0 14 14" fill="none" stroke-width="1.5"><path d="M4 4l6 6M10 4l-6 6"/></svg></button></div></div>
-<div class="win-body">
-<h4>Project Driver. Governance Guardian. AI Adopter.</h4>
-<p>Two threads run through everything I've shipped: the numbers and the plan. I build the dashboards and models leadership actually uses, and I run the projects around them — schedules, risks, budgets, stakeholders. Underneath both sits information architecture: when content is structured and governed well, search works, AI works, and reports get read because they're built for the person reading them.</p>
-<p class="dim">Right now that's at <b style="color:var(--fg)">PCL Construction</b> in Edmonton, preparing enterprise content for AI search. Before this: a decade across engineering firms in Tehran, the CIO's office at uOttawa, and <b style="color:var(--fg)">Prosharif</b>, an e-commerce startup I founded and ran for three years.</p>
-<h4 class="t">Operating principles</h4>
-<div class="vals">
-<div class="val"><b>TIME IS GOLD</b><span>plan tight, cut what doesn't matter, ship on the date</span></div>
-<div class="val"><b>TOOL UP</b><span>learn whatever tool the problem actually needs</span></div>
-<div class="val"><b>WE BEFORE ME</b><span>teams ship. egos slip.</span></div>
-</div>
-<h4>Education</h4>
-<p class="dim">MSc Digital Transformation & Innovation — Telfer School of Management, uOttawa<br>B.Eng. Information Technology — Sharif University of Technology (top 1% national rank)</p>
-<h4>Data & engineering</h4>
-<span class="chip">Power BI</span><span class="chip">Python</span><span class="chip">SQL</span><span class="chip">React</span><span class="chip">Node.js</span><span class="chip">Java</span><span class="chip">C++</span><span class="chip">Data Analytics</span><span class="chip">Excel · VBA · DAX</span><span class="chip">Tableau</span>
-<h4>Platforms</h4>
-<span class="chip">SharePoint</span><span class="chip">Microsoft 365</span><span class="chip">Dynamics 365</span><span class="chip">Information Architecture</span>
-<h4>Project management — PMP-aligned</h4>
-<span class="chip">Project Planning</span><span class="chip">Risk Management</span><span class="chip">Stakeholder Engagement</span><span class="chip">Schedule Management</span><span class="chip">Budget & Cost Control</span><span class="chip">Scope Management</span><span class="chip">Quality Management</span><span class="chip">Change Management</span><span class="chip">Agile · Scrum (ESMC)</span>
-</div>
-</div>
-<div class="win" id="w-exp" style="left:220px;top:8px;width:630px">
-<div class="win-head"><span class="spacer"></span><span class="win-title">Experience</span>
-<div class="wc"><button class="mn" aria-label="Minimize"><svg viewBox="0 0 14 14" fill="none" stroke-width="1.5"><path d="M3 10h8"/></svg></button><button class="mx" aria-label="Maximize"><svg viewBox="0 0 14 14" fill="none" stroke-width="1.5"><rect x="3.5" y="3.5" width="7" height="7" rx="1"/></svg></button><button class="cl" aria-label="Close"><svg viewBox="0 0 14 14" fill="none" stroke-width="1.5"><path d="M4 4l6 6M10 4l-6 6"/></svg></button></div></div>
-<div class="win-body">
-<div class="xp cur"><span class="when">2025 → now</span><div class="role">Senior Digital Communications Specialist</div><div class="org">PCL Construction · Edmonton, AB</div>
-<ul><li>Advancing content governance & information architecture for AI-enabled search and generative AI</li><li>Delivering digital & AI adoption programs with cross-functional teams and external specialists</li><li>Building BI reporting that turns fragmented data into clear insight for senior leadership</li></ul></div>
-<div class="xp"><span class="when">2023 → 2025</span><div class="role">Senior Technology Project & Business Development Lead</div><div class="org">Middle East Water & Environment · Tehran</div>
-<ul><li>Cut change orders 25% with a project-controls backbone: charters, RACI, risk registers</li><li>Designed & governed a SharePoint + Dynamics 365 common data environment uniting owners, contractors & consultants</li><li>Led procurement & proposals across 5+ concurrent projects; protected critical path across 10 workstreams</li></ul></div>
-<div class="xp"><span class="when">2020 → 2023</span><div class="role">Senior IT & Business Intelligence Lead</div><div class="org">Payvareh Engineering & Construction · Tehran</div>
-<ul><li>Cut content retrieval ~50% and support tickets 20% via firm-wide SharePoint hub rollout</li><li>Built the information architecture from scratch; trained 40+ engineers through structured change management</li><li>Automated Excel + Power BI reporting over ERP data for forecasts and KPI dashboards</li></ul></div>
-<div class="xp"><span class="when">2019 → 2020</span><div class="role">IT Business Analyst — Office of the CIO</div><div class="org">University of Ottawa</div>
-<ul><li>Cut license overlap 35% with a central application inventory across 100+ systems (Vision 2030)</li><li>Translated stakeholder pain points into validated functional requirements</li></ul></div>
-<div class="xp"><span class="when">2015 → 2018</span><div class="role">Founder — Prosharif.com</div><div class="org">E-commerce startup · top-ranked in Sharif Startup Challenge</div>
-<ul><li>Built an online marketplace for 50+ artisans; Zoho CRM raised repeat sales 28%</li></ul></div>
-<div class="xp"><span class="when">2014 → 2018</span><div class="role">Knowledge Management & Digital Workplace / IT Support</div><div class="org">Nilpay Engineering & Construction · Tehran</div>
-<ul><li>Foundation years: digital workplace, knowledge management, IT support</li></ul></div>
-</div>
-</div>
-<div class="win" id="w-proj" style="left:250px;top:20px;width:590px">
-<div class="win-head"><span class="spacer"></span><span class="win-title">Projects — case files</span>
-<div class="wc"><button class="mn" aria-label="Minimize"><svg viewBox="0 0 14 14" fill="none" stroke-width="1.5"><path d="M3 10h8"/></svg></button><button class="mx" aria-label="Maximize"><svg viewBox="0 0 14 14" fill="none" stroke-width="1.5"><rect x="3.5" y="3.5" width="7" height="7" rx="1"/></svg></button><button class="cl" aria-label="Close"><svg viewBox="0 0 14 14" fill="none" stroke-width="1.5"><path d="M4 4l6 6M10 4l-6 6"/></svg></button></div></div>
-<div class="win-body">
-<div class="pill-h p1">/pillar_1 · project driver</div>
-<div class="proj"><b>MEWE Project-Controls Backbone</b><span>Charters, RACI, risk registers across digital infrastructure programs · </span><span class="res">−25% change orders</span></div>
-<div class="proj"><b>Esfahan Water Treatment Risk Matrix ($5M)</b><span>Paper logs → centralized Smartsheet–Power BI risk dashboard · </span><span class="res">real-time hazard tracking</span></div>
-<div class="pill-h p2">/pillar_2 · governance guardian</div>
-<div class="proj"><b>SharePoint + Dynamics 365 Common Data Environment</b><span>One governed system of record uniting owners, contractors & consultants · </span><span class="res">unified 3-party delivery</span></div>
-<div class="proj"><b>Firm-wide SharePoint Hub</b><span>Content types, metadata, permissions, retention · 40+ staff trained · </span><span class="res">−50% retrieval time</span></div>
-<div class="proj"><b>uOttawa Software Audit ($2.5M portfolio)</b><span>Audited 100+ systems against Vision 2030 · </span><span class="res">−27% tool count · ~$100K saved</span></div>
-<div class="pill-h p3">/pillar_3 · ai adopter</div>
-<div class="proj"><b>AI-Ready Content @ PCL</b><span>Restructuring enterprise IA for AI search & generative AI · </span><span class="res">in production</span></div>
-<div class="proj"><b>ARIA Feasibility Dashboard (250,000 m³/day)</b><span>Power BI over SCADA + lab + compliance data · </span><span class="res">faster anomaly detection</span></div>
-<div class="proj"><b>Prosharif.com — Founder</b><span>E-commerce marketplace for authentic Iranian goods; CRM-driven ops · </span><span class="res">+28% repeat sales</span></div>
-</div>
-</div>
-<div class="win" id="w-resume" style="left:290px;top:48px;width:420px">
-<div class="win-head"><span class="spacer"></span><span class="win-title">Resume</span>
-<div class="wc"><button class="mn" aria-label="Minimize"><svg viewBox="0 0 14 14" fill="none" stroke-width="1.5"><path d="M3 10h8"/></svg></button><button class="mx" aria-label="Maximize"><svg viewBox="0 0 14 14" fill="none" stroke-width="1.5"><rect x="3.5" y="3.5" width="7" height="7" rx="1"/></svg></button><button class="cl" aria-label="Close"><svg viewBox="0 0 14 14" fill="none" stroke-width="1.5"><path d="M4 4l6 6M10 4l-6 6"/></svg></button></div></div>
-<div class="win-body" style="text-align:center">
-<p style="font-family:var(--mono);font-size:11.5px;text-align:left" class="dim">> static_resume.pdf ........ <span style="color:#FF6961">deprecated</span><br>> live_profile.linkedin .... <span style="color:#30D158">active ●</span></p>
-<p style="margin-top:8px">No PDF here — the LinkedIn profile is the one I actually keep up to date.</p>
-<a class="btn orange" href="https://www.linkedin.com/in/shahriar-nilkar" target="_blank" rel="noopener">
-<svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5C4.98 4.88 3.87 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1s2.48 1.12 2.48 2.5zM.22 8.1h4.56V23H.22zM8.34 8.1h4.37v2.03h.06c.61-1.15 2.1-2.36 4.32-2.36 4.62 0 5.47 3.04 5.47 6.99V23h-4.55v-7.2c0-1.72-.03-3.93-2.4-3.93-2.4 0-2.77 1.87-2.77 3.8V23H8.34z"/></svg>
-Open LinkedIn Profile</a>
-<p class="dim" style="margin-top:12px;font-size:11px">linkedin.com/in/shahriar-nilkar</p>
-</div>
-</div>
-<div class="win" id="w-ai" style="left:320px;top:12px;width:510px">
-<div class="win-head"><span class="spacer"></span><span class="win-title">ShahGPT — career copilot</span>
-<div class="wc"><button class="mn" aria-label="Minimize"><svg viewBox="0 0 14 14" fill="none" stroke-width="1.5"><path d="M3 10h8"/></svg></button><button class="mx" aria-label="Maximize"><svg viewBox="0 0 14 14" fill="none" stroke-width="1.5"><rect x="3.5" y="3.5" width="7" height="7" rx="1"/></svg></button><button class="cl" aria-label="Close"><svg viewBox="0 0 14 14" fill="none" stroke-width="1.5"><path d="M4 4l6 6M10 4l-6 6"/></svg></button></div></div>
-<div class="win-body">
-<div class="chat">
-<div class="chat-log" id="chatLog"></div>
-<div class="chat-sug">
-<button data-q="What does Shahriar do at PCL?">Role at PCL?</button>
-<button data-q="Does Shahriar know Power BI?">Power BI?</button>
-<button data-q="How does he collaborate with teams?">Team player?</button>
-<button data-q="Why should we hire Shahriar?">Why hire him?</button>
-</div>
-<div class="chat-in">
-<input id="chatInput" type="text" placeholder="Ask ShahGPT about Shahriar…" aria-label="Ask ShahGPT">
-<button id="chatSend">Ask</button>
-</div>
-</div>
-<p class="dim" style="margin-top:8px;font-size:10.5px;display:flex;justify-content:space-between"><span>Generated from Shahriar&rsquo;s live profile.</span><span id="gptStatus">instant answers · private by design</span></p>
-</div>
-</div>
-<div class="win" id="w-term" style="left:350px;top:34px;width:550px">
-<div class="win-head"><span class="spacer"></span><span class="win-title">nilkar@pop-os: ~</span>
-<div class="wc"><button class="mn" aria-label="Minimize"><svg viewBox="0 0 14 14" fill="none" stroke-width="1.5"><path d="M3 10h8"/></svg></button><button class="mx" aria-label="Maximize"><svg viewBox="0 0 14 14" fill="none" stroke-width="1.5"><rect x="3.5" y="3.5" width="7" height="7" rx="1"/></svg></button><button class="cl" aria-label="Close"><svg viewBox="0 0 14 14" fill="none" stroke-width="1.5"><path d="M4 4l6 6M10 4l-6 6"/></svg></button></div></div>
-<div class="win-body">
-<div class="term" id="termLog"></div>
-<div class="term-in"><input id="termInput" type="text" placeholder="type 'help' and press Enter" aria-label="Terminal input" autocomplete="off"></div>
-</div>
-</div>
-<div class="win" id="w-game" style="left:380px;top:6px;width:470px">
-<div class="win-head"><span class="spacer"></span><span class="win-title">Governance Guardian</span>
-<div class="wc"><button class="mn" aria-label="Minimize"><svg viewBox="0 0 14 14" fill="none" stroke-width="1.5"><path d="M3 10h8"/></svg></button><button class="mx" aria-label="Maximize"><svg viewBox="0 0 14 14" fill="none" stroke-width="1.5"><rect x="3.5" y="3.5" width="7" height="7" rx="1"/></svg></button><button class="cl" aria-label="Close"><svg viewBox="0 0 14 14" fill="none" stroke-width="1.5"><path d="M4 4l6 6M10 4l-6 6"/></svg></button></div></div>
-<div class="win-body">
-<div class="game-hud"><span>SCORE <b id="gScore">0</b></span><span>TIME <b id="gTime">45</b>s</span><span>ROT PILE <b id="gMiss">0</b>/5</span></div>
-<div class="game-stage" id="gStage"></div>
-<div class="bins">
-<button class="b1" data-bin="project"><b>/PROJECTS</b>charters · risks · tenders</button>
-<button class="b2" data-bin="governance"><b>/GOVERNANCE</b>metadata · permissions</button>
-<button class="b3" data-bin="ai"><b>/AI_READY</b>dashboards · models</button>
-</div>
-<div class="game-msg" id="gMsg">Files are falling into chaos. Route each to the right folder before the ROT pile wins. <button class="btn orange" id="gStart" style="padding:7px 14px;margin-left:6px">▶ Start</button></div>
-</div>
-</div>
-<div class="win" id="w-collab" style="left:410px;top:26px;width:490px">
-<div class="win-head"><span class="spacer"></span><span class="win-title">We Before Me — collaboration hub</span>
-<div class="wc"><button class="mn" aria-label="Minimize"><svg viewBox="0 0 14 14" fill="none" stroke-width="1.5"><path d="M3 10h8"/></svg></button><button class="mx" aria-label="Maximize"><svg viewBox="0 0 14 14" fill="none" stroke-width="1.5"><rect x="3.5" y="3.5" width="7" height="7" rx="1"/></svg></button><button class="cl" aria-label="Close"><svg viewBox="0 0 14 14" fill="none" stroke-width="1.5"><path d="M4 4l6 6M10 4l-6 6"/></svg></button></div></div>
-<div class="win-body">
-<p class="dim">Nothing here shipped solo. The people-side of the work:</p>
-<div class="collab-note"><b>Owners · Contractors · Consultants</b><span class="wh">MEWE</span><br>Three parties, one governed data environment — everyone finally worked from the same source of truth.</div>
-<div class="collab-note"><b>40+ engineers & coordinators</b><span class="wh">Payvareh</span><br>Trained through structured change management — support tickets fell 20% because people, not just systems, were ready.</div>
-<div class="collab-note"><b>Faculties · IT · Research units</b><span class="wh">uOttawa</span><br>Stakeholder interviews & workshops across campus turned pain points into validated requirements.</div>
-<h4 class="t" style="margin-top:13px">Leave a note — it emails Shahriar directly</h4>
-<div id="gbList"></div>
-<div class="gb-form">
-<input class="n" id="gbName" type="text" maxlength="24" placeholder="Name" aria-label="Your name">
-<input class="m" id="gbMsg" type="text" maxlength="120" placeholder="Say hi, pitch a collab, or share feedback…" aria-label="Your message">
-<button id="gbSend">Send ✉</button>
-</div>
-<p class="dim" style="font-size:10.5px;margin-top:7px">Opens your email app with the note pre-filled — it lands straight in Shahriar&rsquo;s inbox.</p>
-</div>
-</div>
-<div class="win" id="w-mania" style="left:250px;top:16px;width:540px">
-<div class="win-head"><span class="spacer"></span><span class="win-title">AI Mania — latest AI videos</span>
-<div class="wc"><button class="mn" aria-label="Minimize"><svg viewBox="0 0 14 14" fill="none" stroke-width="1.5"><path d="M3 10h8"/></svg></button><button class="mx" aria-label="Maximize"><svg viewBox="0 0 14 14" fill="none" stroke-width="1.5"><rect x="3.5" y="3.5" width="7" height="7" rx="1"/></svg></button><button class="cl" aria-label="Close"><svg viewBox="0 0 14 14" fill="none" stroke-width="1.5"><path d="M4 4l6 6M10 4l-6 6"/></svg></button></div></div>
-<div class="win-body" style="padding:10px 12px 12px">
-<div class="pulse-foot" style="border:none;padding:2px 6px 6px"><span id="pulseSrc">latest uploads</span><button id="pulseRefresh">↻ refresh</button></div>
-<div class="yt-list" id="pulseList" style="max-height:298px"><div style="padding:10px 12px;color:var(--text-dim);font-size:12px">Loading the latest AI videos…</div></div>
-<h4 class="t" style="margin-top:12px">Newsletters worth your inbox</h4>
-<div class="news-row" style="padding:2px 0 0">
-<a class="news-a" href="https://www.therundown.ai/" target="_blank" rel="noopener"><span class="d" style="background:#FF9F0A"></span>The Rundown AI</a>
-<a class="news-a" href="https://www.superhuman.ai/" target="_blank" rel="noopener"><span class="d" style="background:#40C4B5"></span>Superhuman AI</a>
-<a class="news-a" href="https://www.theneurondaily.com/" target="_blank" rel="noopener"><span class="d" style="background:#FFD60A"></span>The Neuron</a>
-<a class="news-a" href="https://tldr.tech/ai" target="_blank" rel="noopener"><span class="d" style="background:#66D4CF"></span>TLDR AI</a>
-</div>
-</div>
-</div>
-<div class="win" id="w-contact" style="left:450px;top:58px;width:420px">
-<div class="win-head"><span class="spacer"></span><span class="win-title">Contact</span>
-<div class="wc"><button class="mn" aria-label="Minimize"><svg viewBox="0 0 14 14" fill="none" stroke-width="1.5"><path d="M3 10h8"/></svg></button><button class="mx" aria-label="Maximize"><svg viewBox="0 0 14 14" fill="none" stroke-width="1.5"><rect x="3.5" y="3.5" width="7" height="7" rx="1"/></svg></button><button class="cl" aria-label="Close"><svg viewBox="0 0 14 14" fill="none" stroke-width="1.5"><path d="M4 4l6 6M10 4l-6 6"/></svg></button></div></div>
-<div class="win-body" style="text-align:center">
-<p>If a project needs numbers, structure, or both — worth a conversation.</p>
-<p style="display:flex;gap:9px;justify-content:center;flex-wrap:wrap;margin-top:13px">
-<a class="btn orange" href="https://www.linkedin.com/in/shahriar-nilkar" target="_blank" rel="noopener">LinkedIn</a>
-<a class="btn" href="mailto:shahnilkar@gmail.com">Email</a>
-<a class="btn teal" href="https://www.youtube.com/@shahriarsasa" target="_blank" rel="noopener">YouTube</a>
-</p>
-<p class="dim" style="margin-top:13px;font-size:11.5px">Edmonton, Alberta, Canada · <span style="color:#30D158">●</span> open to interesting problems</p>
-</div>
-</div>
-</div>
-<div class="dock-wrap">
-<div class="dock" role="toolbar" aria-label="Dock">
-<button class="dk" data-win="w-about"><svg viewBox="0 0 64 64"><use href="#ic-about"/></svg><span class="tip">About Me</span></button>
-<button class="dk" data-win="w-exp"><svg viewBox="0 0 64 64"><use href="#ic-exp"/></svg><span class="tip">Experience</span></button>
-<button class="dk" data-win="w-proj"><svg viewBox="0 0 64 64"><use href="#ic-proj"/></svg><span class="tip">Projects</span></button>
-<button class="dk" data-win="w-resume"><svg viewBox="0 0 64 64"><use href="#ic-res"/></svg><span class="tip">Resume</span></button>
-<button class="dk" data-win="w-ai"><svg viewBox="0 0 64 64"><use href="#ic-gpt"/></svg><span class="tip">ShahGPT</span></button>
-<button class="dk" data-win="w-collab"><svg viewBox="0 0 64 64"><use href="#ic-col"/></svg><span class="tip">We Before Me</span></button>
-<button class="dk" data-win="w-term"><svg viewBox="0 0 64 64"><use href="#ic-term"/></svg><span class="tip">Terminal</span></button>
-<button class="dk" data-win="w-game"><svg viewBox="0 0 64 64"><use href="#ic-game"/></svg><span class="tip">Guardian</span></button>
-<button class="dk" data-win="w-mania"><svg viewBox="0 0 64 64"><use href="#ic-mania"/></svg><span class="tip">AI Mania</span></button>
-<button class="dk" data-win="w-contact"><svg viewBox="0 0 64 64"><use href="#ic-mail"/></svg><span class="tip">Contact</span></button>
-<button class="dk" id="palOpen"><svg viewBox="0 0 64 64"><use href="#ic-find"/></svg><span class="tip">Launcher · Ctrl K</span></button>
-</div>
-</div>
-</div>
+  <div class="wallwrap" id="wallDesk"></div>
+  <div class="deskclip">
+    <div class="panel">
+      <div class="left">
+        <button class="pbtn" id="btnOverview" title="Tile all windows">Workspaces</button>
+        <button class="pbtn" id="palOpen2">Applications</button>
+      </div>
+      <button class="pbtn center" id="clkBtn"><span id="clkDate">—</span>&nbsp;<b id="clkTime" style="font-weight:600">--:--</b></button>
+      <div class="rightg">
+        <button class="pbtn" id="btnTile" title="Toggle auto-tiling (pop-shell)"><svg class="tico" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="1.5" y="1.5" width="5.5" height="13" rx="1"/><rect x="9" y="1.5" width="5.5" height="5.5" rx="1"/><rect x="9" y="9" width="5.5" height="5.5" rx="1"/></svg><span class="tile-ind" id="tileInd" style="display:none">tiling</span></button>
+        <button class="pbtn" id="btnLock2" title="Lock the session"><svg class="tico" viewBox="0 0 16 16" fill="currentColor"><rect x="3" y="7" width="10" height="7" rx="1.5"/><path d="M5.5 7V5.5a2.5 2.5 0 0 1 5 0V7" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></button>
+      </div>
+    </div>
+
+    <div class="desk-area" id="deskArea">
+      <div class="icon-col" role="menu" aria-label="Desktop icons">
+        <button class="dicon" style="--i:0" data-win="w-about"><span class="ic"><svg viewBox="0 0 64 64"><use href="#ic-about"/></svg></span><span class="lbl">About Me</span></button>
+        <button class="dicon" style="--i:1" data-win="w-exp"><span class="ic"><svg viewBox="0 0 64 64"><use href="#ic-exp"/></svg></span><span class="lbl">Experience</span></button>
+        <button class="dicon" style="--i:2" data-win="w-proj"><span class="ic"><svg viewBox="0 0 64 64"><use href="#ic-proj"/></svg></span><span class="lbl">Projects</span></button>
+        <button class="dicon" style="--i:3" data-win="w-resume"><span class="ic"><svg viewBox="0 0 64 64"><use href="#ic-res"/></svg></span><span class="lbl">Resume</span></button>
+        <button class="dicon" style="--i:4" data-win="w-ai"><span class="ic"><svg viewBox="0 0 64 64"><use href="#ic-gpt"/></svg></span><span class="lbl">ShahGPT</span></button>
+        <button class="dicon" style="--i:5" data-win="w-collab"><span class="ic"><svg viewBox="0 0 64 64"><use href="#ic-col"/></svg></span><span class="lbl">We Before Me</span></button>
+        <button class="dicon" style="--i:6" data-win="w-term"><span class="ic"><svg viewBox="0 0 64 64"><use href="#ic-term"/></svg></span><span class="lbl">Terminal</span></button>
+        <button class="dicon" style="--i:7" data-win="w-game"><span class="ic"><svg viewBox="0 0 64 64"><use href="#ic-game"/></svg></span><span class="lbl">Guardian</span></button>
+        <button class="dicon" style="--i:8" data-win="w-mania"><span class="ic"><svg viewBox="0 0 64 64"><use href="#ic-mania"/></svg></span><span class="lbl">AI Mania</span></button>
+        <button class="dicon" style="--i:9" data-win="w-contact"><span class="ic"><svg viewBox="0 0 64 64"><use href="#ic-mail"/></svg></span><span class="lbl">Contact</span></button>
+      </div>
+
+      <div class="rail" id="rail">
+        <div class="card">
+          <h3>Highlights</h3>
+          <div class="spot" id="spot">
+            <div class="spot-item c-o on"><div class="spot-num">−25%</div><div class="spot-t">Change orders</div><div class="spot-d">Project controls: charters, risk registers, RACI across 5+ programs</div></div>
+            <div class="spot-item c-t"><div class="spot-num">−50%</div><div class="spot-t">Content retrieval time</div><div class="spot-d">Information architecture rebuilt · 40+ engineers onboarded</div></div>
+            <div class="spot-item c-o"><div class="spot-num">AI-ready</div><div class="spot-t">Enterprise content @ PCL</div><div class="spot-d">IA restructured for AI search & generative AI — in production</div></div>
+            <div class="spot-item c-t"><div class="spot-num">$100K</div><div class="spot-t">IT spend saved</div><div class="spot-d">100+ app audit at uOttawa · 35% license overlap cut</div></div>
+          </div>
+          <div class="spot-dots" id="spotDots"><i class="on"></i><i></i><i></i><i></i></div>
+        </div>
+        <div class="card mini-mania" id="railMania">
+          <h3>AI Mania <button id="maniaMax" title="Open the full app" style="margin-left:auto;color:var(--pop-teal-dark);font-size:10px;font-weight:600">⤢ expand</button></h3>
+          <div class="yt-list mini" id="railList"><div style="padding:8px 10px;color:var(--text-dim);font-size:11.5px">Loading…</div></div>
+        </div>
+      </div>
+
+      <!-- ===== windows ===== -->
+      <div class="win" id="w-about" style="left:190px;top:14px">
+        <div class="win-head"><span class="spacer"></span><span class="win-title">About — shahriar.sys</span>
+          <div class="wc"><button class="mn" aria-label="Minimize"><svg viewBox="0 0 14 14" fill="none" stroke-width="1.5"><path d="M3 10h8"/></svg></button><button class="mx" aria-label="Maximize"><svg viewBox="0 0 14 14" fill="none" stroke-width="1.5"><rect x="3.5" y="3.5" width="7" height="7" rx="1"/></svg></button><button class="cl" aria-label="Close"><svg viewBox="0 0 14 14" fill="none" stroke-width="1.5"><path d="M4 4l6 6M10 4l-6 6"/></svg></button></div></div>
+        <div class="win-body">
+          <h4>Project Driver. Governance Guardian. AI Adopter.</h4>
+          <p>Two threads run through everything I've shipped: the numbers and the plan. I build the dashboards and models leadership actually uses, and I run the projects around them — schedules, risks, budgets, stakeholders. Underneath both sits information architecture: when content is structured and governed well, search works, AI works, and reports get read because they're built for the person reading them.</p>
+          <p class="dim">Right now that's at <b style="color:var(--fg)">PCL Construction</b> in Edmonton, preparing enterprise content for AI search. Before this: a decade across engineering firms in Tehran, the CIO's office at uOttawa, and <b style="color:var(--fg)">Prosharif</b>, an e-commerce startup I founded and ran for three years.</p>
+          <h4 class="t">Operating principles</h4>
+          <div class="vals">
+            <div class="val"><b>TIME IS GOLD</b><span>plan tight, cut what doesn't matter, ship on the date</span></div>
+            <div class="val"><b>TOOL UP</b><span>learn whatever tool the problem actually needs</span></div>
+            <div class="val"><b>WE BEFORE ME</b><span>teams ship. egos slip.</span></div>
+          </div>
+          <h4>Education</h4>
+          <p class="dim">MSc Digital Transformation & Innovation — Telfer School of Management, uOttawa<br>B.Eng. Information Technology — Sharif University of Technology (top 1% national rank)</p>
+          <h4>Data & engineering</h4>
+          <span class="chip">Power BI</span><span class="chip">Python</span><span class="chip">SQL</span><span class="chip">React</span><span class="chip">Node.js</span><span class="chip">Java</span><span class="chip">C++</span><span class="chip">Data Analytics</span><span class="chip">Excel · VBA · DAX</span><span class="chip">Tableau</span>
+          <h4>Platforms</h4>
+          <span class="chip">SharePoint</span><span class="chip">Microsoft 365</span><span class="chip">Dynamics 365</span><span class="chip">Information Architecture</span>
+          <h4>Project management — PMP-aligned</h4>
+          <span class="chip">Project Planning</span><span class="chip">Risk Management</span><span class="chip">Stakeholder Engagement</span><span class="chip">Schedule Management</span><span class="chip">Budget & Cost Control</span><span class="chip">Scope Management</span><span class="chip">Quality Management</span><span class="chip">Change Management</span><span class="chip">Agile · Scrum (ESMC)</span>
+        </div>
+      </div>
+
+      <div class="win" id="w-exp" style="left:220px;top:8px;width:630px">
+        <div class="win-head"><span class="spacer"></span><span class="win-title">Experience</span>
+          <div class="wc"><button class="mn" aria-label="Minimize"><svg viewBox="0 0 14 14" fill="none" stroke-width="1.5"><path d="M3 10h8"/></svg></button><button class="mx" aria-label="Maximize"><svg viewBox="0 0 14 14" fill="none" stroke-width="1.5"><rect x="3.5" y="3.5" width="7" height="7" rx="1"/></svg></button><button class="cl" aria-label="Close"><svg viewBox="0 0 14 14" fill="none" stroke-width="1.5"><path d="M4 4l6 6M10 4l-6 6"/></svg></button></div></div>
+        <div class="win-body">
+          <div class="xp cur"><span class="when">2025 → now</span><div class="role">Senior Digital Communications Specialist</div><div class="org">PCL Construction · Edmonton, AB</div>
+            <ul><li>Advancing content governance & information architecture for AI-enabled search and generative AI</li><li>Delivering digital & AI adoption programs with cross-functional teams and external specialists</li><li>Building BI reporting that turns fragmented data into clear insight for senior leadership</li></ul></div>
+          <div class="xp"><span class="when">2023 → 2025</span><div class="role">Senior Technology Project & Business Development Lead</div><div class="org">Middle East Water & Environment · Tehran</div>
+            <ul><li>Cut change orders 25% with a project-controls backbone: charters, RACI, risk registers</li><li>Designed & governed a SharePoint + Dynamics 365 common data environment uniting owners, contractors & consultants</li><li>Led procurement & proposals across 5+ concurrent projects; protected critical path across 10 workstreams</li></ul></div>
+          <div class="xp"><span class="when">2020 → 2023</span><div class="role">Senior IT & Business Intelligence Lead</div><div class="org">Payvareh Engineering & Construction · Tehran</div>
+            <ul><li>Cut content retrieval ~50% and support tickets 20% via firm-wide SharePoint hub rollout</li><li>Built the information architecture from scratch; trained 40+ engineers through structured change management</li><li>Automated Excel + Power BI reporting over ERP data for forecasts and KPI dashboards</li></ul></div>
+          <div class="xp"><span class="when">2019 → 2020</span><div class="role">IT Business Analyst — Office of the CIO</div><div class="org">University of Ottawa</div>
+            <ul><li>Cut license overlap 35% with a central application inventory across 100+ systems (Vision 2030)</li><li>Translated stakeholder pain points into validated functional requirements</li></ul></div>
+          <div class="xp"><span class="when">2015 → 2018</span><div class="role">Founder — Prosharif.com</div><div class="org">E-commerce startup · top-ranked in Sharif Startup Challenge</div>
+            <ul><li>Built an online marketplace for 50+ artisans; Zoho CRM raised repeat sales 28%</li></ul></div>
+          <div class="xp"><span class="when">2014 → 2018</span><div class="role">Knowledge Management & Digital Workplace / IT Support</div><div class="org">Nilpay Engineering & Construction · Tehran</div>
+            <ul><li>Foundation years: digital workplace, knowledge management, IT support</li></ul></div>
+        </div>
+      </div>
+
+      <div class="win" id="w-proj" style="left:250px;top:20px;width:590px">
+        <div class="win-head"><span class="spacer"></span><span class="win-title">Projects — case files</span>
+          <div class="wc"><button class="mn" aria-label="Minimize"><svg viewBox="0 0 14 14" fill="none" stroke-width="1.5"><path d="M3 10h8"/></svg></button><button class="mx" aria-label="Maximize"><svg viewBox="0 0 14 14" fill="none" stroke-width="1.5"><rect x="3.5" y="3.5" width="7" height="7" rx="1"/></svg></button><button class="cl" aria-label="Close"><svg viewBox="0 0 14 14" fill="none" stroke-width="1.5"><path d="M4 4l6 6M10 4l-6 6"/></svg></button></div></div>
+        <div class="win-body">
+          <div class="pill-h p1">/pillar_1 · project driver</div>
+          <div class="proj"><b>MEWE Project-Controls Backbone</b><span>Charters, RACI, risk registers across digital infrastructure programs · </span><span class="res">−25% change orders</span></div>
+          <div class="proj"><b>Esfahan Water Treatment Risk Matrix ($5M)</b><span>Paper logs → centralized Smartsheet–Power BI risk dashboard · </span><span class="res">real-time hazard tracking</span></div>
+          <div class="pill-h p2">/pillar_2 · governance guardian</div>
+          <div class="proj"><b>SharePoint + Dynamics 365 Common Data Environment</b><span>One governed system of record uniting owners, contractors & consultants · </span><span class="res">unified 3-party delivery</span></div>
+          <div class="proj"><b>Firm-wide SharePoint Hub</b><span>Content types, metadata, permissions, retention · 40+ staff trained · </span><span class="res">−50% retrieval time</span></div>
+          <div class="proj"><b>uOttawa Software Audit ($2.5M portfolio)</b><span>Audited 100+ systems against Vision 2030 · </span><span class="res">−27% tool count · ~$100K saved</span></div>
+          <div class="pill-h p3">/pillar_3 · ai adopter</div>
+          <div class="proj"><b>AI-Ready Content @ PCL</b><span>Restructuring enterprise IA for AI search & generative AI · </span><span class="res">in production</span></div>
+          <div class="proj"><b>ARIA Feasibility Dashboard (250,000 m³/day)</b><span>Power BI over SCADA + lab + compliance data · </span><span class="res">faster anomaly detection</span></div>
+          <div class="proj"><b>Prosharif.com — Founder</b><span>E-commerce marketplace for authentic Iranian goods; CRM-driven ops · </span><span class="res">+28% repeat sales</span></div>
+        </div>
+      </div>
+
+      <div class="win" id="w-resume" style="left:290px;top:48px;width:420px">
+        <div class="win-head"><span class="spacer"></span><span class="win-title">Resume</span>
+          <div class="wc"><button class="mn" aria-label="Minimize"><svg viewBox="0 0 14 14" fill="none" stroke-width="1.5"><path d="M3 10h8"/></svg></button><button class="mx" aria-label="Maximize"><svg viewBox="0 0 14 14" fill="none" stroke-width="1.5"><rect x="3.5" y="3.5" width="7" height="7" rx="1"/></svg></button><button class="cl" aria-label="Close"><svg viewBox="0 0 14 14" fill="none" stroke-width="1.5"><path d="M4 4l6 6M10 4l-6 6"/></svg></button></div></div>
+        <div class="win-body" style="text-align:center">
+          <p style="font-family:var(--mono);font-size:11.5px;text-align:left" class="dim">> static_resume.pdf ........ <span style="color:#FF6961">deprecated</span><br>> live_profile.linkedin .... <span style="color:#30D158">active ●</span></p>
+          <p style="margin-top:8px">No PDF here — the LinkedIn profile is the one I actually keep up to date.</p>
+          <a class="btn orange" href="https://www.linkedin.com/in/shahriar-nilkar" target="_blank" rel="noopener">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5C4.98 4.88 3.87 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1s2.48 1.12 2.48 2.5zM.22 8.1h4.56V23H.22zM8.34 8.1h4.37v2.03h.06c.61-1.15 2.1-2.36 4.32-2.36 4.62 0 5.47 3.04 5.47 6.99V23h-4.55v-7.2c0-1.72-.03-3.93-2.4-3.93-2.4 0-2.77 1.87-2.77 3.8V23H8.34z"/></svg>
+            Open LinkedIn Profile</a>
+          <p class="dim" style="margin-top:12px;font-size:11px">linkedin.com/in/shahriar-nilkar</p>
+        </div>
+      </div>
+
+      <div class="win" id="w-ai" style="left:320px;top:12px;width:510px">
+        <div class="win-head"><span class="spacer"></span><span class="win-title">ShahGPT — career copilot</span>
+          <div class="wc"><button class="mn" aria-label="Minimize"><svg viewBox="0 0 14 14" fill="none" stroke-width="1.5"><path d="M3 10h8"/></svg></button><button class="mx" aria-label="Maximize"><svg viewBox="0 0 14 14" fill="none" stroke-width="1.5"><rect x="3.5" y="3.5" width="7" height="7" rx="1"/></svg></button><button class="cl" aria-label="Close"><svg viewBox="0 0 14 14" fill="none" stroke-width="1.5"><path d="M4 4l6 6M10 4l-6 6"/></svg></button></div></div>
+        <div class="win-body">
+          <div class="chat">
+            <div class="chat-log" id="chatLog"></div>
+            <div class="chat-sug">
+              <button data-q="What does Shahriar do at PCL?">Role at PCL?</button>
+              <button data-q="Does Shahriar know Power BI?">Power BI?</button>
+              <button data-q="How does he collaborate with teams?">Team player?</button>
+              <button data-q="Why should we hire Shahriar?">Why hire him?</button>
+            </div>
+            <div class="chat-in">
+              <input id="chatInput" type="text" placeholder="Ask ShahGPT about Shahriar…" aria-label="Ask ShahGPT">
+              <button id="chatSend">Ask</button>
+            </div>
+          </div>
+          <p class="dim" style="margin-top:8px;font-size:10.5px;display:flex;justify-content:space-between"><span>Generated from Shahriar&rsquo;s live profile.</span><span id="gptStatus">instant answers · private by design</span></p>
+        </div>
+      </div>
+
+      <div class="win" id="w-term" style="left:350px;top:34px;width:550px">
+        <div class="win-head"><span class="spacer"></span><span class="win-title">nilkar@pop-os: ~</span>
+          <div class="wc"><button class="mn" aria-label="Minimize"><svg viewBox="0 0 14 14" fill="none" stroke-width="1.5"><path d="M3 10h8"/></svg></button><button class="mx" aria-label="Maximize"><svg viewBox="0 0 14 14" fill="none" stroke-width="1.5"><rect x="3.5" y="3.5" width="7" height="7" rx="1"/></svg></button><button class="cl" aria-label="Close"><svg viewBox="0 0 14 14" fill="none" stroke-width="1.5"><path d="M4 4l6 6M10 4l-6 6"/></svg></button></div></div>
+        <div class="win-body">
+          <div class="term" id="termLog"></div>
+          <div class="term-in"><input id="termInput" type="text" placeholder="type 'help' and press Enter" aria-label="Terminal input" autocomplete="off"></div>
+        </div>
+      </div>
+
+      <div class="win" id="w-game" style="left:380px;top:6px;width:470px">
+        <div class="win-head"><span class="spacer"></span><span class="win-title">Governance Guardian</span>
+          <div class="wc"><button class="mn" aria-label="Minimize"><svg viewBox="0 0 14 14" fill="none" stroke-width="1.5"><path d="M3 10h8"/></svg></button><button class="mx" aria-label="Maximize"><svg viewBox="0 0 14 14" fill="none" stroke-width="1.5"><rect x="3.5" y="3.5" width="7" height="7" rx="1"/></svg></button><button class="cl" aria-label="Close"><svg viewBox="0 0 14 14" fill="none" stroke-width="1.5"><path d="M4 4l6 6M10 4l-6 6"/></svg></button></div></div>
+        <div class="win-body">
+          <div class="game-hud"><span>SCORE <b id="gScore">0</b></span><span>TIME <b id="gTime">45</b>s</span><span>ROT PILE <b id="gMiss">0</b>/5</span></div>
+          <div class="game-stage" id="gStage"></div>
+          <div class="bins">
+            <button class="b1" data-bin="project"><b>/PROJECTS</b>charters · risks · tenders</button>
+            <button class="b2" data-bin="governance"><b>/GOVERNANCE</b>metadata · permissions</button>
+            <button class="b3" data-bin="ai"><b>/AI_READY</b>dashboards · models</button>
+          </div>
+          <div class="game-msg" id="gMsg">Files are falling into chaos. Route each to the right folder before the ROT pile wins. <button class="btn orange" id="gStart" style="padding:7px 14px;margin-left:6px">▶ Start</button></div>
+        </div>
+      </div>
+
+      <div class="win" id="w-collab" style="left:410px;top:26px;width:490px">
+        <div class="win-head"><span class="spacer"></span><span class="win-title">We Before Me — collaboration hub</span>
+          <div class="wc"><button class="mn" aria-label="Minimize"><svg viewBox="0 0 14 14" fill="none" stroke-width="1.5"><path d="M3 10h8"/></svg></button><button class="mx" aria-label="Maximize"><svg viewBox="0 0 14 14" fill="none" stroke-width="1.5"><rect x="3.5" y="3.5" width="7" height="7" rx="1"/></svg></button><button class="cl" aria-label="Close"><svg viewBox="0 0 14 14" fill="none" stroke-width="1.5"><path d="M4 4l6 6M10 4l-6 6"/></svg></button></div></div>
+        <div class="win-body">
+          <p class="dim">Nothing here shipped solo. The people-side of the work:</p>
+          <div class="collab-note"><b>Owners · Contractors · Consultants</b><span class="wh">MEWE</span><br>Three parties, one governed data environment — everyone finally worked from the same source of truth.</div>
+          <div class="collab-note"><b>40+ engineers & coordinators</b><span class="wh">Payvareh</span><br>Trained through structured change management — support tickets fell 20% because people, not just systems, were ready.</div>
+          <div class="collab-note"><b>Faculties · IT · Research units</b><span class="wh">uOttawa</span><br>Stakeholder interviews & workshops across campus turned pain points into validated requirements.</div>
+          <h4 class="t" style="margin-top:13px">Leave a note — it emails Shahriar directly</h4>
+          <div id="gbList"></div>
+          <div class="gb-form">
+            <input class="n" id="gbName" type="text" maxlength="24" placeholder="Name" aria-label="Your name">
+            <input class="m" id="gbMsg" type="text" maxlength="120" placeholder="Say hi, pitch a collab, or share feedback…" aria-label="Your message">
+            <button id="gbSend">Send ✉</button>
+          </div>
+          <p class="dim" style="font-size:10.5px;margin-top:7px">Opens your email app with the note pre-filled — it lands straight in Shahriar&rsquo;s inbox.</p>
+        </div>
+      </div>
+
+      <div class="win" id="w-mania" style="left:250px;top:16px;width:540px">
+        <div class="win-head"><span class="spacer"></span><span class="win-title">AI Mania — latest AI videos</span>
+          <div class="wc"><button class="mn" aria-label="Minimize"><svg viewBox="0 0 14 14" fill="none" stroke-width="1.5"><path d="M3 10h8"/></svg></button><button class="mx" aria-label="Maximize"><svg viewBox="0 0 14 14" fill="none" stroke-width="1.5"><rect x="3.5" y="3.5" width="7" height="7" rx="1"/></svg></button><button class="cl" aria-label="Close"><svg viewBox="0 0 14 14" fill="none" stroke-width="1.5"><path d="M4 4l6 6M10 4l-6 6"/></svg></button></div></div>
+        <div class="win-body" style="padding:10px 12px 12px">
+          <div class="pulse-foot" style="border:none;padding:2px 6px 6px"><span id="pulseSrc">latest uploads</span><button id="pulseRefresh">↻ refresh</button></div>
+          <div class="yt-list" id="pulseList" style="max-height:298px"><div style="padding:10px 12px;color:var(--text-dim);font-size:12px">Loading the latest AI videos…</div></div>
+          <h4 class="t" style="margin-top:12px">Newsletters worth your inbox</h4>
+          <div class="news-row" style="padding:2px 0 0">
+            <a class="news-a" href="https://www.therundown.ai/" target="_blank" rel="noopener"><span class="d" style="background:#FF9F0A"></span>The Rundown AI</a>
+            <a class="news-a" href="https://www.superhuman.ai/" target="_blank" rel="noopener"><span class="d" style="background:#40C4B5"></span>Superhuman AI</a>
+            <a class="news-a" href="https://www.theneurondaily.com/" target="_blank" rel="noopener"><span class="d" style="background:#FFD60A"></span>The Neuron</a>
+            <a class="news-a" href="https://tldr.tech/ai" target="_blank" rel="noopener"><span class="d" style="background:#66D4CF"></span>TLDR AI</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="win" id="w-contact" style="left:450px;top:58px;width:420px">
+        <div class="win-head"><span class="spacer"></span><span class="win-title">Contact</span>
+          <div class="wc"><button class="mn" aria-label="Minimize"><svg viewBox="0 0 14 14" fill="none" stroke-width="1.5"><path d="M3 10h8"/></svg></button><button class="mx" aria-label="Maximize"><svg viewBox="0 0 14 14" fill="none" stroke-width="1.5"><rect x="3.5" y="3.5" width="7" height="7" rx="1"/></svg></button><button class="cl" aria-label="Close"><svg viewBox="0 0 14 14" fill="none" stroke-width="1.5"><path d="M4 4l6 6M10 4l-6 6"/></svg></button></div></div>
+        <div class="win-body" style="text-align:center">
+          <p>If a project needs numbers, structure, or both — worth a conversation.</p>
+          <p style="display:flex;gap:9px;justify-content:center;flex-wrap:wrap;margin-top:13px">
+            <a class="btn orange" href="https://www.linkedin.com/in/shahriar-nilkar" target="_blank" rel="noopener">LinkedIn</a>
+            <a class="btn" href="mailto:shahnilkar@gmail.com">Email</a>
+            <a class="btn teal" href="https://www.youtube.com/@shahriarsasa" target="_blank" rel="noopener">YouTube</a>
+          </p>
+          <p class="dim" style="margin-top:13px;font-size:11.5px">Edmonton, Alberta, Canada · <span style="color:#30D158">●</span> open to interesting problems</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="dock-wrap">
+      <div class="dock" role="toolbar" aria-label="Dock">
+        <button class="dk" data-win="w-about"><svg viewBox="0 0 64 64"><use href="#ic-about"/></svg><span class="tip">About Me</span></button>
+        <button class="dk" data-win="w-exp"><svg viewBox="0 0 64 64"><use href="#ic-exp"/></svg><span class="tip">Experience</span></button>
+        <button class="dk" data-win="w-proj"><svg viewBox="0 0 64 64"><use href="#ic-proj"/></svg><span class="tip">Projects</span></button>
+        <button class="dk" data-win="w-resume"><svg viewBox="0 0 64 64"><use href="#ic-res"/></svg><span class="tip">Resume</span></button>
+        <button class="dk" data-win="w-ai"><svg viewBox="0 0 64 64"><use href="#ic-gpt"/></svg><span class="tip">ShahGPT</span></button>
+        <button class="dk" data-win="w-collab"><svg viewBox="0 0 64 64"><use href="#ic-col"/></svg><span class="tip">We Before Me</span></button>
+        <button class="dk" data-win="w-term"><svg viewBox="0 0 64 64"><use href="#ic-term"/></svg><span class="tip">Terminal</span></button>
+        <button class="dk" data-win="w-game"><svg viewBox="0 0 64 64"><use href="#ic-game"/></svg><span class="tip">Guardian</span></button>
+        <button class="dk" data-win="w-mania"><svg viewBox="0 0 64 64"><use href="#ic-mania"/></svg><span class="tip">AI Mania</span></button>
+        <button class="dk" data-win="w-contact"><svg viewBox="0 0 64 64"><use href="#ic-mail"/></svg><span class="tip">Contact</span></button>
+        <button class="dk" id="palOpen"><svg viewBox="0 0 64 64"><use href="#ic-find"/></svg><span class="tip">Launcher · Ctrl K</span></button>
+      </div>
+    </div>
+  </div>
 </section>
+
 <div class="palette" id="palette" role="dialog" aria-label="Launcher">
-<div class="pal-box">
-<input id="palInput" type="text" placeholder="Type to search apps and actions…" aria-label="Launcher search">
-<div class="pal-list" id="palList"></div>
-<div class="pal-hint"><span>↑↓ navigate</span><span>↵ open</span><span>esc close</span></div>
+  <div class="pal-box">
+    <input id="palInput" type="text" placeholder="Type to search apps and actions…" aria-label="Launcher search">
+    <div class="pal-list" id="palList"></div>
+    <div class="pal-hint"><span>↑↓ navigate</span><span>↵ open</span><span>esc close</span></div>
+  </div>
 </div>
-</div>
+
 <div class="toasts" id="toasts" aria-live="polite"></div>
+
 <script>
+/* ============================ SN!_OS v5 (Pop!_OS shell) ============================ */
 const $=s=>document.querySelector(s), $$=s=>[...document.querySelectorAll(s)];
 const reduced=matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+/* ---------- geometric Pop-style wallpaper (generated SVG) ---------- */
 let wallN=0;
 function makeWall(el){
-const uid='sky'+(++wallN);
-let stars='';
-for(let i=0;i<80;i++){
-const x=(Math.random()*100).toFixed(1),y=(Math.random()*55).toFixed(1),
-r=(Math.random()*1.4+.6).toFixed(1),o=(Math.random()*.6+.25).toFixed(2);
-stars+=`<circle cx="${x}%" cy="${y}%" r="${r}" fill="#EEE" opacity="${o}"/>`;
-}
-el.innerHTML=`<svg viewBox="0 0 1600 900" preserveAspectRatio="xMidYMid slice">
-<defs><linearGradient id="${uid}" x1="0" y1="0" x2="0" y2="1">
-<stop offset="0" stop-color="#122A47"/><stop offset="1" stop-color="#20222B"/></linearGradient></defs>
-<rect width="1600" height="900" fill="url(#${uid})"/>${stars}
-<circle cx="1180" cy="230" r="120" fill="#FF9F0A" opacity=".18"/>
-<circle cx="1180" cy="230" r="96" fill="#FF9F0A" opacity=".3"/>
-<circle cx="1180" cy="230" r="74" fill="#FF9F0A"/>
-<polygon points="0,900 0,640 210,470 420,660 560,540 780,760 900,900" fill="#8FDCCD" opacity=".9"/>
-<polygon points="300,900 520,560 700,720 900,520 1120,760 1300,620 1600,860 1600,900" fill="#53BCA9"/>
-<polygon points="0,900 180,720 420,880 640,700 940,900" fill="#2E9483"/>
-<polygon points="600,900 860,700 1080,860 1320,680 1600,900" fill="#1E6B60"/>
-<polygon points="0,900 260,800 620,900 1000,810 1380,900 1600,850 1600,900" fill="#1A1612"/>
-<polyline points="210,470 420,660 560,540 780,760" fill="none" stroke="#FF9F0A" stroke-width="2" opacity=".75"/>
-<circle cx="210" cy="470" r="4" fill="#FF9F0A"/><circle cx="560" cy="540" r="4" fill="#FF9F0A"/>
-</svg>`;
+  const uid='sky'+(++wallN);
+  let stars='';
+  for(let i=0;i<80;i++){
+    const x=(Math.random()*100).toFixed(1),y=(Math.random()*55).toFixed(1),
+          r=(Math.random()*1.4+.6).toFixed(1),o=(Math.random()*.6+.25).toFixed(2);
+    stars+=`<circle cx="${x}%" cy="${y}%" r="${r}" fill="#EEE" opacity="${o}"/>`;
+  }
+  el.innerHTML=`<svg viewBox="0 0 1600 900" preserveAspectRatio="xMidYMid slice">
+    <defs><linearGradient id="${uid}" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#122A47"/><stop offset="1" stop-color="#20222B"/></linearGradient></defs>
+    <rect width="1600" height="900" fill="url(#${uid})"/>${stars}
+    <circle cx="1180" cy="230" r="120" fill="#FF9F0A" opacity=".18"/>
+    <circle cx="1180" cy="230" r="96" fill="#FF9F0A" opacity=".3"/>
+    <circle cx="1180" cy="230" r="74" fill="#FF9F0A"/>
+    <polygon points="0,900 0,640 210,470 420,660 560,540 780,760 900,900" fill="#8FDCCD" opacity=".9"/>
+    <polygon points="300,900 520,560 700,720 900,520 1120,760 1300,620 1600,860 1600,900" fill="#53BCA9"/>
+    <polygon points="0,900 180,720 420,880 640,700 940,900" fill="#2E9483"/>
+    <polygon points="600,900 860,700 1080,860 1320,680 1600,900" fill="#1E6B60"/>
+    <polygon points="0,900 260,800 620,900 1000,810 1380,900 1600,850 1600,900" fill="#1A1612"/>
+    <polyline points="210,470 420,660 560,540 780,760" fill="none" stroke="#FF9F0A" stroke-width="2" opacity=".75"/>
+    <circle cx="210" cy="470" r="4" fill="#FF9F0A"/><circle cx="560" cy="540" r="4" fill="#FF9F0A"/>
+  </svg>`;
 }
 makeWall($('#wallLogin'));makeWall($('#wallDesk'));
+
+/* ---------- login ---------- */
 function lgClock(){
-const n=new Date();
-$('#lgClock').textContent=n.toLocaleTimeString([],{hour:'2-digit',minute:'2-digit'});
-$('#lgDate').textContent=n.toLocaleDateString([],{weekday:'long',month:'long',day:'numeric'});
+  const n=new Date();
+  $('#lgClock').textContent=n.toLocaleTimeString([],{hour:'2-digit',minute:'2-digit'});
+  $('#lgDate').textContent=n.toLocaleDateString([],{weekday:'long',month:'long',day:'numeric'});
 }
 lgClock();setInterval(lgClock,15000);
 let deskStarted=false;
 $('#btnSignin').addEventListener('click',()=>{
-$('#login').classList.remove('active');
-const d=$('#desktop');d.classList.add('active','reveal');
-requestAnimationFrame(()=>{$('#deskArea').classList.add('icons-in');$('#rail').classList.add('in');});
-if(!deskStarted){deskStarted=true;startClock();queueToasts();spotStart();
-makeReorderable($('.icon-col'),false);makeReorderable($('.dock'),true);loadTube();}
+  $('#login').classList.remove('active');
+  const d=$('#desktop');d.classList.add('active','reveal');
+  requestAnimationFrame(()=>{$('#deskArea').classList.add('icons-in');$('#rail').classList.add('in');});
+  if(!deskStarted){deskStarted=true;startClock();queueToasts();spotStart();
+    makeReorderable($('.icon-col'),false);makeReorderable($('.dock'),true);loadTube();}
 });
+
+/* ---------- windows ---------- */
 let zTop=20;const openSet=new Set();let tiling=false;
 function focusWin(w){w.style.zIndex=++zTop;$$('.win').forEach(x=>x.classList.toggle('focused',x===w));}
 function openWin(id){
-const w=document.getElementById(id);if(!w)return;
-w.classList.remove('closing');w.classList.add('open');focusWin(w);openSet.add(id);syncDock();
-if(id==='w-ai'&&!w.dataset.greeted){w.dataset.greeted=1;aiSay("Hi — I'm <b>ShahGPT</b>, trained on Shahriar's resume, LinkedIn and personal site. Ask about his project management record, information architecture work, analytics, or why you should hire him.");}
-if(id==='w-mania')loadTube();
-if(id==='w-term'&&!w.dataset.init){w.dataset.init=1;termPrint("SN!_OS terminal — type <span class='c'>help</span> for commands.");}
-if(tiling)retile();
+  const w=document.getElementById(id);if(!w)return;
+  w.classList.remove('closing');w.classList.add('open');focusWin(w);openSet.add(id);syncDock();
+  if(id==='w-ai'&&!w.dataset.greeted){w.dataset.greeted=1;aiSay("Hi — I'm <b>ShahGPT</b>, trained on Shahriar's resume, LinkedIn and personal site. Ask about his project management record, information architecture work, analytics, or why you should hire him.");}
+  if(id==='w-mania')loadTube();
+  if(id==='w-term'&&!w.dataset.init){w.dataset.init=1;termPrint("SN!_OS terminal — type <span class='c'>help</span> for commands.");}
+  if(tiling)retile();
 }
 function closeWin(id){
-const w=document.getElementById(id);
-if(id==='w-game'&&g.on){g.on=false;clearInterval(g.timer);}
-const done=()=>{w.classList.remove('open','closing');openSet.delete(id);syncDock();if(tiling)retile();};
-if(reduced){done();return;}
-w.classList.add('closing');setTimeout(done,190);
+  const w=document.getElementById(id);
+  if(id==='w-game'&&g.on){g.on=false;clearInterval(g.timer);} /* QA: stop game loop on close */
+  const done=()=>{w.classList.remove('open','closing');openSet.delete(id);syncDock();if(tiling)retile();};
+  if(reduced){done();return;}
+  w.classList.add('closing');setTimeout(done,190);
 }
+/* dock behaves like a real OS: click toggles minimize/restore/focus */
 function dockAction(id){
-const w=document.getElementById(id);
-if(!openSet.has(id)){openWin(id);return;}
-if(!w.classList.contains('open')){w.classList.add('open');focusWin(w);}
-else if(w.classList.contains('focused')){w.classList.remove('open');}
-else focusWin(w);
-syncDock();if(tiling)retile();
+  const w=document.getElementById(id);
+  if(!openSet.has(id)){openWin(id);return;}
+  if(!w.classList.contains('open')){w.classList.add('open');focusWin(w);}
+  else if(w.classList.contains('focused')){w.classList.remove('open');}
+  else focusWin(w);
+  syncDock();if(tiling)retile();
 }
 $$('[data-win]').forEach(b=>b.addEventListener('click',()=>{
-b.classList.contains('dk')?dockAction(b.dataset.win):openWin(b.dataset.win);
+  b.classList.contains('dk')?dockAction(b.dataset.win):openWin(b.dataset.win);
 }));
 $$('.win').forEach(w=>{
-w.addEventListener('mousedown',()=>focusWin(w));
-w.querySelector('.wc .cl').addEventListener('click',()=>closeWin(w.id));
-w.querySelector('.wc .mn').addEventListener('click',()=>{w.classList.remove('open');syncDock();if(tiling)retile();});
-w.querySelector('.wc .mx').addEventListener('click',()=>{
-if(tiling)return;
-if(w.dataset.max){w.style.left=w.dataset.ox;w.style.top=w.dataset.oy;w.style.width=w.dataset.ow;w.style.height='';delete w.dataset.max;}
-else{w.dataset.ox=w.style.left;w.dataset.oy=w.style.top;w.dataset.ow=w.style.width;
-w.dataset.max=1;w.style.left='10px';w.style.top='38px';w.style.width='calc(100vw - 20px)';}
-});
-const head=w.querySelector('.win-head');
-head.addEventListener('pointerdown',e=>{
-if(e.target.closest('button')||tiling)return;
-const r=w.getBoundingClientRect(),dx=e.clientX-r.left,dy=e.clientY-r.top;
-focusWin(w);head.setPointerCapture(e.pointerId);
-const mv=ev=>{w.style.left=Math.max(0,Math.min(innerWidth-140,ev.clientX-dx))+"px";
-w.style.top =Math.max(32,Math.min(innerHeight-140,ev.clientY-dy))+"px";};
-const up=()=>{head.removeEventListener('pointermove',mv);head.removeEventListener('pointerup',up);};
-head.addEventListener('pointermove',mv);head.addEventListener('pointerup',up);
-});
+  w.addEventListener('mousedown',()=>focusWin(w));
+  w.querySelector('.wc .cl').addEventListener('click',()=>closeWin(w.id));
+  w.querySelector('.wc .mn').addEventListener('click',()=>{w.classList.remove('open');syncDock();if(tiling)retile();}); /* minimize keeps app running (dock dot stays) */
+  w.querySelector('.wc .mx').addEventListener('click',()=>{
+    if(tiling)return;
+    if(w.dataset.max){w.style.left=w.dataset.ox;w.style.top=w.dataset.oy;w.style.width=w.dataset.ow;w.style.height='';delete w.dataset.max;}
+    else{w.dataset.ox=w.style.left;w.dataset.oy=w.style.top;w.dataset.ow=w.style.width;
+      w.dataset.max=1;w.style.left='10px';w.style.top='38px';w.style.width='calc(100vw - 20px)';}
+  });
+  const head=w.querySelector('.win-head');
+  head.addEventListener('pointerdown',e=>{
+    if(e.target.closest('button')||tiling)return;
+    const r=w.getBoundingClientRect(),dx=e.clientX-r.left,dy=e.clientY-r.top;
+    focusWin(w);head.setPointerCapture(e.pointerId);
+    const mv=ev=>{w.style.left=Math.max(0,Math.min(innerWidth-140,ev.clientX-dx))+"px";
+                  w.style.top =Math.max(32,Math.min(innerHeight-140,ev.clientY-dy))+"px";};
+    const up=()=>{head.removeEventListener('pointermove',mv);head.removeEventListener('pointerup',up);};
+    head.addEventListener('pointermove',mv);head.addEventListener('pointerup',up);
+  });
 });
 function syncDock(){
-$$('.dk[data-win]').forEach(k=>k.classList.toggle('open',openSet.has(k.dataset.win)));
+  $$('.dk[data-win]').forEach(k=>k.classList.toggle('open',openSet.has(k.dataset.win)));
 }
+/* ---------- user-reorderable apps (desktop grid + dock) ---------- */
 let dragEl=null;
 function makeReorderable(container,horizontal){
-[...container.children].forEach(b=>{
-if(!b.dataset.win&&!b.classList.contains('dicon'))return;
-b.draggable=true;
-b.addEventListener('dragstart',()=>{dragEl=b;setTimeout(()=>b.classList.add('dragging'),0);});
-b.addEventListener('dragend',()=>{b.classList.remove('dragging');dragEl=null;});
-b.addEventListener('dragover',e=>{
-e.preventDefault();
-if(!dragEl||dragEl===b||dragEl.parentNode!==b.parentNode)return;
-const r=b.getBoundingClientRect();
-const after=horizontal?(e.clientX-r.left)>r.width/2:(e.clientY-r.top)>r.height/2;
-b.parentNode.insertBefore(dragEl,after?b.nextSibling:b);
-});
-});
+  [...container.children].forEach(b=>{
+    if(!b.dataset.win&&!b.classList.contains('dicon'))return;
+    b.draggable=true;
+    b.addEventListener('dragstart',()=>{dragEl=b;setTimeout(()=>b.classList.add('dragging'),0);});
+    b.addEventListener('dragend',()=>{b.classList.remove('dragging');dragEl=null;});
+    b.addEventListener('dragover',e=>{
+      e.preventDefault();
+      if(!dragEl||dragEl===b||dragEl.parentNode!==b.parentNode)return;
+      const r=b.getBoundingClientRect();
+      const after=horizontal?(e.clientX-r.left)>r.width/2:(e.clientY-r.top)>r.height/2;
+      b.parentNode.insertBefore(dragEl,after?b.nextSibling:b);
+    });
+  });
 }
+
+/* ---------- pop-shell auto-tiling (FLIP, 8px gaps, orange active hint) ---------- */
 function tileRects(n,area){
-const g=8,r=[];
-const W=area.width,H=area.height,X=area.left,Y=area.top;
-if(n===1)r.push([X+g,Y+g,W-2*g,H-2*g]);
-else if(n===2){const w=(W-3*g)/2;r.push([X+g,Y+g,w,H-2*g],[X+2*g+w,Y+g,w,H-2*g]);}
-else if(n===3){const w=(W-3*g)/2,h=(H-3*g)/2;
-r.push([X+g,Y+g,w,H-2*g],[X+2*g+w,Y+g,w,h],[X+2*g+w,Y+2*g+h,w,h]);}
-else{const cols=Math.ceil(Math.sqrt(n)),rows=Math.ceil(n/cols),
-w=(W-(cols+1)*g)/cols,h=(H-(rows+1)*g)/rows;
-for(let i=0;i<n;i++){const c=i%cols,rw=Math.floor(i/cols);
-r.push([X+g+c*(w+g),Y+g+rw*(h+g),w,h]);}}
-return r;
+  const g=8,r=[];
+  const W=area.width,H=area.height,X=area.left,Y=area.top;
+  if(n===1)r.push([X+g,Y+g,W-2*g,H-2*g]);
+  else if(n===2){const w=(W-3*g)/2;r.push([X+g,Y+g,w,H-2*g],[X+2*g+w,Y+g,w,H-2*g]);}
+  else if(n===3){const w=(W-3*g)/2,h=(H-3*g)/2;
+    r.push([X+g,Y+g,w,H-2*g],[X+2*g+w,Y+g,w,h],[X+2*g+w,Y+2*g+h,w,h]);}
+  else{const cols=Math.ceil(Math.sqrt(n)),rows=Math.ceil(n/cols),
+    w=(W-(cols+1)*g)/cols,h=(H-(rows+1)*g)/rows;
+    for(let i=0;i<n;i++){const c=i%cols,rw=Math.floor(i/cols);
+      r.push([X+g+c*(w+g),Y+g+rw*(h+g),w,h]);}}
+  return r;
 }
 function retile(){
-const wins=$$('.win.open');
-if(!wins.length)return;
-const da=$('#deskArea').getBoundingClientRect();
-const rects=tileRects(wins.length,{left:da.left,top:da.top,width:da.width,height:da.height-6});
-wins.forEach((w,i)=>{
-const [x,y,wd,h]=rects[i];
-w.classList.add('tiled');
-w.style.left=x+'px';w.style.top=y+'px';w.style.width=wd+'px';w.style.height=h+'px';w.style.maxHeight='none';
-});
+  const wins=$$('.win.open');
+  if(!wins.length)return;
+  const da=$('#deskArea').getBoundingClientRect();
+  const rects=tileRects(wins.length,{left:da.left,top:da.top,width:da.width,height:da.height-6});
+  wins.forEach((w,i)=>{
+    const [x,y,wd,h]=rects[i];
+    w.classList.add('tiled');
+    w.style.left=x+'px';w.style.top=y+'px';w.style.width=wd+'px';w.style.height=h+'px';w.style.maxHeight='none';
+  });
 }
 function untile(){
-$$('.win').forEach(w=>{w.classList.remove('tiled');w.style.height='';w.style.maxHeight='';});
+  $$('.win').forEach(w=>{w.classList.remove('tiled');w.style.height='';w.style.maxHeight='';});
 }
 $('#btnTile').addEventListener('click',()=>{
-tiling=!tiling;
-$('#btnTile').classList.toggle('on',tiling);
-$('#tileInd').style.display=tiling?'inline':'none';
-if(tiling){if(!openSet.size){openWin('w-about');openWin('w-proj');}retile();}
-else untile();
+  tiling=!tiling;
+  $('#btnTile').classList.toggle('on',tiling);
+  $('#tileInd').style.display=tiling?'inline':'none';
+  if(tiling){if(!openSet.size){openWin('w-about');openWin('w-proj');}retile();}
+  else untile();
 });
 $('#btnOverview').addEventListener('click',()=>{if(!tiling)$('#btnTile').click();else retile();});
 addEventListener('resize',()=>{if(tiling)retile();});
+
+/* ---------- panel clock ---------- */
 function startClock(){
-const f=()=>{const n=new Date();
-$('#clkTime').textContent=n.toLocaleTimeString([],{hour:'2-digit',minute:'2-digit'});
-$('#clkDate').textContent=n.toLocaleDateString([],{weekday:'short',month:'short',day:'numeric'});};
-f();setInterval(f,15000);
+  const f=()=>{const n=new Date();
+    $('#clkTime').textContent=n.toLocaleTimeString([],{hour:'2-digit',minute:'2-digit'});
+    $('#clkDate').textContent=n.toLocaleDateString([],{weekday:'short',month:'short',day:'numeric'});};
+  f();setInterval(f,15000);
 }
 $('#btnLock2').addEventListener('click',()=>{
-$$('.win').forEach(w=>w.classList.remove('open'));openSet.clear();syncDock();
-$('#desktop').classList.remove('active','reveal');
-$('#deskArea').classList.remove('icons-in');
-$('#login').classList.add('active');lgClock();
+  $$('.win').forEach(w=>w.classList.remove('open'));openSet.clear();syncDock();
+  $('#desktop').classList.remove('active','reveal');
+  $('#deskArea').classList.remove('icons-in');
+  $('#login').classList.add('active');lgClock();
 });
+
+/* ---------- spotlight ---------- */
 let spotIdx=0,spotTimer=null;
 function spotShow(i){
-$$('.spot-item').forEach((el,ix)=>el.classList.toggle('on',ix===i));
-$$('#spotDots i').forEach((el,ix)=>el.classList.toggle('on',ix===i));
-spotIdx=i;
+  $$('.spot-item').forEach((el,ix)=>el.classList.toggle('on',ix===i));
+  $$('#spotDots i').forEach((el,ix)=>el.classList.toggle('on',ix===i));
+  spotIdx=i;
 }
 function spotStart(){
-if(reduced)return;
-spotTimer=setInterval(()=>spotShow((spotIdx+1)%4),5000);
-$$('#spotDots i').forEach((d,ix)=>d.addEventListener('click',()=>{clearInterval(spotTimer);spotShow(ix);
-spotTimer=setInterval(()=>spotShow((spotIdx+1)%4),5000);}));
+  if(reduced)return;
+  spotTimer=setInterval(()=>spotShow((spotIdx+1)%4),5000);
+  $$('#spotDots i').forEach((d,ix)=>d.addEventListener('click',()=>{clearInterval(spotTimer);spotShow(ix);
+    spotTimer=setInterval(()=>spotShow((spotIdx+1)%4),5000);}));
 }
+
+/* ---------- toasts ---------- */
 const toastData=[
-["INSIGHT","Change orders cut 25% at MEWE via project-controls backbone.",""],
-["SHIPPED","Content retrieval down ~50% after SharePoint hub rollout.","t"],
-["AI-READY","Enterprise content restructured for AI search @ PCL.",""],
-["WE BEFORE ME","40+ engineers trained through structured change management.","t"]
+ ["INSIGHT","Change orders cut 25% at MEWE via project-controls backbone.",""],
+ ["SHIPPED","Content retrieval down ~50% after SharePoint hub rollout.","t"],
+ ["AI-READY","Enterprise content restructured for AI search @ PCL.",""],
+ ["WE BEFORE ME","40+ engineers trained through structured change management.","t"]
 ];
 let toastIdx=0,toastsShown=0;
 function queueToasts(){
-setInterval(()=>{
-if(!$('#desktop').classList.contains('active'))return;
-if(openSet.size>0||toastsShown>=3)return;
-toastsShown++;
-const [t,m,cls]=toastData[toastIdx++%toastData.length];
-const d=document.createElement('div');d.className='toast '+cls;
-d.innerHTML=`<b>${t}</b>${m}<span class="tbar"></span>`;
-$('#toasts').appendChild(d);setTimeout(()=>d.remove(),6100);
-},25000);
+  setInterval(()=>{
+    /* QA: never notify over an open app, off-desktop, or more than 3x per visit */
+    if(!$('#desktop').classList.contains('active'))return;
+    if(openSet.size>0||toastsShown>=3)return;
+    toastsShown++;
+    const [t,m,cls]=toastData[toastIdx++%toastData.length];
+    const d=document.createElement('div');d.className='toast '+cls;
+    d.innerHTML=`<b>${t}</b>${m}<span class="tbar"></span>`;
+    $('#toasts').appendChild(d);setTimeout(()=>d.remove(),6100);
+  },25000);
 }
+
+/* ---------- Shah.AI ---------- */
 const kb=[
-[/^(hi|hello|hey|salam|yo|good (morning|afternoon|evening))\b/i,"Hi! I'm ShahGPT. Quick orientation: Shahriar runs projects and the analytics around them — currently making PCL Construction's enterprise content AI-ready. Ask me about his PM record, dashboards, information architecture, education, or the startup he founded."],
-[/where|located|edmonton|canada|relocat/i,"He's in <b>Edmonton, Alberta</b>, at PCL Construction's headquarters. Before Canada: Tehran (engineering firms) and Ottawa (uOttawa, where he did his master's at Telfer)."],
-[/available|open to|opportunit|freelance|consult/i,"He's settled at PCL but always open to interesting conversations — especially anything mixing analytics, information architecture and project delivery. Fastest channel: <a href='https://www.linkedin.com/in/shahriar-nilkar' target='_blank' rel='noopener'>LinkedIn</a>."],
-[/python|react|node|java|c\\+\\+|coding|program|develop/i,"Yes — he codes. <b>Python and SQL</b> for data work, <b>React and Node.js</b> for web, plus Java and C++ from his engineering degree at Sharif. It shows in the projects: automated reporting pipelines, CRM integrations, and this site."],
-[/pmp|risk|schedule|budget|cost|scope|stakeholder/i,"His PM toolkit is <b>PMP-aligned</b>: planning, risk management, stakeholder engagement, scheduling, cost control, scope and quality. The three that matter most in construction (risk, schedule, cost) are the ones his record proves: change orders down 25%, critical path protected across 10 workstreams."],
-[/power ?bi|dashboard|report|tableau|excel|dax|sql|\bbi\b/i,"Yes — BI is core. He automated <b>Excel + Power BI</b> pipelines over ERP data, built KPI dashboards leadership actually used, integrated SCADA/lab/compliance data for a 250,000 m³/day water plant, and cut manual entry 60% on a $500K fleet-reporting program."],
-[/collab|team|together|people|culture|we before/i,"His #3 principle is <b>We Before Me</b>. Evidence: united owners, contractors & consultants on one governed data environment; trained 40+ engineers through change management; ran cross-campus stakeholder workshops at uOttawa. Collaborative <i>and</i> self-reliant — teams ship."],
-[/\bpcl\b|current|digital comm|construction/i,"At <b>PCL Construction</b> (Edmonton, since 2025) he's a Senior Digital Communications Specialist: modernizing enterprise content governance and information architecture so PCL's content is ready for <b>AI-enabled search and generative AI</b> — plus BI reporting for leadership and change management across the business."],
-[/governance|sharepoint|metadata|information arch|m365|365/i,"Governance is on his LinkedIn headline. He built information architecture from scratch (content types, managed metadata, permission models, retention), rolled out a firm-wide SharePoint hub (retrieval −50%, tickets −20%), and governed a SharePoint + Dynamics 365 common data environment across three delivery partners."],
-[/project|change order|risk|tender|procure|deadline|time/i,"<b>Time is Gold</b> is principle #1. As Project Driver he built the controls backbone (charters, RACI, risk registers) that cut change orders 25%, led procurement across 5+ concurrent projects, and protected critical path across 10 workstreams."],
-[/hire|why|strength|good|best/i,"One headline, three proofs: <b>Project Driver</b> (−25% change orders), <b>Governance Guardian</b> (−50% retrieval, −35% license overlap), <b>AI Adopter</b> (making a major contractor AI-ready right now). Bonus: founder DNA from Prosharif — collaborative, self-reliant, ships."],
-[/education|degree|master|study|school|university|sharif|telfer/i,"MSc <b>Digital Transformation & Innovation</b> — Telfer School of Management, uOttawa. B.Eng. IT — Sharif University of Technology (ranked top 1% nationally to get in). Plus ESMC Scrum and PMP-aligned training."],
-[/founder|startup|prosharif|entrepreneur|e-?commerce/i,"He founded <b>Prosharif.com</b>, an e-commerce marketplace for authentic Iranian goods — top-ranked in Sharif's Startup Challenge. CRM-driven operations lifted repeat sales 28%."],
-[/contact|email|reach|linkedin|connect|youtube/i,"Best channel: <a href='https://www.linkedin.com/in/shahriar-nilkar' target='_blank' rel='noopener'>linkedin.com/in/shahriar-nilkar</a> — or the Contact app in the dock (email + YouTube there too)."],
-[/\bai\b|artificial|genai|copilot|llm/i,"He's an <b>AI Adopter</b> by headline and by practice: preparing PCL's organizational content for AI-enabled search and generative AI, and partnering across teams on AI adoption programs. Master's research: end-user development tools for business users."]
+ [/^(hi|hello|hey|salam|yo|good (morning|afternoon|evening))\b/i,"Hi! I'm ShahGPT. Quick orientation: Shahriar runs projects and the analytics around them — currently making PCL Construction's enterprise content AI-ready. Ask me about his PM record, dashboards, information architecture, education, or the startup he founded."],
+ [/where|located|edmonton|canada|relocat/i,"He's in <b>Edmonton, Alberta</b>, at PCL Construction's headquarters. Before Canada: Tehran (engineering firms) and Ottawa (uOttawa, where he did his master's at Telfer)."],
+ [/available|open to|opportunit|freelance|consult/i,"He's settled at PCL but always open to interesting conversations — especially anything mixing analytics, information architecture and project delivery. Fastest channel: <a href='https://www.linkedin.com/in/shahriar-nilkar' target='_blank' rel='noopener'>LinkedIn</a>."],
+ [/python|react|node|java|c\\+\\+|coding|program|develop/i,"Yes — he codes. <b>Python and SQL</b> for data work, <b>React and Node.js</b> for web, plus Java and C++ from his engineering degree at Sharif. It shows in the projects: automated reporting pipelines, CRM integrations, and this site."],
+ [/pmp|risk|schedule|budget|cost|scope|stakeholder/i,"His PM toolkit is <b>PMP-aligned</b>: planning, risk management, stakeholder engagement, scheduling, cost control, scope and quality. The three that matter most in construction (risk, schedule, cost) are the ones his record proves: change orders down 25%, critical path protected across 10 workstreams."],
+ [/power ?bi|dashboard|report|tableau|excel|dax|sql|\bbi\b/i,"Yes — BI is core. He automated <b>Excel + Power BI</b> pipelines over ERP data, built KPI dashboards leadership actually used, integrated SCADA/lab/compliance data for a 250,000 m³/day water plant, and cut manual entry 60% on a $500K fleet-reporting program."],
+ [/collab|team|together|people|culture|we before/i,"His #3 principle is <b>We Before Me</b>. Evidence: united owners, contractors & consultants on one governed data environment; trained 40+ engineers through change management; ran cross-campus stakeholder workshops at uOttawa. Collaborative <i>and</i> self-reliant — teams ship."],
+ [/\bpcl\b|current|digital comm|construction/i,"At <b>PCL Construction</b> (Edmonton, since 2025) he's a Senior Digital Communications Specialist: modernizing enterprise content governance and information architecture so PCL's content is ready for <b>AI-enabled search and generative AI</b> — plus BI reporting for leadership and change management across the business."],
+ [/governance|sharepoint|metadata|information arch|m365|365/i,"Governance is on his LinkedIn headline. He built information architecture from scratch (content types, managed metadata, permission models, retention), rolled out a firm-wide SharePoint hub (retrieval −50%, tickets −20%), and governed a SharePoint + Dynamics 365 common data environment across three delivery partners."],
+ [/project|change order|risk|tender|procure|deadline|time/i,"<b>Time is Gold</b> is principle #1. As Project Driver he built the controls backbone (charters, RACI, risk registers) that cut change orders 25%, led procurement across 5+ concurrent projects, and protected critical path across 10 workstreams."],
+ [/hire|why|strength|good|best/i,"One headline, three proofs: <b>Project Driver</b> (−25% change orders), <b>Governance Guardian</b> (−50% retrieval, −35% license overlap), <b>AI Adopter</b> (making a major contractor AI-ready right now). Bonus: founder DNA from Prosharif — collaborative, self-reliant, ships."],
+ [/education|degree|master|study|school|university|sharif|telfer/i,"MSc <b>Digital Transformation & Innovation</b> — Telfer School of Management, uOttawa. B.Eng. IT — Sharif University of Technology (ranked top 1% nationally to get in). Plus ESMC Scrum and PMP-aligned training."],
+ [/founder|startup|prosharif|entrepreneur|e-?commerce/i,"He founded <b>Prosharif.com</b>, an e-commerce marketplace for authentic Iranian goods — top-ranked in Sharif's Startup Challenge. CRM-driven operations lifted repeat sales 28%."],
+ [/contact|email|reach|linkedin|connect|youtube/i,"Best channel: <a href='https://www.linkedin.com/in/shahriar-nilkar' target='_blank' rel='noopener'>linkedin.com/in/shahriar-nilkar</a> — or the Contact app in the dock (email + YouTube there too)."],
+ [/\bai\b|artificial|genai|copilot|llm/i,"He's an <b>AI Adopter</b> by headline and by practice: preparing PCL's organizational content for AI-enabled search and generative AI, and partnering across teams on AI adoption programs. Master's research: end-user development tools for business users."]
 ];
 function aiSay(html){const d=document.createElement('div');d.className='msg ai';d.innerHTML=html;$('#chatLog').appendChild(d);$('#chatLog').scrollTop=1e6;}
-const SHAHGPT_ENDPOINT=""; // optional own proxy; free keyless AI below is the default
+/* ---------- ShahGPT ----------
+   Seamless for visitors. Priority:
+   1) SHAHGPT_ENDPOINT — set this to your own tiny proxy (Vercel/Cloudflare) that holds the
+      OpenAI key server-side and forwards {q}. That is the only safe + ToS-compliant way to
+      ship a key: never place an OpenAI secret key in client code.
+      Example Vercel api/shahgpt.js:
+        export default async (req,res)=>{ const r=await fetch('https://api.openai.com/v1/chat/completions',
+          {method:'POST',headers:{'Content-Type':'application/json','Authorization':'Bearer '+process.env.OPENAI_KEY},
+           body:JSON.stringify({model:'gpt-4o-mini',max_tokens:200,messages:[{role:'system',content:process.env.SYS},{role:'user',content:req.body.q}]})});
+          const j=await r.json(); res.json({text:j.choices?.[0]?.message?.content||''}); }
+   2) hidden owner hookup: type  connect-gpt <key>  in the Terminal app (this tab only).
+   3) built-in knowledge base — always on, so the copilot never feels dead. */
+const SHAHGPT_ENDPOINT="https://shahgpt.shahriar-nilkar2.workers.dev/";
 let gptKey=null;
 const GPT_SYS="You are ShahGPT, the portfolio copilot of Shahriar Nilkar. Answer briefly (max 90 words), factually, in third person, only from this profile: Senior Digital Communications Specialist at PCL Construction, Edmonton (2025-now): content governance & information architecture for AI-enabled search and generative AI, BI reporting, change management. Before: Senior Technology Project & BD Lead, Middle East Water & Environment (2023-25, cut change orders 25%, SharePoint+Dynamics 365 common data environment); Senior IT & BI Lead, Payvareh (2020-23, SharePoint hub cut retrieval ~50%, trained 40+ engineers, Power BI/Excel automation); IT Business Analyst, uOttawa CIO office (2019-20, cut license overlap 35% across 100+ apps); Founder of Prosharif.com e-commerce startup (2015-18). Education: MSc Digital Transformation & Innovation (Telfer, uOttawa); B.Eng IT (Sharif University). Programming: Python, SQL, React, Node.js, Java, C++, data analytics. PMP-aligned PM skills: planning, risk, stakeholder engagement, scheduling, cost control, scope, quality. Principles: Time is Gold, Tool Up, We Before Me. Contact: linkedin.com/in/shahriar-nilkar. If asked something outside this profile, say so and point to LinkedIn.";
 async function askGPT(q){
-const r=await fetch('https://api.openai.com/v1/chat/completions',{
-method:'POST',
-headers:{'Content-Type':'application/json','Authorization':'Bearer '+gptKey},
-body:JSON.stringify({model:'gpt-4o-mini',max_tokens:200,
-messages:[{role:'system',content:GPT_SYS},{role:'user',content:q}]})
-});
-if(!r.ok)throw new Error('api '+r.status);
-const j=await r.json();
-return (j.choices&&j.choices[0]&&j.choices[0].message.content)||'';
+  const r=await fetch('https://api.openai.com/v1/chat/completions',{
+    method:'POST',
+    headers:{'Content-Type':'application/json','Authorization':'Bearer '+gptKey},
+    body:JSON.stringify({model:'gpt-4o-mini',max_tokens:200,
+      messages:[{role:'system',content:GPT_SYS},{role:'user',content:q}]})
+  });
+  if(!r.ok)throw new Error('api '+r.status);
+  const j=await r.json();
+  return (j.choices&&j.choices[0]&&j.choices[0].message.content)||'';
 }
 function localAnswer(q){
-const hit=kb.find(([re])=>re.test(q));
-return hit?hit[1]:"Here's the short version while I look that up: <b>Shahriar Nilkar</b> — project management + analytics, 10+ years. Now at PCL Construction making enterprise content AI-ready; before that he cut change orders 25% at MEWE and rebuilt a firm-wide information architecture (retrieval −50%). Want depth on any of that — projects, skills, education, or hiring? Just ask, or reach him on <a href='https://www.linkedin.com/in/shahriar-nilkar' target='_blank' rel='noopener'>LinkedIn</a>.";
+  const hit=kb.find(([re])=>re.test(q));
+  return hit?hit[1]:"Here's the short version while I look that up: <b>Shahriar Nilkar</b> — project management + analytics, 10+ years. Now at PCL Construction making enterprise content AI-ready; before that he cut change orders 25% at MEWE and rebuilt a firm-wide information architecture (retrieval −50%). Want depth on any of that — projects, skills, education, or hiring? Just ask, or reach him on <a href='https://www.linkedin.com/in/shahriar-nilkar' target='_blank' rel='noopener'>LinkedIn</a>.";
 }
 async function askFreeAI(q){
-const r=await fetch('https://text.pollinations.ai/openai',{method:'POST',headers:{'Content-Type':'application/json'},
-body:JSON.stringify({model:'openai',max_tokens:200,messages:[{role:'system',content:GPT_SYS},{role:'user',content:q}]})});
-if(!r.ok)throw 0;
-const j=await r.json();
-const t=(j.choices&&j.choices[0]&&j.choices[0].message&&j.choices[0].message.content)||'';
-if(!t)throw 0;
-return t;
+  /* Pollinations.ai — free, keyless, CORS-open, OpenAI-compatible. Nothing secret in this file. */
+  const r=await fetch('https://text.pollinations.ai/openai',{method:'POST',headers:{'Content-Type':'application/json'},
+    body:JSON.stringify({model:'openai',max_tokens:200,messages:[{role:'system',content:GPT_SYS},{role:'user',content:q}]})});
+  if(!r.ok)throw 0;
+  const j=await r.json();
+  const t=(j.choices&&j.choices[0]&&j.choices[0].message&&j.choices[0].message.content)||'';
+  if(!t)throw 0;
+  return t;
 }
 async function askEndpoint(q){
-const r=await fetch(SHAHGPT_ENDPOINT,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({q})});
-if(!r.ok)throw 0;
-return (await r.json()).text||'';
+  const r=await fetch(SHAHGPT_ENDPOINT,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({q})});
+  if(!r.ok)throw 0;
+  return (await r.json()).text||'';
 }
 function aiAsk(q){
-if(!q.trim())return;
-const m=document.createElement('div');m.className='msg me';m.textContent=q;$('#chatLog').appendChild(m);
-const ty=document.createElement('div');ty.className='msg ai typing';ty.innerHTML='<i></i><i></i><i></i>';
-$('#chatLog').appendChild(ty);$('#chatLog').scrollTop=1e6;
-const say=t=>{ty.remove();const d=document.createElement('div');d.className='msg ai';d.textContent=t;$('#chatLog').appendChild(d);$('#chatLog').scrollTop=1e6;};
-const fallback=()=>{ty.remove();aiSay(localAnswer(q));};
-if(SHAHGPT_ENDPOINT)askEndpoint(q).then(say).catch(()=>askFreeAI(q).then(say).catch(fallback));
-else if(gptKey)askGPT(q).then(say).catch(()=>askFreeAI(q).then(say).catch(fallback));
-else askFreeAI(q).then(say).catch(fallback);
+  if(!q.trim())return;
+  const m=document.createElement('div');m.className='msg me';m.textContent=q;$('#chatLog').appendChild(m);
+  const ty=document.createElement('div');ty.className='msg ai typing';ty.innerHTML='<i></i><i></i><i></i>';
+  $('#chatLog').appendChild(ty);$('#chatLog').scrollTop=1e6;
+  const say=t=>{ty.remove();const d=document.createElement('div');d.className='msg ai';d.textContent=t;$('#chatLog').appendChild(d);$('#chatLog').scrollTop=1e6;};
+  const fallback=()=>{ty.remove();aiSay(localAnswer(q));};
+  if(SHAHGPT_ENDPOINT)askEndpoint(q).then(say).catch(()=>askFreeAI(q).then(say).catch(fallback));
+  else if(gptKey)askGPT(q).then(say).catch(()=>askFreeAI(q).then(say).catch(fallback));
+  else askFreeAI(q).then(say).catch(fallback);
 }
 $('#chatSend').addEventListener('click',()=>{aiAsk($('#chatInput').value);$('#chatInput').value='';});
 $('#chatInput').addEventListener('keydown',e=>{if(e.key==='Enter'){aiAsk(e.target.value);e.target.value='';}});
 $$('.chat-sug button').forEach(b=>b.addEventListener('click',()=>aiAsk(b.dataset.q)));
+
+/* ---------- terminal ---------- */
 const cmds={
-help:"commands: <span class='c'>whoami</span> <span class='c'>pillars</span> <span class='c'>principles</span> <span class='c'>skills</span> <span class='c'>experience</span> <span class='c'>education</span> <span class='c'>hire-me</span> <span class='c'>clear</span>",
-whoami:"shahriar.nilkar — Senior Digital Communications Specialist @ PCL Construction, Edmonton.\nProject Driver. Governance Guardian. AI Adopter.",
-pillars:"[1] PROJECT DRIVER      — controls · procurement · delivery\n[2] GOVERNANCE GUARDIAN — IA · metadata · M365/SharePoint\n[3] AI ADOPTER          — AI-ready content · BI · adoption",
-principles:"TIME IS GOLD  — clear goals, ruthless prioritization\nTOOL UP       — right tool, right problem\nWE BEFORE ME  — collaborative & self-reliant",
-skills:"PowerBI ██████████  SharePoint/M365 ██████████  SQL ████████░░\nPython ████████░░  React/Node ███████░░░  Java/C++ ██████░░░░\nRisk █████████░  Schedule █████████░  Cost ████████░░",
-experience:"2025→now  PCL Construction ........ Sr. Digital Comms Specialist\n2023→2025 MEWE .................... Sr. Tech Project & BD Lead\n2020→2023 Payvareh ................ Sr. IT & BI Lead\n2019→2020 uOttawa (CIO) ........... IT Business Analyst\n2015→2018 Prosharif.com ........... Founder\n2014→2018 Nilpay .................. KM & Digital Workplace / IT",
-education:"MSc Digital Transformation & Innovation — Telfer, uOttawa\nB.Eng IT — Sharif University of Technology (top 1% entry)",
-"hire-me":"initiating handshake… → https://www.linkedin.com/in/shahriar-nilkar"
+ help:"commands: <span class='c'>whoami</span> <span class='c'>pillars</span> <span class='c'>principles</span> <span class='c'>skills</span> <span class='c'>experience</span> <span class='c'>education</span> <span class='c'>hire-me</span> <span class='c'>clear</span>",
+ whoami:"shahriar.nilkar — Senior Digital Communications Specialist @ PCL Construction, Edmonton.\nProject Driver. Governance Guardian. AI Adopter.",
+ pillars:"[1] PROJECT DRIVER      — controls · procurement · delivery\n[2] GOVERNANCE GUARDIAN — IA · metadata · M365/SharePoint\n[3] AI ADOPTER          — AI-ready content · BI · adoption",
+ principles:"TIME IS GOLD  — clear goals, ruthless prioritization\nTOOL UP       — right tool, right problem\nWE BEFORE ME  — collaborative & self-reliant",
+ skills:"PowerBI ██████████  SharePoint/M365 ██████████  SQL ████████░░\nPython ████████░░  React/Node ███████░░░  Java/C++ ██████░░░░\nRisk █████████░  Schedule █████████░  Cost ████████░░",
+ experience:"2025→now  PCL Construction ........ Sr. Digital Comms Specialist\n2023→2025 MEWE .................... Sr. Tech Project & BD Lead\n2020→2023 Payvareh ................ Sr. IT & BI Lead\n2019→2020 uOttawa (CIO) ........... IT Business Analyst\n2015→2018 Prosharif.com ........... Founder\n2014→2018 Nilpay .................. KM & Digital Workplace / IT",
+ education:"MSc Digital Transformation & Innovation — Telfer, uOttawa\nB.Eng IT — Sharif University of Technology (top 1% entry)",
+ "hire-me":"initiating handshake… → https://www.linkedin.com/in/shahriar-nilkar"
 };
 function termPrint(html,cmd){
-const t=$('#termLog');
-if(cmd!==undefined){const l=document.createElement('div');l.className='ln';l.innerHTML="<span class='p'>nilkar@pop-os:~$</span> "+cmd;t.appendChild(l);}
-if(html){const d=document.createElement('div');d.className='ln';d.innerHTML=html;t.appendChild(d);}
-t.scrollTop=1e6;
+  const t=$('#termLog');
+  if(cmd!==undefined){const l=document.createElement('div');l.className='ln';l.innerHTML="<span class='p'>nilkar@pop-os:~$</span> "+cmd;t.appendChild(l);}
+  if(html){const d=document.createElement('div');d.className='ln';d.innerHTML=html;t.appendChild(d);}
+  t.scrollTop=1e6;
 }
 $('#termInput').addEventListener('keydown',e=>{
-if(e.key!=='Enter')return;
-const raw=e.target.value.trim();e.target.value='';
-if(!raw)return;
-const c=raw.toLowerCase();
-if(c==='clear'){$('#termLog').innerHTML='';return;}
-if(c.startsWith('connect-gpt ')){gptKey=raw.slice(12).trim();termPrint("ShahGPT rerouted through ChatGPT for this tab.","connect-gpt ••••");return;}
-termPrint(cmds[c]?cmds[c].replace(/\n/g,'<br>'):`command not found: ${raw} — try <span class='c'>help</span>`,raw);
-if(c==='hire-me')setTimeout(()=>open('https://www.linkedin.com/in/shahriar-nilkar','_blank'),700);
+  if(e.key!=='Enter')return;
+  const raw=e.target.value.trim();e.target.value='';
+  if(!raw)return;
+  const c=raw.toLowerCase();
+  if(c==='clear'){$('#termLog').innerHTML='';return;}
+  if(c.startsWith('connect-gpt ')){gptKey=raw.slice(12).trim();termPrint("ShahGPT rerouted through ChatGPT for this tab.","connect-gpt ••••");return;}
+  termPrint(cmds[c]?cmds[c].replace(/\n/g,'<br>'):`command not found: ${raw} — try <span class='c'>help</span>`,raw);
+  if(c==='hire-me')setTimeout(()=>open('https://www.linkedin.com/in/shahriar-nilkar','_blank'),700);
 });
+
+/* ---------- game ---------- */
 const docTypes=[
-{t:"risk_register.xlsx",b:"project"},{t:"tender_package.zip",b:"project"},{t:"project_charter.docx",b:"project"},{t:"RACI_matrix.xlsx",b:"project"},
-{t:"metadata_schema.json",b:"governance"},{t:"permission_model.cfg",b:"governance"},{t:"retention_policy.pdf",b:"governance"},{t:"content_types.xml",b:"governance"},
-{t:"kpi_dashboard.pbix",b:"ai"},{t:"search_index.ai",b:"ai"},{t:"training_corpus.db",b:"ai"},{t:"anomaly_model.py",b:"ai"}
+ {t:"risk_register.xlsx",b:"project"},{t:"tender_package.zip",b:"project"},{t:"project_charter.docx",b:"project"},{t:"RACI_matrix.xlsx",b:"project"},
+ {t:"metadata_schema.json",b:"governance"},{t:"permission_model.cfg",b:"governance"},{t:"retention_policy.pdf",b:"governance"},{t:"content_types.xml",b:"governance"},
+ {t:"kpi_dashboard.pbix",b:"ai"},{t:"search_index.ai",b:"ai"},{t:"training_corpus.db",b:"ai"},{t:"anomaly_model.py",b:"ai"}
 ];
 let g={on:false,score:0,miss:0,time:45,cur:null,timer:null,speed:5600};
 function gSpawn(){
-const stg=$('#gStage');
-if(g.cur)g.cur.remove();
-const d=docTypes[Math.floor(Math.random()*docTypes.length)];
-const el=document.createElement('div');el.className='doc';
-el.innerHTML=`<span class="t">${d.t}</span>route me!`;
-el.style.left=Math.round(Math.random()*(stg.clientWidth-132))+"px";
-el.dataset.bin=d.b;stg.appendChild(el);g.cur=el;
-const dur=Math.max(2200,g.speed-=120);
-el.animate([{top:'-56px'},{top:stg.clientHeight+'px'}],{duration:reduced?dur*2:dur,fill:'forwards'}).onfinish=()=>{
-if(!g.on||el!==g.cur)return;
-g.miss++;$('#gMiss').textContent=g.miss;
-flash(`<span class="bad">✖ ${el.dataset.bin.toUpperCase()} file hit the ROT pile!</span>`);
-if(g.miss>=5)return gEnd(false);
-gSpawn();
-};
+  const stg=$('#gStage');
+  if(g.cur)g.cur.remove();
+  const d=docTypes[Math.floor(Math.random()*docTypes.length)];
+  const el=document.createElement('div');el.className='doc';
+  el.innerHTML=`<span class="t">${d.t}</span>route me!`;
+  el.style.left=Math.round(Math.random()*(stg.clientWidth-132))+"px";
+  el.dataset.bin=d.b;stg.appendChild(el);g.cur=el;
+  const dur=Math.max(2200,g.speed-=120);
+  el.animate([{top:'-56px'},{top:stg.clientHeight+'px'}],{duration:reduced?dur*2:dur,fill:'forwards'}).onfinish=()=>{
+    if(!g.on||el!==g.cur)return;
+    g.miss++;$('#gMiss').textContent=g.miss;
+    flash(`<span class="bad">✖ ${el.dataset.bin.toUpperCase()} file hit the ROT pile!</span>`);
+    if(g.miss>=5)return gEnd(false);
+    gSpawn();
+  };
 }
 function flash(html){$('#gMsg').innerHTML=html;}
 function gEnd(win){
-g.on=false;clearInterval(g.timer);if(g.cur)g.cur.remove();g.cur=null;
-const s=g.score;
-const rank=s>=14?"CHIEF GOVERNANCE OFFICER":s>=9?"GOVERNANCE GUARDIAN":s>=5?"INFORMATION ANALYST":"INTERN — ROT WINS TODAY";
-flash(`${win?'<span class="good">TIME! Backlog defeated.</span>':'<span class="bad">The ROT pile won.</span>'} Score <b class="good">${s}</b> · rank <b class="good">${rank}</b> <button class="btn orange" id="gStart" style="padding:7px 14px;margin-left:6px">↻ Replay</button>`);
-bindStart();
+  g.on=false;clearInterval(g.timer);if(g.cur)g.cur.remove();g.cur=null;
+  const s=g.score;
+  const rank=s>=14?"CHIEF GOVERNANCE OFFICER":s>=9?"GOVERNANCE GUARDIAN":s>=5?"INFORMATION ANALYST":"INTERN — ROT WINS TODAY";
+  flash(`${win?'<span class="good">TIME! Backlog defeated.</span>':'<span class="bad">The ROT pile won.</span>'} Score <b class="good">${s}</b> · rank <b class="good">${rank}</b> <button class="btn orange" id="gStart" style="padding:7px 14px;margin-left:6px">↻ Replay</button>`);
+  bindStart();
 }
 function gStart(){
-g={on:true,score:0,miss:0,time:45,cur:null,timer:null,speed:5600};
-$('#gScore').textContent=0;$('#gMiss').textContent=0;$('#gTime').textContent=45;
-flash("Route the falling files — click the right folder before they hit the pile.");
-g.timer=setInterval(()=>{g.time--;$('#gTime').textContent=g.time;if(g.time<=0)gEnd(true);},1000);
-gSpawn();
+  g={on:true,score:0,miss:0,time:45,cur:null,timer:null,speed:5600};
+  $('#gScore').textContent=0;$('#gMiss').textContent=0;$('#gTime').textContent=45;
+  flash("Route the falling files — click the right folder before they hit the pile.");
+  g.timer=setInterval(()=>{g.time--;$('#gTime').textContent=g.time;if(g.time<=0)gEnd(true);},1000);
+  gSpawn();
 }
 function bindStart(){const b=$('#gStart');if(b)b.addEventListener('click',gStart);}
 bindStart();
 $$('.bins button').forEach(b=>b.addEventListener('click',()=>{
-if(!g.on||!g.cur)return;
-if(b.dataset.bin===g.cur.dataset.bin){
-g.score++;$('#gScore').textContent=g.score;
-flash(`<span class="good">✔ ${g.cur.querySelector('.t').textContent} → /${b.dataset.bin.toUpperCase()}</span>`);
-}else{
-g.miss++;$('#gMiss').textContent=g.miss;
-flash(`<span class="bad">✖ misfiled — governance violation logged.</span>`);
-if(g.miss>=5)return gEnd(false);
-}
-gSpawn();
+  if(!g.on||!g.cur)return;
+  if(b.dataset.bin===g.cur.dataset.bin){
+    g.score++;$('#gScore').textContent=g.score;
+    flash(`<span class="good">✔ ${g.cur.querySelector('.t').textContent} → /${b.dataset.bin.toUpperCase()}</span>`);
+  }else{
+    g.miss++;$('#gMiss').textContent=g.miss;
+    flash(`<span class="bad">✖ misfiled — governance violation logged.</span>`);
+    if(g.miss>=5)return gEnd(false);
+  }
+  gSpawn();
 }));
+
+/* ---------- guestbook ---------- */
 function gbRender(n,m,w){
-const d=document.createElement('div');d.className='collab-note';
-d.innerHTML=`<b></b><span class="wh">${w}</span><br><span class="gbm"></span>`;
-d.querySelector('b').textContent=n;d.querySelector('.gbm').textContent=m;
-$('#gbList').appendChild(d);
+  const d=document.createElement('div');d.className='collab-note';
+  d.innerHTML=`<b></b><span class="wh">${w}</span><br><span class="gbm"></span>`;
+  d.querySelector('b').textContent=n;d.querySelector('.gbm').textContent=m;
+  $('#gbList').appendChild(d);
 }
 $('#gbSend').addEventListener('click',()=>{
-const n=$('#gbName').value.trim()||"A visitor",m=$('#gbMsg').value.trim();
-if(!m)return;
-location.href='mailto:shahnilkar@gmail.com?subject='+encodeURIComponent('Note from '+n+' via sn!_os')+'&body='+encodeURIComponent(m);
+  const n=$('#gbName').value.trim()||"A visitor",m=$('#gbMsg').value.trim();
+  if(!m)return;
+  location.href='mailto:shahnilkar@gmail.com?subject='+encodeURIComponent('Note from '+n+' via sn!_os')+'&body='+encodeURIComponent(m);
 });
 $('#gbMsg').addEventListener('keydown',e=>{if(e.key==='Enter')$('#gbSend').click();});
+
+
+/* ---------- AI on YouTube: newest upload per channel (RSS via CORS mirror; channel pages as fallback) ---------- */
 const YT_CHANNELS=[
-{name:"Two Minute Papers",id:"UCbfYPyITQ-7l4upoX8nvctg"},
-{name:"Matt Wolfe",id:"UChpleBmo18P08aKCIgti38g"},
-{name:"AI Explained",id:"UCNJ1Ymd5yFuUPtn21xtRbbw"},
-{name:"Fireship",id:"UCsBjURrPoezykLs9EqgamOA"},
-{name:"Lex Fridman",id:"UCSHZKyawb77ixDdsGog4iWA"},
-{name:"3Blue1Brown",id:"UCYO_jab_esuFRV4b17AJtAw"}
+ {name:"Two Minute Papers",id:"UCbfYPyITQ-7l4upoX8nvctg"},
+ {name:"Matt Wolfe",id:"UChpleBmo18P08aKCIgti38g"},
+ {name:"AI Explained",id:"UCNJ1Ymd5yFuUPtn21xtRbbw"},
+ {name:"Fireship",id:"UCsBjURrPoezykLs9EqgamOA"},
+ {name:"Lex Fridman",id:"UCSHZKyawb77ixDdsGog4iWA"},
+ {name:"3Blue1Brown",id:"UCYO_jab_esuFRV4b17AJtAw"}
 ];
 function agoFromISO(iso){
-const s2=Math.floor((Date.now()-new Date(iso).getTime())/1000);
-if(!isFinite(s2))return'';
-if(s2<3600)return Math.max(1,Math.floor(s2/60))+"m ago";
-if(s2<86400)return Math.floor(s2/3600)+"h ago";
-return Math.floor(s2/86400)+"d ago";
+  const s2=Math.floor((Date.now()-new Date(iso).getTime())/1000);
+  if(!isFinite(s2))return'';
+  if(s2<3600)return Math.max(1,Math.floor(s2/60))+"m ago";
+  if(s2<86400)return Math.floor(s2/3600)+"h ago";
+  return Math.floor(s2/86400)+"d ago";
 }
 const TUBE_COLORS=["#53B3A4","#BC7440","#F2AC44","#3E434B","#9F7BC0","#5BA0D0"];
 let tubeItems=null;
 function renderTube(){
-const rl=$('#railList');
-if(rl){rl.innerHTML='';
-YT_CHANNELS.slice(0,4).forEach((c,i)=>{
-const it=tubeItems&&tubeItems[i];
-const b=document.createElement('button');b.className='yt-row';b.style.width='100%';b.style.textAlign='left';
-const media=it&&it.vid
-?'<img class="th" loading="lazy" src="https://i.ytimg.com/vi/'+it.vid+'/mqdefault.jpg" alt="">'
-:'<div class="ph" style="background:'+TUBE_COLORS[i]+'">'+c.name.split(' ').map(w=>w[0]).join('').slice(0,3)+'</div>';
-b.innerHTML=media+'<span class="tx"><span class="vt"></span><span class="vc"><b></b></span></span>';
-b.querySelector('.vt').textContent=it?it.title:('Newest from '+c.name);
-b.querySelector('.vc b').textContent=c.name+((it&&it.when)?(' · '+it.when):'');
-b.addEventListener('click',maniaMaximize);
-rl.appendChild(b);
-});
-}
-const l=$('#pulseList');if(!l)return;l.innerHTML='';
-YT_CHANNELS.forEach((c,i)=>{
-const it=tubeItems&&tubeItems[i];
-const a=document.createElement('a');a.className='yt-row';a.target='_blank';a.rel='noopener';
-a.href=it?it.url:('https://www.youtube.com/channel/'+c.id+'/videos');
-const media=it&&it.vid
-?'<img class="th" loading="lazy" src="https://i.ytimg.com/vi/'+it.vid+'/mqdefault.jpg" alt="">'
-:'<div class="ph" style="background:'+TUBE_COLORS[i]+'">'+c.name.split(' ').map(w=>w[0]).join('').slice(0,3)+'</div>';
-a.innerHTML=media+'<span class="tx"><span class="vt"></span><span class="vc"><b></b><span></span></span></span>';
-a.querySelector('.vt').textContent=it?it.title:('Newest upload — open channel');
-a.querySelector('.vc b').textContent=c.name;
-a.querySelector('.vc span').textContent=(it&&it.when)?(' · '+it.when):'';
-l.appendChild(a);
-});
+  const rl=$('#railList');
+  if(rl){rl.innerHTML='';
+    YT_CHANNELS.slice(0,4).forEach((c,i)=>{
+      const it=tubeItems&&tubeItems[i];
+      const b=document.createElement('button');b.className='yt-row';b.style.width='100%';b.style.textAlign='left';
+      const media=it&&it.vid
+        ?'<img class="th" loading="lazy" src="https://i.ytimg.com/vi/'+it.vid+'/mqdefault.jpg" alt="">'
+        :'<div class="ph" style="background:'+TUBE_COLORS[i]+'">'+c.name.split(' ').map(w=>w[0]).join('').slice(0,3)+'</div>';
+      b.innerHTML=media+'<span class="tx"><span class="vt"></span><span class="vc"><b></b></span></span>';
+      b.querySelector('.vt').textContent=it?it.title:('Newest from '+c.name);
+      b.querySelector('.vc b').textContent=c.name+((it&&it.when)?(' · '+it.when):'');
+      b.addEventListener('click',maniaMaximize);
+      rl.appendChild(b);
+    });
+  }
+  const l=$('#pulseList');if(!l)return;l.innerHTML='';
+  YT_CHANNELS.forEach((c,i)=>{
+    const it=tubeItems&&tubeItems[i];
+    const a=document.createElement('a');a.className='yt-row';a.target='_blank';a.rel='noopener';
+    a.href=it?it.url:('https://www.youtube.com/channel/'+c.id+'/videos');
+    const media=it&&it.vid
+      ?'<img class="th" loading="lazy" src="https://i.ytimg.com/vi/'+it.vid+'/mqdefault.jpg" alt="">'
+      :'<div class="ph" style="background:'+TUBE_COLORS[i]+'">'+c.name.split(' ').map(w=>w[0]).join('').slice(0,3)+'</div>';
+    a.innerHTML=media+'<span class="tx"><span class="vt"></span><span class="vc"><b></b><span></span></span></span>';
+    a.querySelector('.vt').textContent=it?it.title:('Newest upload — open channel');
+    a.querySelector('.vc b').textContent=c.name;
+    a.querySelector('.vc span').textContent=(it&&it.when)?(' · '+it.when):'';
+    l.appendChild(a);
+  });
 }
 async function loadTube(){
-renderTube();
-$('#pulseSrc').textContent='updating…';
-const results=await Promise.allSettled(YT_CHANNELS.map(async c=>{
-const feed='https://www.youtube.com/feeds/videos.xml?channel_id='+c.id;
-const r=await fetch('https://api.allorigins.win/raw?url='+encodeURIComponent(feed));
-if(!r.ok)throw 0;
-const xml=new DOMParser().parseFromString(await r.text(),'text/xml');
-const e=xml.querySelector('entry');
-if(!e)throw 0;
-return {url:e.querySelector('link').getAttribute('href'),
-vid:(e.getElementsByTagName('yt:videoId')[0]||{}).textContent||'',
-title:(e.querySelector('title')||{}).textContent||'',
-when:agoFromISO((e.querySelector('published')||{}).textContent||'')};
-}));
-const items=results.map(x=>x.status==='fulfilled'?x.value:null);
-const live=items.filter(Boolean).length;
-tubeItems=live?items:null;
-renderTube();
-$('#pulseSrc').textContent=live?('live · '+live+'/'+YT_CHANNELS.length):'channel links';
-if(!live)setTimeout(loadTube,60000);
+  renderTube(); /* instant placeholders; live data swaps in when the feed answers */
+  $('#pulseSrc').textContent='updating…';
+  const results=await Promise.allSettled(YT_CHANNELS.map(async c=>{
+    const feed='https://www.youtube.com/feeds/videos.xml?channel_id='+c.id;
+    const r=await fetch('https://api.allorigins.win/raw?url='+encodeURIComponent(feed));
+    if(!r.ok)throw 0;
+    const xml=new DOMParser().parseFromString(await r.text(),'text/xml');
+    const e=xml.querySelector('entry');
+    if(!e)throw 0;
+    return {url:e.querySelector('link').getAttribute('href'),
+            vid:(e.getElementsByTagName('yt:videoId')[0]||{}).textContent||'',
+            title:(e.querySelector('title')||{}).textContent||'',
+            when:agoFromISO((e.querySelector('published')||{}).textContent||'')};
+  }));
+  const items=results.map(x=>x.status==='fulfilled'?x.value:null);
+  const live=items.filter(Boolean).length;
+  tubeItems=live?items:null;
+  renderTube();
+  $('#pulseSrc').textContent=live?('live · '+live+'/'+YT_CHANNELS.length):'channel links';
+  if(!live)setTimeout(loadTube,60000);
 }
 function maniaMaximize(){
-openWin('w-mania');
-const w=document.getElementById('w-mania');
-if(!w.dataset.max)w.querySelector('.wc .mx').click();
+  openWin('w-mania');
+  const w=document.getElementById('w-mania');
+  if(!w.dataset.max)w.querySelector('.wc .mx').click();
 }
 document.addEventListener('click',e=>{
-if(e.target.id==='pulseRefresh')loadTube();
-if(e.target.id==='maniaMax')maniaMaximize();
+  if(e.target.id==='pulseRefresh')loadTube();
+  if(e.target.id==='maniaMax')maniaMaximize();
 });
 setInterval(()=>{if($('#desktop').classList.contains('active'))loadTube();},900000);
+
+/* ---------- launcher ---------- */
 const palData=[
-{t:"Open: About Me",act:()=>openWin('w-about'),k:"app"},
-{t:"Open: Experience",act:()=>openWin('w-exp'),k:"app"},
-{t:"Open: Projects",act:()=>openWin('w-proj'),k:"app"},
-{t:"Open: ShahGPT copilot",act:()=>openWin('w-ai'),k:"app"},
-{t:"Open: We Before Me — collaboration hub",act:()=>openWin('w-collab'),k:"app"},
-{t:"Open: Terminal",act:()=>openWin('w-term'),k:"app"},
-{t:"Play: Governance Guardian",act:()=>openWin('w-game'),k:"game"},
-{t:"Open: AI Mania — latest AI videos",act:()=>openWin('w-mania'),k:"app"},
-{t:"Open: Contact",act:()=>openWin('w-contact'),k:"app"},
-{t:"Toggle auto-tiling",act:()=>$('#btnTile').click(),k:"shell"},
-{t:"Resume → LinkedIn profile",act:()=>open('https://www.linkedin.com/in/shahriar-nilkar','_blank'),k:"link"},
-{t:"YouTube channel",act:()=>open('https://www.youtube.com/@shahriarsasa','_blank'),k:"link"},
-{t:"Email Shahriar",act:()=>location.href='mailto:shahnilkar@gmail.com',k:"link"},
-{t:"Lock session",act:()=>$('#btnLock2').click(),k:"sys"}
+ {t:"Open: About Me",act:()=>openWin('w-about'),k:"app"},
+ {t:"Open: Experience",act:()=>openWin('w-exp'),k:"app"},
+ {t:"Open: Projects",act:()=>openWin('w-proj'),k:"app"},
+ {t:"Open: ShahGPT copilot",act:()=>openWin('w-ai'),k:"app"},
+ {t:"Open: We Before Me — collaboration hub",act:()=>openWin('w-collab'),k:"app"},
+ {t:"Open: Terminal",act:()=>openWin('w-term'),k:"app"},
+ {t:"Play: Governance Guardian",act:()=>openWin('w-game'),k:"game"},
+ {t:"Open: AI Mania — latest AI videos",act:()=>openWin('w-mania'),k:"app"},
+ {t:"Open: Contact",act:()=>openWin('w-contact'),k:"app"},
+ {t:"Toggle auto-tiling",act:()=>$('#btnTile').click(),k:"shell"},
+ {t:"Resume → LinkedIn profile",act:()=>open('https://www.linkedin.com/in/shahriar-nilkar','_blank'),k:"link"},
+ {t:"YouTube channel",act:()=>open('https://www.youtube.com/@shahriarsasa','_blank'),k:"link"},
+ {t:"Email Shahriar",act:()=>location.href='mailto:shahnilkar@gmail.com',k:"link"},
+ {t:"Lock session",act:()=>$('#btnLock2').click(),k:"sys"}
 ];
 const pal=$('#palette');let palSel=0,palItems=[];
 function palRenderList(q){
-const list=$('#palList');list.innerHTML='';
-palItems=palData.filter(i=>i.t.toLowerCase().includes(q.toLowerCase()));
-palItems.forEach((i,ix)=>{
-const b=document.createElement('button');b.className='pal-item'+(ix===palSel?' sel':'');
-b.innerHTML=`<span></span><span class="k">${i.k}</span>`;
-b.querySelector('span').textContent=i.t;
-b.addEventListener('click',()=>{palClose();i.act();});
-list.appendChild(b);
-});
+  const list=$('#palList');list.innerHTML='';
+  palItems=palData.filter(i=>i.t.toLowerCase().includes(q.toLowerCase()));
+  palItems.forEach((i,ix)=>{
+    const b=document.createElement('button');b.className='pal-item'+(ix===palSel?' sel':'');
+    b.innerHTML=`<span></span><span class="k">${i.k}</span>`;
+    b.querySelector('span').textContent=i.t;
+    b.addEventListener('click',()=>{palClose();i.act();});
+    list.appendChild(b);
+  });
 }
 function palOpenFn(){if(!$('#desktop').classList.contains('active'))return;
-pal.classList.add('open');palSel=0;$('#palInput').value='';palRenderList('');$('#palInput').focus();}
+  pal.classList.add('open');palSel=0;$('#palInput').value='';palRenderList('');$('#palInput').focus();}
 function palClose(){pal.classList.remove('open');}
 $('#palOpen').addEventListener('click',palOpenFn);
 $('#palOpen2').addEventListener('click',palOpenFn);
 pal.addEventListener('click',e=>{if(e.target===pal)palClose();});
 $('#palInput').addEventListener('input',e=>{palSel=0;palRenderList(e.target.value);});
 addEventListener('keydown',e=>{
-if((e.ctrlKey||e.metaKey)&&e.key.toLowerCase()==='k'){e.preventDefault();pal.classList.contains('open')?palClose():palOpenFn();return;}
-if(!pal.classList.contains('open'))return;
-if(e.key==='Escape')palClose();
-if(e.key==='ArrowDown'){e.preventDefault();palSel=Math.min(palItems.length-1,palSel+1);palRenderList($('#palInput').value);}
-if(e.key==='ArrowUp'){e.preventDefault();palSel=Math.max(0,palSel-1);palRenderList($('#palInput').value);}
-if(e.key==='Enter'&&palItems[palSel]){palClose();palItems[palSel].act();}
+  if((e.ctrlKey||e.metaKey)&&e.key.toLowerCase()==='k'){e.preventDefault();pal.classList.contains('open')?palClose():palOpenFn();return;}
+  if(!pal.classList.contains('open'))return;
+  if(e.key==='Escape')palClose();
+  if(e.key==='ArrowDown'){e.preventDefault();palSel=Math.min(palItems.length-1,palSel+1);palRenderList($('#palInput').value);}
+  if(e.key==='ArrowUp'){e.preventDefault();palSel=Math.max(0,palSel-1);palRenderList($('#palInput').value);}
+  if(e.key==='Enter'&&palItems[palSel]){palClose();palItems[palSel].act();}
 });
 </script>
 </body>
