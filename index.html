@@ -1280,7 +1280,10 @@ function gptScrub(t){
   return (t||'')
     .replace(/^\s*ShahGPT[,:]?\s*/,'Shahriar ')
     .replace(/\bShahGPT\b(?=\s+(has|had|is|was|does|did|led|leads|built|builds|developed|works|worked|holds|ran|runs|carries))/g,'Shahriar')
-    .replace(/\bShahGPT\b/g,'Shahriar');
+    .replace(/\bShahGPT\b/g,'Shahriar')
+    // Drop any sentence carrying a claim that is no longer on the record.
+    .split(/(?<=[.!?])\s+/).filter(function(x){return !/prosharif|\b28\s*%|\bC\+\+|\bNode\.js\b/i.test(x);}).join(' ')
+    .trim();
 }
 function aiSay(html){const d=document.createElement('div');d.className='msg ai';d.innerHTML=html;$('#chatLog').appendChild(d);$('#chatLog').scrollTop=1e6;}
 const SHAHGPT_ENDPOINT="https://shahgpt.shahriar-nilkar2.workers.dev/";
@@ -1384,9 +1387,10 @@ function aiAsk(q){
   };
   const done=t=>{paint(t);if(!bubble)fallback();};
   const fallback=()=>{if(bubble)return;ty.remove();aiSay(localAnswer(q));};
-  if(SHAHGPT_ENDPOINT)gptFetch(q,paint).then(done).catch(()=>askFreeAI(q).then(done).catch(fallback));
-  else if(gptKey)askGPT(q).then(done).catch(()=>askFreeAI(q).then(done).catch(fallback));
-  else askFreeAI(q).then(done).catch(fallback);
+  // The hosted Worker carries its own older copy of the profile, so the browser-side prompt
+  // in GPT_SYS is tried first and the Worker is only a fallback for when that path is down.
+  if(gptKey)askGPT(q).then(done).catch(()=>askFreeAI(q).then(done).catch(()=>gptFetch(q,paint).then(done).catch(fallback)));
+  else askFreeAI(q).then(done).catch(()=>gptFetch(q,paint).then(done).catch(fallback));
 }
 $('#chatSend').addEventListener('click',()=>{aiAsk($('#chatInput').value);$('#chatInput').value='';});
 $('#chatInput').addEventListener('keydown',e=>{if(e.key==='Enter'){aiAsk(e.target.value);e.target.value='';}});
